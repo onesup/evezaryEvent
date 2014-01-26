@@ -4,19 +4,92 @@
 		<title>Hello Evezary</title>
 		<style type="text/css">
 		.contain{
-				width: 1000px;
-				margin-left: -500px;
-				left:50%;
-				position:absolute;
-				font-family: Arial;
-				background-color: white;
-				text-align: center;
-			}
+			width: 1000px;
+			margin-left: -500px;
+			left:50%;
+			position:absolute;
+			font-family: Arial;
+			background-color: white;
+			text-align: center;
+			background-color: #ECEADD;
+		}
+		.label{
+			margin: 4px;
+		}
+		.applyBox{
+			margin-top: 72px;
+			margin-bottom: 64px;
+		}
+		.applyBackBox{
+			width: 1000px;
+			height: 380px;
+			margin-top: 72px;
+			margin-bottom: 48px;
+			background-image: url("./image/characterImage.png")
+		}
+		.shareBox{
+			margin-top: 48px;
+		}
+
+		.share{
+			vertical-align: top;
+			margin: 12px;
+		}
+
+		.shareGift{
+			float: right;
+			margin-left: -16px;
+			margin-right: 16px;
+		}
+
+		.shareButton{
+			margin: 12px;
+		}
+
+		.shareButtonBox{
+			margin-top: -108px;
+			padding-right: 80px;
+		}
+
+		.caution{
+			margin-top: 64px;
+		}
+
+		image{
+			border: 0;
+		}
 		</style>
 	</head>
-	<body>
+	<body style = "background-color:#ECEADD">
 		<div class = "contain">
-			<h1>Hello Evezary!</h1>
+			<!--임시로고-->
+			<h1 style = "padding : 16px; text-align: left;">Logo Image</h1>
+			<!--labelBox : 윗부분 텍스트 컨테이너-->
+			<div class = "labelBox">
+				<image src = "./image/label_1.png" class = "label" alt = "label_1"/><br />
+				<image src = "./image/label_2.png" class = "label" style = "margin-bottom: 16px;" alt = "label_2"/><br />
+				<image src = "./image/label_3.png" class = "label" alt = "label_3"/><br />
+			</div>
+			<!--applyBox : applyBackBox 및 상품 컨테이너-->
+			<div class = "applyBox">
+				<!--applyBackBox : 신청하기 및 배경 이미지 컨테이너-->
+				<div class = "applyBackBox">
+					<a href = "#apply"><image src = "./image/apply.png" style = "margin-top: -34px" alt = "apply"/></a><br />
+				</div>
+				<image src = "./image/gift.png" alt = "gift"/><br />
+			</div>
+			<image src = "./image/dotLine.png" alt = "dotLine"/><br />
+			<!--shareBox : 소문내기 이벤트 컨테이너-->
+			<div class = "shareBox">
+				<image src = "./image/shareLabel_1.png" class = "share" alt = "shareLabel_1"/><image src = "./image/shareLabel_2.png" class = "share" alt = "shareLabel_2"/><image src = "./image/shareGift.png" style = "" alt = "shareGift"/><br />
+				<!--shareButtonBox : 페이스북, 블로그 버튼-->
+				<div class = "shareButtonBox">
+					<a href = "#facebook"><image src = "./image/facebook.png" class = "shareButton" alt = "apply"/></a><a href = "#blog"><image src = "./image/blog.png" class = "shareButton" alt = "apply"/></a><br />
+				</div>
+			</div>
+			<div class = "caution">
+				<image src = "./image/caution.png" alt = "caution"/>
+			</div>
 		</div>
 	</body>
 </html>
