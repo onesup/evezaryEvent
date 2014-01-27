@@ -48,6 +48,17 @@
 .caution{
 	margin-top: 64px;
 }
+#popUp{
+	position: fixed;
+	background-image: url('./image/popup/trans_black.png');
+}
+#popUp_1{
+	width: 580px;
+	margin-left: -245px;
+	left:50%;
+	position:absolute;
+	text-align: center;
+}
 image{
 	border: 0;
 }

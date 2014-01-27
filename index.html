@@ -4,12 +4,13 @@
 		<title>Hello Evezary</title>
 		<link rel = "stylesheet" type = "text/css" href = "./style.css" />
 		<script src = "./js/jquery-2.1.0.min.js"></script>
+		<script src = "./js/ef.js"></script>
 	</head>
 	<body style = "background-color:#ECEADD">
 		<div class = "contain">
-			<!--임시로고-->
+			<!--top : 로고를 포함한 컨테이너-->
 			<div class = "top">
-				<image src = "./image/main/logo.png" style = "margin: 16px;" alt = "logo"/>
+				<a href = "http://www.evezary.co.kr/"><image src = "./image/main/logo.png" style = "margin: 16px;" alt = "logo"/></a>
 			</div>
 			<!--labelBox : 윗부분 텍스트 컨테이너-->
 			<div class = "labelBox">
@@ -21,7 +22,7 @@
 			<div class = "applyBox">
 				<!--applyBackBox : 신청하기 및 배경 이미지 컨테이너-->
 				<div class = "applyBackBox">
-					<a href = "#apply"><image src = "./image/main/apply.png" style = "margin-top: -34px" alt = "apply"/></a><br />
+					<a id = "applyButton" href = "#"><image src = "./image/main/apply.png" style = "margin-top: -34px" alt = "apply"/></a><br />
 				</div>
 				<image src = "./image/main/gift.png" alt = "gift"/><br />
 			</div>
@@ -37,6 +38,8 @@
 			<div class = "caution">
 				<image src = "./image/main/caution.png" alt = "caution"/>
 			</div>
+		</div>
+		<div id = "popUp">
 		</div>
 	</body>
 </html>
