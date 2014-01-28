@@ -119,6 +119,18 @@
 	text-align: left;
 }
 
+#popUp_4{
+	width: 594px;
+	height: 333px;
+	background-image: url("../image/popup/4/applyPopup4_BG.png");
+	padding: 0px;
+	left: 50%;
+	position:absolute;
+	text-align: center;
+	margin-top: -166px;
+	margin-left: -300px;
+}
+
 .inPopup{
 	padding-top: 88px;
 }

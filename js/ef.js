@@ -44,6 +44,27 @@ $(document).ready(function() {
 							$('#popUp').modal();
 							$('#closeModal').css('top', '-349px' );
 							$('#closeModal').css('right', '-46px' );
+							// '완료' 후 넘어가는 팝업
+							$('#applyPopup3_finButton').click(function(){
+								$('#popUp').empty();
+								$('#popUp').load('../html/popUp_4.html', function() {
+									$('#popUp').modal();
+									$('#closeModal').css('top', '-150px' );
+									$('#closeModal').css('right', '-46px' );
+									// '완료' 후 넘어가는 팝업
+									$('#applyPopup4_finButton').click(function(){
+										$('#popUp').empty();
+										/*
+										$('#popUp').load('../html/popUp_5.html', function() {
+											$('#popUp').modal();
+											$('#closeModal').css('top', '-349px' );
+											$('#closeModal').css('right', '-46px' );
+											applyPopup4_finButton
+										});
+										*/
+									});
+								});
+							});
 						});
 					});
 				});
