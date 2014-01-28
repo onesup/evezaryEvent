@@ -89,6 +89,7 @@
 	background-image: url("../image/popup/2/applyPopup2_BG2.png");
 	margin-left: 41px;
 	margin-top: 24px;
+	margin-bottom: 32px;
 	padding-top: 32px;
 	padding-left: 48px;
 	text-align: left;
@@ -104,6 +105,18 @@
 	text-align: center;
 	margin-top: -366px;
 	margin-left: -300px;
+}
+
+.popUP_3_inputBox{
+	width: 452px;
+	height: 206px;
+	background-image: url("../image/popup/3/applyPopup3_BG2.png");
+	margin-left: 41px;
+	margin-top: 24px;
+	margin-bottom: 32px;
+	padding-top: 32px;
+	padding-left: 48px;
+	text-align: left;
 }
 
 .inPopup{

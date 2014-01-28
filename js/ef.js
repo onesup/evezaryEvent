@@ -37,13 +37,13 @@ $(document).ready(function() {
 					$('#popUp').modal();
 					$('#closeModal').css('top', '-391px' );
 					$('#closeModal').css('right', '-46px' );
+					// '문자 보내기' 후 넘어가는 팝업
 					$('#applyPopup2_sendButton').click(function(){
 						$('#popUp').empty();
 						$('#popUp').load('../html/popUp_3.html', function() {
 							$('#popUp').modal();
-							$('#closeModal').css('top', '-391px' );
+							$('#closeModal').css('top', '-349px' );
 							$('#closeModal').css('right', '-46px' );
-							
 						});
 					});
 				});
