@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$('#applyButton').click(function(){
 		$('#popUp').load('../html/popUp_1.html', function() {
 			$('#popUp').modal();
-			$('#closeModal').css('top', '-275px' );
+			$('#closeModal').css('top', '-305px' );
 			$('#closeModal').css('right', '-40px' );
 
 			// '데이트 신청하기' 팝업에서 이미지 클릭 시
@@ -35,7 +35,17 @@ $(document).ready(function() {
 				$('#popUp').empty();
 				$('#popUp').load('../html/popUp_2.html', function() {
 					$('#popUp').modal();
-					
+					$('#closeModal').css('top', '-391px' );
+					$('#closeModal').css('right', '-46px' );
+					$('#applyPopup2_sendButton').click(function(){
+						$('#popUp').empty();
+						$('#popUp').load('../html/popUp_3.html', function() {
+							$('#popUp').modal();
+							$('#closeModal').css('top', '-391px' );
+							$('#closeModal').css('right', '-46px' );
+							
+						});
+					});
 				});
 			});
 			
