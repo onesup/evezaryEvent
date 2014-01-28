@@ -24,7 +24,7 @@
 	height: 380px;
 	margin-top: 72px;
 	margin-bottom: 48px;
-	background-image: url("./image/main/characterImage.png")
+	background-image: url("../image/main/characterImage.png")
 }
 .shareBox{
 	margin-top: 48px;
@@ -48,16 +48,43 @@
 .caution{
 	margin-top: 64px;
 }
-#popUp{
-	position: fixed;
-	background-image: url('./image/popup/trans_black.png');
-}
 #popUp_1{
 	width: 580px;
-	margin-left: -245px;
-	left:50%;
+	height: 641px;
+	background-image: url("../image/popup/1/applyPopup1_BG.png");
+	padding: 0px;
+	left: 50%;
 	position:absolute;
 	text-align: center;
+	margin-top: -290px;
+	margin-left: -300px;
+}
+
+.popUP_1_gift{
+	margin: 12px;
+	margin-bottom: 4px;
+}
+
+.popUP_1_giftLabelBox{
+	width: 580px;
+	text-align: left;
+	font-size: 12px;
+}
+
+#popUp_2{
+	width: 594px;
+	height: 816px;
+	background-image: url("../image/popup/1/applyPopup2_BG.png");
+	padding: 0px;
+	left: 50%;
+	position:absolute;
+	text-align: center;
+	margin-top: -290px;
+	margin-left: -300px;
+}
+
+.inPopup{
+	padding-top: 88px;
 }
 image{
 	border: 0;
