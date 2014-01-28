@@ -1,0 +1,3 @@
+warning: previous definition of APP_PATH was here
+https://github.com/burke/zeus/issues/304
+APP_PATH = File.expand_path('config/application', ROOT_PATH) unless defined? APP_PATH
