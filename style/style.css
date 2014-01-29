@@ -131,6 +131,47 @@
 	margin-left: -300px;
 }
 
+#popUp_5{
+	width: 654px;
+	height: 631px;
+	background-image: url("../image/popup/5/applyPopup5_BG.png");
+	padding: 0px;
+	left: 50%;
+	position:absolute;
+	text-align: center;
+	margin-top: -300px;
+	margin-left: -327px;
+}
+
+.popUp_5_inBox{
+	width: 590px;
+	height: 360px;
+	overflow: hidden;
+	margin-left: 24px;
+}
+
+.popUp_5_addition{
+	margin-top: -220px;
+	margin-left: -10px;
+}
+
+.popUp_5_button{
+	margin-top: 186px;
+	margin-left: -16px;
+}
+
+#popUp_blog{
+	width: 594px;
+	height: 485px;
+	background-image: url("../image/popup/blog/applyPopup6_BG.png");
+	padding: 0px;
+	left: 50%;
+	position:absolute;
+	text-align: center;
+	margin-top: -242px;
+	margin-left: -300px;
+}
+
 .inPopup{
 	padding-top: 88px;
 }
