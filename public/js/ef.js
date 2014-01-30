@@ -54,14 +54,11 @@ $(document).ready(function() {
 									// '완료' 후 넘어가는 팝업
 									$('#applyPopup4_finButton').click(function(){
 										$('#popUp').empty();
-										/*
 										$('#popUp').load('../html/popUp_5.html', function() {
 											$('#popUp').modal();
-											$('#closeModal').css('top', '-349px' );
-											$('#closeModal').css('right', '-46px' );
-											applyPopup4_finButton
+											$('#closeModal').css('top', '-283px' );
+											$('#closeModal').css('right', '-79px' );
 										});
-										*/
 									});
 								});
 							});
@@ -72,6 +69,12 @@ $(document).ready(function() {
 			
 		});
 	});
-	
-
+	$('#blogButton').click(function(){
+		$('#popUp').empty();
+		$('#popUp').load('../html/popUp_blog.html', function() {
+			$('#popUp').modal();
+			$('#closeModal').css('top', '-225px' );
+			$('#closeModal').css('right', '-46px' );
+		});
+	});
 });
