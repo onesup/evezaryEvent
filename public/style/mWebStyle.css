@@ -1,0 +1,58 @@
+.top{
+	text-align: left;
+}
+
+.logo{
+	width: 40%;
+	margin-bottom: 32px;
+	margin: 16px;
+}
+
+.mobileContain{
+	text-align: center;   
+}
+
+.mobile{
+	width: 95%;
+}
+.mobile80{
+	width: 80%;
+}
+.mobile_1{
+	width: 95%;
+	margin-top: 24px
+}
+.mobile_2{
+	width: 95%;
+	margin-bottom: 64px;
+}
+
+.label1{
+	width: 40%;
+}
+
+.Button{
+	width: 95%;
+	margin-bottom: 24px;
+}
+
+.Line{
+	width: 95%;
+	margin-top: 64px;
+}
+
+.Gift{
+	width: 95%;
+	margin-top: 32px;
+}
+
+.shareEvent{
+	margin-top: 64px;
+	margin-bottom: 64px;
+}
+
+.cautionBox{
+	width: 100%;
+	background-color: white;
+	margin-top: 64px;
+}

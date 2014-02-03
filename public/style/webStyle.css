@@ -1,0 +1,64 @@
+.contain{
+	width: 1000px;
+	margin-left: -500px;
+	left:50%;
+	position:absolute;
+	font-family: Arial;
+	background-color: white;
+	text-align: center;
+	background-color: #ECEADD;
+}
+
+.top{
+	text-align: left;
+	width: 1000px;
+}
+.top.img{
+	margin: 16px;
+}
+
+.label{
+	margin: 4px;
+}
+.labelb{
+	margin: 4px;
+	margin-bottom:16px;
+}
+
+.applyBox{
+	margin-top: 72px;
+	margin-bottom: 64px;
+}
+.applyBackBox{
+	width: 1000px;
+	height: 380px;
+	margin-top: 72px;
+	margin-bottom: 48px;
+	background-image: url("../image/main/characterImage.png");
+}
+.applyBtn{
+	margin-top: -34px;
+}
+
+.shareBox{
+	margin-top: 48px;
+}
+.share{
+	vertical-align: top;
+	margin: 12px;
+}
+.shareGift{
+	float: right;
+	margin-left: -16px;
+	margin-right: 16px;
+}
+.shareButton{
+	margin: 12px;
+}
+.shareButtonBox{
+	margin-top: -108px;
+	padding-right: 80px;
+}
+.caution{
+	margin-top: 64px;
+}
