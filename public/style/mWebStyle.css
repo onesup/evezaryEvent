@@ -3,9 +3,9 @@
 }
 
 .logo{
-	width: 40%;
-	margin-bottom: 32px;
-	margin: 16px;
+	width: 30%;
+	margin-bottom: 5%;
+	margin: 3%;
 }
 
 .mobileContain{
@@ -20,39 +20,42 @@
 }
 .mobile_1{
 	width: 95%;
-	margin-top: 24px
+	margin-top: 5%;
+	margin-bottom: 8%;
 }
 .mobile_2{
 	width: 95%;
-	margin-bottom: 64px;
+	margin-bottom: 8%;
 }
 
 .label1{
 	width: 40%;
+	margin-left: -53%;
+	margin-bottom: 2%;
 }
 
 .Button{
 	width: 95%;
-	margin-bottom: 24px;
+	margin-bottom: 3%;
 }
 
 .Line{
 	width: 95%;
-	margin-top: 64px;
+	margin-top: 5%;
 }
 
 .Gift{
 	width: 95%;
-	margin-top: 32px;
+	margin-top: 5%;
 }
 
 .shareEvent{
-	margin-top: 64px;
-	margin-bottom: 64px;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
 .cautionBox{
 	width: 100%;
 	background-color: white;
-	margin-top: 64px;
+	margin-top: 5%;
 }

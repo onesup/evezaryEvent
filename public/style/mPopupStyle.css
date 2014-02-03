@@ -1,15 +1,162 @@
 .mobilePopContain{
     text-align: center;
-    margin-top: 64px;
+    margin-top: 10%;
 }
 
-.mobilePopInbox1{
-    width: 90%;
-    height: 70%;
-    background-image: url("../image/popup/3/applyPopup3_BG2.png");
+.mp1_Label1{
+    width: 60%;
+}
+
+.mp1_PopInbox{
+    width: 92%;
+    background-image: url("../image/mpopup/1/m1_background.png");
     background-size: 100% 100%;
-    margin-top: 48px;
-    margin-bottom: 48px;
-    padding: 36px;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-left: 1%;
     text-align: left;
+}
+
+.mp1_InputLabel1{
+    width: 10%;
+    margin-right: 7%;
+}
+.mp1_InputLabel2{
+    width: 13%;
+    margin-right: 4%;
+    margin-top: 5%;
+}
+.mp1_input{
+    width: 21%;
+    height: 2.8em;
+}
+.mp1_lineLabel{
+    width: 0.8%;
+    margin-right: -0.4%;
+    margin-left: -0.4%;
+}
+
+.mp1_textArea{
+    margin-top: 5%;
+    width: 96%;
+    height: 9em;
+    resize: none;
+}
+.mp1_select{
+    width: 97%;
+    height: 3em;
+    margin-top: 5%;
+}
+.mp1_selectBtn{
+    width: 30%;
+    margin-top: 4%;
+}
+
+.mp1_Label2{
+    vertical-align: top;
+    margin-top: 5%;
+    width: 55%;
+    margin-right: 11%;
+}
+
+.mp1_sendBtn{
+    width: 60%; 
+    margin-bottom: 5%;
+}
+
+
+
+.mp2_Label1{
+    width: 60%
+}
+
+.mp2_PopInbox{
+     width: 94%;
+    background-image: url("../image/mpopup/1/m1_background.png");
+    background-size: 100% 100%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-left: 1%;
+    text-align: left;
+}
+
+.mp2_Label2{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+.mp2_Label3{
+    width: 6%;
+    margin-right: 9%;
+}
+.mp2_InputWide{
+    width: 76%;
+    margin-bottom: 3%;
+    height: 2.8em;
+}
+.mp2_Label4{
+    width: 12%;
+    margin-right: 3%;
+    margin-top: 5%;
+}
+.mp2_Input{
+    width: 22%;
+    height: 2.8em;
+}
+.mp2_lineLabel{
+    width: 0.8%;
+    margin-right: -0.4%;
+    margin-left: -0.4%;
+}
+
+.mp2_Label5{
+    width: 9%;
+    margin-right: 6%; 
+    margin-top: 8%; 
+}
+
+.mp2_LineLabel{
+    width: 98%;
+    margin-right: -0.4%;
+    margin-left: -0.4%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.mp2_Label6{
+    width: 20%;
+}
+.mp2_Label7{
+    width: 9%;
+    margin-left: 5%;
+    margin-right:1%;
+}
+.mp2_Label8{
+    width: 12%;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+.mp2_CautionBtn{
+    width: 22%;
+    margin-left: 4%;
+    vertical-align: middle; margin-top:-1%;
+}
+
+.mp2_Label9{
+    width: 75%;
+    margin-bottom: 5%;
+}
+
+.mp2_EndBtn{
+    width: 60%;
+    margin-bottom: 5%;
 }
