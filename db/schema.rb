@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128122057) do
+ActiveRecord::Schema.define(version: 20140203031423) do
+
+  create_table "gifts", force: true do |t|
+    t.string   "title"
+    t.integer  "total"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.datetime "sent_at"
+    t.string   "dest_phone"
+    t.string   "send_phone"
+    t.string   "send_name"
+    t.string   "subject"
+    t.text     "msg_body"
+    t.string   "image"
+    t.integer  "user_id"
+    t.integer  "store_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["store_id"], name: "index_messages_on_store_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "stores", force: true do |t|
+    t.string   "title"
+    t.string   "address"
+    t.string   "phone"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "total"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -24,11 +60,15 @@ ActiveRecord::Schema.define(version: 20140128122057) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "phone"
+    t.string   "name"
+    t.integer  "gift_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["gift_id"], name: "index_users_on_gift_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

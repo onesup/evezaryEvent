@@ -8,18 +8,22 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'sdoc',               group: :doc, require: false
-gem 'spring',             group: :development
 gem 'unicorn'
-gem 'capistrano-rails',   group: :development
-gem 'capistrano-rbenv',   group: :development
 gem 'simple_form'
 gem 'devise'
-gem 'guard-rails',        group: :development
-gem 'pry',                group: :development
-gem 'quiet_assets',       group: :development
 gem 'rspec-rails'
 gem 'factory_girl_rails'
+gem 'sdoc',               group: :doc, require: false
+gem 'rest-client'
+gem 'geocoder'
+group :development do
+  gem 'guard-rails',        group: :development
+  gem 'pry',                group: :development
+  gem 'quiet_assets',       group: :development
+  gem 'capistrano-rails',   group: :development
+  gem 'capistrano-rbenv',   group: :development
+  gem 'spring',             group: :development  
+end
 group :test do
   gem 'capybara'
   gem 'guard-rspec'
