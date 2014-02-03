@@ -175,6 +175,42 @@
 .inPopup{
 	padding-top: 88px;
 }
+
+.mobileContain{
+    text-align: center;   
+}
+
+.mobile{
+    width: 95%;
+}
+
+.shareEvent{
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.cautionBox{
+    width: 100%;
+    background-color: white;
+    margin-top: 64px;
+}
+
+.mobilePopContain{
+    text-align: center;
+    margin-top: 64px;
+}
+
+.mobilePopInbox1{
+    width: 90%;
+    height: 70%;
+    background-image: url("../image/popup/3/applyPopup3_BG2.png");
+    background-size: 100% 100%;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 36px;
+    text-align: left;
+}
+
 image{
 	border: 0;
 }
