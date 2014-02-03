@@ -16,6 +16,7 @@ gem 'factory_girl_rails'
 gem 'sdoc',               group: :doc, require: false
 gem 'rest-client'
 gem 'geocoder'
+gem 'json'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development

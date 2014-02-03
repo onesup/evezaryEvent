@@ -246,6 +246,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
+  json
   mysql2
   pry
   quiet_assets

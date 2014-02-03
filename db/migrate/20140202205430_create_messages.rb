@@ -10,7 +10,8 @@ class CreateMessages < ActiveRecord::Migration
       t.string :image
       t.references :user, index: true
       t.references :store, index: true
-      t.string :status
+      t.string :cmid
+      t.text :result
 
       t.timestamps
     end
