@@ -59,7 +59,7 @@
 
 .popUp_2_inputBox{
 	width: 452px;
-	height: 447px;
+	height: 431px;
 	background-image: url("../image/popup/2/applyPopup2_BG2.png");
 	margin-left: 41px;
 	margin-top: 24px;
@@ -127,12 +127,11 @@
 
 .popUp_3_inputBox{
 	width: 452px;
-	height: 206px;
+	height: 238px;
 	background-image: url("../image/popup/3/applyPopup3_BG2.png");
 	margin-left: 41px;
 	margin-top: 24px;
 	margin-bottom: 32px;
-	padding-top: 32px;
 	padding-left: 48px;
 	text-align: left;
 }
@@ -140,17 +139,21 @@
 	margin-top: 8px;
 }
 
+.popUP_3_subLabel{
+	margin-top: 18px;
+}
+
 .popUp_3_Label1{
 	margin-right: 56px;
-	margin-top: 18px;
+	vertical-align: middle;
 }
 .popUp_3_Label2{
 	margin-right: 24px;
-	margin-top: 18px;
+	vertical-align: middle;
 }
 .popUp_3_Label3{
 	margin-right: 40px;
-	margin-top: 18px;
+	vertical-align: middle;
 }
 
 .popUp_3_InputStyle1{
@@ -160,10 +163,13 @@
 .popUp_3_InputStyle2{
 	width: 92px;
 	height: 36px;
+	margin-top: 16px;
 }
 .popUp_3_InputStyle3{
 	width: 320px;
 	height: 36px;
+	margin-top: 16px;
+	margin-bottom: 8px;
 }
 
 .popUp_3_CautionLabel1{
@@ -175,8 +181,6 @@
 .popUp_3_CautionLabel3{
 	margin-left: 36px;
 	vertical-align: middle;
-	margin-top: 6px;
-	margin-bottom: 10px;
 }
 
 .popUp_3_DotLine{
