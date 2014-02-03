@@ -1,5 +1,7 @@
 // Must include 'jquery-2.1.0.min.js'
 // Must include 'jquery-modal.min.js'
+var c1, c2, c3, c4;
+
 $(document).ready(function() {
 	if( detectDevice() == true )
 	{
@@ -11,6 +13,20 @@ $(document).ready(function() {
 	else
 	{
 		$('#indexBody').load('./html/web.html', function() {
+
+			if( navigator.appVersion.indexOf("MSIE 6.0") >= 0 
+				|| navigator.appVersion.indexOf("MSIE 7.0") >= 0 
+				|| navigator.appVersion.indexOf("MSIE 8.0") >= 0 ) {
+				$('#applyBtnI').css("margin-left", "354px")
+			} else {
+				// 구름 실시간 움직임
+				c1 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+				c2 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+				c3 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+				c4 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+				setInterval( loopCloud, 1);
+			}
+
 			// '데이트 신청하기' 버튼 클릭시
 			$('#applyButton').click(function(){
 				$('#popUp').load('./html/popUp_1.html', function() {
@@ -102,4 +118,58 @@ function detectDevice(){
 		return true;
 	else
 		return false;
+}
+
+function loopCloud(){
+	var c1_left = parseFloat($('#cloud_1').css('margin-left'));
+	c1_left += c1;
+	if( c1_left >= 1000 )
+	{
+		c1_left = -200;
+		c1 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+	}
+	else if(c1_left == 0)
+	{
+		c1_left += 1;
+	}
+	$('#cloud_1').css('margin-left', c1_left);
+
+	var c2_left = parseFloat($('#cloud_2').css('margin-left'));
+	c2_left += c2;
+	if( c2_left >= 1000 )
+	{
+		c2_left = -200;
+		c2 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+	}	
+	else if(c2_left == 0)
+	{
+		c2_left += 1;
+	}
+	$('#cloud_2').css('margin-left', c2_left);
+
+	var c3_left = parseFloat($('#cloud_3').css('margin-left'));
+	c3_left += c3;
+	if( c3_left >= 1000 )
+	{
+		c3_left = -200;
+		c3 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+	}
+	else if(c3_left == 0)
+	{
+		c3_left += 1;
+	}
+	$('#cloud_3').css('margin-left', c3_left);
+
+	var c4_left = parseFloat($('#cloud_4').css('margin-left'));
+	c4_left += c4;
+	if( c4_left >= 1000 )
+	{
+		c4_left = -200;
+		c4 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
+	}
+	else if(c4_left == 0)
+	{
+		c4_left += 1;
+	}
+	$('#cloud_4').css('margin-left', c4_left);
 }
