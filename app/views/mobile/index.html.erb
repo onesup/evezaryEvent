@@ -4,6 +4,7 @@
   <title>EvezaryEvent</title>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
   <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= javascript_include_tag "mobile" %>
   <%= csrf_meta_tags %>
 </head>
 <body id = "indexBody">
@@ -30,17 +31,11 @@
     <p class = "">
       <%= image_tag("mobile/Label_2.png", class:"label1") %>
     </p>
-    <a id = "mobile_k" href = "#">
-      <%= image_tag("mobile/share_Kakao.png", class:"Button") %>
-    </a>
+    <a id = "mobile_k" href = "#"><%= image_tag("mobile/share_Kakao.png", class:"Button") %></a>
     <br />
-    <a id = "mobile_ks" href = "#">
-      <%= image_tag("mobile/share_Kakaostory.png", class:"Button") %>
-    </a>
+    <a id = "mobile_ks" href = "#"><%= image_tag("mobile/share_Kakaostory.png", class:"Button") %></a>
     <br />
-    <a id = "mobile_f" href = "#">
-      <%= image_tag("mobile/share_Facebook.png", class:"Button") %>
-    </a>
+    <a id = "mobile_f" href = "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr" target = "_blank"><%= image_tag("mobile/share_Facebook.png", class:"Button") %></a>
     <br />
     <%= image_tag("mobile/dotLine.png", class:"Line") %>
     <br />

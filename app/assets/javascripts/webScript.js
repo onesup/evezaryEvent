@@ -96,7 +96,8 @@ $(document).ready(function() {
 
         });
     });
-    $('#blogButton').click(function(){
+    $('#blogButton').click(function(e){
+        e.preventDefault();
         $('#popUp').empty();
         $('#popUp').load('home_popup_blog', function() {
             $('#popUp').modal();
@@ -104,6 +105,7 @@ $(document).ready(function() {
             $('#closeModal').css('right', '-46px' );
         });
     });
+
 });
 
 function detectDevice(){
