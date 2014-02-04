@@ -1,0 +1,102 @@
+.contain{
+	width: 1000px;
+	margin-left: -500px;
+	left:50%;
+	position:absolute;
+	font-family: Arial;
+	background-color: white;
+	text-align: center;
+	background-color: #ECEADD;
+}
+
+.top{
+	text-align: left;
+	width: 1000px;
+}
+.top.img{
+	margin: 16px;
+}
+
+.label{
+	margin: 4px;
+}
+.labelb{
+	margin: 4px;
+	margin-bottom:16px;
+}
+
+.applyBox{
+	margin-top: 72px;
+	margin-bottom: 64px;
+}
+.applyBackBox{
+	width: 1000px;
+	height: 380px;
+	margin-top: 72px;
+	margin-bottom: 48px;
+}
+#applyBtnI{
+	position: absolute;
+	margin-top: -254px;
+	margin-left: -147px;
+}
+
+#cloud_1{
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+#cloud_2{
+	position: absolute;
+	margin-top: 66px;
+	margin-left: 250px;
+}
+#cloud_3{
+	position: absolute;
+	margin-top: 132px;
+	margin-left: 500px;
+}
+#cloud_4{
+	position: absolute;
+	margin-top: 198px;
+	margin-left: 1000px;
+}
+
+.shareBox{
+	margin-top: 48px;
+}
+.share{
+	vertical-align: top;
+	margin: 12px;
+}
+.shareGift{
+	float: right;
+	margin-left: -16px;
+	margin-right: 16px;
+}
+.shareButton{
+	margin-top: 12px;
+}
+.shareButtonBox{
+	margin-top: -108px;
+	padding-right: 80px;
+}
+.caution{
+	margin-top: 64px;
+}
+
+.cloudBox{
+    width: 1000px;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.characterBox{
+    width: 1000px;
+    height: 288px;
+    margin-top: -140px;
+    position: absolute;
+    background-image: asset-url("main/characterImage.png");
+}

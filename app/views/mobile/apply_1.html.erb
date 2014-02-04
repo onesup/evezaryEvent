@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EvezaryEvent</title>
+
+  <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= csrf_meta_tags %>
+  <meta name = "viewport" content = "width=device-width, user-scalable=no" />
+</head>
+<body id = "indexBody">
+<div class = "mobilePopContain">
+  <%= image_tag("mpopup/1/m1_Label1.png", class:"mp1_Label1") %>
+  <div class = "mp1_PopInbox">
+    <form>
+      <!-- 내 번호 -->
+      <%= image_tag("mpopup/1/m1_InputLabel_1.png", class:"mp1_InputLabel1") %>
+      <input type = 'text' id = 'myPhone_1' class = 'mp1_input' />
+      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
+      <input type = 'text' id = 'myPhone_2' class = 'mp1_input' />
+      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
+      <input type = 'text' id = 'myPhone_3' class = 'mp1_input' /><br />
+
+      <!-- 엄마 번호 -->
+      <%= image_tag("mpopup/1/m1_InputLabel_2.png", class:"mp1_InputLabel2") %>
+      <input type = 'text' id = 'momPhone_1' class = 'mp1_input' />
+      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
+      <input type = 'text' id = 'momPhone_2' class = 'mp1_input' />
+      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
+      <input type = 'text' id = 'momPhone_3' class = 'mp1_input' /><br />
+
+      <!-- 메시지 -->
+      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." class = "mp1_textArea"></textarea>
+
+      <!-- 매장선택 -->
+      <select class = "mp1_select">
+        <option>form의 디자인 개선 및 밸류값 주입 필요.</option>
+        <option>방배동 코디센 매장 1.</option>
+        <option>방배동 코디센 매장 2.</option>
+        <option>방배동 코디센 매장 3.</option>
+      </select>
+
+      <!-- 라벨 -->
+      <%= image_tag("mpopup/1/m1_Label4.png", class:"mp1_Label2") %>
+      <a href = "#">
+        <%= image_tag("mpopup/1/m1_SelectButton.png", class:"mp1_selectBtn") %>
+      </a>
+    </form>
+  </div>
+  <%= link_to mobile_apply_2_path, id:"m1_sendButton" do %>
+      <%= image_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
+  <% end %>>
+</div>
+</body>
+</html>

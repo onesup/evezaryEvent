@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :blog_code
       t.integer :viral_score
       t.references :gift, index: true
-      
+
 
       t.timestamps
     end
