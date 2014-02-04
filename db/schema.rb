@@ -42,8 +42,11 @@ ActiveRecord::Schema.define(version: 20140203031423) do
 
   create_table "stores", force: true do |t|
     t.string   "title"
-    t.string   "address"
     t.string   "phone"
+    t.string   "address"
+    t.string   "si"
+    t.string   "gu"
+    t.string   "dong"
     t.float    "lat"
     t.float    "lng"
     t.integer  "total"
