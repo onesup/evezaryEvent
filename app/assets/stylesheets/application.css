@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.modal
+ *= require style
+ *= require webStyle
+ *= require mWebStyle
+ *= require popupStyle
+ *= require mPopupStyle
  */

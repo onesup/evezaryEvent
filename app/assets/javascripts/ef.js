@@ -1,19 +1,17 @@
-// Must include 'jquery-2.1.0.min.js'
+// Must include 'jquery-1.11.0.min.js'
 // Must include 'jquery-modal.min.js'
-var c1, c2, c3, c4;
 
+var c1, c2, c3, c4;
 $(document).ready(function() {
 	if( detectDevice() == true )
 	{
 		//Mobile
-		$('#indexBody').load('./html/mobile.html', function() {
-            
+		$('#indexBody').load('home/mobile', function() {
 		});
 	}
 	else
 	{
-		$('#indexBody').load('./html/web.html', function() {
-
+		$('#indexBody').load('./home/web.html', function() {
 			if( navigator.appVersion.indexOf("MSIE 6.0") >= 0 
 				|| navigator.appVersion.indexOf("MSIE 7.0") >= 0 
 				|| navigator.appVersion.indexOf("MSIE 8.0") >= 0 ) {
@@ -24,63 +22,74 @@ $(document).ready(function() {
 				c2 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
 				c3 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
 				c4 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
-				setInterval( loopCloud, 1);
+				setInterval( loopCloud, 1 );
 			}
 
 			// '데이트 신청하기' 버튼 클릭시
-			$('#applyButton').click(function(){
-				$('#popUp').load('./html/popUp_1.html', function() {
+			$('#applyButton').click(function(e){
+                e.preventDefault();
+                console.log("click");
+				$('#popUp').load('./home/popUp_1.html', function(e) {
+                    console.log("load");
 					$('#popUp').modal();
 					$('#closeModal').css('top', '-305px' );
 					$('#closeModal').css('right', '-40px' );
-
+                    console.log("open modal");
 					// '데이트 신청하기' 팝업에서 이미지 클릭 시
-					$('#popUp_1_gi').click(function(){
+					$('#popUp_1_gi').click(function(e){
+                        e.preventDefault();
 						$('#popUp_gift_border').css('display', 'block');
 						$('#popUp_gift_border').css('top', "146px");
 						$('#popUp_gift_border').css('left', "24px");
 					});
-					$('#popUp_2_gi').click(function(){
+					$('#popUp_2_gi').click(function(e){
+                        e.preventDefault();
 						$('#popUp_gift_border').css('display', 'block');
 						$('#popUp_gift_border').css('top', "146px");
 						$('#popUp_gift_border').css('left', "302px");
 					});
-					$('#popUp_3_gi').click(function(){
+					$('#popUp_3_gi').click(function(e){
+                        e.preventDefault();
 						$('#popUp_gift_border').css('display', 'block');
 						$('#popUp_gift_border').css('top', "314px");
 						$('#popUp_gift_border').css('left', "24px");
 					});
-					$('#popUp_4_gi').click(function(){
+					$('#popUp_4_gi').click(function(e){
+                        e.preventDefault();
 						$('#popUp_gift_border').css('display', 'block');
 						$('#popUp_gift_border').css('top', "314px");
 						$('#popUp_gift_border').css('left', "302px");
 					});
 
 					// '경품 선택하기' 후 넘어가는 팝업
-					$('#applyPopup1_selectButton').click(function(){
+					$('#applyPopup1_selectButton').click(function(e){
+                        e.preventDefault();
 						$('#popUp').empty();
-						$('#popUp').load('./html/popUp_2.html', function() {
+						$('#popUp').load('./home/popUp_2.html', function(e) {
 							$('#popUp').modal();
 							$('#closeModal').css('top', '-391px' );
 							$('#closeModal').css('right', '-46px' );
 							// '문자 보내기' 후 넘어가는 팝업
-							$('#applyPopup2_sendButton').click(function(){
+							$('#applyPopup2_sendButton').click(function(e){
+                                e.preventDefault();
 								$('#popUp').empty();
-								$('#popUp').load('./html/popUp_3.html', function() {
+								$('#popUp').load('./home/popUp_3.html', function() {
 									$('#popUp').modal();
 									$('#closeModal').css('top', '-349px' );
 									$('#closeModal').css('right', '-46px' );
 									// '완료' 후 넘어가는 팝업
-									$('#applyPopup3_finButton').click(function(){
+									$('#applyPopup3_finButton').click(function(e){
+                                        e.preventDefault();
 										$('#popUp').empty();
-										$('#popUp').load('./html/popUp_4.html', function() {
+										$('#popUp').load('./home/popUp_4.html', function() {
 											$('#popUp').modal();
 											$('#closeModal').css('top', '-150px' );
 											$('#closeModal').css('right', '-46px' );
 											// '완료' 후 넘어가는 팝업
-											$('#applyPopup4_finButton').click(function(){
+											$('#applyPopup4_finButton').click(function(e){
+                                                e.preventDefault();
 												$('#popUp').empty();
-												$('#popUp').load('./html/popUp_5.html', function() {
+												$('#popUp').load('./home/popUp_5.html', function() {
 													$('#popUp').modal();
 													$('#closeModal').css('top', '-283px' );
 													$('#closeModal').css('right', '-79px' );
@@ -97,7 +106,7 @@ $(document).ready(function() {
 			});
 			$('#blogButton').click(function(){
 				$('#popUp').empty();
-				$('#popUp').load('./html/popUp_blog.html', function() {
+				$('#popUp').load('./home/popUp_blog.html', function() {
 					$('#popUp').modal();
 					$('#closeModal').css('top', '-225px' );
 					$('#closeModal').css('right', '-46px' );
@@ -108,6 +117,7 @@ $(document).ready(function() {
 });
 
 function detectDevice(){
+    return true;
 	if( navigator.userAgent.match(/Android/i)
 		|| navigator.userAgent.match(/webOS/i)
 		|| navigator.userAgent.match(/iPhone/i)

@@ -2,7 +2,7 @@
 #popUp_1{
 	width: 580px;
 	height: 641px;
-	background-image: url("../../../public/image/popup/1/applyPopup1_BG.png");
+	background-image: url("popup/1/applyPopup1_BG.png");
 	padding: 0px;
 	left: 50%;
 	position:absolute;
@@ -48,7 +48,7 @@
 #popUp_2{
 	width: 594px;
 	height: 816px;
-	background-image: url("../../../public/image/popup/2/applyPopup2_BG.png");
+	background-image: url("popup/2/applyPopup2_BG.png");
 	padding: 0px;
 	left: 50%;
 	position:absolute;
@@ -60,7 +60,7 @@
 .popUp_2_inputBox{
 	width: 452px;
 	height: 431px;
-	background-image: url("../../../public/image/popup/2/applyPopup2_BG2.png");
+	background-image: url("popup/2/applyPopup2_BG2.png");
 	margin-left: 41px;
 	margin-top: 24px;
 	margin-bottom: 32px;
@@ -116,7 +116,7 @@
 #popUp_3{
 	width: 594px;
 	height: 733px;
-	background-image: url("../../../public/image/popup/3/applyPopup3_BG.png");
+	background-image: url("popup/3/applyPopup3_BG.png");
 	padding: 0px;
 	left: 50%;
 	position:absolute;
@@ -128,7 +128,7 @@
 .popUp_3_inputBox{
 	width: 452px;
 	height: 238px;
-	background-image: url("../../../public/image/popup/3/applyPopup3_BG2.png");
+	background-image: url("popup/3/applyPopup3_BG2.png");
 	margin-left: 41px;
 	margin-top: 24px;
 	margin-bottom: 32px;
@@ -198,7 +198,7 @@
 #popUp_4{
 	width: 594px;
 	height: 333px;
-	background-image: url("../../../public/image/popup/4/applyPopup4_BG.png");
+	background-image: url("popup/4/applyPopup4_BG.png");
 	padding: 0px;
 	left: 50%;
 	position:absolute;
@@ -217,7 +217,7 @@
 #popUp_5{
 	width: 654px;
 	height: 631px;
-	background-image: url("../../../public/image/popup/5/applyPopup5_BG.png");
+	background-image: url("popup/5/applyPopup5_BG.png");
 	padding: 0px;
 	left: 50%;
 	position:absolute;
@@ -244,7 +244,7 @@
 }
 
 .popUp_5_textZone{
-	background-image: url('../../../public/image/popup/5/applyPopup5_ImageBottom.png');
+	background-image: url('popup/5/applyPopup5_ImageBottom.png');
 	width: 518px;
 	height: 80px;
 	margin-top: 256px;
@@ -271,7 +271,7 @@
 #popUp_blog{
 	width: 594px;
 	height: 485px;
-	background-image: url("../../../public/image/popup/blog/applyPopup6_BG.png");
+	background-image: url("popup/blog/applyPopup6_BG.png");
 	padding: 0px;
 	left: 50%;
 	position:absolute;

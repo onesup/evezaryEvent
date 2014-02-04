@@ -1,46 +1,48 @@
-<link rel = "stylesheet" type = "text/css" href = "./style/mWebStyle.css" />
- <meta name = "viewport" content = "width=device-width, inital-scale=1.0, maxium-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<% content_for :mobile_meta do %>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<% end %>
 <div class = "mobileContain">
 	<!--top : 로고를 포함한 컨테이너-->
     <div class = "top">
         <a href = "http://www.evezary.co.kr/">
-            <img class = "logo" src = "./image/mobile/logo.png" alt = "logo"/>
+            <%= image_tag("mobile/logo.png", class:"popUp_blog_Label2") %>
         </a>
     </div>
     <!-- 라벨 -->
     <div class = "showing">
-        <img class = "mobile80" src = "./image/mobile/Label_1.png" alt = "Label_1" />
+        <%= image_tag("mobile/Label_1.png", class:"mobile80") %>
         <br />
-        <img class = "mobile" src = "./image/mobile/Image_1.png" alt = "Image_1" />
+        <%= image_tag("mobile/Image_1.png", class:"mobile") %>
         <br />
     </div>
-    <a id = "mobile_apply" href = "./html/mobile_apply_1.html">
-        <img class = "mobile_1" src = "./image/mobile/apply_button.png" alt = "apply"/>
-    </a>
+    <%= link_to mobile_form_path, id:"mobile_apply" do %>
+        <%= image_tag("mobile/apply_button.png", class:"mobile_1") %>
+    <% end %>
     <!-- 소문내기 -->
     <div class = "shareEvent">
-        <img class = "mobile_2" src = "./image/mobile/dotLine.png" alt = "dotLine" /><br />
+        <%= image_tag("mobile/dotLine.png", class:"mobile_2") %><br />
         <p class = "">
-            <img class = "label1" src = "./image/mobile/Label_2.png" alt = "Label_2" />
+            <%= image_tag("mobile/Label_2.png", class:"label1") %>
         </p>
         <a id = "mobile_k" href = "#">
-            <img class = "Button" src = "./image/mobile/share_Kakao.png" alt = "share_Kakao" /> </a>
+            <%= image_tag("mobile/share_Kakao.png", class:"Button") %>
+        </a>
         <br />
         <a id = "mobile_ks" href = "#">
-            <img class = "Button" src = "./image/mobile/share_Kakaostory.png" alt = "share_Kakaostory" />
+            <%= image_tag("mobile/share_Kakaostory.png", class:"Button") %>
         </a>
         <br />
         <a id = "mobile_f" href = "#">
-            <img class = "Button" src = "./image/mobile/share_Facebook.png" alt = "share_Facebook" />
+            <%= image_tag("mobile/share_Facebook.png", class:"Button") %>
         </a>
         <br />
-        <img class = "Line" src = "./image/mobile/dotLine.png" alt = "dotLine" />
+        <%= image_tag("mobile/dotLine.png", class:"Line") %>
         <br />
     </div>
     <!-- 경품 -->
-    <img class = "Gift" src = "./image/mobile/gift.png" alt = "gift" />
+    <%= image_tag("mobile/gift.png", class:"Gift") %>
     <!-- 유의사항 -->
     <div class = "cautionBox">
-        <img class = "mobile" src = "./image/mobile/caution.png" alt = "caution" />
+        <%= image_tag("mobile/caution.png", class:"mobile") %>
      </div>
 </div>

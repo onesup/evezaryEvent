@@ -1,57 +1,55 @@
-<link rel = "stylesheet" type = "text/css" href = "./style/webStyle.css" />
 <div class = "contain">
 	<!--top : 로고를 포함한 컨테이너-->
 	<div class = "top">
 		<a href = "http://www.evezary.co.kr/">
-			<img src = "./image/main/logo.png" class = "logo" alt = "logo"/>
+			<%= image_tag("main/logo.png", class: "logo") %>
 		</a>
 	</div>
 	<!--labelBox : 윗부분 텍스트 컨테이너-->
 	<div class = "labelBox">
-		<img src = "./image/main/label_1.png" class = "label" alt = "label_1"/><br />
-		<img src = "./image/main/label_2.png" class = "labelb" alt = "label_2"/><br />
-		<img src = "./image/main/label_3.png" class = "label" alt = "label_3"/><br />
+        <%= image_tag("main/label_1.png", class: "label") %><br />
+        <%= image_tag("main/label_2.png", class: "labelb") %><br />
+        <%= image_tag("main/label_3.png", class: "label") %><br />
 	</div>
 	<!--applyBox : applyBackBox 및 상품 컨테이너-->
 	<div class = "applyBox">
 		<!--applyBackBox : 신청하기 및 배경 이미지 컨테이너-->
 		<div class = "applyBackBox">
 			<div class = "" style = "width: 1000px; height: 220px; position: relative; overflow: hidden; text-align: left;">
-				<img src = "./image/main/cloud/cloud_1.png" id = "cloud_1" alt = "cloud_1"/>
-				<img src = "./image/main/cloud/cloud_2.png" id = "cloud_2" alt = "cloud_2"/>
-				<img src = "./image/main/cloud/cloud_3.png" id = "cloud_3" alt = "cloud_3"/>
-				<img src = "./image/main/cloud/cloud_4.png" id = "cloud_4" alt = "cloud_4"/>
+                <%= image_tag("main/cloud/cloud_1.png", id: "cloud_1") %>
+                <%= image_tag("main/cloud/cloud_2.png", id: "cloud_2") %>
+                <%= image_tag("main/cloud/cloud_3.png", id: "cloud_3") %>
+                <%= image_tag("main/cloud/cloud_4.png", id: "cloud_4") %>
 			</div>
 			<div class = "" style = "width: 1000px; height: 288px; margin-top: -140px; position: absolute; background-image: url('./image/main/characterImage.png');"></div>
 			<a id = "applyButton" href = "#">
-				<img src = "./image/main/apply.png" id = "applyBtnI"  alt = "apply"/>
+                <%= image_tag("main/apply.png", id: "applyBtnI") %>
 			</a>
 		</div>
-		<img src = "./image/main/gift.png" alt = "gift"/>
+        <%= image_tag("main/gift.png") %>
 	</div>
-	<img src = "./image/main/dotLine.png" alt = "dotLine"/>
+    <%= image_tag("main/dotLine.png", class: "applyBtnI") %>
 	<br />
 	<!--shareBox : 소문내기 이벤트 컨테이너-->
 	<div class = "shareBox">
-		<img src = "./image/main/shareLabel_1.png" class = "share" alt = "shareLabel_1"/>
-		<img src = "./image/main/shareLabel_2.png" class = "share" alt = "shareLabel_2"/>
-		<img src = "./image/main/shareGift.png" alt = "shareGift"/>
+        <%= image_tag("main/shareLabel_1.png", class: "share") %>
+        <%= image_tag("main/shareLabel_2.png", class: "share") %>
+        <%= image_tag("main/shareGift.png") %>
 		<br />
 		<!--shareButtonBox : 페이스북, 블로그 버튼-->
 		<div class = "shareButtonBox">
 			<a href = "#facebook">
-				<img src = "./image/main/facebook.png" class = "shareButton" alt = "apply"/>
+                <%= image_tag("main/facebook.png", class: "shareButton") %>
 			</a>
 			<a id = "blogButton" href = "#">
-				<img src = "./image/main/blog.png" class = "shareButton" alt = "apply"/>
+                <%= image_tag("main/blog.png", class: "shareButton") %>
 			</a>
 			<br />
 		</div>
 	</div>
 	<div class = "caution">
-		<img src = "./image/main/caution.png" alt = "caution"/>
+        <%= image_tag("main/caution.png") %>
 	</div>
 </div>
-<link rel = "stylesheet" type = "text/css" href = "./style/popupStyle.css" />
 <div id = "popUp" class = "modal">
 </div>
