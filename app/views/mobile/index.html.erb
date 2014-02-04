@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EvezaryEvent</title>
+  <meta name = "viewport" content = "width=device-width, user-scalable=no" />
+  <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id = "indexBody">
+<div class = "mobileContain">
+  <!--top : 로고를 포함한 컨테이너-->
+  <div class = "top">
+    <a href = "http://www.evezary.co.kr/">
+      <%= image_tag("mobile/logo.png", class:"logo_m") %>
+    </a>
+  </div>
+  <!-- 라벨 -->
+  <div class = "showing">
+    <%= image_tag("mobile/Label_1.png", class:"mobile80") %>
+    <br />
+    <%= image_tag("mobile/Image_1.png", class:"mobile") %>
+    <br />
+  </div>
+  <%= link_to mobile_apply_1_path, id:"mobile_apply" do %>
+      <%= image_tag("mobile/apply_button.png", class:"mobile_1") %>
+  <% end %>
+  <!-- 소문내기 -->
+  <div class = "shareEvent">
+    <%= image_tag("mobile/dotLine.png", class:"mobile_2") %><br />
+    <p class = "">
+      <%= image_tag("mobile/Label_2.png", class:"label1") %>
+    </p>
+    <a id = "mobile_k" href = "#">
+      <%= image_tag("mobile/share_Kakao.png", class:"Button") %>
+    </a>
+    <br />
+    <a id = "mobile_ks" href = "#">
+      <%= image_tag("mobile/share_Kakaostory.png", class:"Button") %>
+    </a>
+    <br />
+    <a id = "mobile_f" href = "#">
+      <%= image_tag("mobile/share_Facebook.png", class:"Button") %>
+    </a>
+    <br />
+    <%= image_tag("mobile/dotLine.png", class:"Line") %>
+    <br />
+  </div>
+  <!-- 경품 -->
+  <%= image_tag("mobile/gift.png", class:"Gift") %>
+  <!-- 유의사항 -->
+  <div class = "cautionBox">
+    <%= image_tag("mobile/caution.png", class:"mobile") %>
+  </div>
+</div>
+</body>
+</html>

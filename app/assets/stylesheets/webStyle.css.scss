@@ -84,3 +84,19 @@
 .caution{
 	margin-top: 64px;
 }
+
+.cloudBox{
+    width: 1000px;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.characterBox{
+    width: 1000px;
+    height: 288px;
+    margin-top: -140px;
+    position: absolute;
+    background-image: asset-url("main/characterImage.png");
+}

@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  
-  get "home/index"
-  get "home/mobile"
-  get "mobile_form" => "home#mobile_apply_1"
-  get "home/mobile_apply_2"
-  get "home/popUp_1"
-  get "home/popUp_2"
-  get "home/popUp_3"
-  get "home/popUp_4"
-  get "home/popUp_5"
-  get "home/popUp_blog"
-  get "home/web"
+
+  get "mobile_index" => "mobile#index"
+  get "mobile_apply_1" => "mobile#apply_1"
+  get "mobile_apply_2" => "mobile#apply_2"
+
+  get "home_index" => "home#index"
+  get "home_popup_1" => "home#popUp_1"
+  get "home_popup_2" => "home#popUp_2"
+  get "home_popup_3" => "home#popUp_3"
+  get "home_popup_4" => "home#popUp_4"
+  get "home_popup_5" => "home#popUp_5"
+  get "home_popup_blog" => "home#popUp_blog"
 
   devise_for :users
   resources :users, only: [:create, :update]

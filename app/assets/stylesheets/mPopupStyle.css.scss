@@ -9,7 +9,7 @@
 
 .mp1_PopInbox{
     width: 92%;
-    background-image: url("mpopup/1/m1_background.png");
+    background-image: asset-url("mpopup/1/m1_background.png");
     background-size: 100% 100%;
     margin-top: 8%;
     margin-bottom: 8%;
@@ -76,7 +76,7 @@
 
 .mp2_PopInbox{
      width: 94%;
-    background-image: url("mpopup/1/m1_background.png");
+    background-image: asset-url("mpopup/1/m1_background.png");
     background-size: 100% 100%;
     margin-top: 8%;
     margin-bottom: 8%;
@@ -148,7 +148,8 @@
 .mp2_CautionBtn{
     width: 22%;
     margin-left: 4%;
-    vertical-align: middle; margin-top:-1%;
+    vertical-align: middle;
+  margin-top:-1%;
 }
 
 .mp2_Label9{

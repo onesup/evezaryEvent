@@ -1,15 +1,6 @@
 class HomeController < ApplicationController
   def index
   end
-  def mobile
-    render layout: false
-  end
-  def mobile_apply_1
-    render layout: false
-  end
-  def mobile_apply_2
-    render layout: false
-  end
   def popUp_1
     render layout: false
   end
@@ -26,9 +17,6 @@ class HomeController < ApplicationController
     render layout: false
   end
   def popUp_blog
-    render layout: false
-  end
-  def web
     render layout: false
   end
 end
