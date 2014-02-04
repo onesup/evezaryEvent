@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203031423) do
+ActiveRecord::Schema.define(version: 20140204100259) do
+
+  create_table "access_logs", force: true do |t|
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
+    t.string   "device"
+    t.string   "ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "access_logs", ["user_id"], name: "index_access_logs_on_user_id"
 
   create_table "gifts", force: true do |t|
     t.string   "title"
@@ -47,8 +60,8 @@ ActiveRecord::Schema.define(version: 20140203031423) do
     t.string   "si"
     t.string   "gu"
     t.string   "dong"
-    t.float    "lat"
-    t.float    "lng"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -31,6 +31,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
       t.string :phone
       t.string :name
+      t.string :blog_code
+      t.integer :viral_score
       t.references :gift, index: true
       
 
