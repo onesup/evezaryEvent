@@ -2,11 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
-<<<<<<< HEAD
-      t.string :email,              :null => false, :default => ""
-=======
       t.string :email
->>>>>>> 34339fc1cec8615dc0c208d1cbdb18117aa1b015
       t.string :encrypted_password, :null => false, :default => ""
 
       ## Recoverable
@@ -33,14 +29,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.integer  :failed_attempts, :default => 0, :null => false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-<<<<<<< HEAD
-
-=======
       t.string :phone
       t.string :name
       t.references :gift, index: true
-      
->>>>>>> 34339fc1cec8615dc0c208d1cbdb18117aa1b015
+
 
       t.timestamps
     end
