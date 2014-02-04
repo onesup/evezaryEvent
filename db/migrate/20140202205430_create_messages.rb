@@ -11,6 +11,7 @@ class CreateMessages < ActiveRecord::Migration
       t.references :user, index: true
       t.references :store, index: true
       t.string :cmid
+      t.string :call_status
       t.text :result
 
       t.timestamps

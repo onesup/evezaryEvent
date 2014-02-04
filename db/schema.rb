@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 20140203031423) do
     t.string   "image"
     t.integer  "user_id"
     t.integer  "store_id"
-    t.string   "status"
+    t.string   "cmid"
+    t.string   "call_status"
+    t.text     "result"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140203031423) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
