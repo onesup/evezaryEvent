@@ -18,6 +18,8 @@ gem 'sdoc',               group: :doc, require: false
 gem 'rest-client'
 gem 'geocoder'
 gem 'json'
+gem 'nori' #xml parser
+gem 'useragent'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development

@@ -20,5 +20,5 @@ Rails.application.routes.draw do
     resources :users
     resources :messages
   end
-  root :to => "home#index"
+  root :to => "home#switch"
 end
