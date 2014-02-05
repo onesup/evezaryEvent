@@ -264,7 +264,7 @@ DEPENDENCIES
   rails (= 4.1.0.beta1)
   rest-client
   rspec-rails
-  sass-rails (~> 4.0.0.rc1)
+  sass-rails (~> 4.0.1)
   sdoc
   simple_form
   spring
