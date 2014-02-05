@@ -93,6 +93,30 @@ $(document).ready(function() {
                             });
                             // '완료' 후 넘어가는 팝업
                             $('#applyPopup3_finButton').click(function(e){
+                              var phone1 = $("#phone_1").val();
+                              var phone2 = $("#phone_2").val();
+                              var phone3 = $("#phone_3").val();
+                              var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                              console.log("ss");
+                      		    $.ajax({
+                      		      type: "POST",
+                      		      url: "/users.json",
+                      		      data: {
+                      				  'user[name]': $("#myName").val(),
+                      				  'user[phone]': send_phone,
+                      				  'user[email]': $("#myEmail").val(),
+                                'user[gift_id]': $("#gift-select").val(),
+                      			  },
+                      		      dataType: "json",
+                      		      headers: {
+                      		        'X-Transaction': 'POST Example',
+                      		        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                      		      },
+                      		      success: function(data){
+                      		      }
+                      		    });
+                              
+                                
                                 _gaq.push('send', 'event', 'button', 'click', '감사합니다로');
                                 e.preventDefault();
                                 $('#popUp').empty();
