@@ -1,6 +1,6 @@
 <div id = "popUp_2">
 	<div class = "inPopup">
-        <%= image_tag("popup/1/applyPopup1_Label.png", class: "label") %>
+        <%= image_tag("popup/2/applyPopup2_Label_1.png", class: "label") %>
 		<div class = "popUp_2_inputBox">
 			<form>
 				<!-- 내 번호 -->
@@ -25,7 +25,7 @@
 
 				<!-- 메시지 -->
                 <%= image_tag("popup/2/applyPopup2_InputLabel_3.png", class: "popUp_2_InputLabel1", style: "vertical-align: top; margin-left: -2px; margin-right: 38px; margin-top: 28px;") %>
-				<textarea class = "popUp_2_textarea">엄마에게 전달할 메시지를 적어보세요. (아직 사라지게 안만들었습니다.)</textarea>
+				<textarea class = "popUp_2_textarea"></textarea>
                 <%= image_tag("popup/2/applyPopup2_Line.png", style: "margin-top: 24px;") %>
 
 				<!-- 매장선택 -->
@@ -39,7 +39,7 @@
 
 				<!-- 라벨 -->
                 <%= image_tag("popup/2/applyPopup2_InputCautionLabel_2.png", class: "popUp_2_Label3") %>
-				<a href = "#">
+				<a id = "applyPopup2_nearButton" href = "#">
                     <%= image_tag("popup/2/applyPopup2_SelectButton.png", class: "popUp_2_selectBtn") %>
                 </a>
 			</form>
