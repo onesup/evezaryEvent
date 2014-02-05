@@ -30,27 +30,19 @@ $(document).ready(function() {
             // '데이트 신청하기' 팝업에서 이미지 클릭 시
             $('#popUp_1_gi').click(function(e){
                 e.preventDefault();
-                $('#popUp_gift_border').css('display', 'block');
-                $('#popUp_gift_border').css('top', "146px");
-                $('#popUp_gift_border').css('left', "24px");
+                p1ClickImage(1);
             });
             $('#popUp_2_gi').click(function(e){
                 e.preventDefault();
-                $('#popUp_gift_border').css('display', 'block');
-                $('#popUp_gift_border').css('top', "146px");
-                $('#popUp_gift_border').css('left', "302px");
+                p1ClickImage(2);
             });
             $('#popUp_3_gi').click(function(e){
                 e.preventDefault();
-                $('#popUp_gift_border').css('display', 'block');
-                $('#popUp_gift_border').css('top', "314px");
-                $('#popUp_gift_border').css('left', "24px");
+                p1ClickImage(3);
             });
             $('#popUp_4_gi').click(function(e){
                 e.preventDefault();
-                $('#popUp_gift_border').css('display', 'block');
-                $('#popUp_gift_border').css('top', "314px");
-                $('#popUp_gift_border').css('left', "302px");
+                p1ClickImage(4);
             });
 
             // '경품 선택하기' 후 넘어가는 팝업
@@ -105,20 +97,65 @@ $(document).ready(function() {
             $('#closeModal').css('right', '-46px' );
         });
     });
+    $('#fbButton').click(function(e){
+        e.preventDefault();
+        window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr', 'window', "width = '0px', height = '0px'");
+    });
 });
 
-function detectDevice(){
+function p1ClickImage(num){
+    if( num == 1 ){
+        $('#popUp_1_gift').css('border-width', '8px');
+        $('#popUp_1_gift').css('margin', '4px');
 
-    if( navigator.userAgent.match(/Android/i)
-        || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/iPhone/i)
-        || navigator.userAgent.match(/iPad/i)
-        || navigator.userAgent.match(/iPod/i)
-        || navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i))
-        return true;
-    else
-        return false;
+        $('#popUp_2_gift').css('border-width', '0px');
+        $('#popUp_2_gift').css('margin', '12px');
+
+        $('#popUp_3_gift').css('border-width', '0px');
+        $('#popUp_3_gift').css('margin', '12px');
+
+        $('#popUp_4_gift').css('border-width', '0px');
+        $('#popUp_4_gift').css('margin', '12px');
+    }
+    else if( num == 2 ){
+        $('#popUp_1_gift').css('border-width', '0px');
+        $('#popUp_1_gift').css('margin', '12px');
+
+        $('#popUp_2_gift').css('border-width', '8px');
+        $('#popUp_2_gift').css('margin', '4px');
+
+        $('#popUp_3_gift').css('border-width', '0px');
+        $('#popUp_3_gift').css('margin', '12px');
+
+        $('#popUp_4_gift').css('border-width', '0px');
+        $('#popUp_4_gift').css('margin', '12px');
+    }
+    else if( num == 3 ){
+        $('#popUp_1_gift').css('border-width', '0px');
+        $('#popUp_1_gift').css('margin', '12px');
+
+        $('#popUp_2_gift').css('border-width', '0px');
+        $('#popUp_2_gift').css('margin', '12px');
+
+        $('#popUp_3_gift').css('border-width', '8px');
+        $('#popUp_3_gift').css('margin', '4px');
+
+        $('#popUp_4_gift').css('border-width', '0px');
+        $('#popUp_4_gift').css('margin', '12px');
+    }
+    else if( num == 4 ){
+        $('#popUp_1_gift').css('border-width', '0px');
+        $('#popUp_1_gift').css('margin', '12px');
+
+        $('#popUp_2_gift').css('border-width', '0px');
+        $('#popUp_2_gift').css('margin', '12px');
+
+        $('#popUp_3_gift').css('border-width', '0px');
+        $('#popUp_3_gift').css('margin', '12px');
+
+        $('#popUp_4_gift').css('border-width', '8px');
+        $('#popUp_4_gift').css('margin', '4px');
+    }
 }
 
 function loopCloud(){
