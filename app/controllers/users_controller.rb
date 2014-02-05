@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.blog_code = @user.random_code
     respond_to do |format|
       if @user.save
-        format.json { render json: {result: "success"}, status: :created }
+        format.json { render json: {blog_code: @user.blog_code}, status: :created }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

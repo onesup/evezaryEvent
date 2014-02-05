@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 20140204100259) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["gift_id"], name: "index_users_on_gift_id"
+  add_index "users", ["phone"], name: "index_users_on_phone", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

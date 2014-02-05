@@ -97,7 +97,6 @@ $(document).ready(function() {
                               var phone2 = $("#phone_2").val();
                               var phone3 = $("#phone_3").val();
                               var send_phone = phone1 + "-" + phone2 + "-" + phone3;
-                              console.log("ss");
                       		    $.ajax({
                       		      type: "POST",
                       		      url: "/users.json",
@@ -113,6 +112,7 @@ $(document).ready(function() {
                       		        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                       		      },
                       		      success: function(data){
+                                  $("#blog-code").val(data.blog_code)
                       		      }
                       		    });
                               
@@ -213,12 +213,20 @@ $(document).ready(function() {
             $('#popUp').modal();
             $('#closeModal').css('top', '-225px' );
             $('#closeModal').css('right', '-46px' );
+            var viral_url = $("#blog-code").val()
+            if(viral_url === ""){
+              alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+            }else{
+              $("#viral-blog-url").text("http://event3.evezary.co.kr/"+viral_url);
+            }
         });
     });
     $('#fbButton').click(function(e){
         _gaq.push('send', 'event', 'button', 'click', '페이스북');
         e.preventDefault();
-        window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr', 'window', "width = '300px', height = '200px'");
+        var viral_url = $("#blog-code").val()
+        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/'+viral_url
+        window.open(fb_url, 'window', "width = '300px', height = '200px'");
     });
 });
 
