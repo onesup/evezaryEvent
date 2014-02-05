@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def switch
     device = "pc"
     user_agent = UserAgent.parse(request.user_agent)
+    Rails.logger.info request.user_agent
     device = "mobile" if user_agent.mobile?
     log = AccessLog.new(ip: request.remote_ip, device: device)
     log.location = log.get_location
