@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :trackable# , :registerable,
 #          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :gift
+  has_many :access_logs
   def random_code
     evezary = %w(e v e z a r y) * 3
     digit = %w(4 6 7 9) * 2

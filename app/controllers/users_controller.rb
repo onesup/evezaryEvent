@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.blog_code = @user.random_code
-    binding.pry
     @user.gift = Gift.find(@user.gift_id)
+    if AccessLog.exists?(id: params["ip"])
+      @user.access_logs << AccessLog.find(params["ip"])
+    end
     respond_to do |format|
       if @user.save
         format.json { render json: {blog_code: @user.blog_code}, status: :created }

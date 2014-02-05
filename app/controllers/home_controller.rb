@@ -7,9 +7,9 @@ class HomeController < ApplicationController
     log.location = log.get_location
     log.save
     if user_agent.mobile?
-      redirect_to mobile_index_path
+      redirect_to mobile_index_path(ip: log.id)
     else
-      redirect_to home_index_path
+      redirect_to home_index_path(ip: log.id)
     end
   end
   def index

@@ -1,4 +1,5 @@
 class AccessLog < ActiveRecord::Base
+  belongs_to :user
   geocoded_by :location   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
   def get_location

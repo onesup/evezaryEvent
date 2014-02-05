@@ -16,7 +16,8 @@ $(document).ready(function() {
         c4 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
         setInterval( loopCloud, 1 );
     }
-
+    var ip = $.url().param('ip');
+    $("#ip-code").val(ip);
     // '데이트 신청하기' 버튼 클릭시
     $('#applyButton').click(function(e){
         _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기');
@@ -105,6 +106,7 @@ $(document).ready(function() {
                       				  'user[phone]': send_phone,
                       				  'user[email]': $("#myEmail").val(),
                                 'user[gift_id]': $("#gift-select").val(),
+                                'ip': $("#ip-code").val(),
                       			  },
                       		      dataType: "json",
                       		      headers: {

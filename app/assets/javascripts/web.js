@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require webScript.js
 //= require jquery.modal.min
-
+//= require purl.js
