@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140204100259) do
 
   create_table "gifts", force: true do |t|
     t.string   "title"
+    t.string   "code"
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
