@@ -2,7 +2,19 @@
 <html>
 <head>
   <title>EvezaryEvent</title>
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46149688-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
   <%= stylesheet_link_tag    "mobile", media: "all" %>
   <%= csrf_meta_tags %>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
@@ -41,12 +53,12 @@
 
       <!-- 라벨 -->
       <%= image_tag("mpopup/1/m1_Label4.png", class:"mp1_Label2") %>
-      <a href = "#">
+      <a href = "#" onclick = "_gaq.push('send', 'event', 'button', 'click', '위치 모바일');">
         <%= image_tag("mpopup/1/m1_SelectButton.png", class:"mp1_selectBtn") %>
       </a>
     </form>
   </div>
-  <%= link_to mobile_apply_2_path, id:"m1_sendButton" do %>
+  <%= link_to mobile_apply_2_path, id:"m1_sendButton", onclick: "_gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일');" do %>
       <%= image_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
   <% end %>
 </div>

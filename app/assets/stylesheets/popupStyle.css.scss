@@ -214,6 +214,27 @@
 .popUp_3_CautionLabel3{
   margin-left: 36px;
   vertical-align: middle;
+  margin-top: -6px;
+}
+
+#person{
+  display: none;
+  background-image: asset-url("popup/5/applyPopup5_BG.png");
+  position: absolute;
+  width: 654px;
+  height: 631px;
+  top: 70px;
+  left: -30px;
+}
+
+.personal_info_text{
+  overflow-y: auto;
+  width: 550px;
+  height: 350px;
+  margin-left: 42px;
+  margin-bottom: 32px;
+  border-weight: 0.25em;
+  text-align: left;
 }
 
 .popUp_3_DotLine{
@@ -278,9 +299,16 @@
   margin-left: -16px;
 }
 
-#popUp_5_move{
+#popUp_5_move_1{
   width: 4380px;
   position: absolute;
+  display: block;
+}
+
+#popUp_5_move_2{
+  width: 4380px;
+  position: absolute;
+  display: none;
 }
 
 .popUp_5_textZone{

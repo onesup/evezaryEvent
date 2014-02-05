@@ -19,6 +19,7 @@ $(document).ready(function() {
 
     // '데이트 신청하기' 버튼 클릭시
     $('#applyButton').click(function(e){
+        _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기');
         e.preventDefault();
         console.log("click");
         $('#popUp').load('home_popup_1', function(e) {
@@ -29,40 +30,61 @@ $(document).ready(function() {
             console.log("open modal");
             // '데이트 신청하기' 팝업에서 이미지 클릭 시
             $('#popUp_1_gi').click(function(e){
+                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1');
                 e.preventDefault();
                 p1ClickImage(1);
             });
             $('#popUp_2_gi').click(function(e){
+                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 2');
                 e.preventDefault();
                 p1ClickImage(2);
             });
             $('#popUp_3_gi').click(function(e){
+                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 3');
                 e.preventDefault();
                 p1ClickImage(3);
             });
             $('#popUp_4_gi').click(function(e){
+                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1');
                 e.preventDefault();
                 p1ClickImage(4);
             });
 
             // '경품 선택하기' 후 넘어가는 팝업
             $('#applyPopup1_selectButton').click(function(e){
+                _gaq.push('send', 'event', 'button', 'click', '경품 선택하기');
                 e.preventDefault();
                 $('#popUp').empty();
                 $('#popUp').load('home_popup_2', function(e) {
                     $('#popUp').modal();
                     $('#closeModal').css('top', '-391px' );
                     $('#closeModal').css('right', '-46px' );
+                     $('#applyPopup2_nearButton').click(function(e){
+                        e.preventDefault();
+                        //근처 매장 버튼 눌렀을 때
+                     });
                     // '문자 보내기' 후 넘어가는 팝업
                     $('#applyPopup2_sendButton').click(function(e){
+                        _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
                         e.preventDefault();
                         $('#popUp').empty();
                         $('#popUp').load('home_popup_3', function() {
                             $('#popUp').modal();
                             $('#closeModal').css('top', '-349px' );
                             $('#closeModal').css('right', '-46px' );
+                            $('#apply_3_person').click(function(e){
+                                _gaq.push('send', 'event', 'button', 'click', '개인정보');
+                                e.preventDefault();
+                                $('#person').css('display', 'block');
+                                $('#applyPopup3_finButton2').click(function(e){
+                                    _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
+                                     e.preventDefault();
+                                    $('#person').css('display', 'none' );
+                                 });
+                            });
                             // '완료' 후 넘어가는 팝업
                             $('#applyPopup3_finButton').click(function(e){
+                                _gaq.push('send', 'event', 'button', 'click', '감사합니다로');
                                 e.preventDefault();
                                 $('#popUp').empty();
                                 $('#popUp').load('home_popup_4', function() {
@@ -71,6 +93,7 @@ $(document).ready(function() {
                                     $('#closeModal').css('right', '-46px' );
                                     // '완료' 후 넘어가는 팝업
                                     $('#applyPopup4_finButton').click(function(e){
+                                        _gaq.push('send', 'event', 'button', 'click', '베스트5');
                                         e.preventDefault();
                                         $('#popUp').empty();
                                         $('#popUp').load('home_popup_5', function() {
@@ -78,27 +101,66 @@ $(document).ready(function() {
                                             $('#closeModal').css('top', '-283px' );
                                             $('#closeModal').css('right', '-79px' );
 
+                                            var page = 1;
                                             var popNum = 1;
 
+                                             $('#applyPopup5_finButton_1').click(function(e){
+                                                _gaq.push('send', 'event', 'button', 'click', '신혼베스트');
+                                                  e.preventDefault();
+                                                  if( page == 2 ){
+                                                    $('#popUp_5_move_2').css('display', 'none' );
+                                                    $('#popUp_5_move_2').css('left', '0px' );
+                                                    $('#popUp_5_move_1').css('display', 'block' );
+                                                    popNum = 1;
+                                                    page = 1;
+                                                  }
+                                             });
+                                             $('#applyPopup5_finButton_2').click(function(e){
+                                                _gaq.push('send', 'event', 'button', 'click', '부모님 베스트');
+                                                  e.preventDefault();
+                                                  if( page == 1 ){
+                                                    $('#popUp_5_move_2').css('display', 'block' );
+                                                    $('#popUp_5_move_1').css('left', '0px' );
+                                                    $('#popUp_5_move_1').css('display', 'none' );
+                                                    popNum = 1;
+                                                    page = 2;
+                                                  }
+                                             });
+                                         
+
                                             $('#arrow_left').click(function(e){
+                                                _gaq.push('send', 'event', 'button', 'click', '왼쪽 버튼');
                                                 e.preventDefault();
                                                 popNum--;
                                                 if( popNum < 1 ){
-                                                    popNum = 8;
+                                                    popNum = 5;
                                                 }
-                                                $('#popUp_5_move').animate({
-                                                    left: 542 * ( popNum - 1 ) * -1
-                                                }, 500);
+                                                if( page == 1 ){
+                                                    $('#popUp_5_move_1').animate({
+                                                        left: 542 * ( popNum - 1 ) * -1
+                                                    }, 500);
+                                                } else if( page == 2 ){
+                                                    $('#popUp_5_move_2').animate({
+                                                        left: 542 * ( popNum - 1 ) * -1
+                                                    }, 500);
+                                                }
                                             });
                                             $('#arrow_right').click(function(e){
+                                                _gaq.push('send', 'event', 'button', 'click', '오른쪽 버튼');
                                                 e.preventDefault();
                                                 popNum++;
-                                                if( popNum > 8 ){
+                                                if( popNum > 5 ){
                                                     popNum = 1;
                                                 }
-                                                $('#popUp_5_move').animate({
-                                                    left: 542 * ( popNum - 1 ) * -1
-                                                }, 500);
+                                                if( page == 1 ){
+                                                    $('#popUp_5_move_1').animate({
+                                                        left: 542 * ( popNum - 1 ) * -1
+                                                    }, 500);
+                                                } else if( page == 2 ){
+                                                    $('#popUp_5_move_2').animate({
+                                                        left: 542 * ( popNum - 1 ) * -1
+                                                    }, 500);
+                                                }
                                             });
                                         });
                                     });
@@ -111,6 +173,7 @@ $(document).ready(function() {
         });
     });
     $('#blogButton').click(function(e){
+        _gaq.push('send', 'event', 'button', 'click', '블로그');
         e.preventDefault();
         $('#popUp').empty();
         $('#popUp').load('home_popup_blog', function() {
@@ -120,8 +183,9 @@ $(document).ready(function() {
         });
     });
     $('#fbButton').click(function(e){
+        _gaq.push('send', 'event', 'button', 'click', '페이스북');
         e.preventDefault();
-        window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr', 'window', "width = '0px', height = '0px'");
+        window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr', 'window', "width = '300px', height = '200px'");
     });
 });
 

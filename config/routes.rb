@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "mobile_index" => "mobile#index"
   get "mobile_apply_1" => "mobile#apply_1"
   get "mobile_apply_2" => "mobile#apply_2"
+  get "mobile_person" => "mobile#person"
 
   get "home_index" => "home#index"
   get "home_popup_1" => "home#popUp_1"

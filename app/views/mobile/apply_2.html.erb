@@ -2,7 +2,19 @@
 <html>
 <head>
   <title>EvezaryEvent</title>
+  <script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46149688-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
   <%= stylesheet_link_tag    "mobile", media: "all" %>
   <%= csrf_meta_tags %>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
@@ -39,11 +51,13 @@
       <input type = "radio" name = "agree" value = "a"/>
       <%= image_tag("mpopup/2/m2_Label8.png", class:"mp2_Label8") %>
       <input type = "radio" name = "agree" value = "d"/>
-      <%= image_tag("mpopup/2/m2_CautionBtn.png", class:"mp2_CautionBtn") %>
+      <%= link_to mobile_person_path, onclick: "_gaq.push('send', 'event', 'button', 'click', '약관 모바일'); ", target: "_blank" do %>
+         <%= image_tag("mpopup/2/m2_CautionBtn.png", class:"mp2_CautionBtn") %>
+      <% end %>
     </form>
   </div>
   <%= image_tag("mpopup/2/m2_Label9.png", class:"mp2_Label9") %>
-  <%= link_to mobile_index_path, id:"m2_endButton" do %>
+  <%= link_to mobile_index_path, onclick: "_gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일'); ", id:"m2_endButton" do %>
       <%= image_tag("mpopup/2/m2_endButton.png", class:"mp2_EndBtn") %>
   <% end %>
 </div>
