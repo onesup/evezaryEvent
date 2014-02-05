@@ -249,6 +249,7 @@ DEPENDENCIES
   database_cleaner (~> 1.2.0)
   devise
   email_spec
+  execjs
   factory_girl_rails
   geocoder
   guard-rails
