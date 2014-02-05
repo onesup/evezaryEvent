@@ -7,7 +7,7 @@ $(document).ready(function() {
     if( navigator.appVersion.indexOf("MSIE 6.0") >= 0
         || navigator.appVersion.indexOf("MSIE 7.0") >= 0
         || navigator.appVersion.indexOf("MSIE 8.0") >= 0 ) {
-        $('#applyBtnI').css("margin-left", "354px")
+        // dkandmlaldjqtdma
     } else {
         // 구름 실시간 움직임
         c1 = ( ( Math.random() * 1000 ) + 100 ) / 1000;
@@ -77,6 +77,29 @@ $(document).ready(function() {
                                             $('#popUp').modal();
                                             $('#closeModal').css('top', '-283px' );
                                             $('#closeModal').css('right', '-79px' );
+
+                                            var popNum = 1;
+
+                                            $('#arrow_left').click(function(e){
+                                                e.preventDefault();
+                                                popNum--;
+                                                if( popNum < 1 ){
+                                                    popNum = 8;
+                                                }
+                                                $('#popUp_5_move').animate({
+                                                    left: 542 * ( popNum - 1 ) * -1
+                                                }, 500);
+                                            });
+                                            $('#arrow_right').click(function(e){
+                                                e.preventDefault();
+                                                popNum++;
+                                                if( popNum > 8 ){
+                                                    popNum = 1;
+                                                }
+                                                $('#popUp_5_move').animate({
+                                                    left: 542 * ( popNum - 1 ) * -1
+                                                }, 500);
+                                            });
                                         });
                                     });
                                 });
@@ -85,7 +108,6 @@ $(document).ready(function() {
                     });
                 });
             });
-
         });
     });
     $('#blogButton').click(function(e){

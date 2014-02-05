@@ -42,7 +42,7 @@
   position: absolute;
 }
 .popUp_1_selectBtn{
-  margin-top: 36px;
+  margin-top: -12px;
 }
 
 
@@ -201,8 +201,8 @@
   background-image: asset-url("popup/long_input.png");
   font-size: 24px;
   text-align: middle;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 22px;
+  padding-right: 22px;
 }
 
 .popUp_3_CautionLabel1{
@@ -260,35 +260,83 @@
 }
 
 .popUp_5_inBox{
-  width: 590px;
+  width: 542px;
   height: 360px;
   overflow: hidden;
-  margin-left: 24px;
+  margin-left: 46px;
+  position: relative;
 }
 
 .popUp_5_addition{
   margin-top: -220px;
-  margin-left: -10px;
+  margin-left:  54px;
+  position: absolute;
 }
 
 .popUp_5_button{
-  margin-top: 186px;
+  margin-top: 26px;
   margin-left: -16px;
 }
 
+#popUp_5_move{
+  width: 4380px;
+  position: absolute;
+}
+
 .popUp_5_textZone{
-  background-image: asset-url('popup/5/applyPopup5_ImageBottom.png');
-  width: 518px;
-  height: 80px;
-  margin-top: 256px;
-  margin-left: 24px;
+  width: 4380px;
+  height: 103px;
+  margin-top: 262px;
   position:absolute;
   color:white;
-  padding: 12px;
+  float: left;
+  text-align: left;
+}
+
+.popUp_5_textZone img{
+  width: 542px;
+}
+
+.popUp_5_ImageZone{
+  float: left;
+  position:absolute;
+  width: 4380px;
+  text-align: left;
+  top: -280px;
+  height: 360px;
 }
 
 .popUp_5_giftImage1{
-  margin-top: -128px;
+  margin-bottom: 130px;
+  width: 542px;
+}
+.popUp_5_giftImage2{
+  margin-bottom: 100px;
+  width: 542px;
+}
+.popUp_5_giftImage3{
+  margin-bottom: 70px;
+  width: 542px;
+}
+.popUp_5_giftImage4{
+  margin-bottom: 125px;
+  width: 542px;
+}
+.popUp_5_giftImage5{
+  margin-bottom: 130px;
+  width: 542px;
+}
+.popUp_5_giftImage6{
+  margin-bottom: 10px;
+  width: 542px;
+}
+.popUp_5_giftImage7{
+  margin-bottom: 140px;
+  width: 542px;
+}
+.popUp_5_giftImage8{
+  margin-bottom: 100px;
+  width: 542px;
 }
 .popUp_5_Arrow{
   margin-right: 450px;
