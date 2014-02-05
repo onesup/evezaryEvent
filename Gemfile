@@ -22,7 +22,6 @@ gem 'json'
 gem 'nokogiri'
 gem 'nori' #xml parser
 gem 'useragent'
-gem 'bcrypt-ruby', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development
