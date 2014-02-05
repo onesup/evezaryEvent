@@ -54,7 +54,7 @@ $(document).ready(function() {
                 _gaq.push('send', 'event', 'button', 'click', '경품 선택하기');
                 e.preventDefault();
                 $('#popUp').empty();
-                $('#popUp').load('home_popup_2', function(e) {
+                $('#popUp').load('home_popup_2?ip='+$("#ip-code").val(), function(e) {
                     $('#popUp').modal();
                     $('#closeModal').css('top', '-391px' );
                     $('#closeModal').css('right', '-46px' );

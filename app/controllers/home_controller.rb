@@ -13,11 +13,13 @@ class HomeController < ApplicationController
     end
   end
   def index
+    
   end
   def popUp_1
     render layout: false
   end
   def popUp_2
+    @log = AccessLog.find(params[:ip])
     render layout: false
   end
   def popUp_3
