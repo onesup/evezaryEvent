@@ -3,12 +3,8 @@
 		<!-- 라벨 -->
         <%= image_tag("popup/1/applyPopup1_Label.png", class: "label") %><br /><br />
 		<!-- 상품이미지 -->
-		<a href = "#" id = "popUp_1_gi">
-            <%= image_tag("popup/1/applyPopup1_gift_1.png", class: "popUp_1_gift") %>
-        </a>
-		<a href = "#" id = "popUp_2_gi">
-            <%= image_tag("popup/1/applyPopup1_gift_2.png", class: "popUp_1_gift") %>
-        </a>
+		<a href = "#" id = "popUp_1_gi"><%= image_tag("popup/1/applyPopup1_gift_1.png", id: "popUp_1_gift", class: "popUp_1_gift") %></a>
+		<a href = "#" id = "popUp_2_gi"><%= image_tag("popup/1/applyPopup1_gift_2.png", id: "popUp_2_gift", class: "popUp_1_gift") %></a>
 		<!-- 이름 및 지원률 -->
 		<div class = "popUp_1_giftLabelBox">
             <%= image_tag("popup/1/applyPopup1_GiftLabel_1.png", class: "popUp_1_giftLabel1") %>현재 경품 지원률 000명
@@ -16,12 +12,8 @@
 		</div>
 		<br />
 		<!-- 상품이미지 -->
-		<a href = "#" id = "popUp_3_gi">
-            <%= image_tag("popup/1/applyPopup1_gift_3.png", class: "popUp_1_gift") %>
-        </a>
-		<a href = "#" id = "popUp_4_gi">
-            <%= image_tag("popup/1/applyPopup1_gift_4.png", class: "popUp_1_gift") %>
-        </a>
+		<a href = "#" id = "popUp_3_gi"><%= image_tag("popup/1/applyPopup1_gift_3.png", id: "popUp_3_gift", class: "popUp_1_gift") %></a>
+		<a href = "#" id = "popUp_4_gi"><%= image_tag("popup/1/applyPopup1_gift_4.png", id: "popUp_4_gift", class: "popUp_1_gift") %></a>
         <br />
 		<!-- 이름 및 지원률 -->
 		<div class = "popUp_1_giftLabelBox">
@@ -32,8 +24,6 @@
         <%= image_tag("popup/1/applyPopup1_Border.png", id: "popUp_gift_border") %>
 		<!-- 선택하기 -->
 		<br /><br />
-		<a id = "applyPopup1_selectButton" href = "#">
-            <%= image_tag("popup/1/applyPopup1_select.png") %>
-        </a>
+		<a id = "applyPopup1_selectButton" href = "#"><%= image_tag("popup/1/applyPopup1_select.png") %></a>
 	</div>
 </div>

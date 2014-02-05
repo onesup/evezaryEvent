@@ -21,10 +21,10 @@
         <%= image_tag("main/cloud/cloud_3.png", id: "cloud_3") %>
         <%= image_tag("main/cloud/cloud_4.png", id: "cloud_4") %>
       </div>
-      <div class = "characterBox"></div>
       <a id = "applyButton" href = "#">
         <%= image_tag("main/apply.png", id: "applyBtnI") %>
       </a>
+      <div class = "characterBox"></div>
     </div>
     <%= image_tag("main/gift.png") %>
   </div>
@@ -38,12 +38,8 @@
     <br />
     <!--shareButtonBox : 페이스북, 블로그 버튼-->
     <div class = "shareButtonBox">
-      <a href = "#facebook">
-        <%= image_tag("main/facebook.png", class: "shareButton") %>
-      </a>
-      <a id = "blogButton" href = "#">
-        <%= image_tag("main/blog.png", class: "shareButton") %>
-      </a>
+      <a id = "fbButton" href = "#" target = "_blank"><%= image_tag("main/facebook.png", class: "shareButton") %></a>
+      <a id = "blogButton" href = "#"><%= image_tag("main/blog.png", class: "shareButton") %></a>
       <br />
     </div>
   </div>

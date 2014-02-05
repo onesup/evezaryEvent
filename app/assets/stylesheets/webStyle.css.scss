@@ -34,11 +34,13 @@
 	height: 380px;
 	margin-top: 72px;
 	margin-bottom: 48px;
+    position: relative;
 }
-#applyBtnI{
-	position: absolute;
-	margin-top: -254px;
-	margin-left: -147px;
+#applyButton{
+  text-align: left;
+  position: absolute;
+  left: 354px;
+  margin-top: -254px;
 }
 
 #cloud_1{
@@ -98,5 +100,7 @@
     height: 288px;
     margin-top: -140px;
     position: absolute;
+    left: 50%;
+    margin-left: -500px;
     background-image: asset-url("main/characterImage.png");
 }

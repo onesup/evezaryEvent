@@ -2,31 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8da1cf5-08c7-49d9-919d-4e65e721915b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/mobile.css.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/web.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/web.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/webScript.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/ef.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/mobile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/mobile_apply_1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/mobile_apply_2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/popUp_1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/popUp_2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/popUp_3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/popUp_4.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/popUp_5.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/popUp_blog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/home/web.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/mWebStyle.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/mWebStyle.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/webStyle.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/webStyle.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/mobile/apply_1.html.erb" afterPath="$PROJECT_DIR$/app/views/mobile/apply_1.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/mobile/apply_2.html.erb" afterPath="$PROJECT_DIR$/app/views/mobile/apply_2.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/popUp_1.html.erb" afterPath="$PROJECT_DIR$/app/views/home/popUp_1.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/popUp_2.html.erb" afterPath="$PROJECT_DIR$/app/views/home/popUp_2.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/popUp_3.html.erb" afterPath="$PROJECT_DIR$/app/views/home/popUp_3.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/style.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/webScript.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/webScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evezaryEvent.iws" />
@@ -49,72 +33,17 @@
     <favorites_list name="evezaryEvent" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="apply_2.html.erb" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/mobile/apply_2.html.erb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="30" column="29" selection-start="1133" selection-end="1133" vertical-scroll-proportion="-20.357143" vertical-offset="0" max-vertical-offset="1064">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mobile.css.scss" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mobile.css.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="24" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/mobile/index.html.erb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="52" selection-start="424" selection-end="424" vertical-scroll-proportion="-8.821428" vertical-offset="0" max-vertical-offset="1159">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="apply_1.html.erb" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/mobile/apply_1.html.erb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="32" selection-start="282" selection-end="282" vertical-scroll-proportion="-6.785714" vertical-offset="0" max-vertical-offset="1121">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="12" selection-start="121" selection-end="121" vertical-scroll-proportion="0.21839081" vertical-offset="0" max-vertical-offset="957">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="webScript.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/assets/javascripts/webScript.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="84" column="38" selection-start="3983" selection-end="3983" vertical-scroll-proportion="0.38634047" vertical-offset="1217" max-vertical-offset="3420">
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="webStyle.css.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/webStyle.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="319" selection-end="319" vertical-scroll-proportion="0.35416666" vertical-offset="358" max-vertical-offset="2109">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -150,34 +79,39 @@
         <option value="$PROJECT_DIR$/app/views/home/mobile_apply_1.html" />
         <option value="$PROJECT_DIR$/app/views/home/mobile_apply_2.html" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/webStyle.css" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/webStyle.css.scss" />
         <option value="$PROJECT_DIR$/app/views/home/mobile.html" />
         <option value="$PROJECT_DIR$/app/views/home/web.html" />
         <option value="$PROJECT_DIR$/app/views/home/web.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/ef.js" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/web.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/mobile.css" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/webScript.js" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/mobile_controller.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/mobile/apply_1.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/mobile/apply_2.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/mobile.css.scss" />
         <option value="$PROJECT_DIR$/app/views/mobile/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/mobile.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/mobileScript.js" />
+        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/webStyle.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/home/popUp_1.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/webScript.js" />
+        <option value="$PROJECT_DIR$/app/views/home/popUp_2.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/popUp_3.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/mobile/apply_1.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/mobile/apply_2.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-1085" />
-    <option name="width" value="1857" />
-    <option name="height" value="1086" />
+    <option name="x" value="265" />
+    <option name="y" value="66" />
+    <option name="width" value="913" />
+    <option name="height" value="530" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -205,6 +139,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -406,32 +341,9 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evezaryEvent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evezaryEvent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -447,15 +359,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
+      <recent name="$PROJECT_DIR$/app/assets/javascripts/admin" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts" />
+      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/javascripts" />
       <recent name="$PROJECT_DIR$/app/views/mobile" />
       <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/app/views/home" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
-      <recent name="$PROJECT_DIR$/app/assets/javascripts" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: evezaryEvent">
@@ -624,15 +537,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-1085" width="1857" height="1086" extended-state="6" />
-    <editor active="true" />
+    <frame x="265" y="66" width="913" height="530" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18814017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28320527" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -665,23 +578,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140128122057_devise_create_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="969" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="342">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="36" selection-start="11842" selection-end="11842" vertical-scroll-proportion="0.0" vertical-offset="4256" max-vertical-offset="4940" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="59" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="228" />
@@ -803,13 +699,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="625" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/popUp_2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1064">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/development.log">
       <provider selected="true" editor-type-id="text-editor">
         <state line="384" column="17" selection-start="24303" selection-end="24303" vertical-scroll-proportion="0.0" vertical-offset="7296" max-vertical-offset="779361" />
@@ -825,13 +714,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="953" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1140">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/home.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981" />
@@ -839,30 +721,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="3" selection-start="815" selection-end="815" vertical-scroll-proportion="0.38735983" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/web.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="10" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="456">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/popUp_1.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
+        <state line="20" column="3" selection-start="815" selection-end="815" vertical-scroll-proportion="0.38735983" vertical-offset="0" max-vertical-offset="981" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513">
-          <folding />
-        </state>
+        <state line="9" column="13" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
@@ -872,95 +736,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="7" selection-start="229" selection-end="229" vertical-scroll-proportion="-8.821428" vertical-offset="0" max-vertical-offset="399">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/mobile_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/webStyle.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="58" selection-start="1358" selection-end="1394" vertical-scroll-proportion="-28.428572" vertical-offset="1104" max-vertical-offset="2033">
-          <folding />
-        </state>
+        <state line="7" column="13" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/web.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="2" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-          <folding />
-        </state>
+        <state line="11" column="2" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kakao.link.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="4000" selection-end="4000" vertical-scroll-proportion="0.0" vertical-offset="4129" max-vertical-offset="5757">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1919" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/web.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="2" selection-start="2274" selection-end="2274" vertical-scroll-proportion="0.0" vertical-offset="2216" max-vertical-offset="3192">
-          <folding />
-        </state>
+        <state line="12" column="10" selection-start="590" selection-end="590" vertical-scroll-proportion="0.2324159" vertical-offset="0" max-vertical-offset="981" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mWebStyle.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="81" selection-end="82" vertical-scroll-proportion="0.007135576" vertical-offset="145" max-vertical-offset="1273">
-          <folding />
-        </state>
+        <state line="6" column="2" selection-start="115" selection-end="150" vertical-scroll-proportion="0.119622245" vertical-offset="0" max-vertical-offset="953" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mobileScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="7" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mobile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="27" selection-start="353" selection-end="353" vertical-scroll-proportion="0.11620795" vertical-offset="0" max-vertical-offset="981" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="12" selection-start="906" selection-end="906" vertical-scroll-proportion="-10.857142" vertical-offset="114" max-vertical-offset="1064" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="15" selection-start="108" selection-end="108" vertical-scroll-proportion="0.19367991" vertical-offset="0" max-vertical-offset="981" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/webScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="38" selection-start="3983" selection-end="3983" vertical-scroll-proportion="0.38634047" vertical-offset="1217" max-vertical-offset="3420">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mobile/apply_2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="29" selection-start="1133" selection-end="1133" vertical-scroll-proportion="-20.357143" vertical-offset="0" max-vertical-offset="1064">
+        <state line="156" column="9" selection-start="5986" selection-end="5986" vertical-scroll-proportion="0.0" vertical-offset="2623" max-vertical-offset="4047">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mobile/apply_1.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/popUp_1.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="282" selection-end="282" vertical-scroll-proportion="-6.785714" vertical-offset="0" max-vertical-offset="1121">
+        <state line="15" column="31" selection-start="900" selection-end="900" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/mobile/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/popUp_2.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="52" selection-start="424" selection-end="424" vertical-scroll-proportion="-8.821428" vertical-offset="0" max-vertical-offset="1159">
+        <state line="19" column="79" selection-start="923" selection-end="936" vertical-scroll-proportion="-8.464286" vertical-offset="124" max-vertical-offset="1064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/popUp_3.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="95" selection-start="870" selection-end="870" vertical-scroll-proportion="0.31899264" vertical-offset="0" max-vertical-offset="953">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mobile.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
+        <state line="12" column="24" selection-start="667" selection-end="667" vertical-scroll-proportion="-8.142858" vertical-offset="0" max-vertical-offset="437">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/popupStyle.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="12" selection-start="121" selection-end="121" vertical-scroll-proportion="0.21839081" vertical-offset="0" max-vertical-offset="957">
+        <state line="122" column="10" selection-start="2016" selection-end="2159" vertical-scroll-proportion="0.3567681" vertical-offset="1978" max-vertical-offset="6384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mobile/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="42" selection-start="412" selection-end="412" vertical-scroll-proportion="-6.428571" vertical-offset="67" max-vertical-offset="1064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mobile/apply_1.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="36" selection-start="758" selection-end="758" vertical-scroll-proportion="0.38404256" vertical-offset="0" max-vertical-offset="1121">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/mobile/apply_2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.57872343" vertical-offset="83" max-vertical-offset="1064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mWebStyle.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="15" selection-start="80" selection-end="80" vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="1273">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/mPopupStyle.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="21" selection-start="1675" selection-end="1675" vertical-scroll-proportion="0.35886675" vertical-offset="1691" max-vertical-offset="3325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/webStyle.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="319" selection-end="319" vertical-scroll-proportion="0.35416666" vertical-offset="358" max-vertical-offset="2109">
           <folding />
         </state>
       </provider>
