@@ -2,7 +2,7 @@ require 'csv'
 time = Time.now
 i = 0
 CSV.foreach(Rails.root.join("db", "stores.csv"), headers: true) do |row|
-  sleep(0.3)
+  sleep(1)
   s = Store.create! do |store|
     store.title     = row[0]
     store.phone     = row[1]
