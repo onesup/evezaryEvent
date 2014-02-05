@@ -26,6 +26,7 @@ group :development do
   gem 'quiet_assets',       group: :development
   gem 'capistrano-rails',   group: :development
   gem 'capistrano-rbenv',   group: :development
+  gem 'capistrano-bundler'
   gem 'spring',             group: :development  
 end
 group :test do
