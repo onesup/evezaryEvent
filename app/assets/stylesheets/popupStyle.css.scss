@@ -84,8 +84,10 @@
 	margin-top: 28px;
 }
 .popUp_2_Input{
-	width: 92px;
+	width: 97px;
 	height: 36px;
+    border: 0px;
+    background-image: asset-url("popup/mobile_input.png");
 }
 .popUp_2_select{
 	width: 328px;
@@ -109,7 +111,14 @@
 .popUp_2_selectBtn{
 	margin-top: 12px;
 }
-
+.popUp_2_textarea{
+  margin-top: 28px;
+  width: 318px;
+  height: 108px;
+  resize: none;
+  border: 0px;
+  background-image: asset-url("popup/width_input.png");
+}
 
 
 /* popup 3 */
@@ -159,18 +168,24 @@
 .popUp_3_InputStyle1{
 	width: 320px;
 	height: 36px;
+    border: 0px;
+    background-image: asset-url("popup/long_input.png");
 }
 .popUp_3_InputStyle2{
-	width: 92px;
+	width: 97px;
 	height: 36px;
 	margin-top: 16px;
+    border: 0px;
+    background-image: asset-url("popup/mobile_input.png");
 }
 .popUp_3_InputStyle3{
 	width: 320px;
 	height: 36px;
 	margin-top: 16px;
 	margin-bottom: 8px;
-}
+    border: 0px;
+    background-image: asset-url("popup/long_input.png");
+ }
 
 .popUp_3_CautionLabel1{
 	margin-right: 48px;

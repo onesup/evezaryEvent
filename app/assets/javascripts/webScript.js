@@ -105,7 +105,6 @@ $(document).ready(function() {
             $('#closeModal').css('right', '-46px' );
         });
     });
-
 });
 
 function detectDevice(){
