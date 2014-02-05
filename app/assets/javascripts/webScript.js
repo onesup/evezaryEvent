@@ -21,13 +21,11 @@ $(document).ready(function() {
     $('#applyButton').click(function(e){
         _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기');
         e.preventDefault();
-        console.log("click");
         $('#popUp').load('home_popup_1', function(e) {
-            console.log("load");
             $('#popUp').modal();
             $('#closeModal').css('top', '-305px' );
             $('#closeModal').css('right', '-40px' );
-            console.log("open modal");
+            p1ClickImage(1);
             // '데이트 신청하기' 팝업에서 이미지 클릭 시
             $('#popUp_1_gi').click(function(e){
                 _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1');
@@ -190,6 +188,7 @@ $(document).ready(function() {
 });
 
 function p1ClickImage(num){
+  $("#gift-select").val(num);
     if( num == 1 ){
         $('#popUp_1_gift').css('border-width', '8px');
         $('#popUp_1_gift').css('margin', '4px');
