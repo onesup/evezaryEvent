@@ -63,6 +63,14 @@ $(document).ready(function() {
                      });
                     // '문자 보내기' 후 넘어가는 팝업
                     $('#applyPopup2_sendButton').click(function(e){
+                        var phone1 = $("#myPhone_1").val();
+                        var phone2 = $("#myPhone_2").val();
+                        var phone3 = $("#myPhone_3").val();
+                        var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                        $("#send-phone").val(send_phone);
+                        $("#my-phone-1").val(phone1);
+                        $("#my-phone-2").val(phone2);
+                        $("#my-phone-3").val(phone3);
                         _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
                         e.preventDefault();
                         $('#popUp').empty();
@@ -70,6 +78,9 @@ $(document).ready(function() {
                             $('#popUp').modal();
                             $('#closeModal').css('top', '-349px' );
                             $('#closeModal').css('right', '-46px' );
+                            $('#phone_1').val(phone1);
+                            $('#phone_2').val(phone2);
+                            $('#phone_3').val(phone3);
                             $('#apply_3_person').click(function(e){
                                 _gaq.push('send', 'event', 'button', 'click', '개인정보');
                                 e.preventDefault();
