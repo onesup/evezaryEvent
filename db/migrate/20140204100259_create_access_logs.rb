@@ -5,6 +5,7 @@ class CreateAccessLogs < ActiveRecord::Migration
       t.float :latitude
       t.float :longitude
       t.references :user, index: true
+      t.references :message, index: true
       t.string :device
       t.string :ip
 

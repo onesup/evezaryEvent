@@ -9,7 +9,7 @@ Gift.create!(title:"피자헛 상품권", total: 0, code: "4")
 time = Time.now
 i = 0
 CSV.foreach(Rails.root.join("db", "stores.csv"), headers: true) do |row|
-  sleep(0.8)
+  sleep(0.6)
   s = Store.create! do |store|
     store.title     = row[0]
     store.phone     = row[1]

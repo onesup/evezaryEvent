@@ -22,6 +22,7 @@ gem 'json'
 gem 'nokogiri'
 gem 'nori' #xml parser
 gem 'useragent'
+gem 'sucker_punch', '~> 1.0'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development

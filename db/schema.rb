@@ -18,13 +18,15 @@ ActiveRecord::Schema.define(version: 20140204100259) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
+    t.integer  "message_id"
     t.string   "device"
     t.string   "ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "access_logs", ["user_id"], name: "index_access_logs_on_user_id"
+  add_index "access_logs", ["message_id"], name: "index_access_logs_on_message_id", using: :btree
+  add_index "access_logs", ["user_id"], name: "index_access_logs_on_user_id", using: :btree
 
   create_table "gifts", force: true do |t|
     t.string   "title"
@@ -51,8 +53,8 @@ ActiveRecord::Schema.define(version: 20140204100259) do
     t.datetime "updated_at"
   end
 
-  add_index "messages", ["store_id"], name: "index_messages_on_store_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+  add_index "messages", ["store_id"], name: "index_messages_on_store_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "stores", force: true do |t|
     t.string   "title"
@@ -88,8 +90,8 @@ ActiveRecord::Schema.define(version: 20140204100259) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["gift_id"], name: "index_users_on_gift_id"
-  add_index "users", ["phone"], name: "index_users_on_phone", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["gift_id"], name: "index_users_on_gift_id", using: :btree
+  add_index "users", ["phone"], name: "index_users_on_phone", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

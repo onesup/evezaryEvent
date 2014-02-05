@@ -25,12 +25,12 @@
 
 				<!-- 메시지 -->
                 <%= image_tag("popup/2/applyPopup2_InputLabel_3.png", class: "popUp_2_InputLabel1", style: "vertical-align: top; margin-left: -2px; margin-right: 38px; margin-top: 28px;") %>
-				<textarea class = "popUp_2_textarea"></textarea>
+				<textarea class = "popUp_2_textarea" id="msg-body"></textarea>
                 <%= image_tag("popup/2/applyPopup2_Line.png", style: "margin-top: 24px;") %>
 
 				<!-- 매장선택 -->
                 <%= image_tag("popup/2/applyPopup2_InputLabel_4.png", class: "popUp_2_InputLabel3") %>
-        <%= select("message", "store_id", @log.near_stores.collect {|s| [ s.title, s.id ] }, {include_blank: '매장을 선택해주세요'}) %>
+        <%= select("message", "store_id", @log.near_stores.collect {|s| [ s.title, s.id ] }) %>
 				<!-- 라벨 -->
                 <%= image_tag("popup/2/applyPopup2_InputCautionLabel_2.png", class: "popUp_2_Label3") %>
 				<a id = "applyPopup2_nearButton" href = "#">

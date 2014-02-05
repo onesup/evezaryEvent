@@ -64,6 +64,8 @@ $(document).ready(function() {
                      });
                     // '문자 보내기' 후 넘어가는 팝업
                     $('#applyPopup2_sendButton').click(function(e){
+                        e.preventDefault();
+                        _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
                         var phone1 = $("#myPhone_1").val();
                         var phone2 = $("#myPhone_2").val();
                         var phone3 = $("#myPhone_3").val();
@@ -72,8 +74,29 @@ $(document).ready(function() {
                         $("#my-phone-1").val(phone1);
                         $("#my-phone-2").val(phone2);
                         $("#my-phone-3").val(phone3);
-                        _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
-                        e.preventDefault();
+                        var mom_phone1 = $("#momPhone_1").val();
+                        var mom_phone2 = $("#momPhone_2").val();
+                        var mom_phone3 = $("#momPhone_3").val();
+                        var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
+                		    $.ajax({
+                		      type: "POST",
+                		      url: "/messages.json",
+                		      data: {
+                  				  'message[send_phone]': send_phone,
+                            'message[dest_phone]': dest_phone,
+                            'message[msg_body]': $("#msg-body").val(),
+                            'message[store_id]': $("#message_store_id").val(),
+                            'ip': $("#ip-code").val(),
+                  			  },
+                		      dataType: "json",
+                		      headers: {
+                		        'X-Transaction': 'POST Example',
+                		        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                		      },
+                		      success: function(data){
+                            $("#message-id").val(data.id)
+                		      }
+                		    });
                         $('#popUp').empty();
                         $('#popUp').load('home_popup_3', function() {
                             $('#popUp').modal();
@@ -83,8 +106,9 @@ $(document).ready(function() {
                             $('#phone_2').val(phone2);
                             $('#phone_3').val(phone3);
                             $('#apply_3_person').click(function(e){
+                                e.preventDefault();                              
                                 _gaq.push('send', 'event', 'button', 'click', '개인정보');
-                                e.preventDefault();
+                                
                                 $('#person').css('display', 'block');
                                 $('#applyPopup3_finButton2').click(function(e){
                                     _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');

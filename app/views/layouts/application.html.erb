@@ -21,7 +21,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body id = "indexBody">
-
+<% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+<% end %>
 <%= yield %>
 
 </body>

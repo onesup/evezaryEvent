@@ -19,7 +19,16 @@ class HomeController < ApplicationController
     render layout: false
   end
   def popUp_2
-    @log = AccessLog.find(params[:ip])
+    if AccessLog.exists?(id: params[:ip])
+      @log = AccessLog.find(params[:ip])
+    else
+      device = "pc"
+      user_agent = UserAgent.parse(request.user_agent)
+      device = "mobile" if user_agent.mobile?
+      @log = AccessLog.new(ip: request.remote_ip, device: device)
+      @log.location = @log.get_location
+      @log.save
+    end
     render layout: false
   end
   def popUp_3

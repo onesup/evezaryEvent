@@ -4,19 +4,24 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.blog_code = @user.random_code
-    @user.gift = Gift.find(@user.gift_id)
-    if AccessLog.exists?(id: params["ip"])
-      unless @user.access_logs.where(id: params["ip"]).empty?
-        @user.access_logs << AccessLog.find(params["ip"])
+    unless User.exists?(phone: @user.phone)
+      @user = User.new(user_params)
+      @user.blog_code = @user.random_code
+      @user.gift = Gift.find(@user.gift_id)
+      if AccessLog.exists?(id: params["ip"])
+        unless @user.access_logs.where(id: params["ip"]).empty?
+          @user.access_logs << AccessLog.find(params["ip"])
+        end
       end
-    end
-    respond_to do |format|
-      if @user.save
-        format.json { render json: {blog_code: @user.blog_code}, status: :created }
-      else
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @user.save
+          format.json { render json: {blog_code: @user.blog_code}, status: :created }
+        else
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      format.json { render json: {notice: "error"} }
     end
   end
 
