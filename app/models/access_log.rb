@@ -15,4 +15,17 @@ class AccessLog < ActiveRecord::Base
     result = result["address"].split(";")[1] unless result.nil?
     return result
   end
+  
+  def near_stores
+    i = 1
+    length = 0
+    while length < 4
+      puts "@@"+length.to_s
+      stores = Store.near(self,i)
+      length = stores.length
+      i += 1
+    end
+    return stores
+  end
+  
 end

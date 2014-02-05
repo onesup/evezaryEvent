@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @user.blog_code = @user.random_code
     @user.gift = Gift.find(@user.gift_id)
     if AccessLog.exists?(id: params["ip"])
-      @user.access_logs << AccessLog.find(params["ip"])
+      unless @user.access_logs.where(id: params["ip"]).empty?
+        @user.access_logs << AccessLog.find(params["ip"])
+      end
     end
     respond_to do |format|
       if @user.save
