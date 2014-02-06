@@ -238,21 +238,22 @@ $(document).ready(function() {
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
         e.preventDefault();
         $('#popUp').empty();
-        $('#popUp').load('home_popup_blog', function() {
+        $('#popUp').load('home_popup_blog', function () {
             $('#popUp').modal();
-            $('#closeModal').css('top', '-225px' );
-            $('#closeModal').css('right', '-46px' );
+            $('#closeModal').css('top', '-225px');
+            $('#closeModal').css('right', '-46px');
             var viral_url = $("#blog-code").val();
-            if(viral_url === ""){
+            if (viral_url === "") {
                 alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
-            }else{
-                $("#viral-blog-url").text("http://event3.evezary.co.kr/"+viral_url);
+            } else {
+                $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
             }
-            $('#applyPopup6_finButton').click(function(e){
+            $('#applyPopup6_finButton').click(function (e) {
                 e.preventDefault();
                 _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
             });
+        });
     });
     $('#fbButton').click(function(e){
         _gaq.push('send', 'event', 'button', 'click', '페이스북 1545');
