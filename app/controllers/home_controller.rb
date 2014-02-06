@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     Rails.logger.info "@@@"+user_agent
     device = "mobile" if user_agent.mobile?
     log = AccessLog.new(ip: request.remote_ip, device: device)
-    log.location = log.get_location
+    log.location = log.get_location || "서울시 강남구 삼성동 91-25"
     log.save
     if user_agent.mobile?
       redirect_to mobile_index_path(ip: log.id)
@@ -27,7 +27,7 @@ class HomeController < ApplicationController
       user_agent = UserAgent.parse(request.user_agent)
       device = "mobile" if user_agent.mobile?
       @log = AccessLog.new(ip: request.remote_ip, device: device)
-      @log.location = @log.get_location
+      @log.location = @log.get_location || "서울시 강남구 삼성동 91-25"
       @log.save
     end
     render layout: false
