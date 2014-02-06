@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    send_phone = params["p1"] + "-" + params["p2"] + "-" + params["p3"]
     @user = User.new(user_params)
+    @user.phone = send_phone unless send_phone.nil?
     unless User.exists?(phone: @user.phone)
       @user = User.new(user_params)
       @user.blog_code = @user.random_code
@@ -15,12 +17,16 @@ class UsersController < ApplicationController
       end
       respond_to do |format|
         if @user.save
+          format.html { redirect_to(mobile_index_path, notice: 'User was successfully updated.') }
           format.json { render json: {blog_code: @user.blog_code}, status: :created }
         else
+          format.html { redirect_to(mobile_apply_2_path, notice: '입력을 다시 한 번 확인해주세요.') }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
     else
+      Rails.logger.info("오류")
+      format.html { redirect_to mobile_apply_2_path, notice: '입력을 다시 한 번 확인해주세요.' }
       format.json { render json: {notice: "error"} }
     end
   end

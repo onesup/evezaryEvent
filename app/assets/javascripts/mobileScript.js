@@ -38,13 +38,13 @@ $(document).ready(function() {
         else
         {
             _gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일');
-            location.href = "mobile_apply_2";
         }
     });
     $('#m2_personButton').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '약관 모바일');
     });
-    $('#m2_endButton').click(function(){
+    $('#m2_endButton').click(function(e){
+      e.preventDefault();
          if( $('#m2_name').val() == "" || $('#m2_phone_1').val() == "" || $('#m2_phone_2').val() == "" || $('#m2_phone_3').val() == "" || $('#m2_email').val() == "" )
         {
             alert("내용을 모두 입력해주세요.");
@@ -58,7 +58,7 @@ $(document).ready(function() {
             else
             {
                  _gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일');
-                location.href = "mobile_index";
+                 $('#mobile-user-form').submit();
             }
         }
     });
