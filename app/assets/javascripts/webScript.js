@@ -51,8 +51,9 @@ $(document).ready(function() {
 
             // '경품 선택하기' 후 넘어가는 팝업
             $('#applyPopup1_selectButton').click(function(e){
-                _gaq.push('send', 'event', 'button', 'click', '경품 선택하기');
                 e.preventDefault();
+                if( doNotSIgh_1() ){
+                _gaq.push('send', 'event', 'button', 'click', '경품 선택하기');
                 $('#popUp').empty();
                 $('#popUp').load('home_popup_2?ip='+$("#ip-code").val(), function(e) {
                     $('#popUp').modal();
@@ -135,90 +136,115 @@ $(document).ready(function() {
                               });
                                 _gaq.push('send', 'event', 'button', 'click', '감사합니다로');
                                 e.preventDefault();
+                            if( doNotSIgh_2() ){//////////////////////////////////////////////////////////////
+                                _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
                                 $('#popUp').empty();
-                                $('#popUp').load('home_popup_4', function() {
+                                $('#popUp').load('home_popup_3', function() {
                                     $('#popUp').modal();
-                                    $('#closeModal').css('top', '-150px' );
+                                    $('#closeModal').css('top', '-349px' );
                                     $('#closeModal').css('right', '-46px' );
-                                    // '완료' 후 넘어가는 팝업
-                                    $('#applyPopup4_finButton').click(function(e){
-                                        _gaq.push('send', 'event', 'button', 'click', '베스트5');
+                                    $('#apply_3_person').click(function(e){
+                                        _gaq.push('send', 'event', 'button', 'click', '개인정보');
                                         e.preventDefault();
+                                        $('#person').css('display', 'block');
+                                        $('#applyPopup3_finButton2').click(function(e){
+                                            _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
+                                             e.preventDefault();
+                                            $('#person').css('display', 'none' );
+                                         });
+                                    });
+                                    // '완료' 후 넘어가는 팝업
+                                    $('#applyPopup3_finButton').click(function(e){
+                                         e.preventDefault();
+                                        if(doNotSIgh_3()){
+                                        _gaq.push('send', 'event', 'button', 'click', '감사합니다로');
                                         $('#popUp').empty();
-                                        $('#popUp').load('home_popup_5', function() {
+                                        $('#popUp').load('home_popup_4', function() {
                                             $('#popUp').modal();
-                                            $('#closeModal').css('top', '-283px' );
-                                            $('#closeModal').css('right', '-79px' );
-
-                                            var page = 1;
-                                            var popNum = 1;
-
-                                             $('#applyPopup5_finButton_1').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '신혼베스트');
-                                                  e.preventDefault();
-                                                  if( page == 2 ){
-                                                    $('#popUp_5_move_2').css('display', 'none' );
-                                                    $('#popUp_5_move_2').css('left', '0px' );
-                                                    $('#popUp_5_move_1').css('display', 'block' );
-                                                    popNum = 1;
-                                                    page = 1;
-                                                  }
-                                             });
-                                             $('#applyPopup5_finButton_2').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '부모님 베스트');
-                                                  e.preventDefault();
-                                                  if( page == 1 ){
-                                                    $('#popUp_5_move_2').css('display', 'block' );
-                                                    $('#popUp_5_move_1').css('left', '0px' );
-                                                    $('#popUp_5_move_1').css('display', 'none' );
-                                                    popNum = 1;
-                                                    page = 2;
-                                                  }
-                                             });
-                                         
-
-                                            $('#arrow_left').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '왼쪽 버튼');
+                                            $('#closeModal').css('top', '-150px' );
+                                            $('#closeModal').css('right', '-46px' );
+                                            // '완료' 후 넘어가는 팝업
+                                            $('#applyPopup4_finButton').click(function(e){
+                                                _gaq.push('send', 'event', 'button', 'click', '베스트5');
                                                 e.preventDefault();
-                                                popNum--;
-                                                if( popNum < 1 ){
-                                                    popNum = 5;
-                                                }
-                                                if( page == 1 ){
-                                                    $('#popUp_5_move_1').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                } else if( page == 2 ){
-                                                    $('#popUp_5_move_2').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                }
-                                            });
-                                            $('#arrow_right').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '오른쪽 버튼');
-                                                e.preventDefault();
-                                                popNum++;
-                                                if( popNum > 5 ){
-                                                    popNum = 1;
-                                                }
-                                                if( page == 1 ){
-                                                    $('#popUp_5_move_1').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                } else if( page == 2 ){
-                                                    $('#popUp_5_move_2').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                }
+                                                $('#popUp').empty();
+                                                $('#popUp').load('home_popup_5', function() {
+                                                    $('#popUp').modal();
+                                                    $('#closeModal').css('top', '-283px' );
+                                                    $('#closeModal').css('right', '-79px' );
+
+                                                    var page = 1;
+                                                    var popNum = 1;
+
+                                                     $('#applyPopup5_finButton_1').click(function(e){
+                                                        _gaq.push('send', 'event', 'button', 'click', '신혼베스트');
+                                                          e.preventDefault();
+                                                          if( page == 2 ){
+                                                            $('#popUp_5_move_2').css('display', 'none' );
+                                                            $('#popUp_5_move_2').css('left', '0px' );
+                                                            $('#popUp_5_move_1').css('display', 'block' );
+                                                            popNum = 1;
+                                                            page = 1;
+                                                          }
+                                                     });
+                                                     $('#applyPopup5_finButton_2').click(function(e){
+                                                        _gaq.push('send', 'event', 'button', 'click', '부모님 베스트');
+                                                          e.preventDefault();
+                                                          if( page == 1 ){
+                                                            $('#popUp_5_move_2').css('display', 'block' );
+                                                            $('#popUp_5_move_1').css('left', '0px' );
+                                                            $('#popUp_5_move_1').css('display', 'none' );
+                                                            popNum = 1;
+                                                            page = 2;
+                                                          }
+                                                     });
+                                                 
+
+                                                    $('#arrow_left').click(function(e){
+                                                        _gaq.push('send', 'event', 'button', 'click', '왼쪽 버튼');
+                                                        e.preventDefault();
+                                                        popNum--;
+                                                        if( popNum < 1 ){
+                                                            popNum = 5;
+                                                        }
+                                                        if( page == 1 ){
+                                                            $('#popUp_5_move_1').animate({
+                                                                left: 542 * ( popNum - 1 ) * -1
+                                                            }, 500);
+                                                        } else if( page == 2 ){
+                                                            $('#popUp_5_move_2').animate({
+                                                                left: 542 * ( popNum - 1 ) * -1
+                                                            }, 500);
+                                                        }
+                                                    });
+                                                    $('#arrow_right').click(function(e){
+                                                        _gaq.push('send', 'event', 'button', 'click', '오른쪽 버튼');
+                                                        e.preventDefault();
+                                                        popNum++;
+                                                        if( popNum > 5 ){
+                                                            popNum = 1;
+                                                        }
+                                                        if( page == 1 ){
+                                                            $('#popUp_5_move_1').animate({
+                                                                left: 542 * ( popNum - 1 ) * -1
+                                                            }, 500);
+                                                        } else if( page == 2 ){
+                                                            $('#popUp_5_move_2').animate({
+                                                                left: 542 * ( popNum - 1 ) * -1
+                                                            }, 500);
+                                                        }
+                                                    });
+                                                });
                                             });
                                         });
+}
                                     });
                                 });
-                            });
+                            }
                         });
                     });
+                    }
                 });
-            });
         });
     });
     $('#blogButton').click(function(e){
@@ -245,6 +271,49 @@ $(document).ready(function() {
         window.open(fb_url, 'window', "width = '300px', height = '200px'");
     });
 });
+
+function doNotSIgh_1(){
+    if( $('#popUp_1_gift').css('border-width') == "0px" && $('#popUp_2_gift').css('border-width') == "0px" && $('#popUp_3_gift').css('border-width') == "0px" && $('#popUp_4_gift').css('border-width') == "0px" )
+    {
+        alert("내용을 모두 입력해주세요.");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function doNotSIgh_2(){
+    if( $('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" ||  $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#textarea_2').val() == "" )
+    {
+        alert("내용을 모두 입력해주세요.");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function doNotSIgh_3(){
+    if( $('#myName').val() == "" || $('#phone_1').val() == "" || $('#phone_2').val() == "" || $('#phone_3').val() == ""   )
+    {
+        alert("내용을 모두 입력해주세요.");
+        return false;
+    }
+    else
+    {
+        if($(':radio[name="agree"]:checked').val() == "d")
+        {
+          alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
 
 function p1ClickImage(num){
   $("#gift-select").val(num);

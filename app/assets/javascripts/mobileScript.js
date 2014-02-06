@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $("#message_store_id").click(function(e){
+  $("#message_store_id").change(function(e){
+    console.log("kjf");
     navigator.geolocation.getCurrentPosition (function (pos)
     {
       var lat = pos.coords.latitude;
@@ -13,7 +14,7 @@ $(document).ready(function() {
 	        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
 	      },
 	      success: function(data){
-          console.log(data.stores)
+          console.log(data.stores);
 	      }
     });
   });
