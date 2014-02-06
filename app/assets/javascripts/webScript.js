@@ -20,7 +20,8 @@ $(document).ready(function() {
     $("#ip-code").val(ip);
     // '데이트 신청하기' 버튼 클릭시
     $('#applyButton').click(function(e){
-        _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기');
+        _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 1541');
+        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1541');
         e.preventDefault();
         $('#popUp').load('home_popup_1', function(e) {
             $('#popUp').modal();
@@ -53,7 +54,8 @@ $(document).ready(function() {
             $('#applyPopup1_selectButton').click(function(e){
                 e.preventDefault();
                 if( doNotSIgh_1() ){
-                    _gaq.push('send', 'event', 'button', 'click', '경품 선택하기');
+                    _gaq.push('send', 'event', 'button', 'click', '경품 선택하기 1542');
+                    loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1542');
                 $('#popUp').empty();
                 $('#popUp').load('home_popup_2?ip='+$("#ip-code").val(), function(e) {
                     $('#popUp').modal();
@@ -67,8 +69,8 @@ $(document).ready(function() {
                     $('#applyPopup2_sendButton').click(function(e){
                         e.preventDefault();
                         if( doNotSIgh_2() ){
-                        
-                        _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
+                        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
+                        _gaq.push('send', 'event', 'button', 'click', '문자 보내기 1543');
                         var phone1 = $("#myPhone_1").val();
                         var phone2 = $("#myPhone_2").val();
                         var phone3 = $("#myPhone_3").val();
@@ -118,6 +120,7 @@ $(document).ready(function() {
                             });
                             // '완료' 후 넘어가는 팝업
                             $('#applyPopup3_finButton').click(function(e){
+                               
                                 e.preventDefault();
                                 if(doNotSIgh_3()){
                               var phone1 = $("#phone_1").val();
@@ -138,8 +141,9 @@ $(document).ready(function() {
                                   $("#blog-code").val(data.blog_code)
                                 }
                               });
-                                _gaq.push('send', 'event', 'button', 'click', '감사합니다로');
-                                
+                                _gaq.push('send', 'event', 'button', 'click', '감사합니다로 1544');
+                                alert("adfs");
+                                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
                                 $('#popUp').empty();
                                 $('#popUp').load('home_popup_4', function() {
                                     $('#popUp').modal();
@@ -147,7 +151,7 @@ $(document).ready(function() {
                                     $('#closeModal').css('right', '-46px' );
                                     // '완료' 후 넘어가는 팝업
                                     $('#applyPopup4_finButton').click(function(e){
-                                        _gaq.push('send', 'event', 'button', 'click', '베스트5');
+                                        _gaq.push('send', 'event', 'button', 'click', '베스트5 ');
                                         e.preventDefault();
                                         $('#popUp').empty();
                                         $('#popUp').load('home_popup_5', function() {
@@ -230,7 +234,8 @@ $(document).ready(function() {
         });
     });
     $('#blogButton').click(function(e){
-        _gaq.push('send', 'event', 'button', 'click', '블로그');
+        _gaq.push('send', 'event', 'button', 'click', '블로그 1546');
+        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
         e.preventDefault();
         $('#popUp').empty();
         $('#popUp').load('home_popup_blog', function() {
@@ -243,10 +248,17 @@ $(document).ready(function() {
             }else{
               $("#viral-blog-url").text("http://event3.evezary.co.kr/"+viral_url);
             }
+             $('#applyPopup6_finButton').click(function(e){
+                e.preventDefault();
+                _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+                loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+            }
+            
         });
     });
     $('#fbButton').click(function(e){
-        _gaq.push('send', 'event', 'button', 'click', '페이스북');
+        _gaq.push('send', 'event', 'button', 'click', '페이스북 1545');
+        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
         e.preventDefault();
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/'+viral_url
@@ -409,3 +421,19 @@ function loopCloud(){
     $('#cloud_4').css('margin-left', c4_left);
 }
 //
+function loadJsFile(filename){
+
+var fileref=document.createElement('script');
+
+fileref.setAttribute("type","text/javascript");
+
+fileref.setAttribute("src", filename);
+
+if(typeof fileref!="undefined"){
+
+document.getElementsByTagName("head")[0].appendChild(fileref);
+
+}
+
+}
+
