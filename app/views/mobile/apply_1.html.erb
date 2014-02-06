@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>EvezaryEvent</title>
+  <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= javascript_include_tag "mobile" %>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -13,10 +15,26 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
+$(document).ready(function() {
+  navigator.geolocation.getCurrentPosition (function (pos)
+  {
+    var lat = pos.coords.latitude;
+    var lng = pos.coords.longitude;
+    $.ajax({
+      type: "GET",
+      url: "/near_stores.json?lat="+lat+"&lng="+lng,
+      dataType: "json",
+      headers: {
+        'X-Transaction': 'POST Example',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(data){
+        console.log(data.stores);
+      }
+    });
+  });
+});
 </script>
-  <%= stylesheet_link_tag    "mobile", media: "all" %>
-  <%= javascript_include_tag "mobile" %>
   <%= csrf_meta_tags %>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
 </head>

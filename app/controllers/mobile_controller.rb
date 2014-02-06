@@ -3,7 +3,7 @@ class MobileController < ApplicationController
   def near_stores
     lat = params["lat"]
     lng = params["lng"]
-    stores = Store.near(params)
+    stores = Store.near(lat,lng)
     respond_to do |format|      
       format.json { render json: {stores: stores}}
     end
