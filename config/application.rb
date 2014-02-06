@@ -20,7 +20,7 @@ module EvezaryEvent
       'application.js', 'application.css', 
       'admin.js', 'admin.css', 
       'web.css', 'web.js',
-      'mobile.css'
+      'mobile.css', 'mobile.js'
     ]
   end
 end
