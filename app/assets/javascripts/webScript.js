@@ -277,7 +277,7 @@ function doNotSIgh_2(){
 }
 
 function doNotSIgh_3(){
-    if( $('#myName').val() == "" || $('#phone_1').val() == "" || $('#phone_2').val() == "" || $('#phone_3').val() == ""   )
+    if( $('#myName').val() == "" || $('#phone_1').val() == "" || $('#phone_2').val() == "" || $('#phone_3').val() == "" || $('#myEmail').val() == ""  )
     {
         alert("내용을 모두 입력해주세요.");
         return false;
