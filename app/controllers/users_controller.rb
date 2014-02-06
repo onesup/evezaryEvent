@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    send_phone = params["p1"] + "-" + params["p2"] + "-" + params["p3"]
+    send_phone = params["p1"].to_s + "-" + params["p2"].to_s + "-" + params["p3"].to_s
     @user = User.new(user_params)
-    @user.phone = send_phone unless send_phone.nil?
+    @user.phone = send_phone unless send_phone == "--"
     unless User.exists?(phone: @user.phone)
       @user = User.new(user_params)
       @user.blog_code = @user.random_code
@@ -25,9 +25,16 @@ class UsersController < ApplicationController
         end
       end
     else
-      Rails.logger.info("오류")
-      format.html { redirect_to mobile_apply_2_path, notice: '입력을 다시 한 번 확인해주세요.' }
-      format.json { render json: {notice: "error"} }
+      @user = User.find_by_phone(@user.phone)
+      if @user.blog_code.nil?
+        @user.blog_code = @user.random_code 
+        @user.save
+      end
+      Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
+      respond_to do |format|
+        format.html { redirect_to(mobile_index_path, notice: '이미 참여하셨습니다.') }
+        format.json { render json: {blog_code: @user.blog_code}, status: :created }
+      end
     end
   end
 

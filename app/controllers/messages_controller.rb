@@ -3,13 +3,13 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    send_phone = params["my-phone-1"] + "-" + params["my-phone-2"] + "-" + params["my-phone-3"]
-    dest_phone = params["mom-phone-1"] + "-" + params["mom-phone-2"] + "-" + params["mom-phone-3"]
-    send_phone_hash = {p1: params["my-phone-1"], p2: params["my-phone-2"], p3: params["my-phone-3"]}
+    send_phone = params["my-phone-1"].to_s + "-" + params["my-phone-2"].to_s + "-" + params["my-phone-3"].to_s
+    dest_phone = params["mom-phone-1"].to_s + "-" + params["mom-phone-2"].to_s + "-" + params["mom-phone-3"].to_s
+    send_phone_hash = {p1: params["my-phone-1"].to_s, p2: params["my-phone-2"].to_s, p3: params["my-phone-3"].to_s}
     @message = Message.new(message_params)
     @message.sent_at = Time.now
-    @message.send_phone = send_phone unless send_phone.nil?
-    @message.dest_phone = dest_phone unless dest_phone.nil?
+    @message.send_phone = send_phone unless send_phone == "--"
+    @message.dest_phone = dest_phone unless dest_phone == "--"
     respond_to do |format|
       if @message.save
         MessageJob.new.async.perform(@message)

@@ -134,7 +134,7 @@ $(document).ready(function () {
                                                     'ip': $("#ip-code").val()
                                                 },
                                                 success: function (data) {
-                                                    $("#blog-code").val(data.blog_code)
+                                                    $("#blog-code").val(data.blog_code);
                                                 }
                                             });
                                             _gaq.push('send', 'event', 'button', 'click', '감사합니다로 1544');
