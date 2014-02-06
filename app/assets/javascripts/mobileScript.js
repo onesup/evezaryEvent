@@ -2,11 +2,11 @@ $(document).ready(function() {
 
     $('#mobile_k').click(function(){
         kakao.link("talk").send({
-            msg : "이브자리 이벤트3에 참여하세요!!; \n상품 짱많음!!!!!",
+            msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
             url : "http://event3.evezary.co.kr",
             appid : "event3.evezary.co.kr",
             appver : "1.0",
-            appname : "이브자리",
+            appname : "엄마와 특별한데이트",
             type : "link"
         });
         _gaq.push('send', 'event', 'button', 'click', '카톡 모바일 1551');
@@ -14,11 +14,16 @@ $(document).ready(function() {
     });
     $('#mobile_ks').click(function(){
         kakao.link("story").send({
-            post : "이브자리 이벤트3에 참여하세요!!; \n상품 짱많음!!!!! \nhttp://event3.evezary.co.kr",
+            post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
             appid : "event3.evezary.co.kr",
             appver : "1.0",
-            appname : "이브자리",
-            urlinfo : JSON.stringify({title:"이브자리 이벤트3!", desc:"이브자리 이벤트3 부제목.", imageurl:["http://rm-rf.kr/sigh.png"], type:"article"})
+            appname : "엄마와 특별한데이트",
+            urlinfo : JSON.stringify({
+                title:"엄마와 특별한데이트", 
+                desc:"지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!", 
+                imageurl:["http://i.imgur.com/Mmjnq8n.jpg"], 
+                type:"article"
+            })
         });
         _gaq.push('send', 'event', 'button', 'click', '카스 모바일 1552');
          loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
