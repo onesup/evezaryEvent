@@ -67,7 +67,6 @@ $(document).ready(function() {
                     $('#applyPopup2_sendButton').click(function(e){
                         e.preventDefault();
                         if( doNotSIgh_2() ){
-                        
                         _gaq.push('send', 'event', 'button', 'click', '문자 보내기');
                         var phone1 = $("#myPhone_1").val();
                         var phone2 = $("#myPhone_2").val();
@@ -87,12 +86,11 @@ $(document).ready(function() {
                           data: {
                             'message[send_phone]': send_phone,
                             'message[dest_phone]': dest_phone,
-                            'message[msg_body]': $("#popUp_2_textarea").val(),
+                            'message[msg_body]': $("#textarea_2").val(),
                             'message[store_id]': $("#message_store_id").val(),
                             'ip': $("#ip-code").val()
                           },
-                          dataType: "json",                          
-                          contentType: "application/json; charset=utf-8",
+                          dataType: "json",
                           success: function(data){
                             $("#message-id").val(data.id)
                           }
