@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def create
     send_phone = params["my-phone-1"] + "-" + params["my-phone-2"] + "-" + params["my-phone-3"]
     dest_phone = params["mom-phone-1"] + "-" + params["mom-phone-2"] + "-" + params["mom-phone-3"]
-    
+    send_phone_hash = {p1: params["my-phone-1"], p2: params["my-phone-2"], p3: params["my-phone-3"]}
     @message = Message.new(message_params)
     @message.sent_at = Time.now
     @message.send_phone = send_phone unless send_phone.nil?
@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
       if @message.save
         MessageJob.new.async.perform(@message)
         format.json { render json: {result: @message.result, id: @message.id}, status: :created }
-        format.html { redirect_to mobile_apply_2_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to mobile_apply_2_path(send_phone_hash), notice: 'User was successfully updated.' }
       else
         format.json { render json: @message.errors, status: :unprocessable_entity }
         format.html { redirect_to mobile_apply_1_path, notice: '입력을 다시 한 번 확인해주세요.' }
