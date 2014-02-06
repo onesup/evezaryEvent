@@ -3,14 +3,21 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    send_phone = params["my-phone-1"] + "-" + params["my-phone-2"] + "-" + params["my-phone-3"]
+    dest_phone = params["mom-phone-1"] + "-" + params["mom-phone-2"] + "-" + params["mom-phone-3"]
+    
     @message = Message.new(message_params)
     @message.sent_at = Time.now
+    @message.send_phone = send_phone unless send_phone.nil?
+    @message.dest_phone = dest_phone unless dest_phone.nil?
     respond_to do |format|
       if @message.save
         MessageJob.new.async.perform(@message)
         format.json { render json: {result: @message.result, id: @message.id}, status: :created }
+        format.html { redirect_to mobile_apply_2_path, notice: 'User was successfully updated.' }
       else
         format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.html { redirect_to mobile_apply_1_path, notice: '입력을 다시 한 번 확인해주세요.' }
       end
     end
   end
