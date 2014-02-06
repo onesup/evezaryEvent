@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require kakao.link
 //= require mobileScript.js
-
+//= require purl.js

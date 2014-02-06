@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "mobile_apply_1" => "mobile#apply_1"
   get "mobile_apply_2" => "mobile#apply_2"
   get "mobile_person" => "mobile#person"
-
+  get "near_stores" => "mobile#near_stores"
   get "home_index" => "home#index"
   get "home_popup_1" => "home#popUp_1"
   get "home_popup_2" => "home#popUp_2"
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resources :users
     resources :messages
   end
-  root :to => "home#index"
+  root :to => "home#switch"
 end

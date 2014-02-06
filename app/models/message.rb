@@ -46,8 +46,7 @@ class Message < ActiveRecord::Base
     self.cmid = cmid
     self.result = result
     self.call_status = call_status
-    self.save!
-    
+    self.save!    
     return call_status
   end
 end

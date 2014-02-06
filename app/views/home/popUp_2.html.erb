@@ -30,13 +30,7 @@
 
 				<!-- 매장선택 -->
                 <%= image_tag("popup/2/applyPopup2_InputLabel_4.png", class: "popUp_2_InputLabel3") %>
-				<select class = "popUp_2_select">
-					<option>form의 디자인 개선 및 밸류값 주입 필요.</option>
-					<option>방배동 코디센 매장 1.</option>
-					<option>방배동 코디센 매장 2.</option>
-					<option>방배동 코디센 매장 3.</option>
-				</select>
-
+        <%= select("message", "store_id", @log.near_stores.collect {|s| [ s.title, s.id ] }) %>
 				<!-- 라벨 -->
                 <%= image_tag("popup/2/applyPopup2_InputCautionLabel_2.png", class: "popUp_2_Label3") %>
 				<a id = "applyPopup2_nearButton" href = "#">

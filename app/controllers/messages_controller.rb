@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
     @message.sent_at = Time.now
     respond_to do |format|
       if @message.save
-        @message.send_mms
-        format.json { render json: @message.result, status: :created }
+        MessageJob.new.async.perform(@message)
+        format.json { render json: {result: @message.result, id: @message.id}, status: :created }
       else
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end

@@ -60,15 +60,15 @@
 }
 
 .popUp_2_inputBox{
-  width: 452px;
+  width: 467px;
   height: 431px;
   background-image: asset-url("popup/2/applyPopup2_BG2.png");
-  margin-left: 41px;
+  margin: 0 auto;
   margin-top: 24px;
   margin-bottom: 32px;
   padding-top: 32px;
   padding-bottom: 16px;
-  padding-left: 48px;
+  padding-left: 33px;
   text-align: left;
 }
 
@@ -95,7 +95,7 @@
   padding-left: 22px;
   padding-right: 22px;
 }
-.popUp_2_select{
+#message_store_id{
   width: 328px;
   height: 38px;
   resize: none;

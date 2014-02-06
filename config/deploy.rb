@@ -27,7 +27,7 @@ set :user, "deployer"
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -54,7 +54,7 @@ set :rbenv_ruby, "2.1.0"
 #set :migration_role, 'migrator'
 
 # Defaults to [:web]
-set :assets_roles, [:app]
+set :assets_roles, [:web, :app]
 
 # Defaults to 'assets' this should match config.assets.prefix in your rails config/application.rb
 # set :assets_prefix, 'prepackaged-assets'

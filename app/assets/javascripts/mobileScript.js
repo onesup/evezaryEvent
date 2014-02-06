@@ -1,4 +1,23 @@
 $(document).ready(function() {
+  $("#message_store_id").change(function(e){
+    console.log("kjf");
+    navigator.geolocation.getCurrentPosition (function (pos)
+    {
+      var lat = pos.coords.latitude;
+      var lng = pos.coords.longitude;
+	    $.ajax({
+	      type: "GET",
+	      url: "/near_stores.json?lat="+lat+"&lng="+lng,
+	      dataType: "json",
+	      headers: {
+	        'X-Transaction': 'POST Example',
+	        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+	      },
+	      success: function(data){
+          console.log(data.stores);
+	      }
+    });
+  });
     $('#mobile_k').click(function(){
         kakao.link("talk").send({
             msg : "이브자리 이벤트3에 참여하세요!!; \n상품 짱많음!!!!!",

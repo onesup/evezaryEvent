@@ -4,15 +4,24 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    unless User.exists?(phone: @user.phone)
+      @user = User.new(user_params)
+      @user.blog_code = @user.random_code
+      @user.gift = Gift.find(@user.gift_id)
+      if AccessLog.exists?(id: params["ip"])
+        unless @user.access_logs.where(id: params["ip"]).empty?
+          @user.access_logs << AccessLog.find(params["ip"])
+        end
       end
+      respond_to do |format|
+        if @user.save
+          format.json { render json: {blog_code: @user.blog_code}, status: :created }
+        else
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      format.json { render json: {notice: "error"} }
     end
   end
 
@@ -38,6 +47,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :phone, :email, :gift_id)
     end
 end

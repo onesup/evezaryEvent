@@ -87,7 +87,7 @@ $(document).ready(function() {
                           data: {
                             'message[send_phone]': send_phone,
                             'message[dest_phone]': dest_phone,
-                            'message[msg_body]': $("#msg-body").val(),
+                            'message[msg_body]': $("#popUp_2_textarea").val(),
                             'message[store_id]': $("#message_store_id").val(),
                             'ip': $("#ip-code").val()
                           },
