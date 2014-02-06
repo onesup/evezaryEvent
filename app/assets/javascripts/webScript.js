@@ -138,7 +138,6 @@ $(document).ready(function () {
                                                 }
                                             });
                                             _gaq.push('send', 'event', 'button', 'click', '감사합니다로 1544');
-                                            alert("adfs");
                                             loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
                                             $('#popUp').empty();
                                             $('#popUp').load('home_popup_4', function () {
@@ -235,14 +234,14 @@ $(document).ready(function () {
         e.preventDefault();
         $('#popUp').empty();
         $('#popUp').load('home_popup_blog', function () {
-            $('#popUp').modal();
-            $('#closeModal').css('top', '-225px');
-            $('#closeModal').css('right', '-46px');
             var viral_url = $("#blog-code").val();
             if (viral_url === "") {
-                alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+              alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
             } else {
-                $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+              $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+              $('#popUp').modal();
+              $('#closeModal').css('top', '-225px');
+              $('#closeModal').css('right', '-46px');
             }
             $('#applyPopup6_finButton').click(function (e) {
                 e.preventDefault();
