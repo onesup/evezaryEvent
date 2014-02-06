@@ -15,21 +15,41 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+
+  var opts = {
+    lines: 13, // The number of lines to draw
+    length: 20, // The length of each line
+    width: 10, // The line thickness
+    radius: 10, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    left: 40-40,
+    top: 29-40
+  };
+
 $(document).ready(function() {
-  navigator.geolocation.getCurrentPosition (function (pos)
-  {
+  var target = document.getElementById('spin_wrap');
+  var spinner = new Spinner(opts).spin(target);
+  navigator.geolocation.getCurrentPosition (function (pos){
     var lat = pos.coords.latitude;
     var lng = pos.coords.longitude;
     $.ajax({
       type: "GET",
       url: "/near_stores.json?lat="+lat+"&lng="+lng,
       dataType: "json",
-      headers: {
-        'X-Transaction': 'POST Example',
-        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      },
       success: function(data){
-        console.log(data.stores);
+        $.each(data.stores, function(key, value) {
+          $('#message_store_id').append($('<option>', { key : key }).text(value)); 
+        });
+        spinner.stop();
       }
     });
   });
@@ -60,26 +80,25 @@ $(document).ready(function() {
       <input type = 'text' id = 'momPhone_3' class = 'mp1_input' maxlength="4" /><br />
 
       <!-- 메시지 -->
-      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." class = "mp1_textArea"></textarea>
+      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." id = "ta" class = "mp1_textArea"></textarea>
 
       <!-- 매장선택 -->
-      <select class = "mp1_select" id="message_store_id">
-        <option>매장 선택시 고객님의 현재 위치를 제공받습니다.</option>
-        <option>방배동 코디센 매장 1.</option>
-        <option>방배동 코디센 매장 2.</option>
-        <option>방배동 코디센 매장 3.</option>
-      </select>
+      <div id="spin_wrap">
+        <select class = "mp1_select" id="message_store_id">
+          <!-- <option>매장 선택시 고객님의 현재 위치를 제공받습니다.</option> -->
+        </select>
+      </div>
 
       <!-- 라벨 -->
       <%= image_tag("mpopup/1/m1_Label4.png", class:"mp1_Label2") %>
-      <a href = "#" onclick = "_gaq.push('send', 'event', 'button', 'click', '위치 모바일');">
+      <a href = "#" id = "location">
         <%= image_tag("mpopup/1/m1_SelectButton.png", class:"mp1_selectBtn") %>
       </a>
     </form>
   </div>
-  <%= link_to mobile_apply_2_path, id:"m1_sendButton", onclick: "_gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일');" do %>
+  <a id = "m1_sendButton" href = "#">
       <%= image_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
-  <% end %>
+  <a>
 </div>
 </body>
 </html>

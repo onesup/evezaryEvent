@@ -36,7 +36,7 @@
     <%= image_tag("mobile/Image_1.png", class:"mobile") %>
     <br />
   </div>
-  <%= link_to mobile_apply_1_path, onlick: " _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 모바일');", id:"mobile_apply" do %>
+  <%= link_to mobile_apply_1_path, id:"mobile_apply" do %>
       <%= image_tag("mobile/apply_button.png", class:"mobile_1") %>
   <% end %>
   <!-- 소문내기 -->
@@ -45,11 +45,11 @@
     <p class = "">
       <%= image_tag("mobile/Label_2.png", class:"label1") %>
     </p>
-    <a id = "mobile_k" href = "#" onclick = "_gaq.push('send', 'event', 'button', 'click', '카톡 모바일');"><%= image_tag("mobile/share_Kakao.png", class:"Button") %></a>
+    <a id = "mobile_k" href = "#"><%= image_tag("mobile/share_Kakao.png", class:"Button") %></a>
     <br />
-    <a id = "mobile_ks" href = "#" onclick = "_gaq.push('send', 'event', 'button', 'click', '카스 모바일');"><%= image_tag("mobile/share_Kakaostory.png", class:"Button") %></a>
+    <a id = "mobile_ks" href = "#" ><%= image_tag("mobile/share_Kakaostory.png", class:"Button") %></a>
     <br />
-    <a id = "mobile_f" href = "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr" onclick = "_gaq.push('send', 'event', 'button', 'click', '페북버튼 모바일');" target = "_blank"><%= image_tag("mobile/share_Facebook.png", class:"Button") %></a>
+    <a id = "mobile_f" href = "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr" target = "_blank"><%= image_tag("mobile/share_Facebook.png", class:"Button") %></a>
     <br />
     <%= image_tag("mobile/dotLine.png", class:"Line") %>
     <br />

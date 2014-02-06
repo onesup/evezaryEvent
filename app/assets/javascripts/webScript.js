@@ -287,6 +287,7 @@ function doNotSIgh_3(){
         if($(':radio[name="agree"]:checked').val() == "d")
         {
           alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
+          return false;
         }
         else
         {

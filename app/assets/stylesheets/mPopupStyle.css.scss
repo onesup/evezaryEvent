@@ -31,11 +31,11 @@
     margin-top: 5%;
 }
 .mp1_input{
-    width: 17%;
+    width: 16%;
     font-size: 1.2em;
     padding-left: 4%;
     padding-right: 4%;
-
+    border-width: 1px;
 }
 .mp1_lineLabel{
     width: 0.8%;
@@ -48,6 +48,8 @@
     width: 96%;
     height: 9em;
     resize: none;
+    border-width: 1px;
+    border-color: #999999;
 }
 .mp1_select{
     width: 97%;
@@ -107,6 +109,7 @@
     font-size: 1.2em;
     padding-left: 4%;
     padding-right: 4%;
+    border-width: 1px;
 }
 .mp2_Label4{
     width: 12%;
@@ -118,11 +121,13 @@
     font-size: 1.2em;
     padding-left: 4%;
     padding-right: 4%;
+    border-width: 1px;
 }
 .mp2_lineLabel{
     width: 0.8%;
     margin-right: -0.4%;
     margin-left: -0.4%;
+    border-width: 1px;
 }
 
 .mp2_Label5{

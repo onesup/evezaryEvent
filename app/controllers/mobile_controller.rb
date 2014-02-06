@@ -7,13 +7,18 @@ class MobileController < ApplicationController
     length = 0
     while length < 4
       puts "@@search stores: "+length.to_s
-      stores = Store.near([lat,lng], i)
-      length = stores.length
+      @stores = Store.near([lat,lng], i)
+      length = @stores.length
       i += 1
-    end    
-    respond_to do |format|      
-      format.json { render json: {stores: stores}}
-    end  
+    end
+    # options = Array.new
+    # stores.each do |store|
+    #   options << {store.id => store.title}
+    # end
+    # 
+    # respond_to do |format|      
+    #   format.json { render json: {stores: options.to_json}}
+    # end  
   end
   
   def index
