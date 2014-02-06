@@ -78,25 +78,22 @@ $(document).ready(function() {
                         var mom_phone2 = $("#momPhone_2").val();
                         var mom_phone3 = $("#momPhone_3").val();
                         var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
-                		    $.ajax({
-                		      type: "POST",
-                		      url: "/messages.json",
-                		      data: {
-                  				  'message[send_phone]': send_phone,
+                        $.ajax({
+                          type: "POST",
+                          url: "/messages.json",
+                          data: {
+                            'message[send_phone]': send_phone,
                             'message[dest_phone]': dest_phone,
                             'message[msg_body]': $("#msg-body").val(),
                             'message[store_id]': $("#message_store_id").val(),
-                            'ip': $("#ip-code").val(),
-                  			  },
-                		      dataType: "json",
-                		      headers: {
-                		        'X-Transaction': 'POST Example',
-                		        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                		      },
-                		      success: function(data){
+                            'ip': $("#ip-code").val()
+                          },
+                          dataType: "json",                          
+                          contentType: "application/json; charset=utf-8",
+                          success: function(data){
                             $("#message-id").val(data.id)
-                		      }
-                		    });
+                          }
+                        });
                         $('#popUp').empty();
                         $('#popUp').load('home_popup_3', function() {
                             $('#popUp').modal();
@@ -122,27 +119,20 @@ $(document).ready(function() {
                               var phone2 = $("#phone_2").val();
                               var phone3 = $("#phone_3").val();
                               var send_phone = phone1 + "-" + phone2 + "-" + phone3;
-                      		    $.ajax({
-                      		      type: "POST",
-                      		      url: "/users.json",
-                      		      data: {
-                      				  'user[name]': $("#myName").val(),
-                      				  'user[phone]': send_phone,
-                      				  'user[email]': $("#myEmail").val(),
-                                'user[gift_id]': $("#gift-select").val(),
-                                'ip': $("#ip-code").val(),
-                      			  },
-                      		      dataType: "json",
-                      		      headers: {
-                      		        'X-Transaction': 'POST Example',
-                      		        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                      		      },
-                      		      success: function(data){
+                              $.ajax({
+                                type: "POST",
+                                url: "/users.json",
+                                data: {
+                                  'user[name]': $("#myName").val(),
+                                  'user[phone]': send_phone,
+                                  'user[email]': $("#myEmail").val(),
+                                  'user[gift_id]': $("#gift-select").val(),
+                                  'ip': $("#ip-code").val()
+                                },
+                                success: function(data){
                                   $("#blog-code").val(data.blog_code)
-                      		      }
-                      		    });
-                              
-                                
+                                }
+                              });
                                 _gaq.push('send', 'event', 'button', 'click', '감사합니다로');
                                 e.preventDefault();
                                 $('#popUp').empty();

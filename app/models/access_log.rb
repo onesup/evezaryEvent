@@ -20,7 +20,7 @@ class AccessLog < ActiveRecord::Base
     i = 1
     length = 0
     while length < 4
-      puts "@@"+length.to_s
+      puts "@@search stores: "+length.to_s
       stores = Store.near(self,i)
       length = stores.length
       i += 1

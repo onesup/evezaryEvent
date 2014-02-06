@@ -16,6 +16,7 @@
 
 </script>
   <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= javascript_include_tag "mobile" %>
   <%= csrf_meta_tags %>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
 </head>
@@ -44,8 +45,8 @@
       <textarea  title = "엄마에게 전달할 메시지를 적어보세요." class = "mp1_textArea"></textarea>
 
       <!-- 매장선택 -->
-      <select class = "mp1_select">
-        <option>form의 디자인 개선 및 밸류값 주입 필요.</option>
+      <select class = "mp1_select" id="message_store_id">
+        <option>매장 선택시 고객님의 현재 위치를 제공받습니다.</option>
         <option>방배동 코디센 매장 1.</option>
         <option>방배동 코디센 매장 2.</option>
         <option>방배동 코디센 매장 3.</option>
