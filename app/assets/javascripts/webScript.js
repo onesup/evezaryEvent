@@ -56,181 +56,181 @@ $(document).ready(function() {
                 if( doNotSIgh_1() ){
                     _gaq.push('send', 'event', 'button', 'click', '경품 선택하기 1542');
                     loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1542');
-                $('#popUp').empty();
-                $('#popUp').load('home_popup_2?ip='+$("#ip-code").val(), function(e) {
-                    $('#popUp').modal();
-                    $('#closeModal').css('top', '-391px' );
-                    $('#closeModal').css('right', '-46px' );
-                     $('#applyPopup2_nearButton').click(function(e){
-                        e.preventDefault();
-                        //근처 매장 버튼 눌렀을 때
-                     });
-                    // '문자 보내기' 후 넘어가는 팝업
-                    $('#applyPopup2_sendButton').click(function(e){
-                        e.preventDefault();
-                        if( doNotSIgh_2() ){
-                        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
-                        _gaq.push('send', 'event', 'button', 'click', '문자 보내기 1543');
-                        var phone1 = $("#myPhone_1").val();
-                        var phone2 = $("#myPhone_2").val();
-                        var phone3 = $("#myPhone_3").val();
-                        var send_phone = phone1 + "-" + phone2 + "-" + phone3;
-                        $("#send-phone").val(send_phone);
-                        $("#my-phone-1").val(phone1);
-                        $("#my-phone-2").val(phone2);
-                        $("#my-phone-3").val(phone3);
-                        var mom_phone1 = $("#momPhone_1").val();
-                        var mom_phone2 = $("#momPhone_2").val();
-                        var mom_phone3 = $("#momPhone_3").val();
-                        var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
-                        $.ajax({
-                          type: "POST",
-                          url: "/messages.json",
-                          data: {
-                            'message[send_phone]': send_phone,
-                            'message[dest_phone]': dest_phone,
-                            'message[msg_body]': $("#popUp_2_textarea").val(),
-                            'message[store_id]': $("#message_store_id").val(),
-                            'ip': $("#ip-code").val()
-                          },
-                          dataType: "json",                          
-                          contentType: "application/json; charset=utf-8",
-                          success: function(data){
-                            $("#message-id").val(data.id)
-                          }
+                    $('#popUp').empty();
+                    $('#popUp').load('home_popup_2?ip='+$("#ip-code").val(), function(e) {
+                        $('#popUp').modal();
+                        $('#closeModal').css('top', '-391px' );
+                        $('#closeModal').css('right', '-46px' );
+                        $('#applyPopup2_nearButton').click(function(e){
+                            e.preventDefault();
+                            //근처 매장 버튼 눌렀을 때
                         });
-                        $('#popUp').empty();
-                        $('#popUp').load('home_popup_3', function() {
-                            $('#popUp').modal();
-                            $('#closeModal').css('top', '-349px' );
-                            $('#closeModal').css('right', '-46px' );
-                            $('#phone_1').val(phone1);
-                            $('#phone_2').val(phone2);
-                            $('#phone_3').val(phone3);
-                            $('#apply_3_person').click(function(e){
-                                e.preventDefault();                              
-                                _gaq.push('send', 'event', 'button', 'click', '개인정보');
-                                
-                                $('#person').css('display', 'block');
-                                $('#applyPopup3_finButton2').click(function(e){
-                                    _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
-                                     e.preventDefault();
-                                    $('#person').css('display', 'none' );
-                                 });
-                            });
-                            // '완료' 후 넘어가는 팝업
-                            $('#applyPopup3_finButton').click(function(e){
-                               
-                                e.preventDefault();
-                                if(doNotSIgh_3()){
-                              var phone1 = $("#phone_1").val();
-                              var phone2 = $("#phone_2").val();
-                              var phone3 = $("#phone_3").val();
-                              var send_phone = phone1 + "-" + phone2 + "-" + phone3;
-                              $.ajax({
-                                type: "POST",
-                                url: "/users.json",
-                                data: {
-                                  'user[name]': $("#myName").val(),
-                                  'user[phone]': send_phone,
-                                  'user[email]': $("#myEmail").val(),
-                                  'user[gift_id]': $("#gift-select").val(),
-                                  'ip': $("#ip-code").val()
-                                },
-                                success: function(data){
-                                  $("#blog-code").val(data.blog_code)
-                                }
-                              });
-                                _gaq.push('send', 'event', 'button', 'click', '감사합니다로 1544');
-                                alert("adfs");
-                                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
+                        // '문자 보내기' 후 넘어가는 팝업
+                        $('#applyPopup2_sendButton').click(function(e){
+                            e.preventDefault();
+                            if( doNotSIgh_2() ){
+                                loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
+                                _gaq.push('send', 'event', 'button', 'click', '문자 보내기 1543');
+                                var phone1 = $("#myPhone_1").val();
+                                var phone2 = $("#myPhone_2").val();
+                                var phone3 = $("#myPhone_3").val();
+                                var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                                $("#send-phone").val(send_phone);
+                                $("#my-phone-1").val(phone1);
+                                $("#my-phone-2").val(phone2);
+                                $("#my-phone-3").val(phone3);
+                                var mom_phone1 = $("#momPhone_1").val();
+                                var mom_phone2 = $("#momPhone_2").val();
+                                var mom_phone3 = $("#momPhone_3").val();
+                                var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/messages.json",
+                                    data: {
+                                        'message[send_phone]': send_phone,
+                                        'message[dest_phone]': dest_phone,
+                                        'message[msg_body]': $("#popUp_2_textarea").val(),
+                                        'message[store_id]': $("#message_store_id").val(),
+                                        'ip': $("#ip-code").val()
+                                    },
+                                    dataType: "json",                          
+                                    contentType: "application/json; charset=utf-8",
+                                    success: function(data){
+                                        $("#message-id").val(data.id)
+                                    }
+                                });
                                 $('#popUp').empty();
-                                $('#popUp').load('home_popup_4', function() {
+                                $('#popUp').load('home_popup_3', function() {
                                     $('#popUp').modal();
-                                    $('#closeModal').css('top', '-150px' );
+                                    $('#closeModal').css('top', '-349px' );
                                     $('#closeModal').css('right', '-46px' );
+                                    $('#phone_1').val(phone1);
+                                    $('#phone_2').val(phone2);
+                                    $('#phone_3').val(phone3);
+                                    $('#apply_3_person').click(function(e){
+                                        e.preventDefault();                              
+                                        _gaq.push('send', 'event', 'button', 'click', '개인정보');
+                                
+                                        $('#person').css('display', 'block');
+                                        $('#applyPopup3_finButton2').click(function(e){
+                                            _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
+                                            e.preventDefault();
+                                            $('#person').css('display', 'none' );
+                                        });
+                                    });
                                     // '완료' 후 넘어가는 팝업
-                                    $('#applyPopup4_finButton').click(function(e){
-                                        _gaq.push('send', 'event', 'button', 'click', '베스트5 ');
+                                    $('#applyPopup3_finButton').click(function(e){
+                               
                                         e.preventDefault();
-                                        $('#popUp').empty();
-                                        $('#popUp').load('home_popup_5', function() {
-                                            $('#popUp').modal();
-                                            $('#closeModal').css('top', '-283px' );
-                                            $('#closeModal').css('right', '-79px' );
-
-                                            var page = 1;
-                                            var popNum = 1;
-
-                                             $('#applyPopup5_finButton_1').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '신혼베스트');
-                                                  e.preventDefault();
-                                                  if( page == 2 ){
-                                                    $('#popUp_5_move_2').css('display', 'none' );
-                                                    $('#popUp_5_move_2').css('left', '0px' );
-                                                    $('#popUp_5_move_1').css('display', 'block' );
-                                                    popNum = 1;
-                                                    page = 1;
-                                                  }
-                                             });
-                                             $('#applyPopup5_finButton_2').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '부모님 베스트');
-                                                  e.preventDefault();
-                                                  if( page == 1 ){
-                                                    $('#popUp_5_move_2').css('display', 'block' );
-                                                    $('#popUp_5_move_1').css('left', '0px' );
-                                                    $('#popUp_5_move_1').css('display', 'none' );
-                                                    popNum = 1;
-                                                    page = 2;
-                                                  }
-                                             });
-                                         
-
-                                            $('#arrow_left').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '왼쪽 버튼');
-                                                e.preventDefault();
-                                                popNum--;
-                                                if( popNum < 1 ){
-                                                    popNum = 5;
-                                                }
-                                                if( page == 1 ){
-                                                    $('#popUp_5_move_1').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                } else if( page == 2 ){
-                                                    $('#popUp_5_move_2').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
+                                        if(doNotSIgh_3()){
+                                            var phone1 = $("#phone_1").val();
+                                            var phone2 = $("#phone_2").val();
+                                            var phone3 = $("#phone_3").val();
+                                            var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/users.json",
+                                                data: {
+                                                    'user[name]': $("#myName").val(),
+                                                    'user[phone]': send_phone,
+                                                    'user[email]': $("#myEmail").val(),
+                                                    'user[gift_id]': $("#gift-select").val(),
+                                                    'ip': $("#ip-code").val()
+                                                },
+                                                success: function(data){
+                                                    $("#blog-code").val(data.blog_code)
                                                 }
                                             });
-                                            $('#arrow_right').click(function(e){
-                                                _gaq.push('send', 'event', 'button', 'click', '오른쪽 버튼');
-                                                e.preventDefault();
-                                                popNum++;
-                                                if( popNum > 5 ){
-                                                    popNum = 1;
-                                                }
-                                                if( page == 1 ){
-                                                    $('#popUp_5_move_1').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                } else if( page == 2 ){
-                                                    $('#popUp_5_move_2').animate({
-                                                        left: 542 * ( popNum - 1 ) * -1
-                                                    }, 500);
-                                                }
+                                            _gaq.push('send', 'event', 'button', 'click', '감사합니다로 1544');
+                                            alert("adfs");
+                                            loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
+                                            $('#popUp').empty();
+                                            $('#popUp').load('home_popup_4', function() {
+                                                $('#popUp').modal();
+                                                $('#closeModal').css('top', '-150px' );
+                                                $('#closeModal').css('right', '-46px' );
+                                                // '완료' 후 넘어가는 팝업
+                                                $('#applyPopup4_finButton').click(function(e){
+                                                    _gaq.push('send', 'event', 'button', 'click', '베스트5 ');
+                                                    e.preventDefault();
+                                                    $('#popUp').empty();
+                                                    $('#popUp').load('home_popup_5', function() {
+                                                        $('#popUp').modal();
+                                                        $('#closeModal').css('top', '-283px' );
+                                                        $('#closeModal').css('right', '-79px' );
+
+                                                        var page = 1;
+                                                        var popNum = 1;
+
+                                                        $('#applyPopup5_finButton_1').click(function(e){
+                                                            _gaq.push('send', 'event', 'button', 'click', '신혼베스트');
+                                                            e.preventDefault();
+                                                            if( page == 2 ){
+                                                                $('#popUp_5_move_2').css('display', 'none' );
+                                                                $('#popUp_5_move_2').css('left', '0px' );
+                                                                $('#popUp_5_move_1').css('display', 'block' );
+                                                                popNum = 1;
+                                                                page = 1;
+                                                            }
+                                                        });
+                                                        $('#applyPopup5_finButton_2').click(function(e){
+                                                            _gaq.push('send', 'event', 'button', 'click', '부모님 베스트');
+                                                            e.preventDefault();
+                                                            if( page == 1 ){
+                                                                $('#popUp_5_move_2').css('display', 'block' );
+                                                                $('#popUp_5_move_1').css('left', '0px' );
+                                                                $('#popUp_5_move_1').css('display', 'none' );
+                                                                popNum = 1;
+                                                                page = 2;
+                                                            }
+                                                        });
+                                         
+
+                                                        $('#arrow_left').click(function(e){
+                                                            _gaq.push('send', 'event', 'button', 'click', '왼쪽 버튼');
+                                                            e.preventDefault();
+                                                            popNum--;
+                                                            if( popNum < 1 ){
+                                                                popNum = 5;
+                                                            }
+                                                            if( page == 1 ){
+                                                                $('#popUp_5_move_1').animate({
+                                                                    left: 542 * ( popNum - 1 ) * -1
+                                                                }, 500);
+                                                            } else if( page == 2 ){
+                                                                $('#popUp_5_move_2').animate({
+                                                                    left: 542 * ( popNum - 1 ) * -1
+                                                                }, 500);
+                                                            }
+                                                        });
+                                                        $('#arrow_right').click(function(e){
+                                                            _gaq.push('send', 'event', 'button', 'click', '오른쪽 버튼');
+                                                            e.preventDefault();
+                                                            popNum++;
+                                                            if( popNum > 5 ){
+                                                                popNum = 1;
+                                                            }
+                                                            if( page == 1 ){
+                                                                $('#popUp_5_move_1').animate({
+                                                                    left: 542 * ( popNum - 1 ) * -1
+                                                                }, 500);
+                                                            } else if( page == 2 ){
+                                                                $('#popUp_5_move_2').animate({
+                                                                    left: 542 * ( popNum - 1 ) * -1
+                                                                }, 500);
+                                                            }
+                                                        });
                                                     });
                                                 });
                                             });
-                                        });
                                         }
                                     });
                                 });
                             }
                         });
                     });
-                    }
-                });
+                }
+            });
         });
     });
     $('#blogButton').click(function(e){
@@ -242,19 +242,17 @@ $(document).ready(function() {
             $('#popUp').modal();
             $('#closeModal').css('top', '-225px' );
             $('#closeModal').css('right', '-46px' );
-            var viral_url = $("#blog-code").val()
+            var viral_url = $("#blog-code").val();
             if(viral_url === ""){
-              alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+                alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
             }else{
-              $("#viral-blog-url").text("http://event3.evezary.co.kr/"+viral_url);
+                $("#viral-blog-url").text("http://event3.evezary.co.kr/"+viral_url);
             }
-             $('#applyPopup6_finButton').click(function(e){
+            $('#applyPopup6_finButton').click(function(e){
                 e.preventDefault();
                 _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-            }
-            
-        });
+            });
     });
     $('#fbButton').click(function(e){
         _gaq.push('send', 'event', 'button', 'click', '페이스북 1545');
@@ -300,8 +298,8 @@ function doNotSIgh_3(){
     {
         if($(':radio[name="agree"]:checked').val() == "d")
         {
-          alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
-          return false;
+            alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
+            return false;
         }
         else
         {
@@ -312,7 +310,7 @@ function doNotSIgh_3(){
 
 
 function p1ClickImage(num){
-  $("#gift-select").val(num);
+    $("#gift-select").val(num);
     if( num == 1 ){
         $('#popUp_1_gift').css('border-width', '8px');
         $('#popUp_1_gift').css('margin', '4px');
@@ -423,17 +421,16 @@ function loopCloud(){
 //
 function loadJsFile(filename){
 
-var fileref=document.createElement('script');
+    var fileref=document.createElement('script');
 
-fileref.setAttribute("type","text/javascript");
+    fileref.setAttribute("type","text/javascript");
 
-fileref.setAttribute("src", filename);
+    fileref.setAttribute("src", filename);
 
-if(typeof fileref!="undefined"){
+    if(typeof fileref!="undefined"){
 
-document.getElementsByTagName("head")[0].appendChild(fileref);
+        document.getElementsByTagName("head")[0].appendChild(fileref);
+
+    }
 
 }
-
-}
-
