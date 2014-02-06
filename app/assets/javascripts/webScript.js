@@ -245,6 +245,7 @@ $(document).ready(function () {
             }
             $('#applyPopup6_finButton').click(function (e) {
                 e.preventDefault();
+                window.location="blog_image_download"
                 _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
             });
