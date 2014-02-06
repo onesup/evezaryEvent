@@ -42,7 +42,7 @@
       <input type = 'text' id = 'momPhone_3' class = 'mp1_input' maxlength="4" /><br />
 
       <!-- 메시지 -->
-      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." class = "mp1_textArea"></textarea>
+      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." id = "ta" class = "mp1_textArea"></textarea>
 
       <!-- 매장선택 -->
       <select class = "mp1_select" id="message_store_id">
@@ -54,14 +54,14 @@
 
       <!-- 라벨 -->
       <%= image_tag("mpopup/1/m1_Label4.png", class:"mp1_Label2") %>
-      <a href = "#" onclick = "_gaq.push('send', 'event', 'button', 'click', '위치 모바일');">
+      <a href = "#" id = "location">
         <%= image_tag("mpopup/1/m1_SelectButton.png", class:"mp1_selectBtn") %>
       </a>
     </form>
   </div>
-  <%= link_to mobile_apply_2_path, id:"m1_sendButton", onclick: "_gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일');" do %>
+  <a id = "m1_sendButton" href = "#">
       <%= image_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
-  <% end %>
+  <a>
 </div>
 </body>
 </html>
