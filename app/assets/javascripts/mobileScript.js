@@ -9,10 +9,8 @@ $(document).ready(function() {
             appname : "이브자리",
             type : "link"
         });
-        _gaq.push('send', 'event', 'button', 'click', '카톡 모바일');
-    });
-    $('#mobile_apply').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 모바일');
+        _gaq.push('send', 'event', 'button', 'click', '카톡 모바일 1551');
+         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
     });
     $('#mobile_ks').click(function(){
         kakao.link("story").send({
@@ -22,10 +20,12 @@ $(document).ready(function() {
             appname : "이브자리",
             urlinfo : JSON.stringify({title:"이브자리 이벤트3!", desc:"이브자리 이벤트3 부제목.", imageurl:["http://rm-rf.kr/sigh.png"], type:"article"})
         });
-        _gaq.push('send', 'event', 'button', 'click', '카스 모바일');
+        _gaq.push('send', 'event', 'button', 'click', '카스 모바일 1552');
+         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
     });
     $('#mobile_f').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '페북버튼 모바일');
+        _gaq.push('send', 'event', 'button', 'click', '페북버튼 모바일 1553');
+         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
     });
     $('#location').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '위치 모바일');
@@ -37,7 +37,9 @@ $(document).ready(function() {
         }
         else
         {
-            _gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일');
+            _gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일 1549');
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
+            location.href = "mobile_apply_2";
         }
     });
     $('#m2_personButton').click(function(){
@@ -57,9 +59,31 @@ $(document).ready(function() {
             }
             else
             {
-                 _gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일');
-                 $('#mobile-user-form').submit();
+                 _gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일 1550');
+                  loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
+                location.href = "mobile_index";
             }
         }
     });
+    $('#mobile_apply').click(function(){
+         _gaq.push('send', 'event', 'button', 'click', '모바일 goto apply_1 1548');
+                  loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
+                location.href = "mobile_apply_1";
+    });
 });
+
+function loadJsFile(filename){
+
+var fileref=document.createElement('script');
+
+fileref.setAttribute("type","text/javascript");
+
+fileref.setAttribute("src", filename);
+
+if(typeof fileref!="undefined"){
+
+document.getElementsByTagName("head")[0].appendChild(fileref);
+
+}
+
+}
