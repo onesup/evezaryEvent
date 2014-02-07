@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     @message.sent_at = Time.now
     @message.send_phone = send_phone unless send_phone == "--"
     @message.dest_phone = dest_phone unless dest_phone == "--"
+    send_phone_copy = @message.send_phone
     dest_phone_copy = @message.dest_phone
     msg_body_copy = @message.msg_body
     respond_to do |format|
@@ -17,13 +18,15 @@ class MessagesController < ApplicationController
         send_message = @message.msg_body + to_mom(@message.store)
         @message.save
         # Rails.logger.info @message.msg_body
-        MessageJob.new.async.perform(@message, send_message)
+        # 나에게
+        MessageJob.new.async.perform(@message, send_message, send_phone_copy)
         @message.msg_body = to_user(@message.store)
         @message.dest_phone = @message.send_phone
         @message.save
         # Rails.logger.info @message.msg_body
+        # 엄마에게
         send_message = to_user(@message.store)
-        MessageJob.new.async.later(10, @message, send_message)
+        MessageJob.new.async.later(10, @message, send_message, dest_phone_copy)
         @message.msg_body = msg_body_copy
         @message.dest_phone = dest_phone_copy
         @message.save

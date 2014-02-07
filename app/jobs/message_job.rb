@@ -1,11 +1,11 @@
 class MessageJob
   include SuckerPunch::Job
 
-  def perform(message, send_message)
-    message.send_mms(send_message)
+  def perform(message, send_message, dest)
+    message.send_mms(send_message, dest)
   end
   
-  def later(sec, message, send_message)
-    after(sec) { perform(send_message) }
+  def later(sec, message, send_message, dest)
+    after(sec) { perform(message, send_message, dest) }
   end
 end

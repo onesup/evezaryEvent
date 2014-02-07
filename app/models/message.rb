@@ -7,7 +7,7 @@ class Message < ActiveRecord::Base
   validates :send_phone, presence: true
   validates :msg_body, presence: true
   
-  def send_mms(send_message)
+  def send_mms(send_message, dest)
     url = "http://api.openapi.io/ppurio/1/message/mms/minivertising"
     api_key = Rails.application.secrets.apistore_key
     time = (Time.now + 5.seconds)
@@ -25,7 +25,7 @@ class Message < ActiveRecord::Base
     res = RestClient.post(url,
       {
         "send_time" => time.strftime("%Y%m%d%H%M%S"), 
-        "dest_phone" => dest_phone, 
+        "dest_phone" => dest, 
         "dest_name" => send_name,
         "send_phone" => send_phone, 
         "send_name" => send_name,
