@@ -16,3 +16,4 @@
 //= require webScript.js
 //= require jquery.modal.min
 //= require purl.js
+//= require jquery.validate.min
