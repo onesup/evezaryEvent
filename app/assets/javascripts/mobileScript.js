@@ -13,6 +13,8 @@ $(document).ready(function() {
          loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
     });
     $('#mobile_ks').click(function(){
+        _gaq.push('send', 'event', 'button', 'click', '카스 모바일 1552');
+         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
         kakao.link("story").send({
             post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr",
             appid : "event3.evezary.co.kr",
@@ -25,8 +27,6 @@ $(document).ready(function() {
                 type:"article"
             })
         });
-        _gaq.push('send', 'event', 'button', 'click', '카스 모바일 1552');
-         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
     });
     $('#mobile_f').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '페북버튼 모바일 1553');
