@@ -14,11 +14,16 @@ class MessagesController < ApplicationController
     msg_body_copy = @message.msg_body
     respond_to do |format|
       if @message.save
-        @message.msg_body = @message.msg_body + to_mom(@message.store)
-        MessageJob.new.async.perform(@message)
+        send_message = @message.msg_body + to_mom(@message.store)
+        @message.save
+        Rails.logger.info @message.msg_body
+        MessageJob.new.async.perform(@message, send_message)
         @message.msg_body = to_user(@message.store)
         @message.dest_phone = @message.send_phone
-        MessageJob.new.async.perform(@message)
+        @message.save
+        Rails.logger.info @message.msg_body
+        send_message = to_user(@message.store)
+        MessageJob.new.async.later(10, @message, send_message)
         @message.msg_body = msg_body_copy
         @message.dest_phone = dest_phone_copy
         @message.save
@@ -58,33 +63,35 @@ class MessagesController < ApplicationController
     end
     
     def store_info(store)
-      store.title+"
-      "+store.address+"
-      "+store.phone
+store.title+"
+"+store.address+"
+"+store.phone
     end
     
     def to_mom(store)
-      "
-      엄마 이불 어때?
-      오랜만에 데이트도 하면서 
-      이브자리로 이불 고르러
-      같이 가요!
-      
-      매장위치"+"
-      "+store_info(store)
+"
+엄마 이 이불 어때?
+오랜만에 데이트도 하면서 
+이브자리로 이불 고르러
+같이 가요!
+
+매장위치"+"
+"+store_info(store)
     end
     
     def to_user(store)
-      "지금 엄마와 함께 
-      혼수이불 고르러 
-      이브자리로 오세요! 
-      이불은 만져보고 골라야죠!
-      "+ store_info(store) +"
-      소문내기 이벤트에 참여하시면 
-      당첨확률이 높아집니다
-      https://event3.evezary.co.kr
-      
-      * 당첨자 확인을 꼭 해주세요!"
+"지금 엄마와 함께 
+혼수이불 고르러 
+이브자리로 오세요! 
+이불은 만져보고 골라야죠!
+
+매장위치"+"
+"+store_info(store) +"
+소문내기 이벤트에 참여하시면 
+당첨확률이 높아집니다
+http://event3.evezary.co.kr
+
+* 당첨자 확인을 꼭 해주세요!"
     end
   
 end

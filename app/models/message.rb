@@ -7,7 +7,7 @@ class Message < ActiveRecord::Base
   validates :send_phone, presence: true
   validates :msg_body, presence: true
   
-  def send_mms
+  def send_mms(send_message)
     url = "http://api.openapi.io/ppurio/1/message/mms/minivertising"
     api_key = Rails.application.secrets.apistore_key
     time = (Time.now + 5.seconds)
@@ -16,8 +16,8 @@ class Message < ActiveRecord::Base
       "./app/assets/images/bed_2_Img.jpg",
       "./app/assets/images/bed_3_Img.jpg",
       "./app/assets/images/bed_4_Img.jpg",
-      "./app/assets/images/bed_5_Img.jpg",
-      "./app/assets/images/bed_6_Img.jpg",
+      # "./app/assets/images/bed_5_Img.jpg", 부모님 혼수 침구 제외
+      # "./app/assets/images/bed_6_Img.jpg",
       "./app/assets/images/bed_7_Img.jpg",
       "./app/assets/images/bed_8_Img.jpg"
     ]
@@ -32,7 +32,7 @@ class Message < ActiveRecord::Base
         "subject" => subject,
         "apiVersion" => "1", 
         "id" => "minivertising", 
-        "msg_body" => msg_body,
+        "msg_body" => send_message,
         "file" => file,
         multipart: true
       },
