@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "home_popup_3" => "home#popUp_3"
   get "home_popup_4" => "home#popUp_4"
   get "home_popup_5" => "home#popUp_5"
+  get "home_popup_6" => "home#popUp_6"
   get "home_popup_blog" => "home#popUp_blog"
   get "blog_image_download" => "home#download_image"
   devise_for :users

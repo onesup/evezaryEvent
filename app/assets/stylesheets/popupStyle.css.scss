@@ -275,7 +275,19 @@
   margin-bottom: 32px;
 }
 
+.applyPopup4_exit_c{
+  position: absolute;
+  top: 1px;
+  left: 522px;
+  z-index: 1;
+}
 
+.applyPopup5_exit_c{
+  position: absolute;
+  top: 2px;
+  left: 582px;
+  z-index: 1;
+}
 
 /* popup 5 */
 #popUp_5{
@@ -350,6 +362,21 @@
   float: left;
   margin-left: 24px;
 }
+
+#popUp_6{
+  width: 594px;
+  height: 333px;
+  background-image: asset-url("popup/6/applyPopup6_BG.png");
+  padding: 0px;
+  left: 50%;
+  position:absolute;
+  text-align: center;
+  margin-top: -166px;
+  margin-left: -300px;
+}
+
+
+
 
 /* popup blog */
 #popUp_blog{

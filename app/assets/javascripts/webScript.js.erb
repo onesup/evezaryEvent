@@ -144,6 +144,48 @@ $(document).ready(function () {
                                                 $('#popUp').modal();
                                                 $('#closeModal').css('top', '-150px');
                                                 $('#closeModal').css('right', '-46px');
+                                                // dfsaafsdfdsa
+                                                $('#applyPopup4_exit').click(function(e){
+                                                   e.preventDefault();
+                                                   $('#popUp').empty();
+                                                   
+                                                   $('#popUp').load('home_popup_6', function () {
+                                                       $('#popUp').modal();
+                                                       $('#closeModal').css('top', '-150px');
+                                                       $('#closeModal').css('right', '-46px');
+                                                       $('#applyPopup6_blog').click(function (e) {
+                                                           _gaq.push('send', 'event', 'button', 'click', '블로그 1546');
+                                                           loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                                           e.preventDefault();
+                                                           $('#popUp').empty();
+                                                           $('#popUp').load('home_popup_blog', function () {
+                                                               var viral_url = $("#blog-code").val();
+                                                               if (viral_url === "") {
+                                                                 alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+                                                               } else {
+                                                                 $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+                                                                 $('#popUp').modal();
+                                                                 $('#closeModal').css('top', '-225px');
+                                                                 $('#closeModal').css('right', '-46px');
+                                                               }
+                                                               $('#applyPopup6_finButton').click(function (e) {
+                                                                   e.preventDefault();
+                                                                   window.location="blog_image_download"
+                                                                   _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+                                                                   loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                                               });
+                                                           });
+                                                       });
+                                                       $('#applyPopup6_fb').click(function (e) {
+                                                           _gaq.push('send', 'event', 'button', 'click', '페이스북 1545');
+                                                           loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
+                                                           e.preventDefault();
+                                                           var viral_url = $("#blog-code").val()
+                                                           var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+                                                           window.open(fb_url, 'window', "width = '300px', height = '200px'");
+                                                       });
+                                                   });
+                                                });
                                                 // '완료' 후 넘어가는 팝업
                                                 $('#applyPopup4_finButton').click(function (e) {
                                                     _gaq.push('send', 'event', 'button', 'click', '베스트5 ');
@@ -234,6 +276,47 @@ $(document).ready(function () {
                                                                 }, 500);
                                                             }
                                                         });
+                                                        // dfsaafsdfdsa
+                                                        $('#applyPopup4_exit').click(function(e){
+                                                           e.preventDefault();
+                                                           $('#popUp').empty();
+                                                           $('#popUp').load('home_popup_6', function () {
+                                                               $('#popUp').modal();
+                                                               $('#closeModal').css('top', '-150px');
+                                                               $('#closeModal').css('right', '-46px');
+                                                               $('#applyPopup6_blog').click(function (e) {
+                                                                   _gaq.push('send', 'event', 'button', 'click', '블로그 1546');
+                                                                   loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                                                   e.preventDefault();
+                                                                   $('#popUp').empty();
+                                                                   $('#popUp').load('home_popup_blog', function () {
+                                                                       var viral_url = $("#blog-code").val();
+                                                                       if (viral_url === "") {
+                                                                         alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+                                                                       } else {
+                                                                         $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+                                                                         $('#popUp').modal();
+                                                                         $('#closeModal').css('top', '-225px');
+                                                                         $('#closeModal').css('right', '-46px');
+                                                                       }
+                                                                       $('#applyPopup6_finButton').click(function (e) {
+                                                                           e.preventDefault();
+                                                                           window.location="blog_image_download"
+                                                                           _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+                                                                           loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                                                       });
+                                                                   });
+                                                               });
+                                                               $('#applyPopup6_fb').click(function (e) {
+                                                                   _gaq.push('send', 'event', 'button', 'click', '페이스북 1545');
+                                                                   loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
+                                                                   e.preventDefault();
+                                                                   var viral_url = $("#blog-code").val()
+                                                                   var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+                                                                   window.open(fb_url, 'window', "width = '300px', height = '200px'");
+                                                               });
+                                                           });
+                                                       });
                                                     });
                                                 });
                                             });
@@ -279,6 +362,10 @@ $(document).ready(function () {
         window.open(fb_url, 'window', "width = '300px', height = '200px'");
     });
 });
+
+function popUp_6(){
+    
+}
 
 function doNotSIgh_1() {
     if ($('#popUp_1_gift').css('border-width') == "0px" && $('#popUp_2_gift').css('border-width') == "0px" && $('#popUp_3_gift').css('border-width') == "0px" && $('#popUp_4_gift').css('border-width') == "0px") {
