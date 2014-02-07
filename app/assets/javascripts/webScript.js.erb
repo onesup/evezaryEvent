@@ -6,8 +6,7 @@ $(document).ready(function () {
     $('#social_form_ajax').submit(function(e){    
       e.preventDefault();
       _gaq.push('send', 'event', 'button', 'click', '소문내기 정보입력');
-    });
-    .validate({
+    }).validate({
       rules: {
         "user[name]": { required: true },
         "user[email]": { 
@@ -66,6 +65,7 @@ $(document).ready(function () {
         });
         $.rails.handleRemote($(form));
       }
+    });
     
     if (navigator.appVersion.indexOf("MSIE 6.0") >= 0 || navigator.appVersion.indexOf("MSIE 7.0") >= 0 || navigator.appVersion.indexOf("MSIE 8.0") >= 0) {
         // dkandmlaldjqtdma
