@@ -3,6 +3,18 @@
 var c1, c2, c3, c4;
 
 $(document).ready(function () {
+    $('#social_form_person').click(function (e) {
+        e.preventDefault();
+        _gaq.push('send', 'event', 'button', 'click', '개인정보');
+
+        $('#person').css('display', 'block');
+        $('#applyPopup3_finButton2').click(function (e) {
+            _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
+            
+            e.preventDefault();
+            $('#person').css('display', 'none');
+        });
+    });
     if (navigator.appVersion.indexOf("MSIE 6.0") >= 0 || navigator.appVersion.indexOf("MSIE 7.0") >= 0 || navigator.appVersion.indexOf("MSIE 8.0") >= 0) {
         // dkandmlaldjqtdma
     } else {

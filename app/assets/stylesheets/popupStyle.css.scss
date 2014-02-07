@@ -407,3 +407,141 @@
 .inPopup{
   padding-top: 88px;
 }
+
+/* social form */
+#social_form{
+  display: none;
+  width: 570px;
+  height: 709px;
+  background-image: asset-url("popup/3/social_form_bg.png");
+  padding: 0px;
+  left: 50%;
+  position:absolute;
+  text-align: center;
+  margin-top: -366px;
+  margin-left: -300px;
+  a#closeModal{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 54px;
+    height: 54px; 
+    text-indent: -9999px;
+    background: asset-url("popup/applyPopup_close.png") no-repeat 0 0;    
+  }
+
+  .popUp_3_inputBox{
+    width: 452px;
+    height: 238px;
+    background-image: asset-url("popup/3/applyPopup3_BG2.png");
+    margin-left: 41px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    padding-left: 48px;
+    text-align: left;
+  }
+  .popUp_3_titleLabel{
+    margin-top: 0px;
+  }
+
+  .popUP_3_subLabel{
+    margin-top: 18px;
+  }
+
+  .popUp_3_Label1{
+    margin-right: 56px;
+    vertical-align: middle;
+  }
+  .popUp_3_Label2{
+    margin-right: 24px;
+    vertical-align: middle;
+  }
+  .popUp_3_Label3{
+    margin-right: 40px;
+    vertical-align: middle;
+  }
+
+  .popUp_3_InputStyle1{
+    width: 276px;
+    height: 36px;
+    border: 0px;
+    background-image: asset-url("popup/long_input.png");
+    font-size: 20px;
+    text-align: middle;
+    padding-left: 22px;
+    padding-right: 22px;
+    line-height: 36px;
+  }
+  .popUp_3_InputStyle2{
+    width: 53px;
+    height: 36px;
+    margin-top: 16px;
+    border: 0px;
+    background-image: asset-url("popup/mobile_input.png");
+    font-size: 20px;
+    text-align: middle;
+    padding-left: 22px;
+    padding-right: 22px;
+    line-height: 36px;
+  }
+  .popUp_3_InputStyle3{
+    width: 276px;
+    height: 36px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border: 0px;
+    background-image: asset-url("popup/long_input.png");
+    font-size: 20px;
+    text-align: middle;
+    padding-left: 22px;
+    padding-right: 22px;
+    line-height: 36px;
+  }
+
+  .popUp_3_CautionLabel1{
+    margin-right: 48px;
+  }
+  .popUp_3_CautionLabel2{
+    margin-left: 24px;
+  }
+  .popUp_3_CautionLabel3{
+    margin-left: 36px;
+    vertical-align: middle;
+    margin-top: -6px;
+  }
+
+  #person{
+    display: none;
+    background-image: asset-url("popup/5/applyPopup5_BG.png");
+    position: absolute;
+    width: 654px;
+    height: 631px;
+    top: 70px;
+    left: -30px;
+  }
+
+  .personal_info_text{
+    overflow-y: auto;
+    width: 550px;
+    height: 350px;
+    margin-left: 42px;
+    margin-bottom: 32px;
+    border-weight: 0.25em;
+    text-align: left;
+  }
+
+  .popUp_3_DotLine{
+    margin-top: 24px;
+  }
+  .popUp_3_CautionLabel4{
+    margin-top: 24px;
+    margin-right: 112px;
+    margin-bottom: 32px;
+  }
+
+  .applyPopup3_finButton2_img{
+    width: 279px;
+    height: 76px;
+  }
+}

@@ -108,7 +108,7 @@
     position: absolute;
     left: 50%;
     margin-left: -500px;
-    background-image: url("<%= asset_path('main/characterImage.png')%>");
+    background-image: asset-url('main/characterImage.png');
 }
 .modal a.close-modal {
   position: absolute;
@@ -118,7 +118,7 @@
   width: 54px;
   height: 54px; 
   text-indent: -9999px;
-  background: url("<%= asset_path('popup/applyPopup_close.png')%>") no-repeat 0 0;
+  background: asset-url('popup/applyPopup_close.png') no-repeat 0 0;
 }
 
 .modal-spinner {
@@ -130,7 +130,7 @@
   left: 50%;
   margin-right: -32px;
   margin-top: -32px;
-  background: url("<%= asset_path('spinner.gif')%>") #111 no-repeat center center;
+  background: asset-url('spinner.gif') #111 no-repeat center center;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
