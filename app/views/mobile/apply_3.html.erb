@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EvezaryEvent</title>
+  <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= javascript_include_tag "mobile" %>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46149688-4']);
+  _gaq.push(['_trackPageview']);
+
+</script>
+  <%= csrf_meta_tags %>
+  <meta name = "viewport" content = "width=device-width, user-scalable=no" />
+</head>
+<body id = "indexBody">
+  <%= link_to mobile_index_path do %>
+  <%= image_tag("mpopup/bg2.png", class:"mp_closeBox") %>
+  <% end %>
+<div class = "mobilePopContain">
+  <%= image_tag("mpopup/3/title.png", class:"mp3_Label1") %>
+  <%= link_to mobile_index_path do %>
+    <%= image_tag("mpopup/3/btn_comp.png", id:"m3_endButton", class:"mp3_EndBtn") %>
+  <% end %>
+</div>
+</body>
+</html>
