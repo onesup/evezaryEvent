@@ -31,11 +31,14 @@
     margin-top: 5%;
 }
 .mp1_input{
-    width: 16%;
+    width: 17%;
     font-size: 1.2em;
     padding-left: 4%;
     padding-right: 4%;
     border-width: 1px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-color: #B5B5B5;
 }
 .mp1_lineLabel{
     width: 0.8%;
@@ -50,11 +53,15 @@
     resize: none;
     border-width: 1px;
     border-color: #999999;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-color: #B5B5B5;
 }
 .mp1_select{
     width: 97%;
     height: 3em;
     margin-top: 5%;
+    border-radius: 0;
 }
 .mp1_selectBtn{
     width: 30%;
@@ -73,6 +80,10 @@
     margin-bottom: 5%;
 }
 
+.mp1_sendBtn{
+  -webkit-appearance: none;
+  border-radius: 0;
+}
 
 
 .mp2_Label1{
@@ -110,6 +121,9 @@
     padding-left: 4%;
     padding-right: 4%;
     border-width: 1px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-color: #B5B5B5;
 }
 .mp2_Label4{
     width: 12%;
@@ -122,6 +136,9 @@
     padding-left: 4%;
     padding-right: 4%;
     border-width: 1px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-color: #B5B5B5;
 }
 .mp2_lineLabel{
     width: 0.8%;
@@ -172,6 +189,7 @@
 .mp2_EndBtn{
     width: 60%;
     margin-bottom: 5%;
+    border-radius: 0;
 }
 .mobile-user-form{
   text-align: center;

@@ -90,7 +90,7 @@
   height: 36px;
   border: 0px;
   background-image: asset-url("popup/mobile_input.png");
-  font-size: 24px;
+  font-size: 20px;
   text-align: middle;
   padding-left: 22px;
   padding-right: 22px;
@@ -176,7 +176,7 @@
   height: 36px;
   border: 0px;
   background-image: asset-url("popup/long_input.png");
-  font-size: 24px;
+  font-size: 20px;
   text-align: middle;
   padding-left: 22px;
   padding-right: 22px;
@@ -187,7 +187,7 @@
   margin-top: 16px;
   border: 0px;
   background-image: asset-url("popup/mobile_input.png");
-  font-size: 24px;
+  font-size: 20px;
   text-align: middle;
   padding-left: 22px;
   padding-right: 22px;
@@ -199,7 +199,7 @@
   margin-bottom: 8px;
   border: 0px;
   background-image: asset-url("popup/long_input.png");
-  font-size: 24px;
+  font-size: 20px;
   text-align: middle;
   padding-left: 22px;
   padding-right: 22px;
@@ -314,7 +314,7 @@
 .popUp_5_textZone{
   width: 4380px;
   height: 103px;
-  margin-top: 262px;
+  margin-top: -182px;
   position:absolute;
   color:white;
   float: left;
@@ -373,8 +373,20 @@
 .popUp_5_Btn{
   margin-right: 20px;
 }
-
-
+#applyPopup5_finButton_class1{
+  width: 259px;
+  height: 92px;
+  background-image: asset-url("popup/5/applyPopup5_Button_1.png");
+  float: left;
+  margin-left: 62px;
+}
+#applyPopup5_finButton_class2{
+  width: 259px;
+  height: 92px;
+  background-image: asset-url("popup/5/applyPopup5_Button_2_off.png");
+  float: left;
+  margin-left: 24px;
+}
 
 /* popup blog */
 #popUp_blog{
