@@ -1,5 +1,11 @@
 <script language='javascript' src='http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1539'></script>
 <div class = "contain">
+  <div id="float_guide">
+    <a href="#blog_button">
+      <%= image_tag "main/btn_top.png"%>
+    </a>
+  </div>
+  
   <!--top : 로고를 포함한 컨테이너-->
   <div class = "top">
     <a href = "http://www.evezary.co.kr/">
@@ -40,7 +46,7 @@
     <!--shareButtonBox : 페이스북, 블로그 버튼-->
     <div class = "shareButtonBox">
       <a id = "fbButton" href = "#" target = "_blank"><%= image_tag("main/facebook.png", class: "shareButton") %></a>
-      <a id = "blogButton" href = "#"><%= image_tag("main/blog.png", class: "shareButton") %></a>
+      <a name="blog_button" id = "blogButton" href = "#"><%= image_tag("main/blog.png", class: "shareButton") %></a>
       <br />
     </div>
   </div>
