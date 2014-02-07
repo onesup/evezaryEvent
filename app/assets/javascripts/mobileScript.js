@@ -14,7 +14,7 @@ $(document).ready(function() {
     });
     $('#mobile_ks').click(function(){
         kakao.link("story").send({
-            post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
+            post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr",
             appid : "event3.evezary.co.kr",
             appver : "1.0",
             appname : "엄마와 특별한데이트",
