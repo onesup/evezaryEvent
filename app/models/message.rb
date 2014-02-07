@@ -11,7 +11,17 @@ class Message < ActiveRecord::Base
     url = "http://api.openapi.io/ppurio/1/message/mms/minivertising"
     api_key = Rails.application.secrets.apistore_key
     time = (Time.now + 5.seconds)
-    file = File.new("./app/assets/images/mms_to_user.jpg",'rb')
+    files = [
+      "./app/assets/images/bed_1_Img.jpg",
+      "./app/assets/images/bed_2_Img.jpg",
+      "./app/assets/images/bed_3_Img.jpg",
+      "./app/assets/images/bed_4_Img.jpg",
+      "./app/assets/images/bed_5_Img.jpg",
+      "./app/assets/images/bed_6_Img.jpg",
+      "./app/assets/images/bed_7_Img.jpg",
+      "./app/assets/images/bed_8_Img.jpg"
+    ]
+    file = File.new(files.shuffle[1],'rb')
     res = RestClient.post(url,
       {
         "send_time" => time.strftime("%Y%m%d%H%M%S"), 

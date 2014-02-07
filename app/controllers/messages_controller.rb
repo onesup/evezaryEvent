@@ -12,6 +12,8 @@ class MessagesController < ApplicationController
     @message.dest_phone = dest_phone unless dest_phone == "--"
     respond_to do |format|
       if @message.save
+
+
         MessageJob.new.async.perform(@message)
         format.json { render json: {result: @message.result, id: @message.id}, status: :created }
         format.html { redirect_to mobile_apply_2_path(send_phone_hash), notice: 'User was successfully updated.' }
@@ -45,6 +47,26 @@ class MessagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params.require(:message).permit(:store_id, :dest_phone, :send_phone, :msg_body)
+    end
+    
+    def store_info(store)
+      store.
+    end
+    
+    def to_mother
+      "엄마 이불 어때?
+      오랜만에 데이트도 하면서 
+      이브자리로 이불 고르러
+      같이 가요!
+      
+      매장위치"
+    end
+    
+    def to_user
+      "지금 엄마와 함께 
+      혼수이불 고르러 
+      이브자리로 오세요! 
+      이불은 만져보고 골라야죠!"
     end
   
 end
