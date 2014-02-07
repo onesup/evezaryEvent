@@ -16,12 +16,12 @@ class MessagesController < ApplicationController
       if @message.save
         send_message = @message.msg_body + to_mom(@message.store)
         @message.save
-        Rails.logger.info @message.msg_body
+        # Rails.logger.info @message.msg_body
         MessageJob.new.async.perform(@message, send_message)
         @message.msg_body = to_user(@message.store)
         @message.dest_phone = @message.send_phone
         @message.save
-        Rails.logger.info @message.msg_body
+        # Rails.logger.info @message.msg_body
         send_message = to_user(@message.store)
         MessageJob.new.async.later(10, @message, send_message)
         @message.msg_body = msg_body_copy
