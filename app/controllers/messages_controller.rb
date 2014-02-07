@@ -15,11 +15,9 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         @message.msg_body = @message.msg_body + to_mom(@message.store)
-        binding.pry
         MessageJob.new.async.perform(@message)
         @message.msg_body = to_user(@message.store)
         @message.dest_phone = @message.send_phone
-        binding.pry
         MessageJob.new.async.perform(@message)
         @message.msg_body = msg_body_copy
         @message.dest_phone = dest_phone_copy

@@ -36,14 +36,14 @@ $(document).ready(function() {
         _gaq.push('send', 'event', 'button', 'click', '위치 모바일');
     });
     $('#m1_sendButton').click(function(){
+        _gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일 1549');
+        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
          if( $('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#ta').val() == "" )
         {
             alert("내용을 모두 입력해주세요.");
         }
         else
         {
-            _gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일 1549');
-            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
             location.href = "mobile_apply_2";
         }
     });
@@ -52,6 +52,8 @@ $(document).ready(function() {
     });
     $('#m2_endButton').click(function(e){
       e.preventDefault();
+      _gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일 1550');
+       loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
          if( $('#m2_name').val() == "" || $('#m2_phone_1').val() == "" || $('#m2_phone_2').val() == "" || $('#m2_phone_3').val() == "" || $('#m2_email').val() == "" )
         {
             alert("내용을 모두 입력해주세요.");
@@ -64,8 +66,6 @@ $(document).ready(function() {
             }
             else
             {
-                 _gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일 1550');
-                  loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
                 location.href = "mobile_index";
             }
         }
