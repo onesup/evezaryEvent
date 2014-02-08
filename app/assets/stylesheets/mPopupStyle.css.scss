@@ -202,8 +202,13 @@
 }
 
 .mp_closeBox{
-  background-image: asset-url("mpopup/bg2.png");
   width: 100%;
+}
+
+.mp_close{
+  position:absolute;
+  width: 12.5%;
+  right: 0;
 }
 
 .mobile-user-form{
