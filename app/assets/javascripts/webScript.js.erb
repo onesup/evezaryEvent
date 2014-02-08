@@ -60,8 +60,9 @@ $(document).ready(function () {
                   'ip': $("#ip-code").val()
               },
               success: function (data) {
+                  $("#blog-code").val(data.blog_code);
                   $("#social-viral-blog-url").text(data.blog_code);
-                  $("#social_popUp_blog").modal();
+                  $('#social_popUp_6').modal();
                   
               }
           });
