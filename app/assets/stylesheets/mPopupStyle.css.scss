@@ -91,7 +91,7 @@
 }
 
 .mp2_PopInbox{
-     width: 94%;
+     width: 92%;
     background-image: asset-url("mpopup/1/m1_background.png");
     background-size: 100% 100%;
     margin-top: 8%;
@@ -202,8 +202,15 @@
 }
 
 .mp_closeBox{
-  background-image: asset-url("mpopup/bg2.png");
   width: 100%;
+  top: 0;
+}
+
+.mp_close{
+  position:absolute;
+  width: 12.5%;
+  top: 0;
+  right: 0;
 }
 
 .mobile-user-form{

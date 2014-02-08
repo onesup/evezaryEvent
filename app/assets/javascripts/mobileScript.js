@@ -66,10 +66,11 @@ $(document).ready(function() {
             }
             else
             {
-                location.href = "mobile_index";
+                location.href = "mobile_apply_3";
             }
         }
     });
+    
     $('#mobile_apply').click(function(){
          _gaq.push('send', 'event', 'button', 'click', '모바일 goto apply_1 1548');
                   loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
