@@ -130,6 +130,39 @@
   padding: 4px;
 }
 
+#location{
+  width: 594px;
+  height: 816px;
+  background-image: asset-url("popup/2/applyPopup2_BG.png");
+  display: none;
+  position: absolute;
+  top: 0px;
+}
+
+.location_label{
+  margin-top: 96px;
+}
+
+.location_close{
+  position: absolute;
+  top: 2px;
+  right: 18px;
+  z-index: 2;
+}
+
+.location_searchBtn{
+  margin-left: 24px;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.location_select{
+  font-size: 22px;
+  width: 454px;
+  padding: 4px;
+  border-color: #D2D2D2;
+}
+
 
 /* popup 3 */
 #popUp_3{
