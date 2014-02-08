@@ -181,6 +181,13 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                 var mom_phone2 = $("#momPhone_2").val();
                                 var mom_phone3 = $("#momPhone_3").val();
                                 var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
+                                if ($("#message_store_id").val().length > 0){
+                                    var store_id = $("#message_store_id").val();
+                                }else if ($("#selected-store").val().length > 0){
+                                    var store_id = $("#selected-store").val();
+                                }else{
+                                    var store_id = 1;
+                                }
                                 $.ajax({
                                     type: "POST",
                                     url: "/messages.json",
@@ -188,7 +195,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                         'message[send_phone]': send_phone,
                                         'message[dest_phone]': dest_phone,
                                         'message[msg_body]': $("#textarea_2").val(),
-                                        'message[store_id]': $("#message_store_id").val(),
+                                        'message[store_id]': store_id,
                                         'ip': $("#ip-code").val()
                                     },
                                     dataType: "json",
@@ -765,8 +772,8 @@ function search_stores(user_id, address){
     var target = document.getElementById('location_searchBox');
     // var spinner = new Spinner(opts).spin(target);
     $.ajax({
-        type: "PUT",
-        url: "/users/"+user_id+"/search_stores.json",
+        type: "POST",
+        url: "/users/search_stores.json",
         data: {
             'user[address]': address,
         },

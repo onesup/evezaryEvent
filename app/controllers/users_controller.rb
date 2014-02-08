@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   end
   
   def search_stores
-    user = User.find(params[:id])
+    user = User.new
     user.update(user_params)
     i = 1
     length = 0

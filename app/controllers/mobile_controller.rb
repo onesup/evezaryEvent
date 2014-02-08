@@ -13,12 +13,15 @@ class MobileController < ApplicationController
     end
   end
   
-  def index
-    
+  def index    
   end
+  
+  def search_stores
+  end
+  
   def apply_1
   end
+  
   def apply_2
-    
   end
 end

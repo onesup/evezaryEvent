@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "mobile_apply_1" => "mobile#apply_1"
   get "mobile_apply_2" => "mobile#apply_2"
   get "mobile_apply_3" => "mobile#apply_3"
+  get "mobile_search_stores" => "mobile#search_stores"
   get "mobile_person" => "mobile#person"
   get "near_stores" => "mobile#near_stores"
   get "home_index" => "home#index"
@@ -18,8 +19,8 @@ Rails.application.routes.draw do
   get '/:id', to: 'users#tracking_log', constraints: { id: /e.+-\d.+/ }
   devise_for :users
   resources :users, only: [:create, :update] do
-    member do
-      put 'search_stores'
+    collection do
+      post 'search_stores'
     end
   end
   resources :messages, only: [:create, :update]
