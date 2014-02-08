@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20140204100259) do
     t.string   "phone"
     t.string   "name"
     t.string   "blog_code"
-    t.integer  "viral_score"
+    t.integer  "viral_score",            default: 0
     t.integer  "gift_id"
     t.datetime "created_at"
     t.datetime "updated_at"

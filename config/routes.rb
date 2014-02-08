@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "home_popup_6" => "home#popUp_6"
   get "home_popup_blog" => "home#popUp_blog"
   get "blog_image_download" => "home#download_image"
+  get '/:id', to: 'users#tracking_log', constraints: { id: /e.+-\d.+/ }
   devise_for :users
   resources :users, only: [:create, :update]
   resources :messages, only: [:create, :update]

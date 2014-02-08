@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :name
       t.string :blog_code
-      t.integer :viral_score
+      t.integer :viral_score, :default => 0
       t.references :gift, index: true
 
 

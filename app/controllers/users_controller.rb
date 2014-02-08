@@ -56,6 +56,25 @@ class UsersController < ApplicationController
     end
   end
   
+  def tracking_log
+    user = User.find_by_blog_code params[:id]
+    unless user.nil?
+      user.viral_score += 1
+      user.save
+      data = {score: user.viral_score}
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json {render json: data}
+      end
+    else
+      data = {score: 0}
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json {render json: data}
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
