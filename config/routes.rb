@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get '/:id', to: 'users#tracking_log', constraints: { id: /e.+-\d.+/ }
   devise_for :users
   resources :users, only: [:create, :update]
-  resources :messages, only: [:create, :update]
+  resources :messages, only: [:create, :update] do
+    collection do
+      get 'search_stores'
+    end
+  end
   
   namespace :admin do
     resources :users

@@ -11,14 +11,6 @@ class MobileController < ApplicationController
       length = @stores.length
       i += 1
     end
-    # options = Array.new
-    # stores.each do |store|
-    #   options << {store.id => store.title}
-    # end
-    # 
-    # respond_to do |format|      
-    #   format.json { render json: {stores: options.to_json}}
-    # end  
   end
   
   def index

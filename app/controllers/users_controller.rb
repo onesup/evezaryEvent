@@ -31,7 +31,11 @@ class UsersController < ApplicationController
     else
       @user = User.find_by_phone(@user.phone)
       if @user.blog_code.nil?
-        @user.blog_code = @user.random_code 
+        @user.blog_code = @user.random_code
+        @user.save
+      end
+      if @user.address.nil?
+        @user.address = user_params[:address]
         @user.save
       end
       Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
@@ -83,6 +87,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :email, :gift_id)
+      params.require(:user).permit(:name, :phone, :email, :gift_id, :address)
     end
 end

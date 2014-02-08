@@ -3,16 +3,6 @@
 var c1, c2, c3, c4;
 
 $(document).ready(function () {   
-    // $('#social_form_person_button').click(function (e) {
-    //     e.preventDefault();
-    //     _gaq.push('send', 'event', 'button', 'click', '개인정보');
-    //     $('#social_form_person').css('display', 'block');
-    //     $('#social_form_finButton2').click(function (e) {
-    //         e.preventDefault();
-    //         _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
-    //         $('#social_form_person').css('display', 'none');
-    //     });
-    // });
     $.ajaxSetup({ cache: true });
 $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
   FB.init({
@@ -503,15 +493,6 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         // console.log("kjhf");
         if (viral_url === "") {
             $("#social_form").modal();
-            // $('#social_form_person_button').click(function(e){
-            //     e.preventDefault();
-            //     $('#social_form_person').css('display', 'block');
-            //     $('#social_form_finButton2').click(function(e){
-            //         e.preventDefault();
-            //         $('#social_form_person').css('display', 'none');
-            //     });
-            // });
-            // alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
         } else {
             var viral_url = $("#blog-code").val()
             var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
