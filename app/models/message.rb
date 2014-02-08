@@ -29,7 +29,7 @@ class Message < ActiveRecord::Base
         "dest_name" => send_name,
         "send_phone" => send_phone, 
         "send_name" => send_name,
-        "subject" => subject,
+        "subject" => "엄마와의 데이트",
         "apiVersion" => "1", 
         "id" => "minivertising", 
         "msg_body" => send_message,

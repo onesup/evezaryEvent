@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     msg_body_copy = @message.msg_body
     respond_to do |format|
       if @message.save
-        send_message = @message.msg_body + to_mom(@message.store)
+        send_message =  to_mom(@message.msg_body, @message.store)
         @message.save
         # Rails.logger.info @message.msg_body
         # 엄마에게
@@ -71,9 +71,9 @@ store.title+"
 "+store.phone
     end
     
-    def to_mom(store)
+    def to_mom(msg_body, store)
 "
-엄마 이 이불 어때?
+ "+msg_body+"
 오랜만에 데이트도 하면서 
 이브자리로 이불 고르러
 같이 가요!
@@ -83,7 +83,8 @@ store.title+"
     end
     
     def to_user(store)
-"지금 엄마와 함께 
+"
+지금 엄마와 함께 
 혼수이불 고르러 
 이브자리로 오세요! 
 이불은 만져보고 골라야죠!
@@ -92,9 +93,7 @@ store.title+"
 "+store_info(store) +"
 소문내기 이벤트에 참여하시면 
 당첨확률이 높아집니다
-http://event3.evezary.co.kr
-
-* 당첨자 확인을 꼭 해주세요!"
+http://event3.evezary.co.kr"
     end
   
 end
