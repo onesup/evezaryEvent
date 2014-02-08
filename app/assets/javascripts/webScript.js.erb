@@ -86,6 +86,10 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         c2 = ((Math.random() * 1000) + 100) / 1000;
         c3 = ((Math.random() * 1000) + 100) / 1000;
         c4 = ((Math.random() * 1000) + 100) / 1000;
+        c1 = 0.35
+        c2 = 0.3
+        c3 = 0.25
+        c4 = 0.2
         setInterval(loopCloud, 1);
     }
     var ip = $.url().param('ip');
@@ -674,16 +678,18 @@ function loopCloud() {
     if (c1_left >= 1000) {
         c1_left = -200;
         c1 = ((Math.random() * 1000) + 100) / 1000;
+        c1 = 0.2;
     } else if (c1_left == 0) {
         c1_left += 1;
     }
     $('#cloud_1').css('margin-left', c1_left);
-
+    // $('#cloud_1').css('background-color', 'red');
     var c2_left = parseFloat($('#cloud_2').css('margin-left'));
     c2_left += c2;
     if (c2_left >= 1000) {
         c2_left = -200;
         c2 = ((Math.random() * 1000) + 100) / 1000;
+        c2 = 0.3;
     } else if (c2_left == 0) {
         c2_left += 1;
     }
@@ -694,6 +700,7 @@ function loopCloud() {
     if (c3_left >= 1000) {
         c3_left = -200;
         c3 = ((Math.random() * 1000) + 100) / 1000;
+        c3 = 0.25
     } else if (c3_left == 0) {
         c3_left += 1;
     }
@@ -704,6 +711,7 @@ function loopCloud() {
     if (c4_left >= 1000) {
         c4_left = -200;
         c4 = ((Math.random() * 1000) + 100) / 1000;
+        c4 = 0.35
     } else if (c4_left == 0) {
         c4_left += 1;
     }
