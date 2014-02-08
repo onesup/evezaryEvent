@@ -34,7 +34,7 @@
         <%= select("message", "store_id", @log.near_stores.collect {|s| [ s.title, s.id ] }) %>
 				<!-- 라벨 -->
                 <%= image_tag("popup/2/applyPopup2_InputCautionLabel_2.png", class: "popUp_2_Label3") %>
-				<a id = "applyPopup2_nearButton" href = "#">
+				<a id = "applyPopup2_nnearButton" href = "#">
                     <%= image_tag("popup/2/applyPopup2_SelectButton.png", class: "popUp_2_selectBtn") %>
                 </a>
 			</form>
@@ -42,5 +42,16 @@
 		<a id = "applyPopup2_sendButton" href = "#">
             <%= image_tag("popup/2/applyPopup2_send.png") %>
         </a>
+        <div id = "location">
+        	<a href = "#" id = "location_close"><%= image_tag("popup/applyPopup_close.png", class: "location_close")  %></a>
+        	<%= image_tag("popup/location/Label_1.png", class: "location_label")  %><br /><br /><br />
+        	<input type = 'text' id = 'location_searchBox' class = 'popUp_3_InputStyle1' />
+        	<a href = "#" id = "location_search"><%= image_tag("popup/location/search_btn.png", class: "location_searchBtn")  %></a><br /><br /><br />
+        	<select class = "location_select" size = "16">
+        		<option>A Location 라라라 123</option>
+        		<option>B Location 라라라 123</option>
+        		<option>C Location 라라라 123</option>
+        	</select>
+        </div>
 	</div>
 </div>
