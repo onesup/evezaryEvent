@@ -61,7 +61,7 @@ $(document).ready(function () {
               },
               success: function (data) {
                   $("#blog-code").val(data.blog_code);
-                  $("#social-viral-blog-url").text(data.blog_code);
+                  $("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
                   $('#social_popUp_6').modal();
                   
               }
