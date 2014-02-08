@@ -408,6 +408,24 @@
   padding-top: 88px;
 }
 
+/* social popup 6 */
+#social_popUp_6{
+  display: none;
+  width: 594px;
+  height: 333px;
+  background-image: asset-url("popup/6/social_applyPopup6_BG.png");
+  padding: 0px;
+  left: 50%;
+  position:absolute;
+  text-align: center;
+  margin-top: -166px;
+  margin-left: -300px;
+  a.close-modal{
+   top:0; 
+   right:0;
+  }
+}
+
 /* social popup blog */
 #social_popUp_blog{
   display: none;
