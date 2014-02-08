@@ -146,10 +146,10 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                 var str = "";
                                 str = this.options[ this.selectedIndex ].text;
                                 store_id = this.options[ this.selectedIndex ].value;
-                                console.log(store_id);
                                 select_store(message_id, store_id);
                                 $("#selected-store").val(store_id);
                                 $("#message_store_id").css('display','none');
+                                $("#message_store_id").val('0');
                                 $("#InputCautionLabel_2").css('display','none');
                                 $("#select-stores-wrap").css('float','left');
                                 $("#select-stores-wrap").css('width','300px');
@@ -181,10 +181,15 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                 var mom_phone2 = $("#momPhone_2").val();
                                 var mom_phone3 = $("#momPhone_3").val();
                                 var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
-                                if ($("#message_store_id").val().length > 0){
+                                console.log("start");
+                                if ($("#selected-store").val().length > 0){
+                                    console.log("@1");
+                                    var store_id = $("#selected-store").val();                                    
+                                    console.log(store_id);
+                                }else if ($("#message_store_id").val().length > 0){
+                                    console.log("@2");
                                     var store_id = $("#message_store_id").val();
-                                }else if ($("#selected-store").val().length > 0){
-                                    var store_id = $("#selected-store").val();
+                                    console.log(store_id);
                                 }else{
                                     var store_id = 1;
                                 }
@@ -524,7 +529,6 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-        // console.log("kjhf");
         if (viral_url === "") {
             $("#social_form").modal();
         } else {
