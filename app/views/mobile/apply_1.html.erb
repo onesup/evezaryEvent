@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>EvezaryEvent</title>
+  <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= javascript_include_tag "mobile" %>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -14,54 +16,104 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+  var opts = {
+    lines: 13, // The number of lines to draw
+    length: 20, // The length of each line
+    width: 10, // The line thickness
+    radius: 10, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    left: 40-40,
+    top: 29-40
+  };
+
+$(document).ready(function() {
+  var target = document.getElementById('spin_wrap');
+  var spinner = new Spinner(opts).spin(target);
+  navigator.geolocation.getCurrentPosition (function (pos){
+    var lat = pos.coords.latitude;
+    var lng = pos.coords.longitude;
+    $.ajax({
+      type: "GET",
+      url: "/near_stores.json?lat="+lat+"&lng="+lng,
+      dataType: "json",
+      success: function(data){
+        $.each(data.stores, function(key, value) {
+          $('#message_store_id').append($('<option>', { value : key }).text(value)); 
+        });
+        spinner.stop();
+      }
+    });
+  });
+});
 </script>
-  <%= stylesheet_link_tag    "mobile", media: "all" %>
-  <%= javascript_include_tag "mobile" %>
   <%= csrf_meta_tags %>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
 </head>
 <body id = "indexBody">
+  <%= link_to mobile_index_path do %>
+    <%= image_tag("mpopup/bg2.png", class:"mp_closeBox") %>
+  <% end %>
 <div class = "mobilePopContain">
   <%= image_tag("mpopup/1/m1_Label1.png", class:"mp1_Label1") %>
   <div class = "mp1_PopInbox">
-    <form>
+    <form action="messages.html" method="post">
       <!-- 내 번호 -->
       <%= image_tag("mpopup/1/m1_InputLabel_1.png", class:"mp1_InputLabel1") %>
-      <input type = 'text' id = 'myPhone_1' class = 'mp1_input' maxlength="4" />
-      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
-      <input type = 'text' id = 'myPhone_2' class = 'mp1_input' maxlength="4" />
-      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
-      <input type = 'text' id = 'myPhone_3' class = 'mp1_input' maxlength="4" /><br />
+      <input type = 'text' id = 'myPhone_1' class = 'mp1_input' maxlength="4" name="my-phone-1"/>
+      <input type = 'text' id = 'myPhone_2' class = 'mp1_input' maxlength="4" name="my-phone-2"/>
+      <input type = 'text' id = 'myPhone_3' class = 'mp1_input' maxlength="4" name="my-phone-3"/><br />
 
       <!-- 엄마 번호 -->
       <%= image_tag("mpopup/1/m1_InputLabel_2.png", class:"mp1_InputLabel2") %>
-      <input type = 'text' id = 'momPhone_1' class = 'mp1_input' maxlength="4" />
-      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
-      <input type = 'text' id = 'momPhone_2' class = 'mp1_input' maxlength="4" />
-      <%= image_tag("mpopup/1/m1_line.png", class:"mp1_lineLabel") %>
-      <input type = 'text' id = 'momPhone_3' class = 'mp1_input' maxlength="4" /><br />
-
+      <input type = 'text' id = 'momPhone_1' class = 'mp1_input' maxlength="4" name="mom-phone-1"/>
+      <input type = 'text' id = 'momPhone_2' class = 'mp1_input' maxlength="4" name="mom-phone-2"/>
+      <input type = 'text' id = 'momPhone_3' class = 'mp1_input' maxlength="4" name="mom-phone-3"/><br />
       <!-- 메시지 -->
-      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." id = "ta" class = "mp1_textArea"></textarea>
+      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." id="ta" class="mp1_textArea" name="message[msg_body]"></textarea>
 
       <!-- 매장선택 -->
-      <select class = "mp1_select" id="message_store_id">
-        <option>매장 선택시 고객님의 현재 위치를 제공받습니다.</option>
-        <option>방배동 코디센 매장 1.</option>
-        <option>방배동 코디센 매장 2.</option>
-        <option>방배동 코디센 매장 3.</option>
-      </select>
+      <div id="spin_wrap">
+        <select class = "mp1_select" id="message_store_id" name="message[store_id]">
+          <!-- <option>매장 선택시 고객님의 현재 위치를 제공받습니다.</option> -->
+        </select>
+      </div>
 
       <!-- 라벨 -->
       <%= image_tag("mpopup/1/m1_Label4.png", class:"mp1_Label2") %>
       <a href = "#" id = "location">
         <%= image_tag("mpopup/1/m1_SelectButton.png", class:"mp1_selectBtn") %>
       </a>
-    </form>
-  </div>
-  <a id = "m1_sendButton" href = "#">
-      <%= image_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
-  <a>
+
+    </div>
+    <a id="m1_sendButton" href="#">
+      <%= image_submit_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
+        <%#= image_tag() %>
+    <a>
+  </form>
 </div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 921993912;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/921993912/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
 </body>
 </html>

@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery-1.11.0.min
 //= require jquery_ujs
 //= require turbolinks
 //= require webScript.js
 //= require jquery.modal.min
 //= require purl.js
+//= require jquery.validate.min

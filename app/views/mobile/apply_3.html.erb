@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EvezaryEvent</title>
+  <%= stylesheet_link_tag    "mobile", media: "all" %>
+  <%= javascript_include_tag "mobile" %>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46149688-4']);
+  _gaq.push(['_trackPageview']);
+
+</script>
+  <%= csrf_meta_tags %>
+  <meta name = "viewport" content = "width=device-width, user-scalable=no" />
+</head>
+<body id = "indexBody">
+  <%= link_to mobile_index_path do %>
+    <%= image_tag("mpopup/bg2.png", class:"mp_closeBox") %>
+  <% end %>
+<div class = "mobilePopContain">
+  <%= image_tag("mpopup/3/title.png", class:"mp3_Label1") %>
+  <%= link_to mobile_index_path do %>
+    <%= image_tag("mpopup/3/btn_comp.png", id:"m3_endButton", class:"mp3_EndBtn") %>
+  <% end %>
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 921993912;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/921993912/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+</body>
+</html>

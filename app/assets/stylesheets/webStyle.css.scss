@@ -1,14 +1,23 @@
 .contain{
 	width: 1000px;
-	margin-left: -500px;
-	left:50%;
-	position:absolute;
+  margin: 0 auto;
+  /*margin-left: -500px;
+  left:50%;*/
+/*  position:absolute;*/
 	font-family: Arial;
 	background-color: white;
 	text-align: center;
 	background-color: #ECEADD;
+  margin-bottom: 64px;
 }
-
+.footer{
+  width: 100%;
+  background-color: #fff;
+}
+.caution{
+  width: 1000px;
+  margin: 0 auto;
+}
 .top{
 	text-align: left;
 	width: 1000px;
@@ -83,9 +92,6 @@
 	margin-top: -108px;
 	padding-right: 80px;
 }
-.caution{
-	margin-top: 64px;
-}
 
 .cloudBox{
     width: 1000px;
@@ -102,7 +108,7 @@
     position: absolute;
     left: 50%;
     margin-left: -500px;
-    background-image: url("<%= asset_path('main/characterImage.png')%>");
+    background-image: asset-url('main/characterImage.png');
 }
 .modal a.close-modal {
   position: absolute;
@@ -112,7 +118,7 @@
   width: 54px;
   height: 54px; 
   text-indent: -9999px;
-  background: url("<%= asset_path('popup/applyPopup_close.png')%>") no-repeat 0 0;
+  background: asset-url('popup/applyPopup_close.png') no-repeat 0 0;
 }
 
 .modal-spinner {
@@ -124,10 +130,18 @@
   left: 50%;
   margin-right: -32px;
   margin-top: -32px;
-  background: url("<%= asset_path('spinner.gif')%>") #111 no-repeat center center;
+  background: asset-url('spinner.gif') #111 no-repeat center center;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
   -ms-border-radius: 8px;
   border-radius: 8px;
+}
+#float_guide{
+  position: absolute;
+  margin-left: 834px;
+  z-index: 1;
+}
+.gifticon-100{
+  margin-left:127px;
 }

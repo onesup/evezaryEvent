@@ -10,8 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-1.11.0.min
+//= require jquery
 //= require jquery_ujs
 //= require kakao.link
 //= require mobileScript.js
 //= require purl.js
+//= require spin

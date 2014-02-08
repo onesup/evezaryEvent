@@ -13,6 +13,12 @@ class HomeController < ApplicationController
       redirect_to home_index_path(ip: log.id)
     end
   end
+  
+  def download_image
+    send_file Rails.root+"app/assets/images/blog_posting.jpg", :x_sendfile => true,
+    :type=>"image/jpg", :filename => "blog_posting.jpg", :disposition => 'attachment'
+  end  
+  
   def index
     
   end
