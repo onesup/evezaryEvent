@@ -23,7 +23,7 @@ gem 'nokogiri'
 gem 'nori' #xml parser
 gem 'useragent'
 gem 'sucker_punch', '~> 1.0'
-gem 'sha_header', :git => "git://github.com/onesup/sha_header.git"
+# gem 'sha_header', :git => "git://github.com/onesup/sha_header.git"
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development
