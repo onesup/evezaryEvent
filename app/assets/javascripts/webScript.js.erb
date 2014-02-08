@@ -129,6 +129,33 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                         $('#closeModal').css('right', '-46px');
                         $('#applyPopup2_nnearButton').click(function (e) {
                             e.preventDefault();
+                            $("#location_search").click(function(e){
+                               e.preventDefault();
+                               _gaq.push('send', 'event', 'button', 'click', '매장 검색');
+                               user_id = 2;
+                               address = $("#location_searchBox").val();
+                               if(address === ""){
+                                   alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
+                               }else{
+                                   search_stores(user_id, address);
+                               }
+                            });
+                            $('#search-stores-select').change(function(){
+                                var message_id;
+                                var store_id;
+                                var str = "";
+                                str = this.options[ this.selectedIndex ].text;
+                                store_id = this.options[ this.selectedIndex ].value;
+                                console.log(store_id);
+                                select_store(message_id, store_id);
+                                $("#selected-store").val(store_id);
+                                $("#message_store_id").css('display','none');
+                                $("#InputCautionLabel_2").css('display','none');
+                                $("#select-stores-wrap").css('float','left');
+                                $("#select-stores-wrap").css('width','300px');
+                                $("#popUp_2_selectBtn").css('margin-top','22px');
+                                $("#selected_store").text(str);
+                            });
                             $('#location').css('display', 'block');
                             $('#location_close').click(function(e){
                               e.preventDefault();
@@ -192,7 +219,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                     $('#applyPopup3_finButton').click(function (e) {
                                         _gaq.push('send', 'event', 'button', 'click', '완료1543');
                                         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
-                                        e.preventDefault();
+                                        e.preventDefault();                                        
                                         if (doNotSIgh_3()) {
                                             var phone1 = $("#phone_1").val();
                                             var phone2 = $("#phone_2").val();
@@ -712,4 +739,44 @@ function loadJsFile(filename) {
         document.getElementsByTagName("head")[0].appendChild(fileref);
 
     }
+}
+function select_store(message_id, store_id){
+    $('#location').css('display', 'none');
+}
+function search_stores(user_id, address){
+    var opts = {
+      lines: 13, // The number of lines to draw
+      length: 20, // The length of each line
+      width: 10, // The line thickness
+      radius: 10, // The radius of the inner circle
+      corners: 1, // Corner roundness (0..1)
+      rotate: 0, // The rotation offset
+      direction: 1, // 1: clockwise, -1: counterclockwise
+      color: '#000', // #rgb or #rrggbb or array of colors
+      speed: 1, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false, // Whether to render a shadow
+      hwaccel: false, // Whether to use hardware acceleration
+      className: 'spinner', // The CSS class to assign to the spinner
+      zIndex: 2e9, // The z-index (defaults to 2000000000)
+      left: 40-40,
+      top: 29-40
+    };
+    var target = document.getElementById('location_searchBox');
+    // var spinner = new Spinner(opts).spin(target);
+    $.ajax({
+        type: "PUT",
+        url: "/users/"+user_id+"/search_stores.json",
+        data: {
+            'user[address]': address,
+        },
+        success: function(data){
+            $('#search-stores-select').empty();
+            $.each(data.stores, function(key, value) {
+                var append = "<option value="+key+">"+value+"</option>"
+                $('#search-stores-select').append(append); 
+            });
+            // spinner.stop();
+        }
+    });
 }

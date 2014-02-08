@@ -17,12 +17,12 @@ Rails.application.routes.draw do
   get "blog_image_download" => "home#download_image"
   get '/:id', to: 'users#tracking_log', constraints: { id: /e.+-\d.+/ }
   devise_for :users
-  resources :users, only: [:create, :update]
-  resources :messages, only: [:create, :update] do
-    collection do
-      get 'search_stores'
+  resources :users, only: [:create, :update] do
+    member do
+      put 'search_stores'
     end
   end
+  resources :messages, only: [:create, :update]
   
   namespace :admin do
     resources :users

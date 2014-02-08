@@ -79,6 +79,23 @@ class UsersController < ApplicationController
     end
   end
   
+  def search_stores
+    user = User.find(params[:id])
+    user.update(user_params)
+    i = 1
+    length = 0
+    if user.address.nil?
+      user.address = "서울시 강남구 삼성동"
+    end
+    while length < 4
+      puts "@@search stores: "+length.to_s
+      @stores = Store.near(user, i)
+      length = @stores.length
+      i += 1
+    end
+
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

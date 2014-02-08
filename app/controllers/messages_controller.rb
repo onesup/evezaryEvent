@@ -40,18 +40,6 @@ class MessagesController < ApplicationController
     end
   end
   
-  def search_stores
-    user = User.find(params[:user_id])
-    i = 1
-    length = 0
-    while length < 4
-      puts "@@search stores: "+length.to_s
-      @stores = Store.near(user, i)
-      length = @stores.length
-      i += 1
-    end
-  end
-
   # PATCH/PUT /messages/1
   # PATCH/PUT /messages/1.json
   def update
