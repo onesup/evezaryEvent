@@ -5,6 +5,7 @@ Gift.create!(title:"웨딩 패키지", total: 0, code: "1")
 Gift.create!(title:"워커힐 스파", total: 0, code: "2")
 Gift.create!(title:"SK2 화장품 패키지", total: 0, code: "3")
 Gift.create!(title:"피자헛 상품권", total: 0, code: "4")
+Gift.create!(title:"blank", total: 0, code: "5")
 
 time = Time.now
 i = 0

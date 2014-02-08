@@ -408,6 +408,36 @@
   padding-top: 88px;
 }
 
+/* social popup blog */
+#social_popUp_blog{
+  display: none;
+  width: 594px;
+  height: 485px;
+  background-image: asset-url("popup/blog/social_applyPopup6_BG.png");
+  padding: 0px;
+  left: 50%;
+  position:absolute;
+  text-align: center;
+  margin-top: -242px;
+  margin-left: -300px;
+  a.close-modal{
+   top:0; 
+   right:0;
+  }
+  .popUp_blog_Label1{
+    margin-bottom: 12px;
+  }
+  .popUp_blog_Label2{
+    margin-top: 12px;
+  }
+
+  .popUp_blog_siteBox{
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+}
+
+
 /* social form */
 #social_form{
   display: none;
@@ -510,8 +540,7 @@
     vertical-align: middle;
     margin-top: -6px;
   }
-
-  #person{
+  #social_form_person{
     display: none;
     background-image: asset-url("popup/5/applyPopup5_BG.png");
     position: absolute;

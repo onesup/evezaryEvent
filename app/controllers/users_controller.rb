@@ -9,7 +9,11 @@ class UsersController < ApplicationController
     unless User.exists?(phone: @user.phone)
       @user = User.new(user_params)
       @user.blog_code = @user.random_code
-      @user.gift = Gift.find(@user.gift_id)
+      if user_params[:gift_id].nil?
+        @user.gift = Gift.find_by_title("blank")
+      else
+        @user.gift = Gift.find(@user.gift_id)
+      end
       if AccessLog.exists?(id: params["ip"])
         unless @user.access_logs.where(id: params["ip"]).empty?
           @user.access_logs << AccessLog.find(params["ip"])
@@ -18,10 +22,10 @@ class UsersController < ApplicationController
       respond_to do |format|
         if @user.save
           format.html { redirect_to(mobile_index_path, notice: 'User was successfully updated.') }
-          format.json { render json: {blog_code: @user.blog_code}, status: :created }
+          format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
         else
           format.html { redirect_to(mobile_apply_2_path, notice: '입력을 다시 한 번 확인해주세요.') }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.json { render json: {status: @user.errors}, status: :unprocessable_entity }
         end
       end
     else
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
       Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
       respond_to do |format|
         format.html { redirect_to(mobile_index_path, notice: '이미 참여하셨습니다.') }
-        format.json { render json: {blog_code: @user.blog_code}, status: :created }
+        format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
       end
     end
   end

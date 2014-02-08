@@ -7,19 +7,19 @@
       
           <!-- 이름 -->
           <%= image_tag("popup/3/applyPopup3_InputLabel_2.png", class: "popUp_3_Label1") %>
-          <input name="user[name]" type= 'text' id = 'myName' class = 'popUp_3_InputStyle1' />
+          <input name="user[name]" type= 'text' id = 'social_myName' class = 'popUp_3_InputStyle1' />
           <br />
           <!-- 전화번호 -->
           <%= image_tag("popup/3/applyPopup3_InputLabel_3.png", class: "popUp_3_Label2") %>
-          <input name="p1" type= 'text' id = 'phone_1' class = 'popUp_3_InputStyle2' maxlength="4" />
+          <input name="p1" type= 'text' id = 'social_phone_1' class = 'popUp_3_InputStyle2' maxlength="4" />
           -
-          <input name="p2" type= 'text' id = 'phone_2' class = 'popUp_3_InputStyle2' maxlength="4" />
+          <input name="p2" type= 'text' id = 'social_phone_2' class = 'popUp_3_InputStyle2' maxlength="4" />
           -
-          <input name="p3" type= 'text' id = 'phone_3' class = 'popUp_3_InputStyle2' maxlength="4" />
+          <input name="p3" type= 'text' id = 'social_phone_3' class = 'popUp_3_InputStyle2' maxlength="4" />
           <br />
           <!-- 이메일 -->
           <%= image_tag("popup/3/applyPopup3_InputLabel_4.png", class: "popUp_3_Label3") %>
-          <input name="user[email]" type= 'text' id = 'myEmail' class = 'popUp_3_InputStyle3' />
+          <input name="user[email]" type= 'text' id = 'social_myEmail' class = 'popUp_3_InputStyle3' />
           <br /><br />
 
       </div>
@@ -29,17 +29,18 @@
       <input type= "radio" name = "agree" value = "a" checked="checked" />
       <%= image_tag("popup/3/applyPopup3_CautionDisallow.png", class: "popUp_3_CautionLabel2") %>
       <input type= "radio" name = "agree" value = "d" />
-      <a id= "social_form_person" href = "#">
+      <a id= "social_form_person_button" href = "#">
         <%= image_tag("popup/3/applyPopup3_CautionShow.png", class: "popUp_3_CautionLabel3") %>
       </a>
 
       <!-- 라벨 -->
       <%= image_tag("popup/3/applyPopup3_Line.png", class: "popUp_3_DotLine") %>
       <%= image_tag("popup/3/applyPopup3_CautionLabel2.png", class: "popUp_3_CautionLabel4") %>
-      <%= image_submit_tag("popup/3/applyPopup3_Fin.png",id:"applyPopup3_finButton") %>
+      <%= image_submit_tag("popup/3/applyPopup3_Fin.png",id:"foo") %>
+      <!-- 이 위쪽 image_submit_tag의 id 변경 필요! (applyPopup3_finButton는 중복)-->
     </form>
   </div>
-  <div id= "person">
+  <div id= "social_form_person">
     <%= image_tag("popup/3/agree_title.png", style: "margin-top: 80px; margin-bottom: 12px;") %>
     <div class= "personal_info_text">
       <p>2012년 8월 18일부터 주민등록법 제23조 2항에 의하여 주민등록번호 수집금지되어 이브자리도 이에 따라 아래와 같이 개인정보방침을 조정합니다.</p>
@@ -171,7 +172,7 @@
 
 
                               </div>
-                              <a id = "applyPopup3_finButton2" href = "#" class="social_form_close">
+                              <a id = "social_form_finButton2" href = "#" class="social_form_close">
                                 <%= image_tag("popup/3/btn_close.jpg", class:"applyPopup3_finButton2_img") %>
                               </a>
                             </div>
