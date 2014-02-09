@@ -28,7 +28,7 @@ $(document).ready(function() {
 	}
 	
     $('#location').click(function(e){
-        e.preventDefault;
+        e.preventDefault();
         var myPhone_1 = $("#myPhone_1").val();
         var myPhone_2 = $("#myPhone_2").val();
         var myPhone_3 = $("#myPhone_3").val();
@@ -58,8 +58,8 @@ $(document).ready(function() {
 	 		location.href = "mobile_buzz/users/new?platform=kakaotalk";
 	 	}
     });
-    $('#mobile_ks').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '카스 모바일 1552');
+    $("#mobile_ks").click(function(){
+        _gaq.push("send", "event", "button", "click", "카스 모바일 1552");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
 		if( plaf != "" && blog != "" ){
        	 kakao.link("story").send({
@@ -78,8 +78,8 @@ $(document).ready(function() {
 	  		location.href = "mobile_buzz/users/new?platform=kakaostory";
 	  	}
     });
-    $('#mobile_f').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '페북버튼 모바일 1553');
+    $("#mobile_f").click(function(){
+        _gaq.push("send", "event", "button", "click", "페북버튼 모바일 1553");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
 		if( plaf != "" && blog != "" ){
 			window.open("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/"+bc,"_blank");

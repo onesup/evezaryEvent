@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "mobile_apply_3"        => "mobile#apply_3"
   get "mobile_search_stores"  => "mobile#search_stores"
   get "mobile_person"         => "mobile#person"
+  get "mobile_kakaotalk"      => "mobile#kakaotalk"
+  get "mobile_kakaostory"     => "mobile#kakaostory"
+  get "mobile_facebook"       => "mobile#facebook"
   get "near_stores"           => "mobile#near_stores"
   get "home_index"            => "home#index"
   get "home_popup_1"          => "home#popUp_1"
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
   namespace :mobile_buzz do
-    resources :users, only: [:create]
+    resources :users, only: [:new, :create]
   end
   namespace :admin do
     resources :users
