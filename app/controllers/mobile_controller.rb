@@ -20,6 +20,16 @@ class MobileController < ApplicationController
   def index    
   end
   
+  def kakao_talk
+  end
+  
+  def kakao_story
+  end
+  
+  def facebook
+  end
+  
+  
   def search_stores
     @cache = {
       myPhone_1: params[:myPhone_1],
