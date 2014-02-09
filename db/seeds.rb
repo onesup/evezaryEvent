@@ -1,6 +1,6 @@
 require 'csv'
 
-User.create!(email:"admin@admin.com", password:"mini", name:"관리자", phone:"010-6418-4332") if User.find_by_email("admin@admin.com").nil?
+User.create!(email:"admin@admin.com", password:"mini", name:"관리자", phone:"010-9999-9999") if User.find_by_email("admin@admin.com").nil?
 Gift.create!(title:"웨딩 패키지", total: 0, code: "1") if Gift.find_by_code("1").nil?
 Gift.create!(title:"워커힐 스파", total: 0, code: "2") if Gift.find_by_code("2").nil?
 Gift.create!(title:"SK2 화장품 패키지", total: 0, code: "3") if Gift.find_by_code("3").nil?
