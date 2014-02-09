@@ -50,9 +50,12 @@
       <%= image_tag("popup/location/Label_1.png", class: "location_label")  %><br /><br /><br />
       <input type = 'text' id = 'location_searchBox' class = 'popUp_3_InputStyle1' />
       <a href = "#" id = "location_search"><%= image_tag("popup/location/search_btn.png", class: "location_searchBtn")  %></a><br /><br /><br />
-      <select class = "location_select" size = "16" id="search-stores-select">
+      <select class = "location_select" size = "10" id="search-stores-select">
         <option selected="selected">매장을 선택해주세요.</option>
       </select>
+      <a onclick =  " _gaq.push('send', 'event', 'button', 'click', '약관 나가기 모바일'); exitWindow();" href = "#">
+        <%= image_tag("mpopup/btn_close.jpg", id:"loc_endBtn") %>
+        <a>
     </div>
   </div>
 </div>

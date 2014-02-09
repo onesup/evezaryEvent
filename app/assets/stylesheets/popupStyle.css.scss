@@ -136,12 +136,13 @@
 }
 
 #location{
-  width: 594px;
-  height: 816px;
-  background-image: asset-url("popup/2/applyPopup2_BG.png");
+  width: 570px;
+  height: 709px;
+  background-image: asset-url("popup/2/location_form.png");
   display: none;
   position: absolute;
-  top: 0px;
+  top: 36px;
+  left: 6px;
 }
 
 .location_label{
@@ -150,8 +151,7 @@
 
 .location_close{
   position: absolute;
-  top: 2px;
-  right: 18px;
+  right: 0px;
   z-index: 2;
 }
 
@@ -168,6 +168,10 @@
   border-color: #D2D2D2;
 }
 
+#loc_endBtn{
+	margin-top: 32px;
+	width: 260px;
+}
 
 /* popup 3 */
 #popUp_3{

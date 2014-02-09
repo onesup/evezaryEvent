@@ -161,7 +161,10 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                               e.preventDefault();
                               $('#location').css('display', 'none');
                             });
-
+							$('#loc_endBtn').click(function(e){
+								e.preventDefault();
+								$('#location').css('display', 'none');
+							});
                         });
                         // '문자 보내기' 후 넘어가는 팝업
                         $('#applyPopup2_sendButton').click(function (e) {
