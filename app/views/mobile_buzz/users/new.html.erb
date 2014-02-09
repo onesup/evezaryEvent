@@ -35,7 +35,7 @@
 <div class = "mobilePopContain">
   <%= image_tag("mpopup/mobile_social_form_title.png", class:"social_mp2_Label1") %>
 
-  <form action="mobile_buzz/users.html" method="post" class="mobile-user-form" id="mobile-user-form">
+  <%= form_tag( mobile_buzz_users_path, method:"post", class:"mobile-user-form", id:"mobile-user-form") %>
       <div class = "mp2_PopInbox">
         <%= image_tag("mpopup/2/m2_Label2.png", class:"mp2_Label2") %>
         <br />
@@ -45,9 +45,9 @@
         <br />
         <!-- 전화번호 -->
         <%= image_tag("mpopup/2/m2_Label4.png", class:"mp2_Label4") %>
-        <input type = 'text' id='m2_phone_1' class= 'mp2_Input' maxlength="4" name="p1"/>
-        <input type = 'text' id='m2_phone_2' class= 'mp2_Input' maxlength="4" name="p2"/>
-        <input type = 'text' id='m2_phone_3' class= 'mp2_Input' maxlength="4" name="p3"/><br />
+        <input type = 'tel' id='m2_phone_1' class= 'mp2_Input' maxlength="3" name="p1"/>
+        <input type = 'tel' id='m2_phone_2' class= 'mp2_Input' maxlength="4" name="p2"/>
+        <input type = 'tel' id='m2_phone_3' class= 'mp2_Input' maxlength="4" name="p3"/><br />
         <!-- 이메일 -->
         <%= image_tag("mpopup/2/m2_Label5.png", class:"mp2_Label5") %>
         <input type = 'text' id = 'm2_email' class = 'mp2_InputWide' name="user[email]"/>
@@ -64,7 +64,8 @@
         <% end %>
     </div>
       <%= image_tag("mpopup/2/m2_Label9.png", class:"mp2_Label9") %>
-      <%= image_submit_tag("mpopup/2/m2_endButton.png", id:"m2_endButton", class:"mp2_EndBtn") %>
+      <%= image_submit_tag("mpopup/2/m2_endButton.png", class:"mp2_EndBtn") %>
+	  <input type = 'hidden' name="platform" value = "<%= params[:platform] %>" />
   </form>
 
 </div>

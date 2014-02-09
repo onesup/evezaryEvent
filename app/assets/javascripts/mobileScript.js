@@ -1,6 +1,15 @@
 $(document).ready(function() {
-	var bc = $.url().param('blog-code');
+	var bc = $.url().param('blog_code');
 	var plaf = $.url().param('platform');
+    $.ajaxSetup({ cache: true });
+$.getScript('//connect.facebook.net/ko_KR/all.js', function(){
+  FB.init({
+    appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });     
+	if( window.location.pathname == "/mobile_index" ){
 	if( plaf == "kakaotalk" ){
 		kakao.link("talk").send({
             msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
@@ -24,9 +33,29 @@ $(document).ready(function() {
             })
         });
 	}else if( plaf == "facebook" ){
-		window.open("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/"+bc,"_blank");
+        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
+        function share() {
+        	var share = {
+        		method: "feed",
+        		name: "엄마와 특별한 데이트 이벤트",
+        		link: "http://event3.evezary.co.kr/"+bc,
+        		picture: '<%= asset_url "fb_share_img.jpg" %>',
+        		caption: "[이브자리::엄마와 특별한 데이트 이벤트]",
+        		description: "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"
+        	};
+
+        	FB.ui(share, function(response) {
+        		if(response && response.post_id) {
+        			alert("공유되었습니다.");
+        		}
+        		else {
+        			alert("공유 실패");
+        		}
+        	});
+        }
+        share();
 	}
-	
+}
     $('#location').click(function(e){
         e.preventDefault();
         var myPhone_1 = $("#myPhone_1").val();
@@ -42,10 +71,11 @@ $(document).ready(function() {
         location.href = cache;
     });
     
-    $('#mobile_k').click(function(){
+    $('#mobile_k').click(function(e){
+		e.preventDefault();
         _gaq.push('send', 'event', 'button', 'click', '카톡 모바일 1551');
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
-		if( plaf != "" && blog != "" ){
+		if( plaf || bc ){
        	 kakao.link("talk").send({
             msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
             url : "http://event3.evezary.co.kr/"+bc,
@@ -58,10 +88,11 @@ $(document).ready(function() {
 	 		location.href = "mobile_buzz/users/new?platform=kakaotalk";
 	 	}
     });
-    $("#mobile_ks").click(function(){
+    $("#mobile_ks").click(function(e){
+		e.preventDefault();
         _gaq.push("send", "event", "button", "click", "카스 모바일 1552");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
-		if( plaf != "" && blog != "" ){
+		if( plaf || bc ){
        	 kakao.link("story").send({
             post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요. http://event3.evezary.co.kr/"+bc,
             appid : "event3.evezary.co.kr",
@@ -78,11 +109,32 @@ $(document).ready(function() {
 	  		location.href = "mobile_buzz/users/new?platform=kakaostory";
 	  	}
     });
-    $("#mobile_f").click(function(){
+    $("#mobile_f").click(function(e){
+		e.preventDefault();
         _gaq.push("send", "event", "button", "click", "페북버튼 모바일 1553");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
-		if( plaf != "" && blog != "" ){
-			window.open("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/"+bc,"_blank");
+		if( plaf || bc ){
+	        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
+	        function share() {
+	        	var share = {
+	        		method: "feed",
+	        		name: "엄마와 특별한 데이트 이벤트",
+	        		link: "http://event3.evezary.co.kr/"+bc,
+	        		picture: '<%= asset_url "fb_share_img.jpg" %>',
+	        		caption: "[이브자리::엄마와 특별한 데이트 이벤트]",
+	        		description: "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"
+	        	};
+
+	        	FB.ui(share, function(response) {
+	        		if(response && response.post_id) {
+	        			alert("공유되었습니다.");
+	        		}
+	        		else {
+	        			alert("공유 실패");
+	        		}
+	        	});
+	        }
+	        share();
 		} else {
 			location.href = "mobile_buzz/users/new?platform=facebook";
 		}
@@ -131,6 +183,7 @@ $(document).ready(function() {
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
         location.href = "mobile_apply_1";
     });
+});
 });
 
 function loadJsFile(filename){
