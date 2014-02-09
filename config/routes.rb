@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create]
   end
   namespace :admin do
+    get '/' => 'dashboard#index', ad: 'admin'
+    resources :gifts
     resources :users
     resources :messages
     resources :access_logs
