@@ -651,6 +651,21 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             });
         });
     });
+	$('#social_phone_1').keyup(function(){
+		if($('#social_phone_1').val().length >= 3){
+			$('#social_phone_2').focus();
+		}
+	});
+	$('#social_phone_2').keyup(function(){
+		if($('#social_phone_2').val().length >= 4){
+			$('#social_phone_3').focus();
+		}
+	});
+	$('#social_phone_3').keyup(function(){
+		if($('#social_phone_3').val().length >= 4){
+			$('#social_myEmail').focus();
+		}
+	});
 });
 });
 function popUp_6(){
