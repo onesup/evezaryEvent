@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :messages
+    resources :access_logs
   end
   root :to => "home#switch"
 end
