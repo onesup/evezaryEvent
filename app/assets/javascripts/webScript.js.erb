@@ -526,6 +526,14 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
         if (viral_url === "") {
             $("#social_form").modal();
+             $('#social_form_person_button').click(function(e){
+               e.preventDefault();
+                $('#social_form_person').css('display', 'block');
+                $('#social_form_finButton2').click(function(e){
+                   e.preventDefault();
+                    $('#social_form_person').css('display', 'none');
+                });
+             });
         } else {
             var viral_url = $("#blog-code").val()
             var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
