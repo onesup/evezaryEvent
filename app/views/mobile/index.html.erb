@@ -3,6 +3,10 @@
 <head>
   <title>EvezaryEvent</title>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
+  <meta property="og:url" content="http://event3.evezary.co.kr/" />
+  <meta property="og:image" content="<%= asset_url "link_share_content_385x200.jpg" %>" />
+  <meta property="og:title" content="엄마와 특별한 데이트 이벤트" />
+  <meta property="og:description" content="지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"/>
   <%= stylesheet_link_tag    "mobile", media: "all" %>
   <%= javascript_include_tag "mobile" %>
   <script language='javascript' src='http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1547'></script>
@@ -18,6 +22,8 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
+  alert("1547");
 
 </script>
   <%= csrf_meta_tags %>
