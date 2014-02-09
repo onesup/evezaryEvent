@@ -82,7 +82,7 @@ input[type=text]{
 }
 .mp1_Label2{
     vertical-align: top;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 55%;
     margin-right: 11%;
 }
@@ -275,8 +275,20 @@ input[type=text]{
 	margin-top: 5%;
 	width: 90%;
 	height: 30%;
+	text-align: left;
+	margin-left: 3%;
 }
 
-.search-view-ul{
+#search-view-ul{
 	list-style: none;
+}
+
+.li_class{
+	margin-top: 3%;
+	font-size: 1.2em;
+}
+
+.mp1_where_class{
+	font-size: 1.4em;
+	margin-bottom: 0%;
 }

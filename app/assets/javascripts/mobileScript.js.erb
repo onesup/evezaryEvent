@@ -197,6 +197,18 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
         location.href = "mobile_apply_1";
     });
+    $("#search-stores-button").click(function(e){
+       e.preventDefault();
+       _gaq.push('send', 'event', 'button', 'click', '매장 검색');
+       user_id = 2;
+       address = $("#search-stores-input").val();
+       if(address === ""){
+           alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
+       }else{
+           search_stores(user_id, address);
+       }
+    });
+	
 });
 });
 
@@ -208,4 +220,61 @@ function loadJsFile(filename){
         document.getElementsByTagName("head")[0].appendChild(fileref);
     }
 
+}
+
+
+function search_stores(user_id, address){
+    var opts = {
+      lines: 13, // The number of lines to draw
+      length: 20, // The length of each line
+      width: 10, // The line thickness
+      radius: 10, // The radius of the inner circle
+      corners: 1, // Corner roundness (0..1)
+      rotate: 0, // The rotation offset
+      direction: 1, // 1: clockwise, -1: counterclockwise
+      color: '#000', // #rgb or #rrggbb or array of colors
+      speed: 1, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false, // Whether to render a shadow
+      hwaccel: false, // Whether to use hardware acceleration
+      className: 'spinner', // The CSS class to assign to the spinner
+      zIndex: 2e9, // The z-index (defaults to 2000000000)
+      left: 40-40,
+      top: 29-40
+    };
+    var target = document.getElementById('location_searchBox');
+    // var spinner = new Spinner(opts).spin(target);
+    $.ajax({
+        type: "POST",
+        url: "/users/search_stores.json",
+        data: {
+            'user[address]': address,
+        },
+        success: function(data){
+            $('#search-view-ul').empty();
+            $.each(data.stores, function(key, value) {
+				var myPhone_1 = $.url().param('myPhone_1');
+				var myPhone_2 = $.url().param('myPhone_2');
+				var myPhone_3 = $.url().param('myPhone_3');
+				var momPhone_1 = $.url().param('momPhone_1');
+				var momPhone_2 = $.url().param('momPhone_2');
+				var momPhone_3 = $.url().param('momPhone_3');
+				var ta = $.url().param('ta');
+				
+				if( !myPhone_1 ){ myPhone_1 = ""; }
+				if( !myPhone_2 ){ myPhone_2 = ""; }
+				if( !myPhone_3 ){ myPhone_3 = ""; }
+				if( !momPhone_1 ){ momPhone_1 = ""; }
+				if( !momPhone_2 ){ momPhone_2 = ""; }
+				if( !momPhone_3 ){ momPhone_3 = ""; }
+				if( !ta ){ ta = ""; }
+				
+				var link = "myPhone_1=" + myPhone_1 + "&myPhone_2=" + myPhone_2 + "&myPhone_3=" + myPhone_3 + "&momPhone_1=" + momPhone_1 + "&momPhone_2=" + momPhone_2 + "&momPhone_3=" + momPhone_3 + "&ta=" + ta;
+				
+                var append = "<a href = 'mobile_apply_1?" + link + "&where=" + key + "'><li class='li_class' value="+key+">"+value+"</li></a>";
+                $('#search-view-ul').append(append); 
+            });
+            // spinner.stop();
+        }
+    });
 }

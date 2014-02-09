@@ -54,6 +54,7 @@ class MobileController < ApplicationController
       momPhone_3: params[:momPhone_3],
       ta: params[:ta]
     }
+    @store = Store.find(params[:where]) unless params[:where].nil?
   end
   
   def apply_2

@@ -40,6 +40,7 @@
   };
 
 $(document).ready(function() {
+	<% if params[:where].nil? %>
   var target = document.getElementById('spin_wrap');
   var spinner = new Spinner(opts).spin(target);
   navigator.geolocation.getCurrentPosition (function (pos){
@@ -57,6 +58,7 @@ $(document).ready(function() {
       }
     });
   });
+  <% end %>
 });
 </script>
   <%= csrf_meta_tags %>
@@ -96,18 +98,23 @@ $(document).ready(function() {
       <%= image_tag("mpopup/1/m1_Label5.png", class:"mp1_guide_text")%>
       <!-- 매장선택 -->
       <div id="spin_wrap">
+		  <% if params[:where].nil? %>
         <select class = "mp1_select" id="message_store_id" name="message[store_id]">
           <!-- <option>매장 선택시 고객님의 현재 위치를 제공받습니다.</option> -->
         </select>
+		<% else %>
+		<p class = "mp1_where_class"><%= Store.find(params[:where]).title %></p>
+		<input type="hidden" value = "<%= params[:where] %>" name = "message[store_id]">
+		<% end %>
       </div>
 
       <!-- 라벨 -->
       <%= image_tag("mpopup/1/m1_Label4.png", class:"mp1_Label2") %>
-	  <!--
+	 
       <a href = "#" id = "location">
         <%= image_tag("mpopup/1/m1_SelectButton.png", class:"mp1_selectBtn") %>
       </a>
--->
+		  
     </div>
     <!-- <a id="m1_sendButton" href="#"> -->
       <%= image_submit_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn", id:"m1_sendButton") %>
