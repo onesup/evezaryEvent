@@ -31,7 +31,11 @@ class UsersController < ApplicationController
     else
       @user = User.find_by_phone(@user.phone)
       if @user.blog_code.nil?
-        @user.blog_code = @user.random_code 
+        @user.blog_code = @user.random_code
+        @user.save
+      end
+      if @user.address.nil?
+        @user.address = user_params[:address]
         @user.save
       end
       Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
@@ -56,6 +60,42 @@ class UsersController < ApplicationController
     end
   end
   
+  def tracking_log
+    user = User.find_by_blog_code params[:id]
+    unless user.nil?
+      user.viral_score += 1
+      user.save
+      data = {score: user.viral_score}
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json {render json: data}
+      end
+    else
+      data = {score: 0}
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json {render json: data}
+      end
+    end
+  end
+  
+  def search_stores
+    user = User.new
+    user.update(user_params)
+    i = 1
+    length = 0
+    if user.address.nil?
+      user.address = "서울시 강남구 삼성동"
+    end
+    while length < 4
+      puts "@@search stores: "+length.to_s
+      @stores = Store.near(user, i)
+      length = @stores.length
+      i += 1
+    end
+
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -64,6 +104,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :email, :gift_id)
+      params.require(:user).permit(:name, :phone, :email, :gift_id, :address)
     end
 end

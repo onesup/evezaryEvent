@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 #          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :gift
   has_many :access_logs
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+  
   def random_code
     evezary = %w(e v e z a r y) * 3
     digit = %w(4 6 7 9) * 2

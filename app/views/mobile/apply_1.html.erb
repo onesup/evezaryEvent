@@ -68,21 +68,28 @@ $(document).ready(function() {
 <div class = "mobilePopContain">
   <%= image_tag("mpopup/1/m1_Label1.png", class:"mp1_Label1") %>
   <div class = "mp1_PopInbox">
-    <form action="messages.html" method="post">
+    <%= form_tag('mobile/messages.html', method: "post")%>
+    <!-- <form action="messages.html" method="post"> -->
       <!-- 내 번호 -->
       <%= image_tag("mpopup/1/m1_InputLabel_1.png", class:"mp1_InputLabel1") %>
-      <input type = 'text' id = 'myPhone_1' class = 'mp1_input' maxlength="4" name="my-phone-1"/>
-      <input type = 'text' id = 'myPhone_2' class = 'mp1_input' maxlength="4" name="my-phone-2"/>
-      <input type = 'text' id = 'myPhone_3' class = 'mp1_input' maxlength="4" name="my-phone-3"/><br />
+      <%= text_field_tag "myPhone_1" ,params["myPhone_1"], class: "mp1_input"%>
+      <%= text_field_tag "myPhone_2" ,params["myPhone_2"], class: "mp1_input"%>
+      <%= text_field_tag "myPhone_3" ,params["myPhone_3"], class: "mp1_input"%><br />
+      <!-- <input type = 'text' id = 'myPhone_1' class = 'mp1_input' maxlength="4" name="myPhone_1"/>
+      <input type = 'text' id = 'myPhone_3' class = 'mp1_input' maxlength="4" name="myPhone_3"/><br /> -->
 
       <!-- 엄마 번호 -->
       <%= image_tag("mpopup/1/m1_InputLabel_2.png", class:"mp1_InputLabel2") %>
-      <input type = 'text' id = 'momPhone_1' class = 'mp1_input' maxlength="4" name="mom-phone-1"/>
+      <%= text_field_tag "momPhone_1" ,params["momPhone_1"], class: "mp1_input"%>
+      <%= text_field_tag "momPhone_2" ,params["momPhone_2"], class: "mp1_input"%>
+      <%= text_field_tag "momPhone_3" ,params["momPhone_3"], class: "mp1_input"%><br />
+      <!-- <input type = 'text' id = 'momPhone_1' class = 'mp1_input' maxlength="4" name="mom-phone-1"/>
       <input type = 'text' id = 'momPhone_2' class = 'mp1_input' maxlength="4" name="mom-phone-2"/>
-      <input type = 'text' id = 'momPhone_3' class = 'mp1_input' maxlength="4" name="mom-phone-3"/><br />
+      <input type = 'text' id = 'momPhone_3' class = 'mp1_input' maxlength="4" name="mom-phone-3"/><br /> -->
       <!-- 메시지 -->
-      <textarea  title = "엄마에게 전달할 메시지를 적어보세요." id="ta" class="mp1_textArea" name="message[msg_body]"></textarea>
-
+      <%= text_area_tag "message[msg_body]", params["ta"], class:"mp1_textArea", id:"ta"%>
+      <!-- <textarea  title = "엄마에게 전달할 메시지를 적어보세요." id="ta" class="mp1_textArea" name="message[msg_body]"></textarea> -->
+      <%= image_tag("mpopup/1/m1_Label5.png", class:"mp1_guide_text")%>
       <!-- 매장선택 -->
       <div id="spin_wrap">
         <select class = "mp1_select" id="message_store_id" name="message[store_id]">
@@ -97,10 +104,9 @@ $(document).ready(function() {
       </a>
 
     </div>
-    <a id="m1_sendButton" href="#">
-      <%= image_submit_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn") %>
-        <%#= image_tag() %>
-    <a>
+    <!-- <a id="m1_sendButton" href="#"> -->
+      <%= image_submit_tag("mpopup/1/m1_send.png", class:"mp1_sendBtn", id:"mp1_sendBtn") %>
+    <!-- <a> -->
   </form>
 </div>
 <script type="text/javascript">

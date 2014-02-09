@@ -17,3 +17,4 @@
 //= require jquery.modal.min
 //= require purl.js
 //= require jquery.validate.min
+//= require spin.js

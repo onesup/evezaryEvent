@@ -29,10 +29,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.integer  :failed_attempts, :default => 0, :null => false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
+      
+      t.string :address
+      t.float  :latitude
+      t.float  :longitude
       t.string :phone
       t.string :name
       t.string :blog_code
-      t.integer :viral_score
+      t.integer :viral_score, :default => 0
       t.references :gift, index: true
 
 

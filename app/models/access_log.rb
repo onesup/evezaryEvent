@@ -21,7 +21,11 @@ class AccessLog < ActiveRecord::Base
     length = 0
     while length < 4
       puts "@@search stores: "+length.to_s
-      stores = Store.near(self,i)
+      if self.latitude.nil?
+        stores = Store.near([37.5146212,127.0554681],5)
+      else
+        stores = Store.near(self,i)
+      end
       length = stores.length
       i += 1
     end

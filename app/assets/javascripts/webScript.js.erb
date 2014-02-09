@@ -3,16 +3,15 @@
 var c1, c2, c3, c4;
 
 $(document).ready(function () {   
-    // $('#social_form_person_button').click(function (e) {
-    //     e.preventDefault();
-    //     _gaq.push('send', 'event', 'button', 'click', '개인정보');
-    //     $('#social_form_person').css('display', 'block');
-    //     $('#social_form_finButton2').click(function (e) {
-    //         e.preventDefault();
-    //         _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
-    //         $('#social_form_person').css('display', 'none');
-    //     });
-    // });
+    $.ajaxSetup({ cache: true });
+$.getScript('//connect.facebook.net/ko_KR/all.js', function(){
+  FB.init({
+    appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });       
+    
     $('#social_applyPopup6_finButton').click(function (e) {
         e.preventDefault();
         _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
@@ -60,8 +59,9 @@ $(document).ready(function () {
                   'ip': $("#ip-code").val()
               },
               success: function (data) {
-                  $("#social-viral-blog-url").text(data.blog_code);
-                  $("#social_popUp_blog").modal();
+                  $("#blog-code").val(data.blog_code);
+                  $("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
+                  $('#social_popUp_6').modal();
                   
               }
           });
@@ -76,6 +76,10 @@ $(document).ready(function () {
         c2 = ((Math.random() * 1000) + 100) / 1000;
         c3 = ((Math.random() * 1000) + 100) / 1000;
         c4 = ((Math.random() * 1000) + 100) / 1000;
+        c1 = 0.35
+        c2 = 0.3
+        c3 = 0.25
+        c4 = 0.2
         setInterval(loopCloud, 1);
     }
     var ip = $.url().param('ip');
@@ -125,6 +129,33 @@ $(document).ready(function () {
                         $('#closeModal').css('right', '-46px');
                         $('#applyPopup2_nnearButton').click(function (e) {
                             e.preventDefault();
+                            $("#location_search").click(function(e){
+                               e.preventDefault();
+                               _gaq.push('send', 'event', 'button', 'click', '매장 검색');
+                               user_id = 2;
+                               address = $("#location_searchBox").val();
+                               if(address === ""){
+                                   alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
+                               }else{
+                                   search_stores(user_id, address);
+                               }
+                            });
+                            $('#search-stores-select').change(function(){
+                                var message_id;
+                                var store_id;
+                                var str = "";
+                                str = this.options[ this.selectedIndex ].text;
+                                store_id = this.options[ this.selectedIndex ].value;
+                                select_store(message_id, store_id);
+                                $("#selected-store").val(store_id);
+                                $("#message_store_id").css('display','none');
+                                $("#message_store_id").val('0');
+                                $("#InputCautionLabel_2").css('display','none');
+                                $("#select-stores-wrap").css('float','left');
+                                $("#select-stores-wrap").css('width','300px');
+                                $("#popUp_2_selectBtn").css('margin-top','22px');
+                                $("#selected_store").text(str);
+                            });
                             $('#location').css('display', 'block');
                             $('#location_close').click(function(e){
                               e.preventDefault();
@@ -150,6 +181,13 @@ $(document).ready(function () {
                                 var mom_phone2 = $("#momPhone_2").val();
                                 var mom_phone3 = $("#momPhone_3").val();
                                 var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
+                                if ($("#selected-store").val().length > 0){
+                                    var store_id = $("#selected-store").val();                                    
+                                }else if ($("#message_store_id").val().length > 0){
+                                    var store_id = $("#message_store_id").val();
+                                }else{
+                                    var store_id = 1;
+                                }
                                 $.ajax({
                                     type: "POST",
                                     url: "/messages.json",
@@ -157,7 +195,7 @@ $(document).ready(function () {
                                         'message[send_phone]': send_phone,
                                         'message[dest_phone]': dest_phone,
                                         'message[msg_body]': $("#textarea_2").val(),
-                                        'message[store_id]': $("#message_store_id").val(),
+                                        'message[store_id]': store_id,
                                         'ip': $("#ip-code").val()
                                     },
                                     dataType: "json",
@@ -188,7 +226,7 @@ $(document).ready(function () {
                                     $('#applyPopup3_finButton').click(function (e) {
                                         _gaq.push('send', 'event', 'button', 'click', '완료1543');
                                         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
-                                        e.preventDefault();
+                                        e.preventDefault();                                        
                                         if (doNotSIgh_3()) {
                                             var phone1 = $("#phone_1").val();
                                             var phone2 = $("#phone_2").val();
@@ -254,7 +292,28 @@ $(document).ready(function () {
                                                            e.preventDefault();
                                                            var viral_url = $("#blog-code").val()
                                                            var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-                                                           window.open(fb_url, 'window', "width = '300px', height = '200px'");
+                                                           function share() {
+                                                           	var share = {
+                                                           		method: "feed",
+                                                           		name: "엄마와 특별한 데이트 이벤트",
+                                                           		link: "http://event3.evezary.co.kr/"+viral_url,
+                                                           		picture: '<%= asset_url "fb_share_img.jpg" %>',
+                                                           		caption: "[이브자리::엄마와 특별한 데이트 이벤트]",
+                                                           		description: "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"
+                                                           	};
+
+                                                           	FB.ui(share, function(response) {
+                                                           		if(response && response.post_id) {
+                                                           			alert("공유되었습니다.");
+                                                           		}
+                                                           		else {
+                                                           			alert("공유 실패");
+                                                           		}
+                                                           	});
+                                                           }
+                                                           share();
+                                                           
+                                                           // window.open(fb_url, 'window', "width = '300px', height = '200px'");
                                                        });
                                                    });
                                                 });
@@ -386,7 +445,28 @@ $(document).ready(function () {
                                                                    e.preventDefault();
                                                                    var viral_url = $("#blog-code").val()
                                                                    var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-                                                                   window.open(fb_url, 'window', "width = '300px', height = '200px'");
+                                                                   function share() {
+                                                                   	var share = {
+                                                                   		method: "feed",
+                                                                   		name: "엄마와 특별한 데이트 이벤트",
+                                                                   		link: "http://event3.evezary.co.kr/"+viral_url,
+                                                                   		picture: '<%= asset_url "fb_share_img.jpg" %>',
+                                                                   		caption: "[이브자리::엄마와 특별한 데이트 이벤트]",
+                                                                   		description: "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"
+                                                                   	};
+
+                                                                   	FB.ui(share, function(response) {
+                                                                   		if(response && response.post_id) {
+                                                                   			alert("공유되었습니다.");
+                                                                   		}
+                                                                   		else {
+                                                                   			alert("공유 실패");
+                                                                   		}
+                                                                   	});
+                                                                   }
+                                                                   share();
+                                                                   
+                                                                   // window.open(fb_url, 'window', "width = '300px', height = '200px'");
                                                                });
                                                            });
                                                        });
@@ -412,10 +492,31 @@ $(document).ready(function () {
     $('#social_applyPopup6_fb').click(function (e) {
         e.preventDefault();
         _gaq.push('send', 'event', 'button', 'click', '페이스북 1544');
-        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
+        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');        
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-        window.open(fb_url, 'window', "width = '300px', height = '200px'");
+        function share() {
+        	var share = {
+        		method: "feed",
+        		name: "엄마와 특별한 데이트 이벤트",
+        		link: "http://event3.evezary.co.kr/"+viral_url,
+        		picture: '<%= asset_url "fb_share_img.jpg" %>',
+        		caption: "[이브자리::엄마와 특별한 데이트 이벤트]",
+        		description: "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"
+        	};
+
+        	FB.ui(share, function(response) {
+        		if(response && response.post_id) {
+        			alert("공유되었습니다.");
+        		}
+        		else {
+        			alert("공유 실패");
+        		}
+        	});
+        }
+        share();
+        
+        // window.open(fb_url, 'window', "width = '300px', height = '200px'");
     });
     $('#fbButton').click(function (e) {
         e.preventDefault();
@@ -423,20 +524,32 @@ $(document).ready(function () {
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-        // console.log("kjhf");
         if (viral_url === "") {
             $("#social_form").modal();
-            // $('#social_form_person_button').click(function(e){
-            //     e.preventDefault();
-            //     $('#social_form_person').css('display', 'block');
-            //     $('#social_form_finButton2').click(function(e){
-            //         e.preventDefault();
-            //         $('#social_form_person').css('display', 'none');
-            //     });
-            // });
-            // alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
         } else {
-            window.open(fb_url, 'window', "width = '300px', height = '200px'");
+            var viral_url = $("#blog-code").val()
+            var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+            function share() {
+            	var share = {
+            		method: "feed",
+            		name: "엄마와 특별한 데이트 이벤트",
+            		link: "http://event3.evezary.co.kr/"+viral_url,
+            		picture: '<%= asset_url "fb_share_img.jpg" %>',
+            		caption: "[이브자리::엄마와 특별한 데이트 이벤트]",
+            		description: "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"
+            	};
+
+            	FB.ui(share, function(response) {
+            		if(response && response.post_id) {
+            			alert("공유되었습니다.");
+            		}
+            		else {
+            			alert("공유 실패");
+            		}
+            	});
+            }
+            share();
+            // window.open(fb_url, 'window', "width = '300px', height = '200px'");
           // $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
           // $('#closeModal').css('top', '-225px');
           // $('#closeModal').css('right', '-46px');
@@ -482,7 +595,7 @@ $(document).ready(function () {
         });
     });
 });
-
+});
 function popUp_6(){
     
 }
@@ -579,16 +692,18 @@ function loopCloud() {
     if (c1_left >= 1000) {
         c1_left = -200;
         c1 = ((Math.random() * 1000) + 100) / 1000;
+        c1 = 0.2;
     } else if (c1_left == 0) {
         c1_left += 1;
     }
     $('#cloud_1').css('margin-left', c1_left);
-
+    // $('#cloud_1').css('background-color', 'red');
     var c2_left = parseFloat($('#cloud_2').css('margin-left'));
     c2_left += c2;
     if (c2_left >= 1000) {
         c2_left = -200;
         c2 = ((Math.random() * 1000) + 100) / 1000;
+        c2 = 0.3;
     } else if (c2_left == 0) {
         c2_left += 1;
     }
@@ -599,6 +714,7 @@ function loopCloud() {
     if (c3_left >= 1000) {
         c3_left = -200;
         c3 = ((Math.random() * 1000) + 100) / 1000;
+        c3 = 0.25
     } else if (c3_left == 0) {
         c3_left += 1;
     }
@@ -609,6 +725,7 @@ function loopCloud() {
     if (c4_left >= 1000) {
         c4_left = -200;
         c4 = ((Math.random() * 1000) + 100) / 1000;
+        c4 = 0.35
     } else if (c4_left == 0) {
         c4_left += 1;
     }
@@ -628,4 +745,44 @@ function loadJsFile(filename) {
         document.getElementsByTagName("head")[0].appendChild(fileref);
 
     }
+}
+function select_store(message_id, store_id){
+    $('#location').css('display', 'none');
+}
+function search_stores(user_id, address){
+    var opts = {
+      lines: 13, // The number of lines to draw
+      length: 20, // The length of each line
+      width: 10, // The line thickness
+      radius: 10, // The radius of the inner circle
+      corners: 1, // Corner roundness (0..1)
+      rotate: 0, // The rotation offset
+      direction: 1, // 1: clockwise, -1: counterclockwise
+      color: '#000', // #rgb or #rrggbb or array of colors
+      speed: 1, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false, // Whether to render a shadow
+      hwaccel: false, // Whether to use hardware acceleration
+      className: 'spinner', // The CSS class to assign to the spinner
+      zIndex: 2e9, // The z-index (defaults to 2000000000)
+      left: 40-40,
+      top: 29-40
+    };
+    var target = document.getElementById('location_searchBox');
+    // var spinner = new Spinner(opts).spin(target);
+    $.ajax({
+        type: "POST",
+        url: "/users/search_stores.json",
+        data: {
+            'user[address]': address,
+        },
+        success: function(data){
+            $('#search-stores-select').empty();
+            $.each(data.stores, function(key, value) {
+                var append = "<option value="+key+">"+value+"</option>"
+                $('#search-stores-select').append(append); 
+            });
+            // spinner.stop();
+        }
+    });
 }

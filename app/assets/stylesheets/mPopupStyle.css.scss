@@ -1,3 +1,12 @@
+input[type=text]{
+  border: 1px solid #444;
+  -webkit-appearance: none;
+  border-radius: 0;
+  border-color: #B5B5B5;
+  padding-left:2%;
+  margin-top:0;
+}
+  
 .mobilePopContain{
     text-align: center;
     margin-top: 10%;
@@ -68,11 +77,19 @@
     width: 30%;
     margin-top: 4%;
 }
-
+.mp1_guide_text{
+  margin-top: 1%;
+}
 .mp1_Label2{
     vertical-align: top;
     margin-top: 5%;
     width: 55%;
+    margin-right: 11%;
+}
+.mp1_guide_text{
+    vertical-align: top;
+    margin-top: 5%;
+    width: 75%;
     margin-right: 11%;
 }
 
@@ -217,3 +234,32 @@
 .mobile-user-form{
   text-align: center;
 }
+.search_stores_h1{
+  width: 66%;
+}
+.search-stores-header{
+  .search-stores-h1{
+    width: 66%;
+  }
+  margin-bottom: 2%;
+}
+.search-stores-body{
+  width: 80%;
+  margin: 0 auto;
+//  border: 1px solid red;
+  .search-stores-button{
+    width:26%;
+    float: right;
+  }
+  .search-stores-input{
+    
+    padding: 2%;
+    display: block;
+    width:68%;
+    font-size:100%;
+    float: left;
+    margin-right:1%;
+  }
+  
+}
+

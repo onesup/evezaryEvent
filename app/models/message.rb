@@ -29,7 +29,7 @@ class Message < ActiveRecord::Base
         "dest_name" => send_name,
         "send_phone" => send_phone, 
         "send_name" => send_name,
-        "subject" => subject,
+        "subject" => "엄마와의 데이트",
         "apiVersion" => "1", 
         "id" => "minivertising", 
         "msg_body" => send_message,
@@ -41,9 +41,12 @@ class Message < ActiveRecord::Base
     )
     cmid = JSON.parse(res)["cmid"]
     call_status = String.new
-    while call_status.empty? or call_status == "result is null"
-      sleep(5.seconds)
+    start = Time.new
+    during_time = 0
+    while call_status.empty? or call_status == "result is null" or during_time < 3.minutes
+      sleep(10.seconds)
       call_status = report(cmid, time)
+      during_time = Time.now - start
     end
   end
   
