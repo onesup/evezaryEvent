@@ -82,6 +82,8 @@ GEM
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
     ffi (1.9.3)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     geocoder (1.1.9)
     guard (2.3.0)
@@ -251,6 +253,7 @@ DEPENDENCIES
   email_spec
   execjs
   factory_girl_rails
+  font-awesome-rails
   geocoder
   guard-rails
   guard-rspec

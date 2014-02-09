@@ -24,6 +24,7 @@ gem 'nori' #xml parser
 gem 'useragent'
 gem 'sucker_punch', '~> 1.0'
 gem 'sasha'
+gem 'font-awesome-rails'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development
