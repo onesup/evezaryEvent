@@ -67,7 +67,6 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         var ta = $("#ta").val();
         var cache = "mobile_search_stores?myPhone_1="+myPhone_1+"&myPhone_2="+myPhone_2+"&myPhone_3="+myPhone_3;
         var cache = cache + "&momPhone_1="+momPhone_1+"&momPhone_2="+momPhone_2+"&momPhone_3="+momPhone_3+"&ta="+ta;
-        console.log(cache);
         location.href = cache;
     });
     
