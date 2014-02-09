@@ -127,6 +127,37 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                         $('#popUp').modal();
                         $('#closeModal').css('top', '-391px');
                         $('#closeModal').css('right', '-46px');
+						// Auto Focus
+						$('#myPhone_1').keyup(function(){
+							if($('#myPhone_1').val().length >= 3){
+								$('#myPhone_2').focus();
+							}
+						});
+						$('#myPhone_2').keyup(function(){
+							if($('#myPhone_2').val().length >= 4){
+								$('#myPhone_3').focus();
+							}
+						});
+						$('#myPhone_3').keyup(function(){
+							if($('#myPhone_3').val().length >= 4){
+								$('#momPhone_1').focus();
+							}
+						});
+						$('#momPhone_1').keyup(function(){
+							if($('#momPhone_1').val().length >= 3){
+								$('#momPhone_2').focus();
+							}
+						});
+						$('#momPhone_2').keyup(function(){
+							if($('#momPhone_2').val().length >= 4){
+								$('#momPhone_3').focus();
+							}
+						});
+						$('#momPhone_3').keyup(function(){
+							if($('#momPhone_3').val().length >= 4){
+								$('#textarea_2').focus();
+							}
+						});
                         $('#applyPopup2_nnearButton').click(function (e) {
                             e.preventDefault();
                             $("#location_search").click(function(e){
@@ -214,6 +245,21 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                     $('#phone_1').val(phone1);
                                     $('#phone_2').val(phone2);
                                     $('#phone_3').val(phone3);
+									$('#phone_1').keyup(function(){
+										if( $('#phone_1').val().length >= 3 ){
+											$('#phone_2').focus();
+										}
+									});
+									$('#phone_2').keyup(function(){
+										if( $('#phone_2').val().length >= 4 ){
+											$('#phone_3').focus();
+										}
+									});
+									$('#phone_3').keyup(function(){
+										if( $('#phone_3').val().length >= 4 ){
+											$('#myEmail').focus();
+										}
+									});
                                     $('#apply_3_person').click(function (e) {
                                         e.preventDefault();
                                         _gaq.push('send', 'event', 'button', 'click', '개인정보');

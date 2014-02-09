@@ -1,4 +1,31 @@
 $(document).ready(function() {
+	var plaf = $.url().param('platform');
+	if( plaf == "kakaotalk" ){
+		kakao.link("talk").send({
+            msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
+            url : "http://event3.evezary.co.kr",
+            appid : "event3.evezary.co.kr",
+            appver : "1.0",
+            appname : "엄마와 특별한데이트",
+            type : "link"
+        });
+	}else if( plaf == "kakaostory" ){
+        kakao.link("story").send({
+            post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요. http://event3.evezary.co.kr",
+            appid : "event3.evezary.co.kr",
+            appver : "1.0",
+            appname : "엄마와 특별한데이트",
+            urlinfo : JSON.stringify({
+                title:"엄마와 특별한데이트", 
+                desc:"지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!", 
+                imageurl:["http://i.imgur.com/Mmjnq8n.jpg"], 
+                type:"article"
+            })
+        });
+	}else if( plaf == "facebook" ){
+		window.open("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr","_blank");
+	}
+	
     $('#location').click(function(e){
         e.preventDefault();
         var myPhone_1 = $("#myPhone_1").val();
@@ -14,19 +41,17 @@ $(document).ready(function() {
         location.href = cache;
     });
     
-    $('#mobile_k').click(function(e){
-        e.preventDefault();
-        _gaq.push("send", "event", "button", "click", "카톡 모바일 1551");
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");        
-        location.href="mobile_buzz/users/new?platform=kakaostory"
-        // kakao.link("talk").send({
-        //     msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
-        //     url : "http://event3.evezary.co.kr",
-        //     appid : "event3.evezary.co.kr",
-        //     appver : "1.0",
-        //     appname : "엄마와 특별한데이트",
-        //     type : "link"
-        // });
+    $('#mobile_k').click(function(){
+        _gaq.push('send', 'event', 'button', 'click', '카톡 모바일 1551');
+        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
+        kakao.link("talk").send({
+            msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
+            url : "http://event3.evezary.co.kr",
+            appid : "event3.evezary.co.kr",
+            appver : "1.0",
+            appname : "엄마와 특별한데이트",
+            type : "link"
+        });
     });
     $("#mobile_ks").click(function(){
         _gaq.push("send", "event", "button", "click", "카스 모바일 1552");
@@ -47,6 +72,7 @@ $(document).ready(function() {
     $("#mobile_f").click(function(){
         _gaq.push("send", "event", "button", "click", "페북버튼 모바일 1553");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
+		window.open("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr","_blank");
     });
     $('#location').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '위치 모바일');
