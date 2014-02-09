@@ -570,9 +570,10 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     $('#fbButton').click(function (e) {
         e.preventDefault();
         _gaq.push('send', 'event', 'button', 'click', '페이스북 1544');
+		alert("dfasfdsadfa");
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
         var viral_url = $("#blog-code").val()
-        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url;
         if (viral_url === "") {
             $("#social_form").modal();
              $('#social_form_person_button').click(function(e){
@@ -585,7 +586,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
              });
         } else {
             var viral_url = $("#blog-code").val()
-            var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+            var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url;
             function share() {
             	var share = {
             		method: "feed",

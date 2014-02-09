@@ -172,7 +172,22 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             }
             else
             {
-                location.href = "mobile_apply_3";
+				var phone = $('#m2_phone_1').val()+"-"+$('#m2_phone_2').val()+"-"+$('#m2_phone_3').val();
+	            $.ajax({
+	                type: "POST",
+	                url: "/users.json",
+	                data: {
+	                    'user[name]': $("#m2_name").val(),
+	                    'user[phone]': phone,
+	                    'user[email]': $("#m2_email").val(),
+	                    'ip': $("#ip-code").val()
+	                },
+	                success: function (data) {
+	                    $("#blog-code").val(data.blog_code);
+	                    //$("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
+                  	  	location.href = "mobile_apply_3?blog_code=" + data.blog_code;
+	                }
+	            });
             }
         }
     });

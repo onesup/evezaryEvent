@@ -25,7 +25,7 @@
   <% end %>
 <div class = "mobilePopContain">
   <%= image_tag("mpopup/3/title.png", class:"mp3_Label1") %>
-  <%= link_to mobile_index_path do %>
+  <%= link_to mobile_index_path({blog_code: params[:blog_code]}) do %>
     <%= image_tag("mpopup/3/btn_comp.png", id:"m3_endButton", class:"mp3_EndBtn") %>
   <% end %>
 </div>
