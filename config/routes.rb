@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   namespace :mobile do
     resources :messages, only: [:create]
   end
+  namespace :mobile_buzz do
+    resources :users, only: [:create]
+  end
   namespace :admin do
     resources :users
     resources :messages

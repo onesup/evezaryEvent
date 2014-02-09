@@ -1,0 +1,2 @@
+module MobileBuzz::UsersHelper
+end
