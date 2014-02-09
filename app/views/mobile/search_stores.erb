@@ -16,12 +16,19 @@
 </head>
 <body id = "indexBody">
   <%= image_tag("mpopup/bg2.png", class:"mp_closeBox") %>
-  <%= link_to mobile_index_path do %>
-  <%= image_tag("mpopup/btn_close.png", class:"mp_close") %>
+  <%= link_to mobile_apply_1_path(@cache) do %>
+    <%= image_tag("mpopup/btn_close.png", class:"mp_close") %>
   <% end %>
   <div class = "mobilePopContain">
-    <%= image_tag("mpopup/search_stores_h1.png", class:"search_stores_h1") %>
-    
+    <div class="search-stores-header">
+      <%= image_tag("mpopup/search_stores_h1.png", class:"search-stores-h1") %>
+    </div>
+    <div class="search-stores-body">
+      <input type='text' id='search-stores-input' class='search-stores-input' maxlength="4" name="search-stores"/>
+      <%= link_to(
+        image_tag("mpopup/search_stores_button.png", class: "search-stores-button"), "#", id: "search-stores-button"
+      ) %>
+    </div>
   </div>
   <script type="text/javascript">
   /* <![CDATA[ */
