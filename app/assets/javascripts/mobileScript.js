@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#location').click(function(e){
-        e.preventDefault;
+        e.preventDefault();
         var myPhone_1 = $("#myPhone_1").val();
         var myPhone_2 = $("#myPhone_2").val();
         var myPhone_3 = $("#myPhone_3").val();
@@ -14,23 +14,23 @@ $(document).ready(function() {
         location.href = cache;
     });
     
-    $('#mobile_k').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '카톡 모바일 1551');
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
-		alert("1551");
-        kakao.link("talk").send({
-            msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
-            url : "http://event3.evezary.co.kr",
-            appid : "event3.evezary.co.kr",
-            appver : "1.0",
-            appname : "엄마와 특별한데이트",
-            type : "link"
-        });
+    $('#mobile_k').click(function(e){
+        e.preventDefault();
+        _gaq.push("send", "event", "button", "click", "카톡 모바일 1551");
+        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");        
+        location.href="mobile_buzz/users/new?platform=kakaostory"
+        // kakao.link("talk").send({
+        //     msg : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!",
+        //     url : "http://event3.evezary.co.kr",
+        //     appid : "event3.evezary.co.kr",
+        //     appver : "1.0",
+        //     appname : "엄마와 특별한데이트",
+        //     type : "link"
+        // });
     });
-    $('#mobile_ks').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '카스 모바일 1552');
+    $("#mobile_ks").click(function(){
+        _gaq.push("send", "event", "button", "click", "카스 모바일 1552");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
-		alert("1552");
         kakao.link("story").send({
             post : "지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요. http://event3.evezary.co.kr",
             appid : "event3.evezary.co.kr",
@@ -44,10 +44,9 @@ $(document).ready(function() {
             })
         });
     });
-    $('#mobile_f').click(function(){
-        _gaq.push('send', 'event', 'button', 'click', '페북버튼 모바일 1553');
+    $("#mobile_f").click(function(){
+        _gaq.push("send", "event", "button", "click", "페북버튼 모바일 1553");
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
-		alert("1553");
     });
     $('#location').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '위치 모바일');
@@ -55,7 +54,6 @@ $(document).ready(function() {
     $('#m1_sendButton').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '첫번째 페이지 끝 모바일 1549');
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
-		alert("1549");
         if( $('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#ta').val() == "" )
         {
             alert("내용을 모두 입력해주세요.");
@@ -72,7 +70,6 @@ $(document).ready(function() {
         e.preventDefault();
         _gaq.push('send', 'event', 'button', 'click', '두번째 페이지 끝 모바일 1550');
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
-		alert("1550");
         if( $('#m2_name').val() == "" || $('#m2_phone_1').val() == "" || $('#m2_phone_2').val() == "" || $('#m2_phone_3').val() == "" || $('#m2_email').val() == "" )
         {
             alert("내용을 모두 입력해주세요.");
@@ -93,7 +90,6 @@ $(document).ready(function() {
     $('#mobile_apply').click(function(){
         _gaq.push('send', 'event', 'button', 'click', '모바일 goto apply_1 1548');
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
-		alert("1548");
         location.href = "mobile_apply_1";
     });
 });

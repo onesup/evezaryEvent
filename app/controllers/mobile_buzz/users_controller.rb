@@ -4,6 +4,8 @@ class MobileBuzz::UsersController < ApplicationController
 
   def new
     @user = User.new
+    @platform = params[:platform]
+    
   end
 
   # POST /users
@@ -25,9 +27,11 @@ class MobileBuzz::UsersController < ApplicationController
           @user.access_logs << AccessLog.find(params["ip"])
         end
       end
+      cache = {platform: params[:platform], blog_code: params[:blog_code]}
       respond_to do |format|
         if @user.save
-          format.html { redirect_to(mobile_index_path, notice: 'User was successfully updated.') }
+          binding.pry
+          format.html { redirect_to(mobile_index_path(cache), notice: 'User was successfully updated.') }
           format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
         else
           format.html { redirect_to(mobile_apply_2_path, notice: '입력을 다시 한 번 확인해주세요.') }
@@ -45,8 +49,9 @@ class MobileBuzz::UsersController < ApplicationController
         @user.save
       end
       Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
+      binding.pry
       respond_to do |format|
-        format.html { redirect_to(mobile_index_path, notice: '이미 참여하셨습니다.') }
+        format.html { redirect_to(mobile_index_path(cache), notice: '이미 참여하셨습니다.') }
         format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
       end
     end

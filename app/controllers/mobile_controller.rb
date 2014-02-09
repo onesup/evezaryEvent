@@ -1,5 +1,6 @@
 class MobileController < ApplicationController
   layout false
+  protect_from_forgery except: :kakaotalk
   def near_stores
     lat = params["lat"]
     lng = params["lng"]
@@ -20,10 +21,11 @@ class MobileController < ApplicationController
   def index    
   end
   
-  def kakao_talk
+  def kakaotalk
+    
   end
   
-  def kakao_story
+  def kakaostory
   end
   
   def facebook
