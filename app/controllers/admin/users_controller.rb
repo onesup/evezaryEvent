@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   layout 'admin'
   
   def index
-    @users = User.order("id desc")
+    @users = User.where.not(name:nil).order("id desc")
   end
 
   def show
