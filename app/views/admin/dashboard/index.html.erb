@@ -1,4 +1,6 @@
-<div class="">참여자 수: <%= User.where.not(name:nil).count %> 건</p>
+<p class="">참여자 수: <%= User.where.not(name:nil).count %> 건</p>
+<p class="">pc 트래픽 수: <%= AccessLog.where(device: "pc").count %> 건</p>
+<p class="">모바일 트래픽 수: <%= AccessLog.where(device: "mobile").count %> 건</p>
 
 <div class="row-fluid">
   <!-- block -->
@@ -13,6 +15,8 @@
             <tr>
               <th>날짜</th>
               <th>참여자</th>
+              <th>PC 트래픽</th>
+              <th>모바일 트래픽</th>
             </tr>
           </thead>
           <tbody>
@@ -20,6 +24,8 @@
               <tr class="">
                 <td><%= time.strftime("%m-%d")%></td>
                 <td><%= User.temporary_daily_count(time) %></td>
+                <td><%= AccessLog.temporary_pc_daily_count(time) %></td>
+                <td><%= AccessLog.temporary_mobile_daily_count(time) %></td>
               </tr>
             <% end %>
           </tbody>
