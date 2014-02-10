@@ -37,7 +37,7 @@ class AccessLog < ActiveRecord::Base
     start_date = day.beginning_of_day
     end_date = day.end_of_day
     count = self.where("created_at >= :start_date AND created_at <= :end_date",
-      {start_date: start_date, end_date: end_date}).where(device: "pcs").count
+      {start_date: start_date, end_date: end_date}).where(device: "pc").count
   end
   
   def self.temporary_mobile_daily_count(day)
