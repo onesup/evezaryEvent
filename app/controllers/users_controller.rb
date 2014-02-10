@@ -14,13 +14,13 @@ class UsersController < ApplicationController
       else
         @user.gift = Gift.find(@user.gift_id)
       end
-      if AccessLog.exists?(id: params["ip"])
-        unless @user.access_logs.where(id: params["ip"]).empty?
-          @user.access_logs << AccessLog.find(params["ip"])
-        end
-      end
       respond_to do |format|
         if @user.save
+          if AccessLog.exists?(id: params["ip"])
+            log = AccessLog.find(params["ip"])
+            log.user = @user
+            log.save
+          end
           format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: 'User was successfully updated.') }
           format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
         else
@@ -39,6 +39,12 @@ class UsersController < ApplicationController
         @user.save
       end
       Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
+      if AccessLog.exists?(id: params["ip"])
+        log = AccessLog.find(params["ip"])
+        log.user = @user
+        log.save
+      end
+      @user.save
       respond_to do |format|
         format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: '이미 참여하셨습니다.') }
         format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
