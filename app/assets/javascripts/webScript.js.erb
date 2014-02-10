@@ -14,13 +14,13 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     
     $('#social_applyPopup6_finButton').click(function (e) {
         e.preventDefault();
-        _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+        _gaq.push(['_trackEvent', 'event', 'button', 'click', 'img down 1546']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
         window.location="blog_image_download"
     });
     $('#social_form_ajax').submit(function(e){    
       e.preventDefault();
-      _gaq.push('send', 'event', 'button', 'click', '소문내기 정보입력');
+      _gaq.push(['_trackEvent', 'event', 'button', 'click', '소문내기 정보입력']);
     }).validate({
       rules: {
         "user[name]": { required: true },
@@ -86,7 +86,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     $("#ip-code").val(ip);
     // '데이트 신청하기' 버튼 클릭시
     $('#applyButton').click(function (e) {
-        _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 1540');
+        _gaq.push(['_trackEvent', 'event', 'button', 'click', '데이트 신청하기 1540']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1540');
         e.preventDefault();
         $('#popUp').load('home_popup_1', function (e) {
@@ -96,22 +96,22 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             p1ClickImage(1);
             // '데이트 신청하기' 팝업에서 이미지 클릭 시
             $('#popUp_1_gi').click(function (e) {
-                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1');
+                _gaq.push(['_trackEvent', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1']);
                 e.preventDefault();
                 p1ClickImage(1);
             });
             $('#popUp_2_gi').click(function (e) {
-                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 2');
+                _gaq.push(['_trackEvent', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 2']);
                 e.preventDefault();
                 p1ClickImage(2);
             });
             $('#popUp_3_gi').click(function (e) {
-                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 3');
+                _gaq.push(['_trackEvent', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 3']);
                 e.preventDefault();
                 p1ClickImage(3);
             });
             $('#popUp_4_gi').click(function (e) {
-                _gaq.push('send', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1');
+                _gaq.push(['_trackEvent', 'event', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1']);
                 e.preventDefault();
                 p1ClickImage(4);
             });
@@ -120,7 +120,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             $('#applyPopup1_selectButton').click(function (e) {
                 e.preventDefault();
                 if (doNotSIgh_1()) {
-                    _gaq.push('send', 'event', 'button', 'click', '경품 선택하기 1541');
+                    _gaq.push(['_trackEvent', 'event', 'button', 'click', '경품 선택하기 1541']);
                     loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1541');
                     $('#popUp').empty();
                     $('#popUp').load('home_popup_2?ip=' + $("#ip-code").val(), function (e) {
@@ -162,7 +162,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                             e.preventDefault();
                             $("#location_search").click(function(e){
                                e.preventDefault();
-                               _gaq.push('send', 'event', 'button', 'click', '매장 검색');
+                               _gaq.push(['_trackEvent', 'event', 'button', 'click', '매장 검색']);
                                user_id = 2;
                                address = $("#location_searchBox").val();
                                if(address === ""){
@@ -202,7 +202,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                             e.preventDefault();
                             if (doNotSIgh_2()) {
                                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1542');
-                                _gaq.push('send', 'event', 'button', 'click', '문자 보내기 1542');
+                                _gaq.push(['_trackEvent', 'event', 'button', 'click', '문자 보내기 1542']);
                                 var phone1 = $("#myPhone_1").val();
                                 var phone2 = $("#myPhone_2").val();
                                 var phone3 = $("#myPhone_3").val();
@@ -262,18 +262,18 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 									});
                                     $('#apply_3_person').click(function (e) {
                                         e.preventDefault();
-                                        _gaq.push('send', 'event', 'button', 'click', '개인정보');
+                                        _gaq.push(['_trackEvent', 'event', 'button', 'click', '개인정보']);
 
                                         $('#person').css('display', 'block');
                                         $('#applyPopup3_finButton2').click(function (e) {
-                                            _gaq.push('send', 'event', 'button', 'click', '개인정보 fin');
+                                            _gaq.push(['_trackEvent', 'event', 'button', 'click', '개인정보 fin']);
                                             e.preventDefault();
                                             $('#person').css('display', 'none');
                                         });
                                     });
                                     // '완료' 후 넘어가는 팝업
                                     $('#applyPopup3_finButton').click(function (e) {
-                                        _gaq.push('send', 'event', 'button', 'click', '완료1543');
+                                        _gaq.push(['_trackEvent', 'event', 'button', 'click', '완료1543']);
                                         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
                                         e.preventDefault();                                        
                                         if (doNotSIgh_3()) {
@@ -295,7 +295,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                     $("#blog-code").val(data.blog_code);
                                                 }
                                             });
-                                            _gaq.push('send', 'event', 'button', 'click', '감사합니다로 1544');
+                                            _gaq.push(['_trackEvent', 'event', 'button', 'click', '감사합니다로 1544']);
                                             loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
                                             $('#popUp').empty();
                                             $('#popUp').load('home_popup_4', function () {
@@ -312,7 +312,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                        $('#closeModal').css('top', '-150px');
                                                        $('#closeModal').css('right', '-46px');
                                                        $('#applyPopup6_blog').click(function (e) {
-                                                           _gaq.push('send', 'event', 'button', 'click', '블로그 1546');
+                                                           _gaq.push(['_trackEvent', 'event', 'button', 'click', '블로그 1546']);
                                                            loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
                                                            e.preventDefault();
                                                            $('#popUp').empty();
@@ -329,14 +329,14 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                                }
                                                                $('#applyPopup6_finButton').click(function (e) {
                                                                    e.preventDefault();
-                                                                   _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+                                                                   _gaq.push(['_trackEvent', 'event', 'button', 'click', 'img down 1546']);
                                                                    loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
                                                                    window.location="blog_image_download"
                                                                });
                                                            });
                                                        });
                                                        $('#applyPopup6_fb').click(function (e) {
-                                                           _gaq.push('send', 'event', 'button', 'click', '페이스북 1544');
+                                                           _gaq.push(['_trackEvent', 'event', 'button', 'click', '페이스북 1544']);
                                                            loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
                                                            e.preventDefault();
                                                            var viral_url = $("#blog-code").val()
@@ -368,7 +368,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                 });
                                                 // '완료' 후 넘어가는 팝업
                                                 $('#applyPopup4_finButton').click(function (e) {
-                                                    _gaq.push('send', 'event', 'button', 'click', '베스트5 ');
+                                                    _gaq.push(['_trackEvent', 'event', 'button', 'click', '베스트5 ']);
                                                     e.preventDefault();
                                                     $('#popUp').empty();
                                                     $('#popUp').load('home_popup_5', function () {
@@ -380,7 +380,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                         var popNum = 1;
 
                                                         $('#applyPopup5_finButton_1').click(function (e) {
-                                                            _gaq.push('send', 'event', 'button', 'click', '신혼베스트');
+                                                            _gaq.push(['_trackEvent', 'event', 'button', 'click', '신혼베스트']);
                                                             e.preventDefault();
                                                             if (page == 2) {
                                                                 $('#popUp_5_move_2').css('display', 'none');
@@ -394,7 +394,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                             }
                                                         });
                                                         $('#applyPopup5_finButton_2').click(function (e) {
-                                                            _gaq.push('send', 'event', 'button', 'click', '부모님 베스트');
+                                                            _gaq.push(['_trackEvent', 'event', 'button', 'click', '부모님 베스트']);
                                                             e.preventDefault();
                                                             if (page == 1) {
                                                                 $('#popUp_5_move_2').css('display', 'block');
@@ -409,7 +409,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 
 
                                                         $('#arrow_left').click(function (e) {
-                                                            _gaq.push('send', 'event', 'button', 'click', '왼쪽 버튼');
+                                                            _gaq.push(['_trackEvent', 'event', 'button', 'click', '왼쪽 버튼']);
                                                             e.preventDefault();
                                                             popNum--;
                                                             if( page == 1 ){
@@ -433,7 +433,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                             }
                                                         });
                                                         $('#arrow_right').click(function (e) {
-                                                            _gaq.push('send', 'event', 'button', 'click', '오른쪽 버튼');
+                                                            _gaq.push(['_trackEvent', 'event', 'button', 'click', '오른쪽 버튼']);
                                                             e.preventDefault();
                                                             popNum++;
                                                             if( page == 1 ){
@@ -465,7 +465,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                                $('#closeModal').css('top', '-150px');
                                                                $('#closeModal').css('right', '-46px');
                                                                $('#applyPopup6_blog').click(function (e) {
-                                                                   _gaq.push('send', 'event', 'button', 'click', '블로그 1546');
+                                                                   _gaq.push(['_trackEvent', 'event', 'button', 'click', '블로그 1546']);
                                                                    loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
                                                                    e.preventDefault();
                                                                    $('#popUp').empty();
@@ -481,7 +481,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                                        }
                                                                        $('#applyPopup6_finButton').click(function (e) {
                                                                             e.preventDefault();
-                                                                           _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+                                                                           _gaq.push(['_trackEvent', 'event', 'button', 'click', 'img down 1546']);
                                                                            loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
 
                                                                            window.location="blog_image_download"
@@ -489,7 +489,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                                    });
                                                                });
                                                                $('#applyPopup6_fb').click(function (e) {
-                                                                   _gaq.push('send', 'event', 'button', 'click', '페이스북 1545');
+                                                                   _gaq.push(['_trackEvent', 'event', 'button', 'click', '페이스북 1545']);
                                                                    loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
                                                                    e.preventDefault();
                                                                    var viral_url = $("#blog-code").val()
@@ -534,13 +534,13 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     });
     $('#social_applyPopup6_blog').click(function (e) {
         e.preventDefault();
-        _gaq.push('send', 'event', 'button', 'click', '블로그 1546');
+        _gaq.push(['_trackEvent', 'event', 'button', 'click', '블로그 1546']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
         $("#social_popUp_blog").modal();
     });
     $('#social_applyPopup6_fb').click(function (e) {
         e.preventDefault();
-        _gaq.push('send', 'event', 'button', 'click', '페이스북 1544');
+        _gaq.push(['_trackEvent', 'event', 'button', 'click', '페이스북 1544']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');        
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
@@ -569,7 +569,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     });
     $('#fbButton').click(function (e) {
         e.preventDefault();
-        _gaq.push('send', 'event', 'button', 'click', '페이스북 1544');
+        _gaq.push(['_trackEvent', 'event', 'button', 'click', '페이스북 1544']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
@@ -606,21 +606,10 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             	});
             }
             share();
-            // window.open(fb_url, 'window', "width = '300px', height = '200px'");
-          // $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
-          // $('#closeModal').css('top', '-225px');
-          // $('#closeModal').css('right', '-46px');
-        }
-        // $('#applyPopup6_finButton').click(function (e) {
-        //     e.preventDefault();
-        //     _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
-        //     loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-        //     window.location="blog_image_download"
-        // });
-        
+        }        
     });
     $('#blogButton').click(function (e) {
-        _gaq.push('send', 'event', 'button', 'click', '블로그 1545');
+        _gaq.push(['_trackEvent', 'event', 'button', 'click', '블로그 1545']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
         e.preventDefault();
         $('#popUp').empty();
@@ -645,7 +634,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             }
             $('#applyPopup6_finButton').click(function (e) {
                 e.preventDefault();
-                _gaq.push('send', 'event', 'button', 'click', 'img down 1546');
+                _gaq.push(['_trackEvent', 'event', 'button', 'click', 'img down 1546']);
                 loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
                 window.location="blog_image_download"
             });

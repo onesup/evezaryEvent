@@ -53,7 +53,7 @@
       <select class = "location_select" size = "10" id="search-stores-select">
         <option selected="selected">매장을 선택해주세요.</option>
       </select>
-      <a onclick =  " _gaq.push('send', 'event', 'button', 'click', '약관 나가기 모바일'); exitWindow();" href = "#">
+      <a onclick =  " _gaq.push(['_trackEvent', 'event', 'button', 'click', '약관 나가기 모바일]'); exitWindow();" href = "#">
         <%= image_tag("mpopup/btn_close.jpg", id:"loc_endBtn") %>
         <a>
     </div>
