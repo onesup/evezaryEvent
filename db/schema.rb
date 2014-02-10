@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204100259) do
+ActiveRecord::Schema.define(version: 20140210075902) do
 
   create_table "access_logs", force: true do |t|
     t.string   "location"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140204100259) do
     t.string   "ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
   end
 
   add_index "access_logs", ["message_id"], name: "index_access_logs_on_message_id"
