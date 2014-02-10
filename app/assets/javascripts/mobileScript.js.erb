@@ -72,7 +72,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     
     $('#mobile_k').click(function(e){
 		e.preventDefault();
-        _gaq.push(['_trackEvent', 'event', 'button', 'click', '카톡 모바일 1551']);
+        _gaq.push(['_trackEvent', 'button', 'click', '카톡 모바일 1551']);
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
 		if( plaf || bc ){
        	 kakao.link("talk").send({
@@ -139,10 +139,10 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 		}
     });
     $('#location').click(function(){
-        _gaq.push(['_trackEvent', 'event', 'button', 'click', '위치 모바일']);
+        _gaq.push(['_trackEvent', 'button', 'click', '위치 모바일']);
     });
     $('#m1_sendButton').click(function(){
-        _gaq.push(['_trackEvent', 'event', 'button', 'click', '첫번째 페이지 끝 모바일 1549']);
+        _gaq.push(['_trackEvent', 'button', 'click', '첫번째 페이지 끝 모바일 1549']);
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
         if( $('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#ta').val() == "" )
         {
@@ -154,11 +154,11 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         }
     });
     $('#m2_personButton').click(function(){
-        _gaq.push(['_trackEvent', 'event', 'button', 'click', '약관 모바일']);
+        _gaq.push(['_trackEvent', 'button', 'click', '약관 모바일']);
     });
     $('#m2_endButton').click(function(e){
         e.preventDefault();
-        _gaq.push(['_trackEvent', 'event', 'button', 'click', '두번째 페이지 끝 모바일 1550']);
+        _gaq.push(['_trackEvent', 'button', 'click', '두번째 페이지 끝 모바일 1550']);
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
         if( $('#m2_name').val() == "" || $('#m2_phone_1').val() == "" || $('#m2_phone_2').val() == "" || $('#m2_phone_3').val() == "" || $('#m2_email').val() == "" )
         {
@@ -193,13 +193,13 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     });
     
     $('#mobile_apply').click(function(){
-        _gaq.push(['_trackEvent', 'event', 'button', 'click', '모바일 goto apply_1 1548']);
+        _gaq.push(['_trackEvent', 'button', 'click', '모바일 goto apply_1 1548']);
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
         location.href = "mobile_apply_1";
     });
     $("#search-stores-button").click(function(e){
        e.preventDefault();
-       _gaq.push(['_trackEvent', 'event', 'button', 'click', '매장 검색']);
+       _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
        user_id = 2;
        address = $("#search-stores-input").val();
        if(address === ""){
