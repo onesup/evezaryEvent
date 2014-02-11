@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :trackable# , :registerable,
-#          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :gift
+  has_many :messages
   has_many :access_logs
   geocoded_by :address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates

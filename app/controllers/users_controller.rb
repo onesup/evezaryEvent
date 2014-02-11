@@ -14,8 +14,10 @@ class UsersController < ApplicationController
       else
         @user.gift = Gift.find(@user.gift_id)
       end
+      message = Message.find(params["message_id"])
       respond_to do |format|
         if @user.save
+          @user.messages << message
           if AccessLog.exists?(id: params["ip"])
             log = AccessLog.find(params["ip"])
             log.user = @user
