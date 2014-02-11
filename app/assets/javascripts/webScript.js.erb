@@ -832,6 +832,7 @@ function search_stores(user_id, address){
     };
     var target = document.getElementById('location_searchBox');
     // var spinner = new Spinner(opts).spin(target);
+    var stores;
     $.ajax({
         type: "POST",
         url: "/users/search_stores.json",
@@ -839,12 +840,30 @@ function search_stores(user_id, address){
             'user[address]': address,
         },
         success: function(data){
+          var stores_length;
+          stores_length = countProperties(data.stores);
+          
             $('#search-stores-select').empty();
-            $.each(data.stores, function(key, value) {
-                var append = "<option value="+key+">"+value+"</option>"
-                $('#search-stores-select').append(append); 
-            });
+            if(stores_length > 0){
+              $.each(data.stores, function(key, value) {
+                  var append = "<option value="+key+">"+value+"</option>"
+                  $('#search-stores-select').append(append); 
+              });
+            }else{
+              console.log("nothing");
+            }
             // spinner.stop();
         }
     });
+}
+
+function countProperties(obj) {
+    var count = 0;
+
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            ++count;
+    }
+
+    return count;
 }

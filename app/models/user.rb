@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     start_date = day.beginning_of_day
     end_date = day.end_of_day
     count = self.where("created_at >= :start_date AND created_at <= :end_date",
-      {start_date: start_date, end_date: end_date}).where.not(name:nil).count
+      {start_date: start_date, end_date: end_date}).where.not(phone:nil).count
   end
 
 end

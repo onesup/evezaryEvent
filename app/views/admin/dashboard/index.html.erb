@@ -1,4 +1,4 @@
-<p class="">참여자 수: <%= User.where.not(name:nil).count %> 건</p>
+<p class="">참여자 수: <%= User.where.not(phone:nil).count %> 건</p>
 <p class="">pc 트래픽 수: <%= AccessLog.where(device: "pc").count %> 건</p>
 <p class="">모바일 트래픽 수: <%= AccessLog.where(device: "mobile").count %> 건</p>
 
