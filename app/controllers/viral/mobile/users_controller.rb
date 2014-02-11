@@ -28,7 +28,7 @@ class Viral::Mobile::UsersController < ApplicationController
         end
       end
     else
-      @user = User.find_by_phone(@user.phone)
+      @user = User.find_by_phone(send_phone)
       @user.phone = send_phone unless send_phone == "--"
       if @user.blog_code.nil?
         @user.blog_code = @user.random_code
