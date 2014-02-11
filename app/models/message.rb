@@ -2,6 +2,7 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :store
   belongs_to :gift
+  has_one :access_log
   
   validates :dest_phone, presence: true
   validates :send_phone, presence: true

@@ -18,7 +18,8 @@ class MobileController < ApplicationController
     end
   end
   
-  def index    
+  def index
+    @access_log = AccessLog.find(params[:ip]) rescue AccessLog.first
   end
   
   def kakaotalk

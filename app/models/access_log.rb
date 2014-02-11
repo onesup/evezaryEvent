@@ -1,6 +1,7 @@
 class AccessLog < ActiveRecord::Base
   include DailyCount
   belongs_to :user
+  belongs_to :message
   geocoded_by :location   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
   def get_location
