@@ -46,7 +46,9 @@ class UsersController < ApplicationController
         log.user = @user
         log.save
       end
+      message = Message.find(params["message_id"])
       @user.save
+      @user.messages << message
       respond_to do |format|
         format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: '이미 참여하셨습니다.') }
         format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
