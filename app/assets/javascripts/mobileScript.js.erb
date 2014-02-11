@@ -180,6 +180,7 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 	                    'user[name]': $("#m2_name").val(),
 	                    'user[phone]': phone,
 	                    'user[email]': $("#m2_email").val(),
+                        'message_id' : $("#message_id").val(),
 	                    'ip': $("#ip-code").val()
 	                },
 	                success: function (data) {

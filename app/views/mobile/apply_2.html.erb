@@ -10,35 +10,35 @@
   <meta property="og:description" content="지금 엄마에게 문자로 데이트 신청하세요. 엄마와 함께 혼수침구도 고르고 웨딩준비 선물을 받는 행운까지 누리세요!"/>
   <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46149688-4']);
-  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46149688-4']);
+    _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  
-  $(document).ready(function() {
-    $("#m2_phone_1").val($.url().param('p1'));
-    $("#m2_phone_2").val($.url().param('p2'));
-    $("#m2_phone_3").val($.url().param('p3'));
-  });
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-</script>
+    $(document).ready(function() {
+      $("#m2_phone_1").val($.url().param('p1'));
+      $("#m2_phone_2").val($.url().param('p2'));
+      $("#m2_phone_3").val($.url().param('p3'));
+    });
+
+  </script>
   <%= csrf_meta_tags %>
   <meta name = "viewport" content = "width=device-width, user-scalable=no" />
 </head>
 <body id = "indexBody">
   <%= image_tag("mpopup/bg2.png", class:"mp_closeBox") %>
   <%= link_to mobile_index_path do %>
-    <%= image_tag("mpopup/btn_close.png", class:"mp_close") %>
+  <%= image_tag("mpopup/btn_close.png", class:"mp_close") %>
   <% end %>
-<div class = "mobilePopContain">
-  <%= image_tag("mpopup/2/m2_Label1.png", class:"mp2_Label1") %>
-
-  <form action="users.html" method="post" class="mobile-user-form" id="mobile-user-form">
+  <div class = "mobilePopContain">
+    <%= image_tag("mpopup/2/m2_Label1.png", class:"mp2_Label1") %>
+    <form action="users.html" method="post" class="mobile-user-form" id="mobile-user-form">
+    <%= hidden_field_tag "message_id", params["message_id"]%>
       <div class = "mp2_PopInbox">
         <%= image_tag("mpopup/2/m2_Label2.png", class:"mp2_Label2") %>
         <br />
@@ -63,28 +63,28 @@
         <%= image_tag("mpopup/2/m2_Label8.png", class:"mp2_Label8") %>
         <input type = "radio" name = "agree" value = "d"/>
         <%= link_to mobile_person_path, id: "m2_personButton", target: "_blank" do %>
-           <%= image_tag("mpopup/2/m2_CautionBtn.png", class:"mp2_CautionBtn") %>
+        <%= image_tag("mpopup/2/m2_CautionBtn.png", class:"mp2_CautionBtn") %>
         <% end %>
-    </div>
+      </div>
       <%= image_tag("mpopup/2/m2_Label9.png", class:"mp2_Label9") %>
       <%= image_submit_tag("mpopup/2/m2_endButton.png", id:"m2_endButton", class:"mp2_EndBtn") %>
-  </form>
+    </form>
 
-</div>
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 921993912;
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
-/* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/921993912/?value=0&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
+  </div>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 921993912;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+  </script>
+  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+  </script>
+  <noscript>
+    <div style="display:inline;">
+      <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/921993912/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+  </noscript>
 
 </body>
 </html>

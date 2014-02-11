@@ -3,7 +3,6 @@ class Mobile::MessagesController < ApplicationController
     @message = Message.new(message_params)
     my_phone = params["myPhone_1"] + "-" + params["myPhone_2"] + "-" + params["myPhone_3"]
     mom_phone = params["momPhone_1"] + "-" + params["momPhone_2"] + "-" + params["momPhone_3"]
-    my_phone_hash = {p1: params["myPhone_1"].to_s, p2: params["myPhone_2"].to_s, p3: params["myPhone_3"].to_s}
     @message.sent_at = Time.now
     @message.send_phone = my_phone unless my_phone == "--"
     @message.dest_phone = mom_phone unless mom_phone == "--"
@@ -12,7 +11,7 @@ class Mobile::MessagesController < ApplicationController
     msg_body_copy = @message.msg_body
     respond_to do |format|
       if @message.save
-        send_message =  to_mom(@message.msg_body, @message.store)
+        send_message = to_mom(@message.msg_body, @message.store)
         @message.save
         # Rails.logger.info @message.msg_body
         # 엄마에게
@@ -27,6 +26,7 @@ class Mobile::MessagesController < ApplicationController
         @message.msg_body = msg_body_copy
         @message.dest_phone = dest_phone_copy
         @message.save
+        my_phone_hash = {message_id: @message.id, p1: params["myPhone_1"].to_s, p2: params["myPhone_2"].to_s, p3: params["myPhone_3"].to_s}
         format.html { redirect_to(mobile_apply_2_path(my_phone_hash), notice: 'Message was successfully updated.') }
         format.json { render json: {status: "success", blog_code: @message.blog_code}, status: :created }
       else
