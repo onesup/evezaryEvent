@@ -45,13 +45,13 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
         }
       },
       submitHandler: function(form) {
-          var phone1 = $("#popup_input_phone1").val();
-          var phone2 = $("#popup_input_phone2").val();
-          var phone3 = $("#popup_input_phone3").val();
+          var phone1 = $("#social_phone_1").val();
+          var phone2 = $("#social_phone_2").val();
+          var phone3 = $("#social_phone_3").val();
           var phone = phone1+"-"+phone2+"-"+phone3;
           $.ajax({
               type: "POST",
-              url: "/users.json",
+              url: "/viral/web/users.json",
               data: {
                   'user[name]': $("#social_myName").val(),
                   'user[phone]': phone,

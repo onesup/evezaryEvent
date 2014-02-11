@@ -33,6 +33,14 @@ Rails.application.routes.draw do
   namespace :mobile_buzz do
     resources :users, only: [:new, :create]
   end
+  namespace :viral do
+    namespace :web do
+      resources :users
+    end
+    namespace :mobile do
+      resources :users
+    end
+  end
   namespace :admin do
     get '/' => 'dashboard#index', ad: 'admin'
     resources :gifts
