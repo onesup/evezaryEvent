@@ -4,7 +4,7 @@ class Viral::Mobile::UsersController < ApplicationController
   def create
     send_phone = params["p1"].to_s + "-" + params["p2"].to_s + "-" + params["p3"].to_s
     @user = User.new(user_params)
-    unless User.exists?(phone: @user.phone)
+    unless User.exists?(phone: send_phone)
       @user = User.new(user_params)
       @user.phone = send_phone unless send_phone == "--"
       @user.blog_code = @user.random_code
