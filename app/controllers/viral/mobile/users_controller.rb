@@ -4,9 +4,9 @@ class Viral::Mobile::UsersController < ApplicationController
   def create
     send_phone = params["p1"].to_s + "-" + params["p2"].to_s + "-" + params["p3"].to_s
     @user = User.new(user_params)
-    @user.phone = send_phone unless send_phone == "--"
     unless User.exists?(phone: @user.phone)
       @user = User.new(user_params)
+      @user.phone = send_phone unless send_phone == "--"
       @user.blog_code = @user.random_code
       if user_params[:gift_id].nil?
         @user.gift = Gift.find_by_title("blank")
@@ -29,6 +29,7 @@ class Viral::Mobile::UsersController < ApplicationController
       end
     else
       @user = User.find_by_phone(@user.phone)
+      @user.phone = send_phone unless send_phone == "--"
       if @user.blog_code.nil?
         @user.blog_code = @user.random_code
         @user.save
