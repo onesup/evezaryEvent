@@ -29,6 +29,7 @@ class MessagesController < ApplicationController
         MessageJob.new.async.later(10, @message, send_message, send_phone_copy)
         @message.msg_body = msg_body_copy
         @message.dest_phone = dest_phone_copy
+        @message.access_log = AccessLog.find(params[:ip]) rescue AccessLog.first
         @message.save
 
         format.json { render json: {result: @message.result, id: @message.id}, status: :created }
