@@ -22,7 +22,6 @@ class AccessLog < ActiveRecord::Base
     i = 1
     length = 0
     while length < 4
-      puts "@@search stores: "+length.to_s
       if self.latitude.nil?
         stores = Store.near([37.5146212,127.0554681],5)
       else
@@ -30,7 +29,10 @@ class AccessLog < ActiveRecord::Base
       end
       length = stores.length
       i += 1
-      puts "@@@"+i.to_s
+      if i > 60
+        Rails.logger.info "없는 매장 검색: "+self.location
+        break
+      end
     end
     return stores
   end

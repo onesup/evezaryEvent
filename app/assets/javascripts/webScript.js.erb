@@ -119,6 +119,26 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
             // '경품 선택하기' 후 넘어가는 팝업
             $('#applyPopup1_selectButton').click(function (e) {
                 e.preventDefault();
+                var opts = {
+                  lines: 13, // The number of lines to draw
+                  length: 20, // The length of each line
+                  width: 10, // The line thickness
+                  radius: 10, // The radius of the inner circle
+                  corners: 1, // Corner roundness (0..1)
+                  rotate: 0, // The rotation offset
+                  direction: 1, // 1: clockwise, -1: counterclockwise
+                  color: '#000', // #rgb or #rrggbb or array of colors
+                  speed: 1, // Rounds per second
+                  trail: 60, // Afterglow percentage
+                  shadow: false, // Whether to render a shadow
+                  hwaccel: false, // Whether to use hardware acceleration
+                  className: 'spinner', // The CSS class to assign to the spinner
+                  zIndex: 2e9, // The z-index (defaults to 2000000000)
+                  left: 40-40,
+                  top: 29-40
+                };
+                var target = document.getElementById('applyPopup1_selectButton');
+                var spinner = new Spinner(opts).spin(target);
                 if (doNotSIgh_1()) {
                     _gaq.push(['_trackEvent', 'button', 'click', '경품 선택하기 1541']);
                     loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1541');
@@ -850,7 +870,8 @@ function search_stores(user_id, address){
                   $('#search-stores-select').append(append); 
               });
             }else{
-              console.log("nothing");
+                var append = "<option>'관악구 신사동'과 같이 검색해주세요.</option>"
+                $('#search-stores-select').append(append); 
             }
             // spinner.stop();
         }
