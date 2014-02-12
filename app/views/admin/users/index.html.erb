@@ -23,7 +23,7 @@
                   <%= user.id %>
                 </td>
                 <td>
-                  <%= user.name %>
+                  <%= user.name %> <%= "*" unless user.access_logs.empty? %>
                 </td>
                 <td>
                   <%= user.phone unless user.phone.nil? %>
