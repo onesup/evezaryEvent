@@ -19,7 +19,12 @@ class MobileController < ApplicationController
   end
   
   def index
-    @access_log = AccessLog.find(params[:ip]) rescue AccessLog.first
+    device = "pc"
+    user_agent = UserAgent.parse(request.user_agent)
+    device = "mobile" if user_agent.mobile?
+    @access_log = AccessLog.new(ip: request.remote_ip, device: device)
+    @access_log.location = @access_log.get_location || "서울시 강남구 삼성동 91-25"
+    @access_log.save
   end
   
   def kakaotalk

@@ -30,6 +30,7 @@ class AccessLog < ActiveRecord::Base
       end
       length = stores.length
       i += 1
+      puts "@@@"+i.to_s
     end
     return stores
   end
