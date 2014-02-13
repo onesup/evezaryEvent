@@ -29,10 +29,10 @@ class AccessLog < ActiveRecord::Base
       end
       length = stores.length
       i += 1
-      if i > 60
-        Rails.logger.info "없는 매장 검색: "+self.location
-        break
-      end
+      # if i > 60
+      #   Rails.logger.info "없는 매장 검색: "+self.location
+      #   break
+      # end
     end
     return stores
   end

@@ -274,7 +274,6 @@ function search_stores(user_id, address){
             var stores_length;
             stores_length = countProperties(data.stores);                        
             $('#search-view-ul').empty();
-            
             if(stores_length > 0){
                 $.each(data.stores, function(key, value) {				
                     var append = "<a href = 'mobile_apply_1?" + link + "&where=" + key + "'><li class='li_class' value="+key+">"+value+"</li></a>";
