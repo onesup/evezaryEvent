@@ -14,7 +14,7 @@ class Mobile::MessagesController < ApplicationController
         send_message = to_mom(@message.msg_body, @message.store)
         @message.save
         # Rails.logger.info @message.msg_body
-        # 엄마에게
+        # 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!에게
         MessageJob.new.async.perform(@message, send_message, dest_phone_copy)
         @message.msg_body = to_user(@message.store)
         @message.dest_phone = @message.send_phone

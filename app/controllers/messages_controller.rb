@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
         send_message =  to_mom(@message.msg_body, @message.store)
         @message.save
         # Rails.logger.info @message.msg_body
-        # 엄마에게
+        # 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!에게
         MessageJob.new.async.perform(@message, send_message, dest_phone_copy)
         @message.msg_body = to_user(@message.store)
         @message.dest_phone = @message.send_phone
@@ -75,20 +75,16 @@ store.title+"
     def to_mom(msg_body, store)
 "
  "+msg_body+"
-오랜만에 데이트도 하면서 
-이브자리로 이불 고르러
-같이 가요!
-
+오랜만에 데이트도 하면서 이브자리 고르러 같이가요.
+ 
 매장위치"+"
 "+store_info(store)
     end
     
     def to_user(store)
 "
-지금 엄마와 함께 
-혼수이불 고르러 
-이브자리로 오세요! 
-이불은 만져보고 골라야죠!
+지금 사랑하는 사람과 함께 이브자리로 오세요!
+이불은 만져보고 골라야죠! 
 
 매장위치"+"
 "+store_info(store) +"

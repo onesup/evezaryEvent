@@ -5,7 +5,7 @@ class ViralActionsController < ApplicationController
     respond_to do |format|
       if @action.save
         @action.send_mms
-        format.json { render json: @action.result, status: :created }
+        format.json { render json: @action.id, status: :created }
       else
         format.json { render json: @action.errors, status: :unprocessable_entity }
       end
@@ -20,7 +20,7 @@ class ViralActionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def viral_action_params
-      params.require(:viral_action).permit(:name, :phone, :email, :gift_id, :address)
+      params.require(:viral_action).permit(:platform, :device, :user_id)
     end
   
 end
