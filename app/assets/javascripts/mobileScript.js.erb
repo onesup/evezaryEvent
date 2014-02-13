@@ -74,15 +74,16 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 		e.preventDefault();
         _gaq.push(['_trackEvent', 'button', 'click', '카톡 모바일 1551']);
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
-		if( plaf || bc ){
-       	 kakao.link("talk").send({
-            msg : "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!",
-            url : "http://event3.evezary.co.kr/"+bc,
-            appid : "event3.evezary.co.kr",
-            appver : "1.0",
-            appname : "이브자리 특별한 데이트",
-            type : "link"
-       	 });
+        if( plaf || bc ){
+            track_viral_action(bc, "kakao_talk");
+            kakao.link("talk").send({
+                msg : "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!",
+                url : "http://event3.evezary.co.kr/"+bc,
+                appid : "event3.evezary.co.kr",
+                appver : "1.0",
+                appname : "이브자리 특별한 데이트",
+                type : "link"
+            });
 	 	} else {
 	 		location.href = "mobile_buzz/users/new?platform=kakaotalk";
 	 	}
@@ -91,22 +92,23 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 		e.preventDefault();
         _gaq.push(['_trackEvent', "event", "button", "click", "카스 모바일 1552"]);
         loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
-		if( plaf || bc ){
-       	 kakao.link("story").send({
-            post : "지금 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr/"+bc,
-            appid : "event3.evezary.co.kr",
-            appver : "1.0",
-            appname : "이브자리 특별한 데이트",
-            urlinfo : JSON.stringify({
-                title:"이브자리 특별한 데이트", 
-                desc:"사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!", 
-                imageurl:["http://i.imgur.com/Cxro80a.jpg"], 
-                type:"article"
-            })
-      	  });
-	  	} else {
-	  		location.href = "mobile_buzz/users/new?platform=kakaostory";
-	  	}
+        if( plaf || bc ){
+            track_viral_action(bc, "kakao_story");
+            kakao.link("story").send({
+                post : "지금 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr/"+bc,
+                appid : "event3.evezary.co.kr",
+                appver : "1.0",
+                appname : "이브자리 특별한 데이트",
+                urlinfo : JSON.stringify({
+                    title:"이브자리 특별한 데이트", 
+                    desc:"사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!", 
+                    imageurl:["http://i.imgur.com/Cxro80a.jpg"], 
+                    type:"article"
+                })
+            });
+        } else {
+            location.href = "mobile_buzz/users/new?platform=kakaostory";
+        }
     });
     $("#mobile_f").click(function(e){
 		e.preventDefault();
@@ -124,14 +126,15 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 	        		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
 	        	};
 
-	        	FB.ui(share, function(response) {
-	        		if(response && response.post_id) {
-	        			alert("공유되었습니다.");
-	        		}
-	        		else {
-	        			alert("공유 실패");
-	        		}
-	        	});
+                FB.ui(share, function(response) {
+                    if(response && response.post_id) {
+                        track_viral_action(bc, "facebook");
+                        alert("공유되었습니다.");
+                    }
+                    else {
+                        alert("공유 실패");
+                    }
+                });
 	        }
 	        share();
 		} else {
@@ -295,4 +298,19 @@ function countProperties(obj) {
         ++count;
     }
     return count;
+}
+
+function track_viral_action(blog_code, platform){
+    $.ajax({
+        type: "POST",
+        url: "/mobile/viral_actions.json",
+        data: {
+            'blog_code': blog_code,
+            'viral_action[platform]': platform,
+            'viral_action[device]': 'mobile',
+        },
+        success: function(data){
+
+        }
+    });
 }

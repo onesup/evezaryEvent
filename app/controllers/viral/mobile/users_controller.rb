@@ -15,12 +15,13 @@ class Viral::Mobile::UsersController < ApplicationController
       end
       respond_to do |format|
         if @user.save
+          cache = {platform: params[:platform], blog_code: @user.blog_code}
           if AccessLog.exists?(id: params["ip"])
             log = AccessLog.find(params["ip"])
             log.user = @user
             log.save
           end
-          format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: 'User was successfully updated.') }
+          format.html { redirect_to(mobile_index_path(cache), notice: 'User was successfully updated.') }
           format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
         else
           format.html { redirect_to(mobile_apply_2_path, notice: '입력을 다시 한 번 확인해주세요.') }
@@ -45,8 +46,9 @@ class Viral::Mobile::UsersController < ApplicationController
         log.save
       end
       @user.save
+      cache = {platform: params[:platform], blog_code: @user.blog_code}
       respond_to do |format|
-        format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: '이미 참여하셨습니다.') }
+        format.html { redirect_to(mobile_index_path(cache), notice: '이미 참여하셨습니다.') }
         format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
       end
     end

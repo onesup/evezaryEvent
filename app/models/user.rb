@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   belongs_to :gift
   has_many :messages
   has_many :access_logs
+  has_many :viral_actions
   geocoded_by :address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
   

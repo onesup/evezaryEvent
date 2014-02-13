@@ -1,10 +1,12 @@
 class ViralActionsController < ApplicationController
   before_action :set_viral_action, only: [:show, :edit, :update, :destroy]
   def create
-    @action = ViralAction.new(action_params)
+    @action = ViralAction.new(viral_action_params)
     respond_to do |format|
       if @action.save
-        @action.send_mms
+        user = User.find_by_blog_code(params[:blog_code]) if User.exists?(blog_code: params[:blog_code])
+        @action.user = user unless user.nil?
+        @action.save
         format.json { render json: @action.id, status: :created }
       else
         format.json { render json: @action.errors, status: :unprocessable_entity }
