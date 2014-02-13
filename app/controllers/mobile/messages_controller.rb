@@ -51,20 +51,16 @@ store.title+"
     def to_mom(msg_body, store)
 "
  "+msg_body+"
-오랜만에 데이트도 하면서 
-이브자리로 이불 고르러
-같이 가요!
-
+오랜만에 데이트도 하면서 이브자리 고르러 같이가요.
+ 
 매장위치"+"
 "+store_info(store)
     end
     
     def to_user(store)
 "
-지금 엄마와 함께 
-혼수이불 고르러 
-이브자리로 오세요! 
-이불은 만져보고 골라야죠!
+지금 사랑하는 사람과 함께 이브자리로 오세요!
+이불은 만져보고 골라야죠! 
 
 매장위치"+"
 "+store_info(store) +"
