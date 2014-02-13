@@ -27,8 +27,10 @@ Rails.application.routes.draw do
     end
   end
   resources :messages, only: [:create, :update]
+  resources :viral_actions, only: [:create]
   namespace :mobile do
     resources :messages, only: [:create]
+    resources :viral_actions, only: [:create]
   end
   namespace :mobile_buzz do
     resources :users, only: [:new, :create]
@@ -47,6 +49,7 @@ Rails.application.routes.draw do
     resources :users
     resources :messages
     resources :access_logs
+    resources :viral_actions
   end
   root :to => "home#switch"
 end
