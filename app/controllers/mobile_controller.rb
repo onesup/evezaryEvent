@@ -9,7 +9,6 @@ class MobileController < ApplicationController
     length = 0
     unless lat.nil?
       while length < 4
-        puts "@@search stores: "+length.to_s
         @stores = Store.near([lat,lng], i)
         length = @stores.length
         i += 1
