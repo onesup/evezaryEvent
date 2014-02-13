@@ -2,6 +2,7 @@ class MobileController < ApplicationController
   layout false
   protect_from_forgery except: :kakaotalk
   def near_stores
+    #legacy? 
     lat = params["lat"]
     lng = params["lng"]
     i = 1
@@ -12,6 +13,10 @@ class MobileController < ApplicationController
         @stores = Store.near([lat,lng], i)
         length = @stores.length
         i += 1
+        if i > 60
+          Rails.logger.info "없는 매장 검색: 모바일"
+          break
+        end
       end
     else
       @stores = Store.near([37.5146212,127.0554681],5)

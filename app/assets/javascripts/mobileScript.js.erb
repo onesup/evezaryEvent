@@ -253,30 +253,47 @@ function search_stores(user_id, address){
             'user[address]': address,
         },
         success: function(data){
+			var myPhone_1 = $.url().param('myPhone_1');
+			var myPhone_2 = $.url().param('myPhone_2');
+			var myPhone_3 = $.url().param('myPhone_3');
+			var momPhone_1 = $.url().param('momPhone_1');
+			var momPhone_2 = $.url().param('momPhone_2');
+			var momPhone_3 = $.url().param('momPhone_3');
+			var ta = $.url().param('ta');
+			
+			if( !myPhone_1 ){ myPhone_1 = ""; }
+			if( !myPhone_2 ){ myPhone_2 = ""; }
+			if( !myPhone_3 ){ myPhone_3 = ""; }
+			if( !momPhone_1 ){ momPhone_1 = ""; }
+			if( !momPhone_2 ){ momPhone_2 = ""; }
+			if( !momPhone_3 ){ momPhone_3 = ""; }
+			if( !ta ){ ta = ""; }
+            
+            var link = "myPhone_1=" + myPhone_1 + "&myPhone_2=" + myPhone_2 + "&myPhone_3=" + myPhone_3 + "&momPhone_1=" + momPhone_1 + "&momPhone_2=" + momPhone_2 + "&momPhone_3=" + momPhone_3 + "&ta=" + ta;				
+
+            var stores_length;
+            stores_length = countProperties(data.stores);                        
             $('#search-view-ul').empty();
-            $.each(data.stores, function(key, value) {
-				var myPhone_1 = $.url().param('myPhone_1');
-				var myPhone_2 = $.url().param('myPhone_2');
-				var myPhone_3 = $.url().param('myPhone_3');
-				var momPhone_1 = $.url().param('momPhone_1');
-				var momPhone_2 = $.url().param('momPhone_2');
-				var momPhone_3 = $.url().param('momPhone_3');
-				var ta = $.url().param('ta');
-				
-				if( !myPhone_1 ){ myPhone_1 = ""; }
-				if( !myPhone_2 ){ myPhone_2 = ""; }
-				if( !myPhone_3 ){ myPhone_3 = ""; }
-				if( !momPhone_1 ){ momPhone_1 = ""; }
-				if( !momPhone_2 ){ momPhone_2 = ""; }
-				if( !momPhone_3 ){ momPhone_3 = ""; }
-				if( !ta ){ ta = ""; }
-				
-				var link = "myPhone_1=" + myPhone_1 + "&myPhone_2=" + myPhone_2 + "&myPhone_3=" + myPhone_3 + "&momPhone_1=" + momPhone_1 + "&momPhone_2=" + momPhone_2 + "&momPhone_3=" + momPhone_3 + "&ta=" + ta;
-				
-                var append = "<a href = 'mobile_apply_1?" + link + "&where=" + key + "'><li class='li_class' value="+key+">"+value+"</li></a>";
+            
+            if(stores_length > 0){
+                $.each(data.stores, function(key, value) {				
+                    var append = "<a href = 'mobile_apply_1?" + link + "&where=" + key + "'><li class='li_class' value="+key+">"+value+"</li></a>";
+                    $('#search-view-ul').append(append); 
+                });
+            }else{
+                var append = "<p class='store_not_found'>'관악구 신사동'과 같이 검색해주세요.</p>";
                 $('#search-view-ul').append(append); 
-            });
+            }
             // spinner.stop();
         }
     });
+}
+
+function countProperties(obj) {
+    var count = 0;
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+        ++count;
+    }
+    return count;
 }

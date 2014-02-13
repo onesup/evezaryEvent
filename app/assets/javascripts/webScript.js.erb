@@ -860,15 +860,15 @@ function search_stores(user_id, address){
             'user[address]': address,
         },
         success: function(data){
-          var stores_length;
-          stores_length = countProperties(data.stores);
+            var stores_length;
+            stores_length = countProperties(data.stores);
           
             $('#search-stores-select').empty();
             if(stores_length > 0){
-              $.each(data.stores, function(key, value) {
-                  var append = "<option value="+key+">"+value+"</option>"
-                  $('#search-stores-select').append(append); 
-              });
+                $.each(data.stores, function(key, value) {
+                    var append = "<option value="+key+">"+value+"</option>"
+                    $('#search-stores-select').append(append); 
+                });
             }else{
                 var append = "<option>'관악구 신사동'과 같이 검색해주세요.</option>"
                 $('#search-stores-select').append(append); 

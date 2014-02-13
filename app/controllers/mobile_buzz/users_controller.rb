@@ -102,6 +102,10 @@ class MobileBuzz::UsersController < ApplicationController
       @stores = Store.near(user, i)
       length = @stores.length
       i += 1
+      if i > 60
+        Rails.logger.info "없는 매장 검색: "+user.address
+        break
+      end
     end
 
   end
