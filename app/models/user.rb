@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :access_logs
   has_many :viral_actions
   geocoded_by :address   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  # after_validation :geocode          # auto-fetch coordinates
   
   def random_code
     evezary = %w(e v e z a r y) * 3

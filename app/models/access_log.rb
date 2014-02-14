@@ -3,7 +3,7 @@ class AccessLog < ActiveRecord::Base
   belongs_to :user
   belongs_to :message
   geocoded_by :location   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  # after_validation :geocode          # auto-fetch coordinates
   def get_location
     ip = self.ip || "211.35.135.99"
     url = "http://api.openapi.io/iptr/newapi/api_call.php?keycode=11111174&userip="+ip
@@ -20,21 +20,6 @@ class AccessLog < ActiveRecord::Base
   
   def near_stores
     stores = Store.search_stores(location)
-    # i = 1
-    # length = 0
-    # while length < 4
-    #   if self.latitude.nil?
-    #     stores = Store.near([37.5146212,127.0554681],5)
-    #   else
-    #     stores = Store.near(self,i)
-    #   end
-    #   length = stores.length
-    #   i += 1
-    #   if i > 60
-    #     Rails.logger.info "없는 매장 검색: "+self.location
-    #     break
-    #   end
-    # end
     return stores
   end
 
