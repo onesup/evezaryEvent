@@ -205,3 +205,12 @@ ul{
   float: left;
   margin-right: 15px;
 }
+th.msg-body{
+  width:400px;
+}
+th.device{
+  width:50px;
+}
+th.count{
+  width:38px;
+}

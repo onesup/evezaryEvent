@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   layout 'admin'
   
   def index
-    @users = User.where.not(phone:nil).order("id desc").page(params[:page]).per(500)
+    @users = User.where.not(phone:nil).order("id desc").page(params[:page]).per(200)
   end
 
   def show
