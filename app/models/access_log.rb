@@ -19,21 +19,22 @@ class AccessLog < ActiveRecord::Base
   end
   
   def near_stores
-    i = 1
-    length = 0
-    while length < 4
-      if self.latitude.nil?
-        stores = Store.near([37.5146212,127.0554681],5)
-      else
-        stores = Store.near(self,i)
-      end
-      length = stores.length
-      i += 1
-      if i > 60
-        Rails.logger.info "없는 매장 검색: "+self.location
-        break
-      end
-    end
+    stores = Store.search_stores(location)
+    # i = 1
+    # length = 0
+    # while length < 4
+    #   if self.latitude.nil?
+    #     stores = Store.near([37.5146212,127.0554681],5)
+    #   else
+    #     stores = Store.near(self,i)
+    #   end
+    #   length = stores.length
+    #   i += 1
+    #   if i > 60
+    #     Rails.logger.info "없는 매장 검색: "+self.location
+    #     break
+    #   end
+    # end
     return stores
   end
 

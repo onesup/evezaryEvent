@@ -28,7 +28,7 @@ class Store < ActiveRecord::Base
     end
     coord = Store.address_to_coord(address)
     if coord == "not_found"
-      Rails.logger.info "not_found: " + address + coord
+      Rails.logger.info "not_found: " + address + coord.to_s
     else
       i = 1
       length = 0
