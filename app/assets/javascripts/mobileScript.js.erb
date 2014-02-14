@@ -75,6 +75,7 @@ $(document).ready(function() {
             e.preventDefault();
             _gaq.push(['_trackEvent', 'button', 'click', '카톡 모바일 1551']);
             loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
+            var access_log = $("#mobile_apply").attr("ip-data");
             if( plaf || bc ){
                 track_viral_action(bc, "kakao_talk");
                 kakao.link("talk").send({
@@ -86,13 +87,14 @@ $(document).ready(function() {
                     type : "link"
                 });
             } else {
-                location.href = "mobile_buzz/users/new?platform=kakaotalk";
+                location.href = "mobile_buzz/users/new?platform=kakaotalk&ip="+access_log;
             }
         });
         $("#mobile_ks").click(function(e){
             e.preventDefault();
             _gaq.push(['_trackEvent', "event", "button", "click", "카스 모바일 1552"]);
             loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
+            var access_log = $("#mobile_apply").attr("ip-data");
             if( plaf || bc ){
                 track_viral_action(bc, "kakao_story");
                 kakao.link("story").send({
@@ -108,13 +110,14 @@ $(document).ready(function() {
                     })
                 });
             } else {
-                location.href = "mobile_buzz/users/new?platform=kakaostory";
+                location.href = "mobile_buzz/users/new?platform=kakaostory&ip="+access_log;
             }
         });
         $("#mobile_f").click(function(e){
             e.preventDefault();
             _gaq.push(['_trackEvent', "event", "button", "click", "페북버튼 모바일 1553"]);
             loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
+            var access_log = $("#mobile_apply").attr("ip-data");
             if( plaf || bc ){
                 var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
                 function share() {
@@ -139,7 +142,7 @@ $(document).ready(function() {
                 }
                 share();
             } else {
-                location.href = "mobile_buzz/users/new?platform=facebook";
+                location.href = "mobile_buzz/users/new?platform=facebook&ip="+access_log;
             }
         });
         $('#location').click(function(){

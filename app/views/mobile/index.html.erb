@@ -50,13 +50,19 @@
     <p class = "">
       <%= image_tag("mobile/Label_2.png", class:"mobile") %>
     </p>
-    <a id="mobile_k" href="#"><%= image_tag("mobile/share_Kakao.png", class:"Button") %></a>
+    <a id="mobile_k" href="#" ip-data="<%= @access_log.id %>">
+      <%= image_tag("mobile/share_Kakao.png", class:"Button") %>
+    </a>
     <br />
-    <a id="mobile_ks" href="#" ><%= image_tag("mobile/share_Kakaostory.png", class:"Button") %></a>
+    <a id="mobile_ks" href="#" ip-data="<%= @access_log.id %>">
+      <%= image_tag("mobile/share_Kakaostory.png", class:"Button") %>
+    </a>
     <br />
-    <a id="mobile_f" href= "#"><%= image_tag("mobile/share_Facebook.png", class:"Button") %></a>
+    <a id="mobile_f" href= "#" ip-data="<%= @access_log.id %>">
+      <%= image_tag("mobile/share_Facebook.png", class:"Button") %>
+    </a>
     <br />
-    <%= image_tag("mobile/dotLine.png", class:"Line") %>
+      <%= image_tag("mobile/dotLine.png", class:"Line") %>
     <br />
   </div>
   <!-- 경품 -->
