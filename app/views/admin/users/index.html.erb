@@ -10,6 +10,7 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>디바이스</th>
               <th>참여자</th>
               <th>전화번호</th>
               <th>참여일시</th>
@@ -21,6 +22,9 @@
               <tr class="">
                 <td>
                   <%= user.id %>
+                </td>
+                <td>
+                  <%= user.access_logs.count %>
                 </td>
                 <td>
                   <%= user.name %> <%= "*" unless user.access_logs.empty? %>
@@ -42,7 +46,7 @@
                   <td colspan="">
                     <p>바이럴 참여</p>
                   </td>
-                  <td colspan="3">
+                  <td colspan="4">
                     <ul>
                     <% user.viral_actions.each do |action|%>
                       <li class="viral-actions">

@@ -27,7 +27,7 @@ class Mobile::MessagesController < ApplicationController
         @message.dest_phone = dest_phone_copy
         @message.save
         @message.access_log = AccessLog.find(params[:ip]) rescue AccessLog.first  
-        my_phone_hash = {message_id: @message.id, p1: params["myPhone_1"].to_s, p2: params["myPhone_2"].to_s, p3: params["myPhone_3"].to_s}
+        my_phone_hash = {ip: params[:ip], message_id: @message.id, p1: params["myPhone_1"].to_s, p2: params["myPhone_2"].to_s, p3: params["myPhone_3"].to_s}
         format.html { redirect_to(mobile_apply_2_path(my_phone_hash), notice: 'Message was successfully updated.') }
         format.json { render json: {status: "success", blog_code: @message.blog_code}, status: :created }
       else

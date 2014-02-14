@@ -153,7 +153,7 @@ $(document).ready(function() {
             }
             else
             {
-                location.href = "mobile_apply_2";
+                location.href = "mobile_apply_2"+$.url().param('ip');
             }
         });
         $('#m2_personButton').click(function(){
@@ -184,7 +184,7 @@ $(document).ready(function() {
                             'user[phone]': phone,
                             'user[email]': $("#m2_email").val(),
                             'message_id' : $("#message_id").val(),
-                            'ip': $("#ip-code").val()
+                            'ip' : $("#ip").val(),
                         },
                         success: function (data) {
                             $("#blog-code").val(data.blog_code);

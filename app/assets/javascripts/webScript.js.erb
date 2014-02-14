@@ -20,6 +20,7 @@ $(document).ready(function () {
     $('#social_form_ajax').submit(function(e){    
       e.preventDefault();
       _gaq.push(['_trackEvent', 'button', 'click', '소문내기 정보입력']);
+      loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1558');
     }).validate({
       rules: {
         "user[name]": { required: true },

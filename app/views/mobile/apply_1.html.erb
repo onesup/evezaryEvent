@@ -76,7 +76,7 @@ $(document).ready(function() {
   <%= image_tag("mpopup/1/m1_Label1.png", class:"mp1_Label1") %>
   <div class = "mp1_PopInbox">
     <%= form_tag('mobile/messages.html', method: "post")%>
-      <%= hidden_field_tag "ip", params[:ip] %>
+      <%= hidden_field_tag "ip", params["ip"] %>
       <!-- 내 번호 -->
       <%= image_tag("mpopup/1/m1_InputLabel_1.png", class:"mp1_InputLabel1") %>
       <%= number_field_tag "myPhone_1" ,params["myPhone_1"], class: "mp1_input", type:"tel", maxlength:"3" %>
