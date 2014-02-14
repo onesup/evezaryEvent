@@ -49,7 +49,8 @@ class MobileController < ApplicationController
       momPhone_1: params[:momPhone_1],
       momPhone_2: params[:momPhone_2],
       momPhone_3: params[:momPhone_3],
-      ta: params[:ta]
+      ta: params[:ta],
+      ip: params[:ip]
     }
   end
   
@@ -61,7 +62,8 @@ class MobileController < ApplicationController
       momPhone_1: params[:momPhone_1],
       momPhone_2: params[:momPhone_2],
       momPhone_3: params[:momPhone_3],
-      ta: params[:ta]
+      ta: params[:ta],
+      ip: params[:ip]
     }
     @store = Store.find(params[:where]) unless params[:where].nil?
   end

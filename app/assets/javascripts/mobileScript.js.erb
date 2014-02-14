@@ -64,8 +64,9 @@ $(document).ready(function() {
             var momPhone_1 = $("#momPhone_1").val();
             var momPhone_2 = $("#momPhone_2").val();
             var momPhone_3 = $("#momPhone_3").val();
+            var ip = $.url().param('ip');
             var ta = $("#ta").val();
-            var cache = "mobile_search_stores?myPhone_1="+myPhone_1+"&myPhone_2="+myPhone_2+"&myPhone_3="+myPhone_3;
+            var cache = "mobile_search_stores?ip="+ip+"&myPhone_1="+myPhone_1+"&myPhone_2="+myPhone_2+"&myPhone_3="+myPhone_3;
             var cache = cache + "&momPhone_1="+momPhone_1+"&momPhone_2="+momPhone_2+"&momPhone_3="+momPhone_3+"&ta="+ta;
             location.href = cache;
         });
@@ -296,6 +297,7 @@ function search_stores(user_id, address){
             var momPhone_2 = $.url().param('momPhone_2');
             var momPhone_3 = $.url().param('momPhone_3');
             var ta = $.url().param('ta');
+            var ip = $.url().param('ip');
 			
             if( !myPhone_1 ){ myPhone_1 = ""; }
             if( !myPhone_2 ){ myPhone_2 = ""; }
@@ -305,7 +307,7 @@ function search_stores(user_id, address){
             if( !momPhone_3 ){ momPhone_3 = ""; }
             if( !ta ){ ta = ""; }
             
-            var link = "myPhone_1=" + myPhone_1 + "&myPhone_2=" + myPhone_2 + "&myPhone_3=" + myPhone_3 + "&momPhone_1=" + momPhone_1 + "&momPhone_2=" + momPhone_2 + "&momPhone_3=" + momPhone_3 + "&ta=" + ta;				
+            var link = "ip=" + ip + "&myPhone_1=" + myPhone_1 + "&myPhone_2=" + myPhone_2 + "&myPhone_3=" + myPhone_3 + "&momPhone_1=" + momPhone_1 + "&momPhone_2=" + momPhone_2 + "&momPhone_3=" + momPhone_3 + "&ta=" + ta;				
 
             var stores_length;
             stores_length = countProperties(data.stores);                        
