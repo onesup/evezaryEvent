@@ -90,24 +90,8 @@ class UsersController < ApplicationController
   end
   
   def search_stores
-    naver_map_key = Rails.application.secrets.naver_map_key
-    user = User.new
-    user.update(user_params)
-    i = 1
-    length = 0
-    if user.address.nil?
-      user.address = "서울시 강남구 삼성동"
-    end
-    while length < 4
-      @stores = Store.near(user, i)
-      length = @stores.length
-      i += 1
-      if i > 60
-        Rails.logger.info "없는 매장 검색: "+user.address
-        break
-      end
-    end
-
+    address = user_params["address"]
+    @stores = Store.search_stores(address)
   end
   
   private

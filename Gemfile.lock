@@ -242,6 +242,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   bootstrap-sass (~> 2.3.2.2)
   capistrano-bundler
   capistrano-rails
