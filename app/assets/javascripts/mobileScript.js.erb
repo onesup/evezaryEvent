@@ -1,221 +1,254 @@
 $(document).ready(function() {
-	var bc = $.url().param('blog_code');
-	var plaf = $.url().param('platform');
+    var bc = $.url().param('blog_code');
+    var plaf = $.url().param('platform');
     $.ajaxSetup({ cache: true });
-$.getScript('//connect.facebook.net/ko_KR/all.js', function(){
-  FB.init({
-    appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });     
-	if( window.location.pathname == "/mobile_index" ){
-	if( plaf == "kakaotalk" ){
-		kakao.link("talk").send({
-            msg : "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!",
-            url : "http://event3.evezary.co.kr/"+bc,
-            appid : "event3.evezary.co.kr",
-            appver : "1.0",
-            appname : "이브자리 특별한 데이트",
-            type : "link"
-        });
-	}else if( plaf == "kakaostory" ){
-        kakao.link("story").send({
-            post : "지금 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr/"+bc,
-            appid : "http://event3.evezary.co.kr/"+bc,
-            appver : "1.0",
-            appname : "이브자리 특별한 데이트",
-            urlinfo : JSON.stringify({
-                title:"이브자리 특별한 데이트", 
-                desc:"사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!", 
-                imageurl:["http://i.imgur.com/Cxro80a.jpg"], 
-                type:"article"
-            })
-        });
-	}else if( plaf == "facebook" ){
-        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
-        function share() {
-        	var share = {
-        		method: "feed",
-        		name: "이브자리 데이트 이벤트",
-        		link: "http://event3.evezary.co.kr/"+bc,
-        		picture: '<%= asset_url "fb_share_img.jpg" %>',
-        		caption: "[이브자리::이브자리 데이트 이벤트]",
-        		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
-        	};
-
-        	FB.ui(share, function(response) {
-        		if(response && response.post_id) {
-        			alert("공유되었습니다.");
-        		}
-        		else {
-        			alert("공유 실패");
-        		}
-        	});
-        }
-        share();
-	}
-}
-    $('#location').click(function(e){
-        e.preventDefault();
-        var myPhone_1 = $("#myPhone_1").val();
-        var myPhone_2 = $("#myPhone_2").val();
-        var myPhone_3 = $("#myPhone_3").val();
-        var momPhone_1 = $("#momPhone_1").val();
-        var momPhone_2 = $("#momPhone_2").val();
-        var momPhone_3 = $("#momPhone_3").val();
-        var ta = $("#ta").val();
-        var cache = "mobile_search_stores?myPhone_1="+myPhone_1+"&myPhone_2="+myPhone_2+"&myPhone_3="+myPhone_3;
-        var cache = cache + "&momPhone_1="+momPhone_1+"&momPhone_2="+momPhone_2+"&momPhone_3="+momPhone_3+"&ta="+ta;
-        location.href = cache;
-    });
-    
-    $('#mobile_k').click(function(e){
-		e.preventDefault();
-        _gaq.push(['_trackEvent', 'button', 'click', '카톡 모바일 1551']);
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
-        if( plaf || bc ){
-            track_viral_action(bc, "kakao_talk");
-            kakao.link("talk").send({
-                msg : "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!",
-                url : "http://event3.evezary.co.kr/"+bc,
-                appid : "event3.evezary.co.kr",
-                appver : "1.0",
-                appname : "이브자리 특별한 데이트",
-                type : "link"
-            });
-	 	} else {
-	 		location.href = "mobile_buzz/users/new?platform=kakaotalk";
-	 	}
-    });
-    $("#mobile_ks").click(function(e){
-		e.preventDefault();
-        _gaq.push(['_trackEvent', "event", "button", "click", "카스 모바일 1552"]);
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
-        if( plaf || bc ){
-            track_viral_action(bc, "kakao_story");
-            kakao.link("story").send({
-                post : "지금 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr/"+bc,
-                appid : "event3.evezary.co.kr",
-                appver : "1.0",
-                appname : "이브자리 특별한 데이트",
-                urlinfo : JSON.stringify({
-                    title:"이브자리 특별한 데이트", 
-                    desc:"사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!", 
-                    imageurl:["http://i.imgur.com/Cxro80a.jpg"], 
-                    type:"article"
-                })
-            });
-        } else {
-            location.href = "mobile_buzz/users/new?platform=kakaostory";
-        }
-    });
-    $("#mobile_f").click(function(e){
-		e.preventDefault();
-        _gaq.push(['_trackEvent', "event", "button", "click", "페북버튼 모바일 1553"]);
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
-		if( plaf || bc ){
-	        var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
-	        function share() {
-	        	var share = {
-	        		method: "feed",
-	        		name: "이브자리 데이트 이벤트",
-	        		link: "http://event3.evezary.co.kr/"+bc,
-	        		picture: '<%= asset_url "fb_share_img.jpg" %>',
-	        		caption: "[이브자리::이브자리 데이트 이벤트]",
-	        		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
-	        	};
-
-                FB.ui(share, function(response) {
-                    if(response && response.post_id) {
-                        track_viral_action(bc, "facebook");
-                        alert("공유되었습니다.");
-                    }
-                    else {
-                        alert("공유 실패");
-                    }
+    $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
+        FB.init({
+            appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });     
+        if( window.location.pathname == "/mobile_index" ){
+            if( plaf == "kakaotalk" ){
+                kakao.link("talk").send({
+                    msg : "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!",
+                    url : "http://event3.evezary.co.kr/"+bc,
+                    appid : "event3.evezary.co.kr",
+                    appver : "1.0",
+                    appname : "이브자리 특별한 데이트",
+                    type : "link"
                 });
-	        }
-	        share();
-		} else {
-			location.href = "mobile_buzz/users/new?platform=facebook";
-		}
-    });
-    $('#location').click(function(){
-        _gaq.push(['_trackEvent', 'button', 'click', '위치 모바일']);
-    });
-    $('#m1_sendButton').click(function(){
-        _gaq.push(['_trackEvent', 'button', 'click', '첫번째 페이지 끝 모바일 1549']);
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
-        if( $('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#ta').val() == "" )
-        {
-            alert("내용을 모두 입력해주세요.");
+            }else if( plaf == "kakaostory" ){
+                kakao.link("story").send({
+                    post : "지금 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr/"+bc,
+                    appid : "http://event3.evezary.co.kr/"+bc,
+                    appver : "1.0",
+                    appname : "이브자리 특별한 데이트",
+                    urlinfo : JSON.stringify({
+                        title:"이브자리 특별한 데이트", 
+                        desc:"사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!", 
+                        imageurl:["http://i.imgur.com/Cxro80a.jpg"], 
+                        type:"article"
+                    })
+                });
+            }else if( plaf == "facebook" ){
+                var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
+                function share() {
+                    var share = {
+                        method: "feed",
+                        name: "이브자리 데이트 이벤트",
+                        link: "http://event3.evezary.co.kr/"+bc,
+                        picture: '<%= asset_url "fb_share_img.jpg" %>',
+                        caption: "[이브자리::이브자리 데이트 이벤트]",
+                        description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
+                    };
+
+                    FB.ui(share, function(response) {
+                        if(response && response.post_id) {
+                            alert("공유되었습니다.");
+                        }
+                        else {
+                            alert("공유 실패");
+                        }
+                    });
+                }
+                share();
+            }
         }
-        else
-        {
-            location.href = "mobile_apply_2";
-        }
-    });
-    $('#m2_personButton').click(function(){
-        _gaq.push(['_trackEvent', 'button', 'click', '약관 모바일']);
-    });
-    $('#m2_endButton').click(function(e){
-        e.preventDefault();
-        _gaq.push(['_trackEvent', 'button', 'click', '두번째 페이지 끝 모바일 1550']);
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
-        if( $('#m2_name').val() == "" || $('#m2_phone_1').val() == "" || $('#m2_phone_2').val() == "" || $('#m2_phone_3').val() == "" || $('#m2_email').val() == "" )
-        {
-            alert("내용을 모두 입력해주세요.");
-        }
-        else
-        {
-            if($(':radio[name="agree"]:checked').val() == "d")
+        $('#location').click(function(e){
+            e.preventDefault();
+            var myPhone_1 = $("#myPhone_1").val();
+            var myPhone_2 = $("#myPhone_2").val();
+            var myPhone_3 = $("#myPhone_3").val();
+            var momPhone_1 = $("#momPhone_1").val();
+            var momPhone_2 = $("#momPhone_2").val();
+            var momPhone_3 = $("#momPhone_3").val();
+            var ta = $("#ta").val();
+            var cache = "mobile_search_stores?myPhone_1="+myPhone_1+"&myPhone_2="+myPhone_2+"&myPhone_3="+myPhone_3;
+            var cache = cache + "&momPhone_1="+momPhone_1+"&momPhone_2="+momPhone_2+"&momPhone_3="+momPhone_3+"&ta="+ta;
+            location.href = cache;
+        });
+    
+        $('#mobile_k').click(function(e){
+            e.preventDefault();
+            _gaq.push(['_trackEvent', 'button', 'click', '카톡 모바일 1551']);
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1551");
+            if( plaf || bc ){
+                track_viral_action(bc, "kakao_talk");
+                kakao.link("talk").send({
+                    msg : "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!",
+                    url : "http://event3.evezary.co.kr/"+bc,
+                    appid : "event3.evezary.co.kr",
+                    appver : "1.0",
+                    appname : "이브자리 특별한 데이트",
+                    type : "link"
+                });
+            } else {
+                location.href = "mobile_buzz/users/new?platform=kakaotalk";
+            }
+        });
+        $("#mobile_ks").click(function(e){
+            e.preventDefault();
+            _gaq.push(['_trackEvent', "event", "button", "click", "카스 모바일 1552"]);
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1552");
+            if( plaf || bc ){
+                track_viral_action(bc, "kakao_story");
+                kakao.link("story").send({
+                    post : "지금 사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요! http://event3.evezary.co.kr/"+bc,
+                    appid : "event3.evezary.co.kr",
+                    appver : "1.0",
+                    appname : "이브자리 특별한 데이트",
+                    urlinfo : JSON.stringify({
+                        title:"이브자리 특별한 데이트", 
+                        desc:"사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!", 
+                        imageurl:["http://i.imgur.com/Cxro80a.jpg"], 
+                        type:"article"
+                    })
+                });
+            } else {
+                location.href = "mobile_buzz/users/new?platform=kakaostory";
+            }
+        });
+        $("#mobile_f").click(function(e){
+            e.preventDefault();
+            _gaq.push(['_trackEvent', "event", "button", "click", "페북버튼 모바일 1553"]);
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1553");
+            if( plaf || bc ){
+                var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + bc;
+                function share() {
+                    var share = {
+                        method: "feed",
+                        name: "이브자리 데이트 이벤트",
+                        link: "http://event3.evezary.co.kr/"+bc,
+                        picture: '<%= asset_url "fb_share_img.jpg" %>',
+                        caption: "[이브자리::이브자리 데이트 이벤트]",
+                        description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
+                    };
+
+                    FB.ui(share, function(response) {
+                        if(response && response.post_id) {
+                            track_viral_action(bc, "facebook");
+                            alert("공유되었습니다.");
+                        }
+                        else {
+                            alert("공유 실패");
+                        }
+                    });
+                }
+                share();
+            } else {
+                location.href = "mobile_buzz/users/new?platform=facebook";
+            }
+        });
+        $('#location').click(function(){
+            _gaq.push(['_trackEvent', 'button', 'click', '위치 모바일']);
+        });
+        $('#m1_sendButton').click(function(){
+            _gaq.push(['_trackEvent', 'button', 'click', '첫번째 페이지 끝 모바일 1549']);
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1549");
+            if( $('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#ta').val() == "" )
             {
-                alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
+                alert("내용을 모두 입력해주세요.");
             }
             else
             {
-				var phone = $('#m2_phone_1').val()+"-"+$('#m2_phone_2').val()+"-"+$('#m2_phone_3').val();
-	            $.ajax({
-	                type: "POST",
-	                url: "/users.json",
-	                data: {
-	                    'user[name]': $("#m2_name").val(),
-	                    'user[phone]': phone,
-	                    'user[email]': $("#m2_email").val(),
-                        'message_id' : $("#message_id").val(),
-	                    'ip': $("#ip-code").val()
-	                },
-	                success: function (data) {
-	                    $("#blog-code").val(data.blog_code);
-	                    //$("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
-                  	  	location.href = "mobile_apply_3?blog_code=" + data.blog_code;
-	                }
-	            });
+                location.href = "mobile_apply_2";
             }
-        }
+        });
+        $('#m2_personButton').click(function(){
+            _gaq.push(['_trackEvent', 'button', 'click', '약관 모바일']);
+        });
+        $('#m2_endButton').click(function(e){
+            e.preventDefault();
+            _gaq.push(['_trackEvent', 'button', 'click', '두번째 페이지 끝 모바일 1550']);
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1550");
+            if( $('#m2_name').val() == "" || $('#m2_phone_1').val() == "" || $('#m2_phone_2').val() == "" || $('#m2_phone_3').val() == "" || $('#m2_email').val() == "" )
+            {
+                alert("내용을 모두 입력해주세요.");
+            }
+            else
+            {
+                if($(':radio[name="agree"]:checked').val() == "d")
+                {
+                    alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
+                }
+                else
+                {
+                    var phone = $('#m2_phone_1').val()+"-"+$('#m2_phone_2').val()+"-"+$('#m2_phone_3').val();
+                    $.ajax({
+                        type: "POST",
+                        url: "/users.json",
+                        data: {
+                            'user[name]': $("#m2_name").val(),
+                            'user[phone]': phone,
+                            'user[email]': $("#m2_email").val(),
+                            'message_id' : $("#message_id").val(),
+                            'ip': $("#ip-code").val()
+                        },
+                        success: function (data) {
+                            $("#blog-code").val(data.blog_code);
+                            //$("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
+                            location.href = "mobile_apply_3?blog_code=" + data.blog_code;
+                        }
+                    });
+                }
+            }
+        });
+    
+        $('#mobile_apply').click(function(){
+            _gaq.push(['_trackEvent', 'button', 'click', '모바일 goto apply_1 1548']);
+            loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
+            var access_log = $("#mobile_apply").attr("ip-data");
+            location.href = "mobile_apply_1?ip=" + access_log;
+        });
+        $("#search-stores-button").click(function(e){
+            e.preventDefault();
+            _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
+            user_id = 2;
+            address = $("#search-stores-input").val();
+            if(address === ""){
+                alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
+            }else{
+                search_stores(user_id, address);
+            }
+        });
     });
     
-    $('#mobile_apply').click(function(){
-        _gaq.push(['_trackEvent', 'button', 'click', '모바일 goto apply_1 1548']);
-        loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
-        var access_log = $("#mobile_apply").attr("ip-data");
-        location.href = "mobile_apply_1?ip=" + access_log;
-    });
-    $("#search-stores-button").click(function(e){
-       e.preventDefault();
-       _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
-       user_id = 2;
-       address = $("#search-stores-input").val();
-       if(address === ""){
-           alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
-       }else{
-           search_stores(user_id, address);
-       }
-    });
-	
 });
-});
+
+function phone_field_move_focus(){
+	$('#myPhone_1').keyup(function(){
+		if($('#myPhone_1').val().length >= 3){
+			$('#myPhone_2').focus();
+		}
+	});
+	$('#myPhone_2').keyup(function(){
+		if($('#myPhone_2').val().length >= 4){
+			$('#myPhone_3').focus();
+		}
+	});
+	$('#myPhone_3').keyup(function(){
+		if($('#myPhone_3').val().length >= 4){
+			$('#momPhone_1').focus();
+		}
+	});
+	$('#momPhone_1').keyup(function(){
+		if($('#momPhone_1').val().length >= 3){
+			$('#momPhone_2').focus();
+		}
+	});
+	$('#momPhone_2').keyup(function(){
+		if($('#momPhone_2').val().length >= 4){
+			$('#momPhone_3').focus();
+		}
+	});
+	$('#momPhone_3').keyup(function(){
+		if($('#momPhone_3').val().length >= 4){
+			$('#ta').focus();
+		}
+	});
+}
 
 function loadJsFile(filename){
     var fileref=document.createElement('script');
@@ -230,22 +263,22 @@ function loadJsFile(filename){
 
 function search_stores(user_id, address){
     var opts = {
-      lines: 13, // The number of lines to draw
-      length: 20, // The length of each line
-      width: 10, // The line thickness
-      radius: 10, // The radius of the inner circle
-      corners: 1, // Corner roundness (0..1)
-      rotate: 0, // The rotation offset
-      direction: 1, // 1: clockwise, -1: counterclockwise
-      color: '#000', // #rgb or #rrggbb or array of colors
-      speed: 1, // Rounds per second
-      trail: 60, // Afterglow percentage
-      shadow: false, // Whether to render a shadow
-      hwaccel: false, // Whether to use hardware acceleration
-      className: 'spinner', // The CSS class to assign to the spinner
-      zIndex: 2e9, // The z-index (defaults to 2000000000)
-      left: 40-40,
-      top: 29-40
+        lines: 13, // The number of lines to draw
+        length: 20, // The length of each line
+        width: 10, // The line thickness
+        radius: 10, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#000', // #rgb or #rrggbb or array of colors
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        left: 40-40,
+        top: 29-40
     };
     var target = document.getElementById('location_searchBox');
     // var spinner = new Spinner(opts).spin(target);
@@ -256,21 +289,21 @@ function search_stores(user_id, address){
             'user[address]': address,
         },
         success: function(data){
-			var myPhone_1 = $.url().param('myPhone_1');
-			var myPhone_2 = $.url().param('myPhone_2');
-			var myPhone_3 = $.url().param('myPhone_3');
-			var momPhone_1 = $.url().param('momPhone_1');
-			var momPhone_2 = $.url().param('momPhone_2');
-			var momPhone_3 = $.url().param('momPhone_3');
-			var ta = $.url().param('ta');
+            var myPhone_1 = $.url().param('myPhone_1');
+            var myPhone_2 = $.url().param('myPhone_2');
+            var myPhone_3 = $.url().param('myPhone_3');
+            var momPhone_1 = $.url().param('momPhone_1');
+            var momPhone_2 = $.url().param('momPhone_2');
+            var momPhone_3 = $.url().param('momPhone_3');
+            var ta = $.url().param('ta');
 			
-			if( !myPhone_1 ){ myPhone_1 = ""; }
-			if( !myPhone_2 ){ myPhone_2 = ""; }
-			if( !myPhone_3 ){ myPhone_3 = ""; }
-			if( !momPhone_1 ){ momPhone_1 = ""; }
-			if( !momPhone_2 ){ momPhone_2 = ""; }
-			if( !momPhone_3 ){ momPhone_3 = ""; }
-			if( !ta ){ ta = ""; }
+            if( !myPhone_1 ){ myPhone_1 = ""; }
+            if( !myPhone_2 ){ myPhone_2 = ""; }
+            if( !myPhone_3 ){ myPhone_3 = ""; }
+            if( !momPhone_1 ){ momPhone_1 = ""; }
+            if( !momPhone_2 ){ momPhone_2 = ""; }
+            if( !momPhone_3 ){ momPhone_3 = ""; }
+            if( !ta ){ ta = ""; }
             
             var link = "myPhone_1=" + myPhone_1 + "&myPhone_2=" + myPhone_2 + "&myPhone_3=" + myPhone_3 + "&momPhone_1=" + momPhone_1 + "&momPhone_2=" + momPhone_2 + "&momPhone_3=" + momPhone_3 + "&ta=" + ta;				
 

@@ -40,6 +40,7 @@
   };
 
 $(document).ready(function() {
+  phone_field_move_focus();
 	<% if params[:where].nil? %>
   var target = document.getElementById('spin_wrap');
   var spinner = new Spinner(opts).spin(target);
