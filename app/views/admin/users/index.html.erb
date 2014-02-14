@@ -36,6 +36,23 @@
                   <%= user.viral_score %>
                 </td>
               </tr>
+              <% unless user.viral_actions.empty? %>
+                <tr>
+                  <td>▸</td>
+                  <td colspan="">
+                    <p>바이럴 참여</p>
+                  </td>
+                  <td colspan="3">
+                    <ul>
+                    <% user.viral_actions.each do |action|%>
+                      <li class="viral-actions">
+                        <p><%= action.platform %>-<%= action.device%></p>
+                      </li>
+                    <% end %>
+                    </ul>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
