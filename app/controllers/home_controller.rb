@@ -14,6 +14,12 @@ class HomeController < ApplicationController
   end  
   
   def index
+    device = "pc"
+    user_agent = UserAgent.parse(request.user_agent)
+    device = "mobile" if user_agent.mobile?
+    @log = AccessLog.new(ip: request.remote_ip, device: device)
+    @log.location = @log.get_location || "서울시 강남구 삼성동 91-25"
+    @log.save
   end
 
   def popUp_1
@@ -21,12 +27,7 @@ class HomeController < ApplicationController
   end
 
   def popUp_2  
-    device = "pc"
-    user_agent = UserAgent.parse(request.user_agent)
-    device = "mobile" if user_agent.mobile?
-    @log = AccessLog.new(ip: request.remote_ip, device: device)
-    @log.location = @log.get_location || "서울시 강남구 삼성동 91-25"
-    @log.save
+    @log = AccessLog.find(params[:ip]) rescue AccessLog.first
     render layout: false
   end
 
