@@ -11,6 +11,10 @@
             <tr>
               <th>ID</th>
               <th>디바이스</th>
+              <th>페북</th>
+              <th>블로그</th>
+              <th>카톡</th>
+              <th>카스</th>
               <th>참여자</th>
               <th>전화번호</th>
               <th>참여일시</th>
@@ -24,10 +28,22 @@
                   <%= user.id %>
                 </td>
                 <td>
-                  <%= user.access_logs.count %>
+                  <%= user.access_logs.last.device unless user.access_logs.empty? %>
                 </td>
                 <td>
-                  <%= user.name %> <%= "*" unless user.access_logs.empty? %>
+                  <%= user.viral_actions.blog.count unless user.viral_actions.empty? %>
+                </td>
+                <td>
+                  <%= user.viral_actions.facebook.count unless user.viral_actions.empty? %>
+                </td>
+                <td>
+                  <%= user.viral_actions.kakao_talk.count unless user.viral_actions.empty? %>
+                </td>
+                <td>
+                  <%= user.viral_actions.kakao_story.count unless user.viral_actions.empty? %>
+                </td>                
+                <td>
+                  <%= user.name %>
                 </td>
                 <td>
                   <%= user.phone unless user.phone.nil? %>
@@ -40,23 +56,6 @@
                   <%= user.viral_score %>
                 </td>
               </tr>
-              <% unless user.viral_actions.empty? %>
-                <tr>
-                  <td>▸</td>
-                  <td colspan="">
-                    <p>바이럴 참여</p>
-                  </td>
-                  <td colspan="4">
-                    <ul>
-                    <% user.viral_actions.each do |action|%>
-                      <li class="viral-actions">
-                        <p><%= action.platform %>-<%= action.device%></p>
-                      </li>
-                    <% end %>
-                    </ul>
-                  </td>
-                </tr>
-              <% end %>
             <% end %>
           </tbody>
         </table>
