@@ -26,6 +26,7 @@ gem 'sucker_punch', '~> 1.0'
 gem 'sasha'
 gem 'font-awesome-rails'
 gem 'addressable'
+gem 'kaminari'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development
