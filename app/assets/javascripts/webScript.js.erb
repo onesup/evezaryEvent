@@ -4,14 +4,13 @@ var c1, c2, c3, c4;
 
 $(document).ready(function () {   
     $.ajaxSetup({ cache: true });
-$.getScript('//connect.facebook.net/ko_KR/all.js', function(){
-  FB.init({
-    appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });       
-    
+    $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
+        FB.init({
+            appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });       
     $('#social_applyPopup6_finButton').click(function (e) {
         e.preventDefault();
         _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
@@ -180,6 +179,11 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
 						});
                         $('#applyPopup2_nnearButton').click(function (e) {
                             e.preventDefault();
+                            var go = document.getElementById("location_search");
+                            var txt = document.getElementById("location_searchBox");
+                            txt.addEventListener("keypress", function() {
+                                if (event.keyCode == 13) go.click();
+                            });
                             $("#location_search").click(function(e){
                                e.preventDefault();
                                _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
@@ -323,7 +327,6 @@ $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
                                                 $('#popUp').modal();
                                                 $('#closeModal').css('top', '-150px');
                                                 $('#closeModal').css('right', '-46px');
-                                                // dfsaafsdfdsa
                                                 $('#applyPopup4_exit').click(function(e){
                                                    e.preventDefault();
                                                    $('#popUp').empty();
