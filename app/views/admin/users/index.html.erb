@@ -6,6 +6,7 @@
     </div>
     <div class="block-content collapse in">
       <div class="span12">
+        <%= paginate @users %>
         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="data-table">
           <thead>
             <tr>
@@ -15,7 +16,7 @@
               <th class="count">블로그</th>
               <th class="count">카톡</th>
               <th class="count">카스</th>
-              <th>참여자</th>
+              <th class="name">참여자</th>
               <th>전화번호</th>
               <th>참여일시</th>
               <th>바이럴 점수</th>
@@ -59,6 +60,7 @@
             <% end %>
           </tbody>
         </table>
+        <%= paginate @users %>
       </div>
     </div>
   </div>
