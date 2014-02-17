@@ -50,6 +50,11 @@ Rails.application.routes.draw do
     resources :messages
     resources :access_logs
     resources :viral_actions
+    resources :stores do
+      collection do
+        get "top_stores"
+      end
+    end
   end
   root :to => "home#switch"
 end

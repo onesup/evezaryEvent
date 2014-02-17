@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :user
-  belongs_to :store
+  belongs_to :store, counter_cache: true
   belongs_to :gift
   has_one :access_log
   
