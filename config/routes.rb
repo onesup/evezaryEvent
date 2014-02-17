@@ -54,6 +54,8 @@ Rails.application.routes.draw do
       collection do
         get "top_stores"
       end
+      resources :messages do
+      end
     end
   end
   root :to => "home#switch"

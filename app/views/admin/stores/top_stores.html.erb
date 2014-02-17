@@ -23,7 +23,7 @@
                   <%= store.id %>
                 </td>
                 <td>
-                  <%= store.title %>
+                  <%= link_to store.title, admin_store_messages_path(store)%>
                 </td>
                 <td>
                   <%= store.messages_count %>

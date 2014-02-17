@@ -32,6 +32,9 @@
                   <p><%= message.updated_at.strftime("%m.%d %H:%M") %></p>
                 </td>
                 <td>
+                  <% unless params[:store_id].nil? %>
+                    <%= link_to "삭제", admin_store_message_path(params[:store_id], message), method: :delete, :data => { :confirm => "Are you sure?" } %>
+                  <% end %>
                 </td>
               </tr>
             <% end %>
