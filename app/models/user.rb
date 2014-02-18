@@ -35,10 +35,11 @@ class User < ActiveRecord::Base
     start_date = day.beginning_of_day
     end_date = day.end_of_day
     user_ids = Array.new
-    ViralAction.all.each{|x| user_ids << x.user_id}
-    viral_users = User.where(id: user_ids)
-    count = User.where(id: viral_users).where("users.created_at >= :start_date AND users.created_at <= :end_date",
-      {start_date: start_date, end_date: end_date}).where.not(users: {phone:nil}).count
+    actions = ViralAction.where("created_at >= :start_date AND created_at <= :end_date",
+      {start_date: start_date, end_date: end_date})
+    actions.each{|x| user_ids << x.user_id}
+    puts "@@@"+ids.to_s
+    count = user_ids.uniq.count
   end
 
 end
