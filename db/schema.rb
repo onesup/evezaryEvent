@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20140217055335) do
     t.string   "address"
   end
 
-  add_index "access_logs", ["message_id"], name: "index_access_logs_on_message_id", using: :btree
-  add_index "access_logs", ["user_id"], name: "index_access_logs_on_user_id", using: :btree
+  add_index "access_logs", ["message_id"], name: "index_access_logs_on_message_id"
+  add_index "access_logs", ["user_id"], name: "index_access_logs_on_user_id"
 
   create_table "gifts", force: true do |t|
     t.string   "title"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20140217055335) do
     t.datetime "updated_at"
   end
 
-  add_index "messages", ["store_id"], name: "index_messages_on_store_id", using: :btree
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+  add_index "messages", ["store_id"], name: "index_messages_on_store_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "stores", force: true do |t|
     t.string   "title"
@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(version: 20140217055335) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["gift_id"], name: "index_users_on_gift_id", using: :btree
-  add_index "users", ["phone"], name: "index_users_on_phone", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["gift_id"], name: "index_users_on_gift_id"
+  add_index "users", ["phone"], name: "index_users_on_phone", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "viral_actions", force: true do |t|
     t.string   "platform"
@@ -107,6 +107,6 @@ ActiveRecord::Schema.define(version: 20140217055335) do
     t.datetime "updated_at"
   end
 
-  add_index "viral_actions", ["user_id"], name: "index_viral_actions_on_user_id", using: :btree
+  add_index "viral_actions", ["user_id"], name: "index_viral_actions_on_user_id"
 
 end

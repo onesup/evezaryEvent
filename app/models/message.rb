@@ -51,6 +51,20 @@ class Message < ActiveRecord::Base
     end
   end
   
+  def waiting_for_result(interval_time, finish_time)
+    start_time = Time.now
+    during_time = Time.now - start_time
+    result = false
+    while finish_time > during_time
+      during_time = Time.now - start_time
+      sleep(interval_time)
+    end
+    if finish_time < during_time
+      result = true
+    end
+    return result
+  end
+  
   def report(cmid, time)
     api_key = Rails.application.secrets.apistore_key
     url = "http://api.openapi.io/ppurio/1/message/report/minivertising?cmid="+cmid

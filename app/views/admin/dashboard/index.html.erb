@@ -14,7 +14,9 @@
           <thead>
             <tr>
               <th>날짜</th>
-              <th>참여자</th>
+              <th>참여자(문자발송)</th>
+              <th>참여자(바이럴)</th>
+              <th>참여자(합계)</th>
               <th>PC 트래픽</th>
               <th>모바일 트래픽</th>
             </tr>
@@ -23,6 +25,8 @@
             <% time_iterate(Time.now.beginning_of_month, Time.now.end_of_month, 1.day) do |time|%>
               <tr class="">
                 <td><%= time.strftime("%m-%d")%></td>
+                <td><%= User.temporary_daily_message_count(time) %></td>
+                <td><%= User.temporary_daily_viral_count(time) %></td>
                 <td><%= User.temporary_daily_count(time) %></td>
                 <td><%= AccessLog.temporary_pc_daily_count(time) %></td>
                 <td><%= AccessLog.temporary_mobile_daily_count(time) %></td>
