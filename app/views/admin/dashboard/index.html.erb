@@ -14,9 +14,10 @@
           <thead>
             <tr>
               <th>날짜</th>
-              <th>참여자(문자발송)</th>
-              <th>참여자(바이럴)</th>
-              <th>참여자(합계)</th>
+              <th>문자발송 참여자</th>
+              <th>바이럴 참여자</th>
+              <th>바이럴 등록수</th>
+              <th>참여자(uniq)</th>
               <th>PC 트래픽</th>
               <th>모바일 트래픽</th>
             </tr>
@@ -26,7 +27,8 @@
               <tr class="">
                 <td><%= time.strftime("%m-%d")%></td>
                 <td><%= User.temporary_daily_message_count(time) %></td>
-                <td><%= User.temporary_daily_viral_count(time) %></td>
+                <td><%= User.temporary_daily_viral_user_count(time) %></td>
+                <td><%= ViralAction.temporary_daily_viral_count(time) %></td>
                 <td><%= User.temporary_daily_count(time) %></td>
                 <td><%= AccessLog.temporary_pc_daily_count(time) %></td>
                 <td><%= AccessLog.temporary_mobile_daily_count(time) %></td>

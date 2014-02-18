@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     count = User.where(id: user_ids).where("users.created_at >= :start_date AND users.created_at <= :end_date",
       {start_date: start_date, end_date: end_date}).where.not(users: {phone:nil}).count
   end
-  def self.temporary_daily_viral_count(day)
+  def self.temporary_daily_viral_user_count(day)
     start_date = day.beginning_of_day
     end_date = day.end_of_day
     user_ids = Array.new
