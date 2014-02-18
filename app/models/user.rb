@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
     start_date = day.beginning_of_day
     end_date = day.end_of_day
     user_ids = Array.new
-    Message.all.each{|x| user_ids << x.user_id}
+    ViralAction.all.each{|x| user_ids << x.user_id}
     users_without_messages = User.all - User.where(id: user_ids)
     count = User.where(id: users_without_messages).where("users.created_at >= :start_date AND users.created_at <= :end_date",
       {start_date: start_date, end_date: end_date}).where.not(users: {phone:nil}).count
