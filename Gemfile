@@ -17,7 +17,7 @@ gem 'rspec-rails'
 gem 'factory_girl_rails'
 gem 'sdoc',               group: :doc, require: false
 gem 'rest-client'
-gem 'geocoder'
+gem 'gabba' #serverside google analytics gem
 gem 'json'
 gem 'nokogiri'
 gem 'nori' #xml parser
@@ -27,6 +27,7 @@ gem 'sasha'
 gem 'font-awesome-rails'
 gem 'addressable'
 gem 'kaminari'
+gem 'geocoder'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development

@@ -85,6 +85,7 @@ GEM
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
+    gabba (1.0.1)
     geocoder (1.1.9)
     guard (2.3.0)
       formatador (>= 0.2.4)
@@ -258,6 +259,7 @@ DEPENDENCIES
   execjs
   factory_girl_rails
   font-awesome-rails
+  gabba
   geocoder
   guard-rails
   guard-rspec
