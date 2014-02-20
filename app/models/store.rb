@@ -2,8 +2,8 @@ require 'addressable/uri'
 class Store < ActiveRecord::Base
   include DailyCount
   has_many :messages
-  geocoded_by :address   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  # geocoded_by :address   # can also be an IP address
+  # after_validation :geocode          # auto-fetch coordinates
   
   def self.address_to_coord(address)
     address = "목동" if address.nil?

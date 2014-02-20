@@ -32,7 +32,7 @@ class HomeController < ApplicationController
   def popUp_2
     tracking_id = Rails.application.secrets.ga_tracking_id
     url = Rails.application.secrets.url
-    Gabba::Gabba.new(tracking_id, url).page_view("pc 문자 발송 팝업", "/")  
+    Gabba::Gabba.new(tracking_id, url).page_view("pc 문자 발송 팝업", "/home_index")  
     @log = AccessLog.find(params[:ip]) rescue AccessLog.first
     render layout: false
   end
