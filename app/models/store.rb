@@ -34,7 +34,7 @@ class Store < ActiveRecord::Base
       i = 1
       length = 0
       while length < 4
-        @stores = Store.near(coord, i)
+        @stores = Store.near(coord, i, unit: :km).order("distance")
         length = @stores.length
         i += 1
         if i > 60

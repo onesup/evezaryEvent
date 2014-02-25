@@ -5,6 +5,8 @@ class AccessLog < ActiveRecord::Base
   geocoded_by :location   # can also be an IP address
   # after_validation :geocode          # auto-fetch coordinates
   def get_location
+    fire = Time.now
+    Rails.logger.info "@@@started: "+fire.to_s
     ip = self.ip || "211.35.135.99"
     url = "http://api.openapi.io/iptr/newapi/api_call.php?keycode=11111174&userip="+ip
     api_key = Rails.application.secrets.apistore_key
@@ -15,6 +17,7 @@ class AccessLog < ActiveRecord::Base
     parser = Nori.new
     result = parser.parse(res)["nearapi"] unless parser.parse(res).nil?
     result = result["address"].split(";")[1] unless result.nil?
+    Rails.logger.info "@@@finished: "+ (Time.now - fire).to_s
     return result
   end
   

@@ -3,19 +3,19 @@
 var c1, c2, c3, c4;
 
 $(document).ready(function () {   
-    $.ajaxSetup({ cache: true });
-    $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
-        FB.init({
-            appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
-            status     : true, // check login status
-            cookie     : true, // enable cookies to allow the server to access the session
-            xfbml      : true  // parse XFBML
-        });       
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
+    FB.init({
+      appId      : '<%= Rails.application.secrets.fb_app_id %>', // App ID from the app dashboard
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });       
     $('#social_applyPopup6_finButton').click(function (e) {
-        e.preventDefault();
-        _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
-        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-        window.location="blog_image_download"
+      e.preventDefault();
+      _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
+      loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+      window.location="blog_image_download"
     });
     $('#social_form_ajax').submit(function(e){    
       e.preventDefault();
@@ -38,39 +38,39 @@ $(document).ready(function () {
           required: "*"
         },
         // "agree": {
-        //   required: "*",
-        // },
-        "p3": {
-          required: "*"
-        }
-      },
-      submitHandler: function(form) {
+          //   required: "*",
+          // },
+          "p3": {
+            required: "*"
+          }
+        },
+        submitHandler: function(form) {
           var phone1 = $("#social_phone_1").val();
           var phone2 = $("#social_phone_2").val();
           var phone3 = $("#social_phone_3").val();
           var phone = phone1+"-"+phone2+"-"+phone3;
           $.ajax({
-              type: "POST",
-              url: "/viral/web/users.json",
-              data: {
-                  'user[name]': $("#social_myName").val(),
-                  'user[phone]': phone,
-                  'user[email]': $("#social_myEmail").val(),
-                  'ip': $("#ip-code").val()
-              },
-              success: function (data) {
-                  $("#blog-code").val(data.blog_code);
-                  $("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
-                  $('#social_popUp_6').modal();
+            type: "POST",
+            url: "/viral/web/users.json",
+            data: {
+              'user[name]': $("#social_myName").val(),
+              'user[phone]': phone,
+              'user[email]': $("#social_myEmail").val(),
+              'ip': $("#ip-code").val()
+            },
+            success: function (data) {
+              $("#blog-code").val(data.blog_code);
+              $("#social-viral-blog-url").text("http://event3.evezary.co.kr/" + data.blog_code)
+              $('#social_popUp_6').modal();
                   
-              }
+            }
           });
-      }
-  });
+        }
+      });
     
-    if (navigator.appVersion.indexOf("MSIE 6.0") >= 0 || navigator.appVersion.indexOf("MSIE 7.0") >= 0 || navigator.appVersion.indexOf("MSIE 8.0") >= 0) {
+      if (navigator.appVersion.indexOf("MSIE 6.0") >= 0 || navigator.appVersion.indexOf("MSIE 7.0") >= 0 || navigator.appVersion.indexOf("MSIE 8.0") >= 0) {
         // dkandmlaldjqtdma
-    } else {
+      } else {
         // 구름 실시간 움직임
         c1 = ((Math.random() * 1000) + 100) / 1000;
         c2 = ((Math.random() * 1000) + 100) / 1000;
@@ -81,752 +81,752 @@ $(document).ready(function () {
         c3 = 0.25
         c4 = 0.2
         setInterval(loopCloud, 1);
-    }
-    // var ip = $.url().param('ip');
-    // $("#ip-code").val(ip);
-    // '데이트 신청하기' 버튼 클릭시
-    $('#applyButton').click(function (e) {
+      }
+      // var ip = $.url().param('ip');
+      // $("#ip-code").val(ip);
+      // '데이트 신청하기' 버튼 클릭시
+      $('#applyButton').click(function (e) {
         _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 1540']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1540');
         e.preventDefault();
         $('#popUp').load('home_popup_1', function (e) {
-            $('#popUp').modal();
-            $('#closeModal').css('top', '-305px');
-            $('#closeModal').css('right', '-40px');
+          $('#popUp').modal();
+          $('#closeModal').css('top', '-305px');
+          $('#closeModal').css('right', '-40px');
+          p1ClickImage(1);
+          // '데이트 신청하기' 팝업에서 이미지 클릭 시
+          $('#popUp_1_gi').click(function (e) {
+            _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1']);
+            e.preventDefault();
             p1ClickImage(1);
-            // '데이트 신청하기' 팝업에서 이미지 클릭 시
-            $('#popUp_1_gi').click(function (e) {
-                _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1']);
-                e.preventDefault();
-                p1ClickImage(1);
-            });
-            $('#popUp_2_gi').click(function (e) {
-                _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 2']);
-                e.preventDefault();
-                p1ClickImage(2);
-            });
-            $('#popUp_3_gi').click(function (e) {
-                _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 3']);
-                e.preventDefault();
-                p1ClickImage(3);
-            });
-            $('#popUp_4_gi').click(function (e) {
-                _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1']);
-                e.preventDefault();
-                p1ClickImage(4);
-            });
+          });
+          $('#popUp_2_gi').click(function (e) {
+            _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 2']);
+            e.preventDefault();
+            p1ClickImage(2);
+          });
+          $('#popUp_3_gi').click(function (e) {
+            _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 3']);
+            e.preventDefault();
+            p1ClickImage(3);
+          });
+          $('#popUp_4_gi').click(function (e) {
+            _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 팝업에서 이미지 클릭 시 1']);
+            e.preventDefault();
+            p1ClickImage(4);
+          });
 
-            // '경품 선택하기' 후 넘어가는 팝업
-            $('#applyPopup1_selectButton').click(function (e) {
-                e.preventDefault();
-                var opts = {
-                  lines: 13, // The number of lines to draw
-                  length: 20, // The length of each line
-                  width: 10, // The line thickness
-                  radius: 10, // The radius of the inner circle
-                  corners: 1, // Corner roundness (0..1)
-                  rotate: 0, // The rotation offset
-                  direction: 1, // 1: clockwise, -1: counterclockwise
-                  color: '#000', // #rgb or #rrggbb or array of colors
-                  speed: 1, // Rounds per second
-                  trail: 60, // Afterglow percentage
-                  shadow: false, // Whether to render a shadow
-                  hwaccel: false, // Whether to use hardware acceleration
-                  className: 'spinner', // The CSS class to assign to the spinner
-                  zIndex: 2e9, // The z-index (defaults to 2000000000)
-                  left: 40-40,
-                  top: 29-40
-                };
-                var target = document.getElementById('applyPopup1_selectButton');
-                var spinner = new Spinner(opts).spin(target);
-                if (doNotSIgh_1()) {
-                    _gaq.push(['_trackEvent', 'button', 'click', '경품 선택하기 1541']);
-                    loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1541');
-                    $('#popUp').empty();
-                    $('#popUp').load('home_popup_2?ip=' + $("#ip-code").val(), function (e) {
-                        $('#popUp').modal();
-                        $('#closeModal').css('top', '-391px');
-                        $('#closeModal').css('right', '-46px');
-						// Auto Focus
-						$('#myPhone_1').keyup(function(){
-							if($('#myPhone_1').val().length >= 3){
-								$('#myPhone_2').focus();
-							}
-						});
-						$('#myPhone_2').keyup(function(){
-							if($('#myPhone_2').val().length >= 4){
-								$('#myPhone_3').focus();
-							}
-						});
-						$('#myPhone_3').keyup(function(){
-							if($('#myPhone_3').val().length >= 4){
-								$('#momPhone_1').focus();
-							}
-						});
-						$('#momPhone_1').keyup(function(){
-							if($('#momPhone_1').val().length >= 3){
-								$('#momPhone_2').focus();
-							}
-						});
-						$('#momPhone_2').keyup(function(){
-							if($('#momPhone_2').val().length >= 4){
-								$('#momPhone_3').focus();
-							}
-						});
-						$('#momPhone_3').keyup(function(){
-							if($('#momPhone_3').val().length >= 4){
-								$('#textarea_2').focus();
-							}
-						});
-                        $('#applyPopup2_nnearButton').click(function (e) {
-                            e.preventDefault();
-                            var go = document.getElementById("location_search");
-                            var txt = document.getElementById("location_searchBox");
-                            txt.addEventListener("keypress", function() {
-                                if (event.keyCode == 13) go.click();
-                            });
-                            $("#location_search").click(function(e){
-                               e.preventDefault();
-                               _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
-                               user_id = 2;
-                               address = $("#location_searchBox").val();
-                               if(address === ""){
-                                   alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
-                               }else{
-                                   search_stores(user_id, address);
-                               }
-                            });
-                            $('#search-stores-select').change(function(){
-                                var message_id;
-                                var store_id;
-                                var str = "";
-                                str = this.options[ this.selectedIndex ].text;
-                                store_id = this.options[ this.selectedIndex ].value;
-                                select_store(message_id, store_id);
-                                $("#selected-store").val(store_id);
-                                $("#message_store_id").css('display','none');
-                                $("#message_store_id").val('0');
-                                $("#InputCautionLabel_2").css('display','none');
-                                $("#select-stores-wrap").css('float','left');
-                                $("#select-stores-wrap").css('width','300px');
-                                $("#popUp_2_selectBtn").css('margin-top','22px');
-                                $("#selected_store").text(str);
-                            });
-                            $('#location').css('display', 'block');
-                            $('#location_close').click(function(e){
-                              e.preventDefault();
-                              $('#location').css('display', 'none');
-                            });
-							$('#loc_endBtn').click(function(e){
-								e.preventDefault();
-								$('#location').css('display', 'none');
-							});
-                        });
-                        // '문자 보내기' 후 넘어가는 팝업
-                        $('#applyPopup2_sendButton').click(function (e) {
-                            e.preventDefault();
-                            if (doNotSIgh_2()) {
-                                loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1542');
-                                _gaq.push(['_trackEvent', 'button', 'click', '문자 보내기 1542']);
-                                var phone1 = $("#myPhone_1").val();
-                                var phone2 = $("#myPhone_2").val();
-                                var phone3 = $("#myPhone_3").val();
-                                var send_phone = phone1 + "-" + phone2 + "-" + phone3;
-                                $("#send-phone").val(send_phone);
-                                $("#my-phone-1").val(phone1);
-                                $("#my-phone-2").val(phone2);
-                                $("#my-phone-3").val(phone3);
-                                var mom_phone1 = $("#momPhone_1").val();
-                                var mom_phone2 = $("#momPhone_2").val();
-                                var mom_phone3 = $("#momPhone_3").val();
-                                var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
-                                if ($("#selected-store").val().length > 0){
-                                    var store_id = $("#selected-store").val();                                    
-                                }else if ($("#message_store_id").val().length > 0){
-                                    var store_id = $("#message_store_id").val();
-                                }else{
-                                    var store_id = 1;
-                                }
-                                $.ajax({
-                                    type: "POST",
-                                    url: "/messages.json",
-                                    data: {
-                                        'message[send_phone]': send_phone,
-                                        'message[dest_phone]': dest_phone,
-                                        'message[msg_body]': $("#textarea_2").val(),
-                                        'message[store_id]': store_id,
-                                        'ip': $("#ip-code").val()
-                                    },
-                                    dataType: "json",
-                                    success: function (data) {
-                                        $("#message-id").val(data.id)
-                                    }
-                                });
-                                $('#popUp').empty();
-                                $('#popUp').load('home_popup_3', function () {
-                                    $('#popUp').modal();
-                                    $('#closeModal').css('top', '-349px');
-                                    $('#closeModal').css('right', '-46px');
-                                    $('#phone_1').val(phone1);
-                                    $('#phone_2').val(phone2);
-                                    $('#phone_3').val(phone3);
-									$('#phone_1').keyup(function(){
-										if( $('#phone_1').val().length >= 3 ){
-											$('#phone_2').focus();
-										}
-									});
-									$('#phone_2').keyup(function(){
-										if( $('#phone_2').val().length >= 4 ){
-											$('#phone_3').focus();
-										}
-									});
-									$('#phone_3').keyup(function(){
-										if( $('#phone_3').val().length >= 4 ){
-											$('#myEmail').focus();
-										}
-									});
-                                    $('#apply_3_person').click(function (e) {
-                                        e.preventDefault();
-                                        _gaq.push(['_trackEvent', 'button', 'click', '개인정보']);
-
-                                        $('#person').css('display', 'block');
-                                        $('#applyPopup3_finButton2').click(function (e) {
-                                            _gaq.push(['_trackEvent', 'button', 'click', '개인정보 fin']);
-                                            e.preventDefault();
-                                            $('#person').css('display', 'none');
-                                        });
-                                    });
-                                    // '완료' 후 넘어가는 팝업
-                                    $('#applyPopup3_finButton').click(function (e) {
-                                        _gaq.push(['_trackEvent', 'button', 'click', '완료1543']);
-                                        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
-                                        e.preventDefault();                                        
-                                        if (doNotSIgh_3()) {
-                                            var phone1 = $("#phone_1").val();
-                                            var phone2 = $("#phone_2").val();
-                                            var phone3 = $("#phone_3").val();
-                                            var send_phone = phone1 + "-" + phone2 + "-" + phone3;
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "/users.json",
-                                                data: {
-                                                    'user[name]': $("#myName").val(),
-                                                    'user[phone]': send_phone,
-                                                    'user[email]': $("#myEmail").val(),
-                                                    'user[gift_id]': $("#gift-select").val(),
-                                                    'message_id': $("#message-id").val(),
-                                                    'ip': $("#ip-code").val()
-                                                },
-                                                success: function (data) {
-                                                    $("#blog-code").val(data.blog_code);
-                                                }
-                                            });
-                                            _gaq.push(['_trackEvent', 'button', 'click', '감사합니다로 1544']);
-                                            loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
-                                            $('#popUp').empty();
-                                            $('#popUp').load('home_popup_4', function () {
-                                                $('#popUp').modal();
-                                                $('#closeModal').css('top', '-150px');
-                                                $('#closeModal').css('right', '-46px');
-                                                $('#applyPopup4_exit').click(function(e){
-                                                   e.preventDefault();
-                                                   $('#popUp').empty();
-                                                   
-                                                   $('#popUp').load('home_popup_6', function () {
-                                                       $('#popUp').modal();
-                                                       $('#closeModal').css('top', '-150px');
-                                                       $('#closeModal').css('right', '-46px');
-                                                       $('#applyPopup6_blog').click(function (e) {
-                                                           e.preventDefault();
-                                                           _gaq.push(['_trackEvent', 'button', 'click', '블로그 1546']);
-                                                           loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-                                                           $('#popUp').empty();
-                                                           $('#popUp').load('home_popup_blog', function () {
-                                                               var viral_url = $("#blog-code").val();
-                                                               if (viral_url === "") {
-                                                                   $("#social_form").modal();
-                                                                 // alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
-                                                               } else {
-                                                                 track_viral_action(viral_url, "blog");
-                                                                 $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
-                                                                 $('#popUp').modal();
-                                                                 $('#closeModal').css('top', '-225px');
-                                                                 $('#closeModal').css('right', '-46px');
-                                                               }
-                                                               $('#applyPopup6_finButton').click(function (e) {
-                                                                   e.preventDefault();
-                                                                   _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
-                                                                   loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-                                                                   window.location="blog_image_download"
-                                                               });
-                                                           });
-                                                       });
-                                                       $('#applyPopup6_fb').click(function (e) {
-                                                           e.preventDefault();
-                                                           _gaq.push(['_trackEvent', 'button', 'click', '페이스북 1544']);
-                                                           loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
-                                                           track_viral_action(blog_code, "facebook");
-                                                           var viral_url = $("#blog-code").val();
-                                                           var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-                                                           function share() {
-                                                           	var share = {
-                                                           		method: "feed",
-                                                           		name: "이브자리 데이트 이벤트",
-                                                           		link: "http://event3.evezary.co.kr/"+viral_url,
-                                                           		picture: '<%= asset_url "fb_share_img.jpg" %>',
-                                                           		caption: "[이브자리::이브자리 데이트 이벤트]",
-                                                           		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
-                                                           	};
-
-                                                           	FB.ui(share, function(response) {
-                                                           		if(response && response.post_id) {
-                                                                    track_viral_action(viral_url, "facebook");
-                                                           			alert("공유되었습니다.");
-                                                           		}
-                                                           		else {
-                                                           			alert("공유 실패");
-                                                           		}
-                                                           	});
-                                                           }
-                                                           share();
-                                                           
-                                                           // window.open(fb_url, 'window', "width = '300px', height = '200px'");
-                                                       });
-                                                   });
-                                                });
-                                                // '완료' 후 넘어가는 팝업
-                                                $('#applyPopup4_finButton').click(function (e) {
-                                                    _gaq.push(['_trackEvent', 'button', 'click', '베스트5 ']);
-                                                    e.preventDefault();
-                                                    $('#popUp').empty();
-                                                    $('#popUp').load('home_popup_5', function () {
-                                                        $('#popUp').modal();
-                                                        $('#closeModal').css('top', '-283px');
-                                                        $('#closeModal').css('right', '-79px');
-
-                                                        var page = 1;
-                                                        var popNum = 1;
-
-                                                        $('#applyPopup5_finButton_1').click(function (e) {
-                                                            _gaq.push(['_trackEvent', 'button', 'click', '신혼베스트']);
-                                                            e.preventDefault();
-                                                            if (page == 2) {
-                                                                $('#popUp_5_move_2').css('display', 'none');
-                                                                $('#popUp_5_move_2').css('left', '0px');
-                                                                $('#popUp_5_move_1').css('display', 'block');
-                                                                popNum = 1;
-                                                                page = 1;
-                                                                
-                                                                $('#applyPopup5_finButton_class1').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_1.png") %>')");
-                                                                $('#applyPopup5_finButton_class2').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_2_off.png") %>')" );
-                                                            }
-                                                        });
-                                                        $('#applyPopup5_finButton_2').click(function (e) {
-                                                            _gaq.push(['_trackEvent', 'button', 'click', '부모님 베스트']);
-                                                            e.preventDefault();
-                                                            if (page == 1) {
-                                                                $('#popUp_5_move_2').css('display', 'block');
-                                                                $('#popUp_5_move_1').css('left', '0px');
-                                                                $('#popUp_5_move_1').css('display', 'none');
-                                                                popNum = 1;
-                                                                page = 2;
-                                                                $('#applyPopup5_finButton_class1').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_1_off.png") %>')" );
-                                                                $('#applyPopup5_finButton_class2').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_2.png") %>')" );                                                            
-                                                            }
-                                                        });
-
-
-                                                        $('#arrow_left').click(function (e) {
-                                                            _gaq.push(['_trackEvent', 'button', 'click', '왼쪽 버튼']);
-                                                            e.preventDefault();
-                                                            popNum--;
-                                                            if( page == 1 ){
-                                                                if (popNum < 1) {
-                                                                    popNum = 6;
-                                                                }
-                                                            }
-                                                            else if( page == 2 ){
-                                                                if (popNum < 1) {
-                                                                    popNum = 2;
-                                                                }
-                                                            }
-                                                            if (page == 1) {
-                                                                $('#popUp_5_move_1').animate({
-                                                                    left: 542 * (popNum - 1) * -1
-                                                                }, 500);
-                                                            } else if (page == 2) {
-                                                                $('#popUp_5_move_2').animate({
-                                                                    left: 542 * (popNum - 1) * -1
-                                                                }, 500);
-                                                            }
-                                                        });
-                                                        $('#arrow_right').click(function (e) {
-                                                            _gaq.push(['_trackEvent', 'button', 'click', '오른쪽 버튼']);
-                                                            e.preventDefault();
-                                                            popNum++;
-                                                            if( page == 1 ){
-                                                                if (popNum > 6) {
-                                                                    popNum = 1;
-                                                                }
-                                                            }
-                                                            else if( page == 2 ){
-                                                                if (popNum > 2) {
-                                                                    popNum = 1;
-                                                                }
-                                                            }
-                                                            if (page == 1) {
-                                                                $('#popUp_5_move_1').animate({
-                                                                    left: 542 * (popNum - 1) * -1
-                                                                }, 500);
-                                                            } else if (page == 2) {
-                                                                $('#popUp_5_move_2').animate({
-                                                                    left: 542 * (popNum - 1) * -1
-                                                                }, 500);
-                                                            }
-                                                        });
-                                                        // dfsaafsdfdsa
-                                                        $('#applyPopup5_exit').click(function(e){
-                                                           e.preventDefault();
-                                                           $('#popUp').empty();
-                                                           $('#popUp').load('home_popup_6', function () {
-                                                               $('#popUp').modal();
-                                                               $('#closeModal').css('top', '-150px');
-                                                               $('#closeModal').css('right', '-46px');
-                                                               $('#applyPopup6_blog').click(function (e) {
-                                                                   _gaq.push(['_trackEvent', 'button', 'click', '블로그 1546']);
-                                                                   loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-                                                                   e.preventDefault();
-                                                                   $('#popUp').empty();
-                                                                   $('#popUp').load('home_popup_blog', function () {
-                                                                       var viral_url = $("#blog-code").val();
-                                                                       if (viral_url === "") {
-                                                                         alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
-                                                                       } else {
-                                                                         track_viral_action(viral_url, "blog");
-                                                                         $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
-                                                                         $('#popUp').modal();
-                                                                         $('#closeModal').css('top', '-225px');
-                                                                         $('#closeModal').css('right', '-46px');
-                                                                       }
-                                                                       $('#applyPopup6_finButton').click(function (e) {
-                                                                            e.preventDefault();
-                                                                           _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
-                                                                           loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-
-                                                                           window.location="blog_image_download"
-                                                                       });
-                                                                   });
-                                                               });
-                                                               $('#applyPopup6_fb').click(function (e) {
-                                                                   _gaq.push(['_trackEvent', 'button', 'click', '페이스북 1545']);
-                                                                   loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
-                                                                   e.preventDefault();
-                                                                   var viral_url = $("#blog-code").val()
-                                                                   var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-                                                                   function share() {
-                                                                   	var share = {
-                                                                   		method: "feed",
-                                                                   		name: "이브자리 데이트 이벤트",
-                                                                   		link: "http://event3.evezary.co.kr/"+viral_url,
-                                                                   		picture: '<%= asset_url "fb_share_img.jpg" %>',
-                                                                   		caption: "[이브자리::이브자리 데이트 이벤트]",
-                                                                   		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
-                                                                   	};
-
-                                                                   	FB.ui(share, function(response) {
-                                                                   		if(response && response.post_id) {
-                                                                   			alert("공유되었습니다.");
-                                                                   		}
-                                                                   		else {
-                                                                   			alert("공유 실패");
-                                                                   		}
-                                                                   	});
-                                                                   }
-                                                                   share();
-                                                                   
-                                                                   // window.open(fb_url, 'window', "width = '300px', height = '200px'");
-                                                               });
-                                                           });
-                                                       });
-                                                    });
-                                                });
-                                            });
-                                        }
-                                    });
-                                });
-                            }
-                        });
+          // '경품 선택하기' 후 넘어가는 팝업
+          $('#applyPopup1_selectButton').click(function (e) {
+            e.preventDefault();
+            var opts = {
+              lines: 13, // The number of lines to draw
+              length: 20, // The length of each line
+              width: 10, // The line thickness
+              radius: 10, // The radius of the inner circle
+              corners: 1, // Corner roundness (0..1)
+              rotate: 0, // The rotation offset
+              direction: 1, // 1: clockwise, -1: counterclockwise
+              color: '#000', // #rgb or #rrggbb or array of colors
+              speed: 1, // Rounds per second
+              trail: 60, // Afterglow percentage
+              shadow: false, // Whether to render a shadow
+              hwaccel: false, // Whether to use hardware acceleration
+              className: 'spinner', // The CSS class to assign to the spinner
+              zIndex: 2e9, // The z-index (defaults to 2000000000)
+              left: 40-40,
+              top: 29-40
+            };
+            var target = document.getElementById('applyPopup1_selectButton');
+            var spinner = new Spinner(opts).spin(target);
+            if (doNotSIgh_1()) {
+              _gaq.push(['_trackEvent', 'button', 'click', '경품 선택하기 1541']);
+              loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1541');
+              $('#popUp').empty();
+              $('#popUp').load('home_popup_2?ip=' + $("#ip-code").val(), function (e) {
+                $('#popUp').modal();
+                $('#closeModal').css('top', '-391px');
+                $('#closeModal').css('right', '-46px');
+                // Auto Focus
+                $('#myPhone_1').keyup(function(){
+                  if($('#myPhone_1').val().length >= 3){
+                    $('#myPhone_2').focus();
+                  }
+                });
+                $('#myPhone_2').keyup(function(){
+                  if($('#myPhone_2').val().length >= 4){
+                    $('#myPhone_3').focus();
+                  }
+                });
+                $('#myPhone_3').keyup(function(){
+                  if($('#myPhone_3').val().length >= 4){
+                    $('#momPhone_1').focus();
+                  }
+                });
+                $('#momPhone_1').keyup(function(){
+                  if($('#momPhone_1').val().length >= 3){
+                    $('#momPhone_2').focus();
+                  }
+                });
+                $('#momPhone_2').keyup(function(){
+                  if($('#momPhone_2').val().length >= 4){
+                    $('#momPhone_3').focus();
+                  }
+                });
+                $('#momPhone_3').keyup(function(){
+                  if($('#momPhone_3').val().length >= 4){
+                    $('#textarea_2').focus();
+                  }
+                });
+                $('#applyPopup2_nnearButton').click(function (e) {
+                  e.preventDefault();
+                  var go = document.getElementById("location_search");
+                  var txt = document.getElementById("location_searchBox");
+                  txt.addEventListener("keypress", function() {
+                    if (event.keyCode == 13) go.click();
+                  });
+                  $("#location_search").click(function(e){
+                    e.preventDefault();
+                    _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
+                    user_id = 2;
+                    address = $("#location_searchBox").val();
+                    if(address === ""){
+                      alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
+                    }else{
+                      search_stores(user_id, address);
+                    }
+                  });
+                  $('#search-stores-select').change(function(){
+                    var message_id;
+                    var store_id;
+                    var str = "";
+                    str = this.options[ this.selectedIndex ].text;
+                    store_id = this.options[ this.selectedIndex ].value;
+                    select_store(message_id, store_id);
+                    $("#selected-store").val(store_id);
+                    $("#message_store_id").css('display','none');
+                    $("#message_store_id").val('0');
+                    $("#InputCautionLabel_2").css('display','none');
+                    $("#select-stores-wrap").css('float','left');
+                    $("#select-stores-wrap").css('width','300px');
+                    $("#popUp_2_selectBtn").css('margin-top','22px');
+                    $("#selected_store").text(str);
+                  });
+                  $('#location').css('display', 'block');
+                  $('#location_close').click(function(e){
+                    e.preventDefault();
+                    $('#location').css('display', 'none');
+                  });
+                  $('#loc_endBtn').click(function(e){
+                    e.preventDefault();
+                    $('#location').css('display', 'none');
+                  });
+                });
+                // '문자 보내기' 후 넘어가는 팝업
+                $('#applyPopup2_sendButton').click(function (e) {
+                  e.preventDefault();
+                  if (doNotSIgh_2()) {
+                    loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1542');
+                    _gaq.push(['_trackEvent', 'button', 'click', '문자 보내기 1542']);
+                    var phone1 = $("#myPhone_1").val();
+                    var phone2 = $("#myPhone_2").val();
+                    var phone3 = $("#myPhone_3").val();
+                    var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                    $("#send-phone").val(send_phone);
+                    $("#my-phone-1").val(phone1);
+                    $("#my-phone-2").val(phone2);
+                    $("#my-phone-3").val(phone3);
+                    var mom_phone1 = $("#momPhone_1").val();
+                    var mom_phone2 = $("#momPhone_2").val();
+                    var mom_phone3 = $("#momPhone_3").val();
+                    var dest_phone = mom_phone1 + "-" + mom_phone2 + "-" + mom_phone3;
+                    if ($("#selected-store").val().length > 0){
+                      var store_id = $("#selected-store").val();                                    
+                    }else if ($("#message_store_id").val().length > 0){
+                      var store_id = $("#message_store_id").val();
+                    }else{
+                      var store_id = 1;
+                    }
+                    $.ajax({
+                      type: "POST",
+                      url: "/messages.json",
+                      data: {
+                        'message[send_phone]': send_phone,
+                        'message[dest_phone]': dest_phone,
+                        'message[msg_body]': $("#textarea_2").val(),
+                        'message[store_id]': store_id,
+                        'ip': $("#ip-code").val()
+                      },
+                      dataType: "json",
+                      success: function (data) {
+                        $("#message-id").val(data.id)
+                      }
                     });
-                }
-            });
+                    $('#popUp').empty();
+                    $('#popUp').load('home_popup_3', function () {
+                      $('#popUp').modal();
+                      $('#closeModal').css('top', '-349px');
+                      $('#closeModal').css('right', '-46px');
+                      $('#phone_1').val(phone1);
+                      $('#phone_2').val(phone2);
+                      $('#phone_3').val(phone3);
+                      $('#phone_1').keyup(function(){
+                        if( $('#phone_1').val().length >= 3 ){
+                          $('#phone_2').focus();
+                        }
+                      });
+                      $('#phone_2').keyup(function(){
+                        if( $('#phone_2').val().length >= 4 ){
+                          $('#phone_3').focus();
+                        }
+                      });
+                      $('#phone_3').keyup(function(){
+                        if( $('#phone_3').val().length >= 4 ){
+                          $('#myEmail').focus();
+                        }
+                      });
+                      $('#apply_3_person').click(function (e) {
+                        e.preventDefault();
+                        _gaq.push(['_trackEvent', 'button', 'click', '개인정보']);
+
+                        $('#person').css('display', 'block');
+                        $('#applyPopup3_finButton2').click(function (e) {
+                          _gaq.push(['_trackEvent', 'button', 'click', '개인정보 fin']);
+                          e.preventDefault();
+                          $('#person').css('display', 'none');
+                        });
+                      });
+                      // '완료' 후 넘어가는 팝업
+                      $('#applyPopup3_finButton').click(function (e) {
+                        _gaq.push(['_trackEvent', 'button', 'click', '완료1543']);
+                        loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
+                        e.preventDefault();                                        
+                        if (doNotSIgh_3()) {
+                          var phone1 = $("#phone_1").val();
+                          var phone2 = $("#phone_2").val();
+                          var phone3 = $("#phone_3").val();
+                          var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                          $.ajax({
+                            type: "POST",
+                            url: "/users.json",
+                            data: {
+                              'user[name]': $("#myName").val(),
+                              'user[phone]': send_phone,
+                              'user[email]': $("#myEmail").val(),
+                              'user[gift_id]': $("#gift-select").val(),
+                              'message_id': $("#message-id").val(),
+                              'ip': $("#ip-code").val()
+                            },
+                            success: function (data) {
+                              $("#blog-code").val(data.blog_code);
+                            }
+                          });
+                          _gaq.push(['_trackEvent', 'button', 'click', '감사합니다로 1544']);
+                          loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1543');
+                          $('#popUp').empty();
+                          $('#popUp').load('home_popup_4', function () {
+                            $('#popUp').modal();
+                            $('#closeModal').css('top', '-150px');
+                            $('#closeModal').css('right', '-46px');
+                            $('#applyPopup4_exit').click(function(e){
+                              e.preventDefault();
+                              $('#popUp').empty();
+                                                   
+                              $('#popUp').load('home_popup_6', function () {
+                                $('#popUp').modal();
+                                $('#closeModal').css('top', '-150px');
+                                $('#closeModal').css('right', '-46px');
+                                $('#applyPopup6_blog').click(function (e) {
+                                  e.preventDefault();
+                                  _gaq.push(['_trackEvent', 'button', 'click', '블로그 1546']);
+                                  loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                  $('#popUp').empty();
+                                  $('#popUp').load('home_popup_blog', function () {
+                                    var viral_url = $("#blog-code").val();
+                                    if (viral_url === "") {
+                                      $("#social_form").modal();
+                                      // alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+                                    } else {
+                                      track_viral_action(viral_url, "blog");
+                                      $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+                                      $('#popUp').modal();
+                                      $('#closeModal').css('top', '-225px');
+                                      $('#closeModal').css('right', '-46px');
+                                    }
+                                    $('#applyPopup6_finButton').click(function (e) {
+                                      e.preventDefault();
+                                      _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
+                                      loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                      window.location="blog_image_download"
+                                    });
+                                  });
+                                });
+                                $('#applyPopup6_fb').click(function (e) {
+                                  e.preventDefault();
+                                  _gaq.push(['_trackEvent', 'button', 'click', '페이스북 1544']);
+                                  loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
+                                  track_viral_action(blog_code, "facebook");
+                                  var viral_url = $("#blog-code").val();
+                                  var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+                                  function share() {
+                                    var share = {
+                                      method: "feed",
+                                      name: "이브자리 데이트 이벤트",
+                                      link: "http://event3.evezary.co.kr/"+viral_url,
+                                      picture: '<%= asset_url "fb_share_img.jpg" %>',
+                                      caption: "[이브자리::이브자리 데이트 이벤트]",
+                                      description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
+                                    };
+
+                                    FB.ui(share, function(response) {
+                                      if(response && response.post_id) {
+                                        track_viral_action(viral_url, "facebook");
+                                        alert("공유되었습니다.");
+                                      }
+                                      else {
+                                        alert("공유 실패");
+                                      }
+                                    });
+                                  }
+                                  share();
+                                                           
+                                  // window.open(fb_url, 'window', "width = '300px', height = '200px'");
+                                });
+                              });
+                            });
+                            // '완료' 후 넘어가는 팝업
+                            $('#applyPopup4_finButton').click(function (e) {
+                              _gaq.push(['_trackEvent', 'button', 'click', '베스트5 ']);
+                              e.preventDefault();
+                              $('#popUp').empty();
+                              $('#popUp').load('home_popup_5', function () {
+                                $('#popUp').modal();
+                                $('#closeModal').css('top', '-283px');
+                                $('#closeModal').css('right', '-79px');
+
+                                var page = 1;
+                                var popNum = 1;
+
+                                $('#applyPopup5_finButton_1').click(function (e) {
+                                  _gaq.push(['_trackEvent', 'button', 'click', '신혼베스트']);
+                                  e.preventDefault();
+                                  if (page == 2) {
+                                    $('#popUp_5_move_2').css('display', 'none');
+                                    $('#popUp_5_move_2').css('left', '0px');
+                                    $('#popUp_5_move_1').css('display', 'block');
+                                    popNum = 1;
+                                    page = 1;
+                                                                
+                                    $('#applyPopup5_finButton_class1').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_1.png") %>')");
+                                    $('#applyPopup5_finButton_class2').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_2_off.png") %>')" );
+                                  }
+                                });
+                                $('#applyPopup5_finButton_2').click(function (e) {
+                                  _gaq.push(['_trackEvent', 'button', 'click', '부모님 베스트']);
+                                  e.preventDefault();
+                                  if (page == 1) {
+                                    $('#popUp_5_move_2').css('display', 'block');
+                                    $('#popUp_5_move_1').css('left', '0px');
+                                    $('#popUp_5_move_1').css('display', 'none');
+                                    popNum = 1;
+                                    page = 2;
+                                    $('#applyPopup5_finButton_class1').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_1_off.png") %>')" );
+                                    $('#applyPopup5_finButton_class2').css("background-image", "url('<%= asset_path("popup/5/applyPopup5_Button_2.png") %>')" );                                                            
+                                  }
+                                });
+
+
+                                $('#arrow_left').click(function (e) {
+                                  _gaq.push(['_trackEvent', 'button', 'click', '왼쪽 버튼']);
+                                  e.preventDefault();
+                                  popNum--;
+                                  if( page == 1 ){
+                                    if (popNum < 1) {
+                                      popNum = 6;
+                                    }
+                                  }
+                                  else if( page == 2 ){
+                                    if (popNum < 1) {
+                                      popNum = 2;
+                                    }
+                                  }
+                                  if (page == 1) {
+                                    $('#popUp_5_move_1').animate({
+                                      left: 542 * (popNum - 1) * -1
+                                    }, 500);
+                                  } else if (page == 2) {
+                                    $('#popUp_5_move_2').animate({
+                                      left: 542 * (popNum - 1) * -1
+                                    }, 500);
+                                  }
+                                });
+                                $('#arrow_right').click(function (e) {
+                                  _gaq.push(['_trackEvent', 'button', 'click', '오른쪽 버튼']);
+                                  e.preventDefault();
+                                  popNum++;
+                                  if( page == 1 ){
+                                    if (popNum > 6) {
+                                      popNum = 1;
+                                    }
+                                  }
+                                  else if( page == 2 ){
+                                    if (popNum > 2) {
+                                      popNum = 1;
+                                    }
+                                  }
+                                  if (page == 1) {
+                                    $('#popUp_5_move_1').animate({
+                                      left: 542 * (popNum - 1) * -1
+                                    }, 500);
+                                  } else if (page == 2) {
+                                    $('#popUp_5_move_2').animate({
+                                      left: 542 * (popNum - 1) * -1
+                                    }, 500);
+                                  }
+                                });
+                                // dfsaafsdfdsa
+                                $('#applyPopup5_exit').click(function(e){
+                                  e.preventDefault();
+                                  $('#popUp').empty();
+                                  $('#popUp').load('home_popup_6', function () {
+                                    $('#popUp').modal();
+                                    $('#closeModal').css('top', '-150px');
+                                    $('#closeModal').css('right', '-46px');
+                                    $('#applyPopup6_blog').click(function (e) {
+                                      _gaq.push(['_trackEvent', 'button', 'click', '블로그 1546']);
+                                      loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+                                      e.preventDefault();
+                                      $('#popUp').empty();
+                                      $('#popUp').load('home_popup_blog', function () {
+                                        var viral_url = $("#blog-code").val();
+                                        if (viral_url === "") {
+                                          alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+                                        } else {
+                                          track_viral_action(viral_url, "blog");
+                                          $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+                                          $('#popUp').modal();
+                                          $('#closeModal').css('top', '-225px');
+                                          $('#closeModal').css('right', '-46px');
+                                        }
+                                        $('#applyPopup6_finButton').click(function (e) {
+                                          e.preventDefault();
+                                          _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
+                                          loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+
+                                          window.location="blog_image_download"
+                                        });
+                                      });
+                                    });
+                                    $('#applyPopup6_fb').click(function (e) {
+                                      _gaq.push(['_trackEvent', 'button', 'click', '페이스북 1545']);
+                                      loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
+                                      e.preventDefault();
+                                      var viral_url = $("#blog-code").val()
+                                      var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+                                      function share() {
+                                        var share = {
+                                          method: "feed",
+                                          name: "이브자리 데이트 이벤트",
+                                          link: "http://event3.evezary.co.kr/"+viral_url,
+                                          picture: '<%= asset_url "fb_share_img.jpg" %>',
+                                          caption: "[이브자리::이브자리 데이트 이벤트]",
+                                          description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
+                                        };
+
+                                        FB.ui(share, function(response) {
+                                          if(response && response.post_id) {
+                                            alert("공유되었습니다.");
+                                          }
+                                          else {
+                                            alert("공유 실패");
+                                          }
+                                        });
+                                      }
+                                      share();
+                                                                   
+                                      // window.open(fb_url, 'window', "width = '300px', height = '200px'");
+                                    });
+                                  });
+                                });
+                              });
+                            });
+                          });
+                        }
+                      });
+                    });
+                  }
+                });
+              });
+            }
+          });
         });
-    });
-    $('#social_applyPopup6_blog').click(function (e) {
+      });
+      $('#social_applyPopup6_blog').click(function (e) {
         e.preventDefault();
         _gaq.push(['_trackEvent', 'button', 'click', '블로그 1546']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
         var viral_url = $("#blog-code").val();
         track_viral_action(viral_url, "blog");
         $("#social_popUp_blog").modal();
-    });
-    $('#social_applyPopup6_fb').click(function (e) {
+      });
+      $('#social_applyPopup6_fb').click(function (e) {
         e.preventDefault();
         _gaq.push(['_trackEvent', 'button', 'click', '페이스북 1544']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');        
         var viral_url = $("#blog-code").val();
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
         function share() {
-        	var share = {
-        		method: "feed",
-        		name: "이브자리 데이트 이벤트",
-        		link: "http://event3.evezary.co.kr/"+viral_url,
-        		picture: '<%= asset_url "fb_share_img.jpg" %>',
-        		caption: "[이브자리::이브자리 데이트 이벤트]",
-        		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
-        	};
+          var share = {
+            method: "feed",
+            name: "이브자리 데이트 이벤트",
+            link: "http://event3.evezary.co.kr/"+viral_url,
+            picture: '<%= asset_url "fb_share_img.jpg" %>',
+            caption: "[이브자리::이브자리 데이트 이벤트]",
+            description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
+          };
 
-        	FB.ui(share, function(response) {
-        		if(response && response.post_id) {
-                    track_viral_action(bc, "facebook");
-        			alert("공유되었습니다.");
-        		}
-        		else {
-        			alert("공유 실패");
-        		}
-        	});
+          FB.ui(share, function(response) {
+            if(response && response.post_id) {
+              track_viral_action(bc, "facebook");
+              alert("공유되었습니다.");
+            }
+            else {
+              alert("공유 실패");
+            }
+          });
         }
         share();
         
         // window.open(fb_url, 'window', "width = '300px', height = '200px'");
-    });
-    $('#fbButton').click(function (e) {
+      });
+      $('#fbButton').click(function (e) {
         e.preventDefault();
         _gaq.push(['_trackEvent', 'button', 'click', '페이스북 1544']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1544');
         var viral_url = $("#blog-code").val()
         var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
         if (viral_url === "") {
-            $("#social_form").modal();
-             $('#social_form_person_button').click(function(e){
-               e.preventDefault();
-                $('#social_form_person').css('display', 'block');
-                $('#social_form_finButton2').click(function(e){
-                   e.preventDefault();
-                    $('#social_form_person').css('display', 'none');
-                });
-             });
+          $("#social_form").modal();
+          $('#social_form_person_button').click(function(e){
+            e.preventDefault();
+            $('#social_form_person').css('display', 'block');
+            $('#social_form_finButton2').click(function(e){
+              e.preventDefault();
+              $('#social_form_person').css('display', 'none');
+            });
+          });
         } else {
-            var viral_url = $("#blog-code").val()
-            var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
-            function share() {
-            	var share = {
-            		method: "feed",
-            		name: "이브자리 데이트 이벤트",
-            		link: "http://event3.evezary.co.kr/"+viral_url,
-            		picture: '<%= asset_url "fb_share_img.jpg" %>',
-            		caption: "[이브자리::이브자리 데이트 이벤트]",
-            		description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
-            	};
+          var viral_url = $("#blog-code").val()
+          var fb_url = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fevent3.evezary.co.kr/' + viral_url
+          function share() {
+            var share = {
+              method: "feed",
+              name: "이브자리 데이트 이벤트",
+              link: "http://event3.evezary.co.kr/"+viral_url,
+              picture: '<%= asset_url "fb_share_img.jpg" %>',
+              caption: "[이브자리::이브자리 데이트 이벤트]",
+              description: "사랑하는 사람에게 데이트 신청하세요. 침구도 함께 고르고 특별한 선물을 받는 행운까지 누리세요!"
+            };
 
-            	FB.ui(share, function(response) {
-            		if(response && response.post_id) {
-            			alert("공유되었습니다.");
-            		}
-            		else {
-            			alert("공유 실패");
-            		}
-            	});
-            }
-            share();
+            FB.ui(share, function(response) {
+              if(response && response.post_id) {
+                alert("공유되었습니다.");
+              }
+              else {
+                alert("공유 실패");
+              }
+            });
+          }
+          share();
         }        
-    });
-    $('#blogButton').click(function (e) {
+      });
+      $('#blogButton').click(function (e) {
         _gaq.push(['_trackEvent', 'button', 'click', '블로그 1545']);
         loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1545');
         e.preventDefault();
         $('#popUp').empty();
         $('#popUp').load('home_popup_blog', function () {
-            var viral_url = $("#blog-code").val();
-            if (viral_url === "") {
-                $("#social_form").modal();
-                $('#social_form_person_button').click(function(e){
-                    e.preventDefault();
-                    $('#social_form_person').css('display', 'block');
-                    $('#social_form_finButton2').click(function(e){
-                        e.preventDefault();
-                        $('#social_form_person').css('display', 'none');
-                    });
-                });
-                // alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
-            } else {
-                track_viral_action(viral_url, "blog");
-                $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
-                $('#popUp').modal();
-                $('#closeModal').css('top', '-225px');
-                $('#closeModal').css('right', '-46px');
-            }
-            $('#applyPopup6_finButton').click(function (e) {
+          var viral_url = $("#blog-code").val();
+          if (viral_url === "") {
+            $("#social_form").modal();
+            $('#social_form_person_button').click(function(e){
+              e.preventDefault();
+              $('#social_form_person').css('display', 'block');
+              $('#social_form_finButton2').click(function(e){
                 e.preventDefault();
-                _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
-                loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
-                window.location="blog_image_download"
+                $('#social_form_person').css('display', 'none');
+              });
             });
+            // alert("[데이트 신청하기]가 완료되어야 코드가 발급됩니다.");
+          } else {
+            track_viral_action(viral_url, "blog");
+            $("#viral-blog-url").text("http://event3.evezary.co.kr/" + viral_url);
+            $('#popUp').modal();
+            $('#closeModal').css('top', '-225px');
+            $('#closeModal').css('right', '-46px');
+          }
+          $('#applyPopup6_finButton').click(function (e) {
+            e.preventDefault();
+            _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
+            loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1546');
+            window.location="blog_image_download"
+          });
         });
-    });
-	$('#social_phone_1').keyup(function(){
-		if($('#social_phone_1').val().length >= 3){
-			$('#social_phone_2').focus();
-		}
-	});
-	$('#social_phone_2').keyup(function(){
-		if($('#social_phone_2').val().length >= 4){
-			$('#social_phone_3').focus();
-		}
-	});
-	$('#social_phone_3').keyup(function(){
-		if($('#social_phone_3').val().length >= 4){
-			$('#social_myEmail').focus();
-		}
-	});
-});
-});
-function popUp_6(){
-    
-}
-
-function doNotSIgh_1() {
-    if ($('#popUp_1_gift').css('border-width') == "0px" && $('#popUp_2_gift').css('border-width') == "0px" && $('#popUp_3_gift').css('border-width') == "0px" && $('#popUp_4_gift').css('border-width') == "0px") {
-        alert("내용을 모두 입력해주세요.");
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function doNotSIgh_2() {
-    if ($('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#textarea_2').val() == "") {
-        alert("내용을 모두 입력해주세요.");
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function doNotSIgh_3() {
-    if ($('#myName').val() == "" || $('#phone_1').val() == "" || $('#phone_2').val() == "" || $('#phone_3').val() == "" || $('#myEmail').val() == "") {
-        alert("내용을 모두 입력해주세요.");
-        return false;
-    } else {
-        if ($(':radio[name="agree"]:checked').val() == "d") {
-            alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
-            return false;
-        } else {
-            return true;
+      });
+      $('#social_phone_1').keyup(function(){
+        if($('#social_phone_1').val().length >= 3){
+          $('#social_phone_2').focus();
         }
+      });
+      $('#social_phone_2').keyup(function(){
+        if($('#social_phone_2').val().length >= 4){
+          $('#social_phone_3').focus();
+        }
+      });
+      $('#social_phone_3').keyup(function(){
+        if($('#social_phone_3').val().length >= 4){
+          $('#social_myEmail').focus();
+        }
+      });
+    });
+  });
+  function popUp_6(){
+    
+  }
+
+  function doNotSIgh_1() {
+    if ($('#popUp_1_gift').css('border-width') == "0px" && $('#popUp_2_gift').css('border-width') == "0px" && $('#popUp_3_gift').css('border-width') == "0px" && $('#popUp_4_gift').css('border-width') == "0px") {
+      alert("내용을 모두 입력해주세요.");
+      return false;
+    } else {
+      return true;
     }
-}
+  }
+
+  function doNotSIgh_2() {
+    if ($('#myPhone_1').val() == "" || $('#myPhone_2').val() == "" || $('#myPhone_3').val() == "" || $('#momPhone_1').val() == "" || $('#momPhone_2').val() == "" || $('#momPhone_3').val() == "" || $('#textarea_2').val() == "") {
+      alert("내용을 모두 입력해주세요.");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function doNotSIgh_3() {
+    if ($('#myName').val() == "" || $('#phone_1').val() == "" || $('#phone_2').val() == "" || $('#phone_3').val() == "" || $('#myEmail').val() == "") {
+      alert("내용을 모두 입력해주세요.");
+      return false;
+    } else {
+      if ($(':radio[name="agree"]:checked').val() == "d") {
+        alert("개인정보 동의를 하셔야 진행하실 수 있습니다.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
 
 
-function p1ClickImage(num) {
+  function p1ClickImage(num) {
     $("#gift-select").val(num);
     if (num == 1) {
-        $('#popUp_1_gift').css('border-width', '8px');
-        $('#popUp_1_gift').css('margin', '4px');
+      $('#popUp_1_gift').css('border-width', '8px');
+      $('#popUp_1_gift').css('margin', '4px');
 
-        $('#popUp_2_gift').css('border-width', '0px');
-        $('#popUp_2_gift').css('margin', '12px');
+      $('#popUp_2_gift').css('border-width', '0px');
+      $('#popUp_2_gift').css('margin', '12px');
 
-        $('#popUp_3_gift').css('border-width', '0px');
-        $('#popUp_3_gift').css('margin', '12px');
+      $('#popUp_3_gift').css('border-width', '0px');
+      $('#popUp_3_gift').css('margin', '12px');
 
-        $('#popUp_4_gift').css('border-width', '0px');
-        $('#popUp_4_gift').css('margin', '12px');
+      $('#popUp_4_gift').css('border-width', '0px');
+      $('#popUp_4_gift').css('margin', '12px');
     } else if (num == 2) {
-        $('#popUp_1_gift').css('border-width', '0px');
-        $('#popUp_1_gift').css('margin', '12px');
+      $('#popUp_1_gift').css('border-width', '0px');
+      $('#popUp_1_gift').css('margin', '12px');
 
-        $('#popUp_2_gift').css('border-width', '8px');
-        $('#popUp_2_gift').css('margin', '4px');
+      $('#popUp_2_gift').css('border-width', '8px');
+      $('#popUp_2_gift').css('margin', '4px');
 
-        $('#popUp_3_gift').css('border-width', '0px');
-        $('#popUp_3_gift').css('margin', '12px');
+      $('#popUp_3_gift').css('border-width', '0px');
+      $('#popUp_3_gift').css('margin', '12px');
 
-        $('#popUp_4_gift').css('border-width', '0px');
-        $('#popUp_4_gift').css('margin', '12px');
+      $('#popUp_4_gift').css('border-width', '0px');
+      $('#popUp_4_gift').css('margin', '12px');
     } else if (num == 3) {
-        $('#popUp_1_gift').css('border-width', '0px');
-        $('#popUp_1_gift').css('margin', '12px');
+      $('#popUp_1_gift').css('border-width', '0px');
+      $('#popUp_1_gift').css('margin', '12px');
 
-        $('#popUp_2_gift').css('border-width', '0px');
-        $('#popUp_2_gift').css('margin', '12px');
+      $('#popUp_2_gift').css('border-width', '0px');
+      $('#popUp_2_gift').css('margin', '12px');
 
-        $('#popUp_3_gift').css('border-width', '8px');
-        $('#popUp_3_gift').css('margin', '4px');
+      $('#popUp_3_gift').css('border-width', '8px');
+      $('#popUp_3_gift').css('margin', '4px');
 
-        $('#popUp_4_gift').css('border-width', '0px');
-        $('#popUp_4_gift').css('margin', '12px');
+      $('#popUp_4_gift').css('border-width', '0px');
+      $('#popUp_4_gift').css('margin', '12px');
     } else if (num == 4) {
-        $('#popUp_1_gift').css('border-width', '0px');
-        $('#popUp_1_gift').css('margin', '12px');
+      $('#popUp_1_gift').css('border-width', '0px');
+      $('#popUp_1_gift').css('margin', '12px');
 
-        $('#popUp_2_gift').css('border-width', '0px');
-        $('#popUp_2_gift').css('margin', '12px');
+      $('#popUp_2_gift').css('border-width', '0px');
+      $('#popUp_2_gift').css('margin', '12px');
 
-        $('#popUp_3_gift').css('border-width', '0px');
-        $('#popUp_3_gift').css('margin', '12px');
+      $('#popUp_3_gift').css('border-width', '0px');
+      $('#popUp_3_gift').css('margin', '12px');
 
-        $('#popUp_4_gift').css('border-width', '8px');
-        $('#popUp_4_gift').css('margin', '4px');
+      $('#popUp_4_gift').css('border-width', '8px');
+      $('#popUp_4_gift').css('margin', '4px');
     }
-}
+  }
 
-function loopCloud() {
+  function loopCloud() {
     var c1_left = parseFloat($('#cloud_1').css('margin-left'));
     c1_left += c1;
     if (c1_left >= 1000) {
-        c1_left = -200;
-        c1 = ((Math.random() * 1000) + 100) / 1000;
-        c1 = 0.2;
+      c1_left = -200;
+      c1 = ((Math.random() * 1000) + 100) / 1000;
+      c1 = 0.2;
     } else if (c1_left == 0) {
-        c1_left += 1;
+      c1_left += 1;
     }
     $('#cloud_1').css('margin-left', c1_left);
     // $('#cloud_1').css('background-color', 'red');
     var c2_left = parseFloat($('#cloud_2').css('margin-left'));
     c2_left += c2;
     if (c2_left >= 1000) {
-        c2_left = -200;
-        c2 = ((Math.random() * 1000) + 100) / 1000;
-        c2 = 0.3;
+      c2_left = -200;
+      c2 = ((Math.random() * 1000) + 100) / 1000;
+      c2 = 0.3;
     } else if (c2_left == 0) {
-        c2_left += 1;
+      c2_left += 1;
     }
     $('#cloud_2').css('margin-left', c2_left);
 
     var c3_left = parseFloat($('#cloud_3').css('margin-left'));
     c3_left += c3;
     if (c3_left >= 1000) {
-        c3_left = -200;
-        c3 = ((Math.random() * 1000) + 100) / 1000;
-        c3 = 0.25
+      c3_left = -200;
+      c3 = ((Math.random() * 1000) + 100) / 1000;
+      c3 = 0.25
     } else if (c3_left == 0) {
-        c3_left += 1;
+      c3_left += 1;
     }
     $('#cloud_3').css('margin-left', c3_left);
 
     var c4_left = parseFloat($('#cloud_4').css('margin-left'));
     c4_left += c4;
     if (c4_left >= 1000) {
-        c4_left = -200;
-        c4 = ((Math.random() * 1000) + 100) / 1000;
-        c4 = 0.35
+      c4_left = -200;
+      c4 = ((Math.random() * 1000) + 100) / 1000;
+      c4 = 0.35
     } else if (c4_left == 0) {
-        c4_left += 1;
+      c4_left += 1;
     }
     $('#cloud_4').css('margin-left', c4_left);
-}
-//
-function loadJsFile(filename) {
+  }
+  //
+  function loadJsFile(filename) {
 
     var fileref = document.createElement('script');
 
@@ -836,14 +836,14 @@ function loadJsFile(filename) {
 
     if (typeof fileref != "undefined") {
 
-        document.getElementsByTagName("head")[0].appendChild(fileref);
+      document.getElementsByTagName("head")[0].appendChild(fileref);
 
     }
-}
-function select_store(message_id, store_id){
+  }
+  function select_store(message_id, store_id){
     $('#location').css('display', 'none');
-}
-function search_stores(user_id, address){
+  }
+  function search_stores(user_id, address){
     var opts = {
       lines: 13, // The number of lines to draw
       length: 20, // The length of each line
@@ -866,51 +866,51 @@ function search_stores(user_id, address){
     // var spinner = new Spinner(opts).spin(target);
     var stores;
     $.ajax({
-        type: "POST",
-        url: "/users/search_stores.json",
-        data: {
-            'user[address]': address,
-        },
-        success: function(data){
-            var stores_length;
-            stores_length = countProperties(data.stores);
+      type: "POST",
+      url: "/users/search_stores.json",
+      data: {
+        'user[address]': address,
+      },
+      success: function(data){
+        var stores_length;
+        stores_length = countProperties(data.stores);
           
-            $('#search-stores-select').empty();
-            if(stores_length > 0){
-                $.each(data.stores, function(key, value) {
-                    var append = "<option value="+key+">"+value+"</option>"
-                    $('#search-stores-select').append(append); 
-                });
-            }else{
-                var append = "<option>'관악구 신사동'과 같이 검색해주세요.</option>"
-                $('#search-stores-select').append(append); 
-            }
-            // spinner.stop();
+        $('#search-stores-select').empty();
+        if(stores_length > 0){
+          $.each(data.stores, function(key, value) {
+            var append = "<option value="+key+">"+value+"</option>"
+            $('#search-stores-select').append(append); 
+          });
+        }else{
+          var append = "<option>'관악구 신사동'과 같이 검색해주세요.</option>"
+          $('#search-stores-select').append(append); 
         }
+        // spinner.stop();
+      }
     });
-}
+  }
 
-function countProperties(obj) {
+  function countProperties(obj) {
     var count = 0;
 
     for(var prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            ++count;
+      if(obj.hasOwnProperty(prop))
+      ++count;
     }
 
     return count;
-}
-function track_viral_action(blog_code, platform){
+  }
+  function track_viral_action(blog_code, platform){
     $.ajax({
-        type: "POST",
-        url: "viral_actions.json",
-        data: {
-            'blog_code': blog_code,
-            'viral_action[platform]': platform,
-            'viral_action[device]': 'pc',
-        },
-        success: function(data){
+      type: "POST",
+      url: "viral_actions.json",
+      data: {
+        'blog_code': blog_code,
+        'viral_action[platform]': platform,
+        'viral_action[device]': 'pc',
+      },
+      success: function(data){
 
-        }
+      }
     });
-}
+  }

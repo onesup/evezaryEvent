@@ -18,7 +18,7 @@ class MobileController < ApplicationController
         end
       end
     else
-      @stores = Store.near([37.5146212,127.0554681],5)
+      @stores = Store.near([37.5146212,127.0554681],5,unit: :km,:order => "distance")
     end
   end
   
