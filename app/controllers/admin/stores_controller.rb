@@ -1,6 +1,6 @@
 class Admin::StoresController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_store
+  before_action :set_store, only:[:edit, :update]
   layout 'admin'
   
   def index
