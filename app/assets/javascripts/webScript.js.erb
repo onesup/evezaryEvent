@@ -119,9 +119,6 @@ $(document).ready(function () {
                     $('#popUp').modal();
                     $('#closeModal').css('top', '-361px');
                     $('#closeModal').css('right', '-46px');
-                    $('#phone_1').val(phone1);
-                    $('#phone_2').val(phone2);
-                    $('#phone_3').val(phone3);
                     $('#phone_1').keyup(function(){
                       if( $('#phone_1').val().length >= 3 ){
                         $('#phone_2').focus();
@@ -140,7 +137,6 @@ $(document).ready(function () {
                     $('#apply_3_person').click(function (e) {
                       e.preventDefault();
                       _gaq.push(['_trackEvent', 'button', 'click', '개인정보']);
-
                       $('#person').css('display', 'block');
                       $('#applyPopup3_finButton2').click(function (e) {
                         _gaq.push(['_trackEvent', 'button', 'click', '개인정보 fin']);
@@ -148,6 +144,53 @@ $(document).ready(function () {
                         $('#person').css('display', 'none');
                       });
                     });
+                    
+                    $('#applyPopup2_nnearButton').click(function (e) {
+                      e.preventDefault();
+                      var go = document.getElementById("location_search");
+                      var txt = document.getElementById("location_searchBox");
+                      txt.addEventListener("keypress", function() {
+                        if (event.keyCode == 13) go.click();
+                      });
+                      $("#location_search").click(function(e){
+                        e.preventDefault();
+                        _gaq.push(['_trackEvent', 'button', 'click', '매장 검색']);
+                        var user_id = 2;
+                        var address;
+                        address = $("#location_searchBox").val();
+                        if(address === ""){
+                          alert("주소를 입력해주세요.\n예: 서울시 강남구 역삼동");
+                        }else{
+                          search_stores(user_id, address);
+                        }
+                      });
+                      $('#search-stores-select').change(function(){
+                        var message_id;
+                        var store_id;
+                        var str = "";
+                        str = this.options[ this.selectedIndex ].text;
+                        store_id = this.options[ this.selectedIndex ].value;
+                        select_store(message_id, store_id);
+                        $("#selected-store").val(store_id);
+                        $("#message_store_id").css('display','none');
+                        $("#message_store_id").val('0');
+                        $("#InputCautionLabel_2").css('display','none');
+                        $("#select-stores-wrap").css('float','left');
+                        $("#select-stores-wrap").css('width','300px');
+                        $("#popUp_2_selectBtn").css('margin-top','22px');
+                        $("#selected_store").text(str);
+                      });
+                      $('#location').css('display', 'block');
+                      $('#location_close').click(function(e){
+                        e.preventDefault();
+                        $('#location').css('display', 'none');
+                      });
+                      $('#loc_endBtn').click(function(e){
+                        e.preventDefault();
+                        $('#location').css('display', 'none');
+                      });
+                    });
+                    
                     // '완료' 후 넘어가는 팝업
                     $('#applyPopup3_finButton').click(function (e) {
                       _gaq.push(['_trackEvent', 'button', 'click', '완료1543']);
