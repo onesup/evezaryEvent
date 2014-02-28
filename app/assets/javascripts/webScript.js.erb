@@ -201,6 +201,12 @@ $(document).ready(function () {
                         var phone2 = $("#phone_2").val();
                         var phone3 = $("#phone_3").val();
                         var send_phone = phone1 + "-" + phone2 + "-" + phone3;
+                        var store_id;
+                        if($("#selected-store").val() === ""){
+                          store_id = $("#message_store_id").val();
+                        }else{
+                          store_id = $("#selected-store").val();
+                        }
                         $.ajax({
                           type: "POST",
                           url: "/users.json",
@@ -209,7 +215,7 @@ $(document).ready(function () {
                             'user[phone]': send_phone,
                             'user[email]': $("#myEmail").val(),
                             'user[gift_id]': $("#gift-select").val(),
-                            'message_id': $("#message-id").val(),
+                            'store_id': store_id,
                             'ip': $("#ip-code").val()
                           },
                           success: function (data) {

@@ -14,15 +14,27 @@ class UsersController < ApplicationController
       else
         @user.gift = Gift.find(@user.gift_id)
       end
-      message = Message.find(params["message_id"])
+      
+      
       respond_to do |format|
         if @user.save
-          @user.messages << message
+          store = Store.find(params["store_id"])
+          send_message = to_user(store)
+          @message = Message.new({
+            send_phone: @user.phone,
+            dest_phone: @user.phone,
+            msg_body: send_message,
+            store_id: store,
+          })
+          @message.save
+          @user.messages << @message
           if AccessLog.exists?(id: params["ip"])
             log = AccessLog.find(params["ip"])
             log.user = @user
+            log.message = @message
             log.save
           end
+          MessageJob.new.async.perform(@message, send_message, @user.phone)
           format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: 'User was successfully updated.') }
           format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
         else
@@ -41,14 +53,26 @@ class UsersController < ApplicationController
         @user.save
       end
       Rails.logger.info("이미 전화번호 입력한 사용자: "+@user.phone.to_s)
+      @user.save
+      store = Store.find(params["store_id"])
+      send_message = to_user(store)
+      @message = Message.new({
+        send_phone: @user.phone,
+        dest_phone: @user.phone,
+        msg_body: send_message,
+        store_id: store,
+        sent_at: Time.now,
+        send_name: @user.name
+      })
+      @message.save
+      @user.messages << @message
       if AccessLog.exists?(id: params["ip"])
         log = AccessLog.find(params["ip"])
         log.user = @user
+        log.message = @message
         log.save
       end
-      message = Message.find(params["message_id"])
-      @user.save
-      @user.messages << message
+      MessageJob.new.async.perform(@message, send_message, @user.phone)
       respond_to do |format|
         format.html { redirect_to(mobile_index_path({blog_code: @user.blog_code}), notice: '이미 참여하셨습니다.') }
         format.json { render json: {status: "success", blog_code: @user.blog_code}, status: :created }
@@ -104,4 +128,23 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :phone, :email, :gift_id, :address)
     end
+    
+    def store_info(store)
+store.title+"
+"+store.address+"
+"+store.phone
+    end
+    
+    def to_user(store)
+"
+지금 사랑하는 사람과 함께 이브자리로 오세요!
+이불은 만져보고 골라야죠! 
+
+매장위치"+"
+"+store_info(store) +"
+소문내기 이벤트에 참여하시면 
+당첨확률이 높아집니다
+http://event3.evezary.co.kr"
+    end
+    
 end
