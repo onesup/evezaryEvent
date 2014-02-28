@@ -85,9 +85,9 @@
   margin-top: 18px;
 }
 .popUp_2_InputLabel3{
-  margin-left: -2px;
-  margin-right: 18px;
-  margin-top: 28px;
+  margin-left: 0px;
+  margin-right: 26px;
+  margin-top: 20px;
 }
 .popUp_2_Input{
   width: 50px;
@@ -177,20 +177,21 @@
 /* popup 3 */
 #popUp_3{
   width: 594px;
-  height: 733px;
-  background-image: asset-url("popup/3/applyPopup3_BG.png");
+  height: 760px;
+//  background-image: asset-url("popup/3/applyPopup3_BG.png");
+  background-image: asset-url("popup/2/applyPopup2_BG.png");
   padding: 0px;
   left: 50%;
   position:absolute;
   text-align: center;
-  margin-top: -366px;
+  margin-top: -378px;
   margin-left: -300px;
 }
 
 .popUp_3_inputBox{
   width: 452px;
-  height: 238px;
-  background-image: asset-url("popup/3/applyPopup3_BG2.png");
+  height: 306px;
+  border: #b6b6b6 1px solid;
   margin-left: 41px;
   margin-top: 24px;
   margin-bottom: 32px;
@@ -200,9 +201,12 @@
 .popUp_3_titleLabel{
   margin-top: 0px;
 }
+.popUp_3_sub_txt{
+  margin-top: 10px;
+}
 
 .popUP_3_subLabel{
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .popUp_3_Label1{
@@ -228,6 +232,7 @@
   padding-left: 22px;
   padding-right: 22px;
   line-height: 36px;
+  margin-top: 16px;
 }
 .popUp_3_InputStyle2{
   width: 50px;
@@ -293,7 +298,7 @@
 .popUp_3_CautionLabel4{
   margin-top: 24px;
   margin-right: 112px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .applyPopup3_finButton2_img{
@@ -453,7 +458,8 @@
 
 /* popup div */
 .inPopup{
-  padding-top: 88px;
+//  padding-top: 88px;
+  padding-top: 70px;
 }
 
 /* social popup 6 */
@@ -527,16 +533,6 @@
     background: asset-url("popup/applyPopup_close.png") no-repeat 0 0;    
   }
 
-  .popUp_3_inputBox{
-    width: 452px;
-    height: 238px;
-    background-image: asset-url("popup/3/applyPopup3_BG2.png");
-    margin-left: 41px;
-    margin-top: 24px;
-    margin-bottom: 32px;
-    padding-left: 48px;
-    text-align: left;
-  }
   .popUp_3_titleLabel{
     margin-top: 0px;
   }

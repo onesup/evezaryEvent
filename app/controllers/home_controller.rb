@@ -38,6 +38,7 @@ class HomeController < ApplicationController
   end
 
   def popUp_3
+    @log = AccessLog.find(params[:ip]) rescue AccessLog.first
     render layout: false
   end
   def popUp_4
