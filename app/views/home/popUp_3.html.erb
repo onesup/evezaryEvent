@@ -29,18 +29,31 @@
         <%= image_tag("popup/2/applyPopup2_InputCautionLabel_2.png", class: "popUp_2_Label3", id:"InputCautionLabel_2") %>
         <a id="applyPopup2_nnearButton" href="#">
           <%= image_tag("popup/2/applyPopup2_SelectButton.png", class: "popUp_2_selectBtn", id:"popUp_2_selectBtn") %>
+        </a>
 				<br /><br />
 			</form>
 		</div>
 		<!-- 개인정보수집 -->
-        <%= image_tag("popup/3/applyPopup3_CautionLabel.png", class: "popUp_3_CautionLabel1") %>
-        <%= image_tag("popup/3/applyPopup3_CautionAllow.png", class: "applyPopup3_CautionAllow") %>
-		<input type="radio" name="agree" value="a" checked="checked" />
-        <%= image_tag("popup/3/applyPopup3_CautionDisallow.png", class: "popUp_3_CautionLabel2") %>
-		<input type="radio" name="agree" value="d" />
-		<a id="apply_3_person" href="#">
-		        <%= image_tag("popup/3/applyPopup3_CautionShow.png", class: "popUp_3_CautionLabel3") %>
-		</a>
+    <span>
+      <%= image_tag("popup/3/applyPopup3_CautionLabel.png", class: "popUp_3_CautionLabel1") %>
+    </span>
+    <span>
+      <%= image_tag("popup/3/applyPopup3_CautionAllow.png", class: "applyPopup3_CautionAllow") %>
+    </span>
+    <span>
+  		<input type="radio" name="agree" value="a" checked="checked" />
+    </span>
+    <span>
+      <%= image_tag("popup/3/applyPopup3_CautionDisallow.png", class: "popUp_3_CautionLabel2") %>
+    </span>
+    <span>
+  		<input type="radio" name="agree" value="d" />
+    </span>
+    <span>
+  		<a id="apply_3_person" href="#">
+  		    <%= image_tag("popup/3/applyPopup3_CautionShow.png", class: "popUp_3_CautionLabel3") %>
+  		</a>
+    </span>
 
 		<!-- 라벨 -->
         <%= image_tag("popup/3/applyPopup3_Line.png", class: "popUp_3_DotLine") %>
