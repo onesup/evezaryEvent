@@ -66,7 +66,7 @@ store.title+"
 "+store_info(store) +"
 소문내기 이벤트에 참여하시면 
 당첨확률이 높아집니다
-http://event3.evezary.co.kr"
+http://e3.minivertising.kr"
     end
     
   
