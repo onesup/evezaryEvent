@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create, :update]
   resources :viral_actions, only: [:create]
   namespace :mobile do
+    resources :users
     resources :messages, only: [:create]
     resources :viral_actions, only: [:create]
   end
