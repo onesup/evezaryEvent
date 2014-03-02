@@ -4,7 +4,7 @@ lock '3.1.0'
 set :application, 'evezaryEvent'
 set :repo_url, 'git@github.com:onesup/evezaryEvent.git'
 set :scm_user, "onesup"
-
+set :branch, "popup"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
