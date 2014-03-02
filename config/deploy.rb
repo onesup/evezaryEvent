@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'evezaryEvent'
+set :application, 'popup'
 set :repo_url, 'git@github.com:onesup/evezaryEvent.git'
 set :scm_user, "onesup"
 set :branch, "popup"
@@ -10,7 +10,7 @@ set :branch, "popup"
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/deployer/www/evezaryEvent"
+set :deploy_to, "/home/deployer/www/popup"
 set :user, "deployer"
 
 
