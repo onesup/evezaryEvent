@@ -11,22 +11,22 @@ Rails.application.routes.draw do
   get "mobile_facebook"       => "mobile#facebook"
   get "near_stores"           => "mobile#near_stores"
   get "home_index"            => "home#index"
-  get "home_popup_1"          => "home#popUp_1"
-  get "home_popup_2"          => "home#popUp_2"
-  get "home_popup_3"          => "home#popUp_3"
-  get "home_popup_4"          => "home#popUp_4"
-  get "home_popup_5"          => "home#popUp_5"
-  get "home_popup_6"          => "home#popUp_6"
-  get "home_popup_blog"       => "home#popUp_blog"
+  # get "home_popup_1"          => "home#popUp_1"
+  # get "home_popup_2"          => "home#popUp_2"
+  # get "home_popup_3"          => "home#popUp_3"
+  # get "home_popup_4"          => "home#popUp_4"
+  # get "home_popup_5"          => "home#popUp_5"
+  # get "home_popup_6"          => "home#popUp_6"
+  # get "home_popup_blog"       => "home#popUp_blog"
   get "blog_image_download"   => "home#download_image"
   get '/:id', to: 'users#tracking_log', constraints: { id: /e.+-\d.+/ }
   devise_for :users
-  resources :users, only: [:create, :update] do
-    collection do
-      post 'search_stores'
-    end
-  end
-  resources :messages, only: [:create, :update]
+  # resources :users, only: [:create, :update] do
+  #   collection do
+  #     post 'search_stores'
+  #   end
+  # end
+  # resources :messages, only: [:create, :update]
   resources :viral_actions, only: [:create]
   namespace :mobile do
     resources :messages, only: [:create]
@@ -35,14 +35,14 @@ Rails.application.routes.draw do
   namespace :mobile_buzz do
     resources :users, only: [:new, :create]
   end
-  namespace :viral do
-    namespace :web do
-      resources :users
-    end
-    namespace :mobile do
-      resources :users
-    end
-  end
+  # namespace :viral do
+  #   namespace :web do
+  #     resources :users
+  #   end
+  #   namespace :mobile do
+  #     resources :users
+  #   end
+  # end
   namespace :admin do
     get '/' => 'dashboard#index', ad: 'admin'
     resources :gifts
