@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
   get "mobile_index"          => "mobile#index"
-  get "mobile_apply_1"        => "mobile#apply_1"
-  get "mobile_apply_2"        => "mobile#apply_2"
-  get "mobile_apply_3"        => "mobile#apply_3"
-  get "mobile_search_stores"  => "mobile#search_stores"
-  get "mobile_person"         => "mobile#person"
-  get "mobile_kakaotalk"      => "mobile#kakaotalk"
-  get "mobile_kakaostory"     => "mobile#kakaostory"
-  get "mobile_facebook"       => "mobile#facebook"
+  # get "mobile_apply_1"        => "mobile#apply_1"
+  # get "mobile_apply_2"        => "mobile#apply_2"
+  # get "mobile_apply_3"        => "mobile#apply_3"
+  # get "mobile_search_stores"  => "mobile#search_stores"
+  # get "mobile_person"         => "mobile#person"
+  # get "mobile_kakaotalk"      => "mobile#kakaotalk"
+  # get "mobile_kakaostory"     => "mobile#kakaostory"
+  # get "mobile_facebook"       => "mobile#facebook"
   get "near_stores"           => "mobile#near_stores"
   get "home_index"            => "home#index"
   # get "home_popup_1"          => "home#popUp_1"
@@ -29,11 +29,11 @@ Rails.application.routes.draw do
   # resources :messages, only: [:create, :update]
   resources :viral_actions, only: [:create]
   namespace :mobile do
-    resources :messages, only: [:create]
-    resources :viral_actions, only: [:create]
+    # resources :messages, only: [:create]
+    # resources :viral_actions, only: [:create]
   end
   namespace :mobile_buzz do
-    resources :users, only: [:new, :create]
+    # resources :users, only: [:new, :create]
   end
   # namespace :viral do
   #   namespace :web do
