@@ -206,8 +206,14 @@ $(document).ready(function() {
         $('#mobile_apply').click(function(){
             _gaq.push(['_trackEvent', 'button', 'click', '모바일 goto apply_1 1548']);
             loadJsFile("http://i51.icast-ad.com/track?ccd=1251&mcd=01040601&pcd=1548");
-            var access_log = $("#mobile_apply").attr("ip-data");
-            location.href = "mobile_apply_1?ip=" + access_log;
+            var finish = Date.parse("3 12, 2014");
+            var currentdate = new Date();
+            if(currentdate > finish){
+                alert("이벤트가 종료되었습니다.");
+            }else{
+              var access_log = $("#mobile_apply").attr("ip-data");
+              location.href = "mobile_apply_1?ip=" + access_log;
+            }
         });
         $("#search-stores-button").click(function(e){
             e.preventDefault();
