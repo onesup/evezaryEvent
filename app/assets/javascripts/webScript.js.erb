@@ -8,7 +8,15 @@ $(document).ready(function () {
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
-    });       
+    });
+    $("#fbButton").click(function(e){
+      e.preventDefault();
+      alert("이벤트가 종료되었습니다.");
+    });
+    $("#blogButton").click(function(e){
+      e.preventDefault();
+      alert("이벤트가 종료되었습니다.");
+    });
     $('#social_applyPopup6_finButton').click(function (e) {
       e.preventDefault();
       _gaq.push(['_trackEvent', 'button', 'click', 'img down 1546']);
@@ -79,16 +87,7 @@ $(document).ready(function () {
     // $("#ip-code").val(ip);
     // '데이트 신청하기' 버튼 클릭시
     $('#applyButton').click(function (e) {
-      _gaq.push(['_trackEvent', 'button', 'click', '데이트 신청하기 1540']);
-      loadJsFile('http://i42.icast-ad.com/track?ccd=1242&mcd=01040601&pcd=1540');
-      e.preventDefault();
-      var finish = Date.parse("3 12, 2014");
-      var currentdate = new Date();
-      if(currentdate > finish){
-          alert("이벤트가 종료되었습니다.");
-      }else{
-      
-      }   
+      alert("이벤트가 종료되었습니다.");
     });
   });
 });
