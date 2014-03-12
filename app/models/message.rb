@@ -17,8 +17,6 @@ class Message < ActiveRecord::Base
       "./app/assets/images/bed_2_Img.jpg",
       "./app/assets/images/bed_3_Img.jpg",
       "./app/assets/images/bed_4_Img.jpg",
-      # "./app/assets/images/bed_5_Img.jpg", 부모님 혼수 침구 제외
-      # "./app/assets/images/bed_6_Img.jpg",
       "./app/assets/images/bed_7_Img.jpg",
       "./app/assets/images/bed_8_Img.jpg"
     ]

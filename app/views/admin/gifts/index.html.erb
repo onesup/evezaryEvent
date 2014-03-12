@@ -24,6 +24,14 @@
                 </td>
               </tr>
             <% end %>
+            <tr>
+              <td>
+                <%= link_to "바이럴 참여자", admin_gift_mobile_users_path %>
+              </td>
+              <td class="updated_at">
+                <p><%= @mobile_users.count%></p>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

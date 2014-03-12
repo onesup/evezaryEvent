@@ -47,8 +47,8 @@ Rails.application.routes.draw do
   # end
   namespace :admin do
     get '/' => 'dashboard#index', ad: 'admin'
-    resources :gifts
     resources :users
+    resources :gifts
     resources :messages
     resources :access_logs
     resources :viral_actions
@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       resources :messages do
       end
     end
+    get '/gift_mobile_users' => 'gifts#mobile_users', ad: 'admin'
   end
   root :to => "home#switch"
 end
