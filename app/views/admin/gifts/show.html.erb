@@ -59,6 +59,8 @@ end
                     <p>총발송: <%= messages.count %></p>
                     <% messages.each do |message|%>
                     <li><p><%= message.dest_phone%></p></li>
+                    <li><strong>@@ <%= message.store.title%> @@</strong></li>
+                    <li><p>- - - - - - - - - - - -</p></li>
                     <li><p><%= message.msg_body%></p></li>
                     <li><p>*************************</p></li>
                     <% end %>
