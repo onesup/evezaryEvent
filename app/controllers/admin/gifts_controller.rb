@@ -8,7 +8,9 @@ class Admin::GiftsController < ApplicationController
 
   def show
     @gift = Gift.find params[:id]
-    @users = @gift.users.order("viral_score desc").limit 300
+    @users = User.joins(:messages).where("messages.user_id is not null")
+    @users = @users.where("users.gift_id" => @gift.id).order("users.viral_score desc").uniq.limit 300
+    # @users = User.includes(:messages).where("messages.user_id IS NOT NULL").order("users.viral_score desc").limit 300
     # @seoul_users = @gift.users.order("viral_score desc").limit 200
   end
   
