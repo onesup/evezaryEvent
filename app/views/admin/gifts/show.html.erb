@@ -12,6 +12,8 @@
             <tr>
               <th>순위</th>
               <th>바이럴 점수</th>
+              <th>지역</th>
+              <th>접속기기</th>
               <th>참여자 이름</th>
               <th>참여자 전화번호</th>
               <th>참여자 이메일</th>
@@ -23,6 +25,25 @@
                 <td><%= i %></td>
                 <td>
                   <p><%= user.viral_score %></p>
+                </td>
+<% 
+unless user.access_logs.empty?
+  if user.access_logs.last.device == "pc"
+    location = user.access_logs.last.location
+  else
+    unless user.messages.empty?
+      unless user.messages.last.store.nil?
+    location = user.messages.last.store.si + " " + user.messages.last.store.gu
+      end
+    end
+  end
+end
+%>
+                <td>
+                  <%= location %>
+                </td>
+                <td>
+                  <%= user.access_logs.last.device unless user.access_logs.empty? %>
                 </td>
                 <td>
                   <p><%= user.name %></p>
