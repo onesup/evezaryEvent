@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  
 
   get "mobile_index"          => "mobile#index"
   # get "mobile_apply_1"        => "mobile#apply_1"

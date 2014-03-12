@@ -1,2 +1,45 @@
-<h1>Admin::Gifts#show</h1>
-<p>Find me in app/views/admin/gifts/show.html.erb</p>
+<% i = 1%>
+<div class="row-fluid">
+  <!-- block -->
+  <div class="block">
+    <div class="navbar navbar-inner block-header">
+      <div class="muted pull-left"><%= @gift.title%> 당첨자 현황</div>
+    </div>
+    <div class="block-content collapse in">
+      <div class="span12">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="data-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>바이럴 점수</th>
+              <th>참여자 이름</th>
+              <th>참여자 전화번호</th>
+              <th>참여자 이메일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr class="">
+                <td><%= i %></td>
+                <td>
+                  <p><%= user.viral_score %></p>
+                </td>
+                <td>
+                  <p><%= user.name %></p>
+                </td>
+                <td>
+                  <p><%= user.phone %></p>
+                </td>
+                <td>
+                  <p><%= user.email %></p>
+                </td>
+              </tr>
+              <% i = i + 1 %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- /block -->
+</div>

@@ -17,7 +17,7 @@
             <% @gifts.each do |gift| %>
               <tr class="">
                 <td>
-                  <%= gift.title %>
+                  <%= link_to gift.title, admin_gift_path(gift)%>
                 </td>
                 <td class="updated_at">
                   <p><%= gift.users.count %></p>

@@ -6,5 +6,8 @@ class Admin::GiftsController < ApplicationController
   end
 
   def show
+    @gift = Gift.find params[:id]
+    @users = @gift.users.order("viral_score desc").limit 100
   end
+  
 end
