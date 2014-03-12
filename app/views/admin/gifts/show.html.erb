@@ -30,11 +30,11 @@
 unless user.access_logs.empty?
   if user.access_logs.last.device == "pc"
     location = user.access_logs.last.location
-    messages = user.messages
+    messages = user.messages.limit(3)
   else
     unless user.messages.empty?
       unless user.messages.last.store.nil?
-      messages = user.messages
+      messages = user.messages.limit(3)
     location = user.messages.last.store.si + " " + user.messages.last.store.gu
       end
     end
@@ -56,7 +56,7 @@ end
                 <td>
                   <ul>
                     <% unless messages.nil? %>
-                    <p>총발송: <%= messages.count %></p>
+                    <p>총발송: <%= user.messages.count %></p>
                     <% messages.each do |message|%>
                     <li><p><%= message.dest_phone%></p></li>
                     <li><strong>@@ <%= message.store.title unless message.store.nil? %> @@</strong></li>
@@ -64,6 +64,9 @@ end
                     <li><p><%= message.msg_body%></p></li>
                     <li><p>*************************</p></li>
                     <% end %>
+                      <% if user.messages.count > 3 %>
+                      <li><p>***외 <%= (user.messages.count - 3) %>건</p></li>
+                      <% end %>
                     <% end %>
                   </ul>
                 </td>
