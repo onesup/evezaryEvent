@@ -16,7 +16,7 @@
               <th>참여자 이름</th>
               <th>참여자 전화번호</th>
               <th>참여자 이메일</th>
-              <th class="mms_body">문자 내용 및 수신 번호</th>
+              <!-- <th class="mms_body">문자 내용 및 수신 번호</th> -->
             </tr>
           </thead>
           <tbody>
@@ -53,23 +53,23 @@ end
                 <td>
                   <p><%= user.email %></p>
                 </td>
-                <td>
+                <!-- <td>
                   <ul>
-                    <% unless messages.nil? %>
-                    <p>총발송: <%= user.messages.count %></p>
-                    <% messages.each do |message|%>
-                    <li><p><%= message.dest_phone%></p></li>
-                    <li><strong>@@ <%= message.store.title unless message.store.nil? %> @@</strong></li>
+                    <%# unless messages.nil? %>
+                    <p>총발송: <%#= user.messages.count %></p>
+                    <%# messages.each do |message|%>
+                    <li><p><%#= message.dest_phone%></p></li>
+                    <li><strong>@@ <%#= message.store.title unless message.store.nil? %> @@</strong></li>
                     <li><p>- - - - - - - - - - - -</p></li>
-                    <li><p><%= message.msg_body%></p></li>
+                    <li><p><%#= message.msg_body%></p></li>
                     <li><p>*************************</p></li>
-                    <% end %>
-                      <% if user.messages.count > 3 %>
-                      <li><p>***외 <%= (user.messages.count - 3) %>건</p></li>
-                      <% end %>
-                    <% end %>
+                    <%# end %>
+                      <%# if user.messages.count > 3 %>
+                      <li><p>***외 <%#= (user.messages.count - 3) %>건</p></li>
+                      <%# end %>
+                    <%# end %>
                   </ul>
-                </td>
+                </td> -->
               </tr>
               <% i = i + 1 %>
             <% end %>
