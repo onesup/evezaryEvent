@@ -1,0 +1,56 @@
+<div class="row-fluid">
+  <!-- block -->
+  <div class="block">
+    <div class="navbar navbar-inner block-header">
+      <div class="muted pull-left">참여자 목록</div>
+    </div>
+    <div class="block-content collapse in">
+      <div class="span12">
+        <%= paginate @users %>
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th class="name">참여자</th>
+              <th>전화번호</th>
+              <th>바이럴 참여 현황</th>
+              <th>바이럴 점수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+<%
+  search = Google::Search::Web.new do |search|
+    search.query = query
+    search.size = :large
+    search.each_response { print '.'; $stdout.flush }
+  end
+
+%>
+              <tr class="">
+                <td>
+                  <%= user.id %>
+                </td>
+                <td>
+                  <%= user.name %>
+                </td>
+                <td>
+                  <%= user.phone unless user.phone.nil? %>
+                </td>
+                <td>
+                  <% url = "https://www.google.com/search?q=event3.evezary.co.kr/#{user.blog_code}&safe=off&filter=0" %>
+                  <a href="<%= url %>" target="_blank"><%= user.blog_code%></a>
+                </td>
+                <td>
+                  <%= user.viral_score %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @users %>
+      </div>
+    </div>
+  </div>
+  <!-- /block -->
+</div>

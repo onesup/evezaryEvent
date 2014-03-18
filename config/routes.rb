@@ -47,7 +47,11 @@ Rails.application.routes.draw do
   # end
   namespace :admin do
     get '/' => 'dashboard#index', ad: 'admin'
-    resources :users
+    resources :users do
+      collection do
+        get 'viral'
+      end
+    end
     resources :gifts
     resources :messages
     resources :access_logs

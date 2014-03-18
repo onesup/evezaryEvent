@@ -87,7 +87,8 @@ $(document).ready(function () {
     // $("#ip-code").val(ip);
     // '데이트 신청하기' 버튼 클릭시
     $('#applyButton').click(function (e) {
-      alert("이벤트가 종료되었습니다.");
+      e.preventDefault();
+      $("#social_popUp_6").modal();
     });
   });
 });

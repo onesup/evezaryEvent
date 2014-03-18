@@ -28,6 +28,7 @@ gem 'font-awesome-rails'
 gem 'addressable'
 gem 'kaminari'
 gem 'geocoder'
+gem 'google-search'
 group :development do
   gem 'guard-rails',        group: :development
   gem 'pry',                group: :development

@@ -87,6 +87,8 @@ GEM
     formatador (0.2.4)
     gabba (1.0.1)
     geocoder (1.1.9)
+    google-search (1.0.3)
+      json
     guard (2.3.0)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -261,6 +263,7 @@ DEPENDENCIES
   font-awesome-rails
   gabba
   geocoder
+  google-search
   guard-rails
   guard-rspec
   jbuilder (~> 1.2)

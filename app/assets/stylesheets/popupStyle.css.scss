@@ -276,15 +276,52 @@
   top: 70px;
   left: -30px;
 }
-
+.personal_agree_text{
+  background:#fff;
+  width: 530px;
+  height: 310px;
+  margin: 8px;
+  margin-left: 30px;
+  border: 2px solid #cecece;
+}
 .personal_info_text{
-  overflow-y: auto;
-  width: 550px;
-  height: 350px;
-  margin-left: 42px;
-  margin-bottom: 32px;
-  border-weight: 0.25em;
-  text-align: left;
+//  border: 1px solid #aaa;
+  margin-top: 13px;
+  margin-left: 48px;
+  padding-left: 116px;
+  background: #fff;
+  width: 360px;
+  height: 280px;
+  overflow: scroll;
+//  padding: 8px;
+//  padding-left: 90px;
+//  margin-top: 10px;
+//  margin-left: 97px;
+//  margin-bottom: 20px;
+  td
+  	{
+  	padding:5px 8px;
+  	color:#000;
+  	font-style:normal;
+  	text-decoration:none;
+  	text-align:left;
+  	border:none;
+  	white-space:nowrap;
+  	font-size:12px;
+  	}
+  .title{
+  	padding:30px 0 5px 0;
+  	font-size:12px;
+  	font-weight:bold;
+  	text-align:center;
+  	width:240px;
+  	border-top:1px solid #ccc;
+    letter-spacing: -1px;
+  }
+  .title.first{
+  	border:none;
+  }
+
 }
 
 .popUp_3_DotLine{
@@ -454,13 +491,14 @@
 /* popup div */
 .inPopup{
   padding-top: 88px;
+  overflow: scroll;
 }
 
 /* social popup 6 */
 #social_popUp_6{
   display: none;
   width: 594px;
-  height: 333px;
+  height: 485px;
   background-image: asset-url("popup/6/social_applyPopup6_BG.png");
   padding: 0px;
   left: 50%;
@@ -615,9 +653,10 @@
     top: 70px;
     left: -30px;
   }
-
+  .personal_agree_text{
+    background: #fff;
+  }
   .personal_info_text{
-    overflow-y: auto;
     width: 550px;
     height: 350px;
     margin-left: 42px;
