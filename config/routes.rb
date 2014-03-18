@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "mobile_index"          => "mobile#index"
   # get "mobile_apply_1"        => "mobile#apply_1"
   # get "mobile_apply_2"        => "mobile#apply_2"
-  # get "mobile_apply_3"        => "mobile#apply_3"
+  get "mobile_apply_3"        => "mobile#apply_3"
   # get "mobile_search_stores"  => "mobile#search_stores"
   # get "mobile_person"         => "mobile#person"
   # get "mobile_kakaotalk"      => "mobile#kakaotalk"
